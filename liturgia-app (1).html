@@ -1472,6 +1472,45 @@ input[type="range"]::-webkit-slider-thumb {
   margin-bottom: 16px;
 }
 
+/* Theme selector in onboarding */
+.onb-theme-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.onb-theme-btn {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; border-radius: var(--radius-md);
+  border: 1.5px solid var(--border); background: var(--bg-card);
+  cursor: pointer; transition: all 0.25s; width: 100%;
+  font-family: var(--font-body); text-align: left;
+}
+.onb-theme-btn:active { transform: scale(0.98); }
+.onb-theme-btn.selected { border-color: var(--accent); background: var(--accent-soft); }
+.onb-theme-dot { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; }
+.onb-theme-info { flex: 1; }
+.onb-theme-info strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
+.onb-theme-info span { font-size: 0.72rem; color: var(--text-tertiary); }
+.onb-theme-check { color: var(--accent); font-size: 20px; opacity: 0; transition: opacity 0.2s; }
+.onb-theme-btn.selected .onb-theme-check { opacity: 1; }
+
+.onb-dark-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px; border-radius: var(--radius-md);
+  background: var(--bg-card); border: 1px solid var(--border);
+  margin-bottom: 24px; cursor: pointer;
+}
+.onb-dark-left { display: flex; align-items: center; gap: 12px; }
+.onb-dark-left .material-symbols-rounded { font-size: 22px; color: var(--accent); }
+.onb-dark-left span:last-child { font-size: 0.88rem; color: var(--text-primary); }
+.onb-toggle-track {
+  width: 48px; height: 28px; border-radius: 14px;
+  background: var(--bg-elevated); position: relative; transition: background 0.3s;
+}
+.onb-toggle-track.on { background: var(--accent); }
+.onb-toggle-thumb {
+  width: 22px; height: 22px; border-radius: 50%; background: #FFF;
+  position: absolute; top: 3px; left: 3px;
+  transition: transform 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.onb-toggle-track.on .onb-toggle-thumb { transform: translateX(20px); }
+
 /* =================== CALENDÁRIO LITÚRGICO =================== */
 .cal-export-card {
   background: var(--bg-card);
@@ -4980,9 +5019,53 @@ body.modo-missa.brilho-reduzido {
       </div>
     </div>
 
-    <!-- Step 2: Name & Age -->
+    <!-- Step 2: Theme -->
     <div class="onb-step" id="onb-step-2">
-      <div class="onb-progress"><div class="onb-progress-fill" style="width:20%"></div></div>
+      <div class="onb-progress"><div class="onb-progress-fill" style="width:14%"></div></div>
+      <div class="onb-question">Qual é o seu estilo?</div>
+      <p class="onb-hint">Escolha o tema visual do app. Você pode mudar depois.</p>
+      <div class="onb-theme-list" id="onb-themes">
+        <button class="onb-theme-btn selected" data-visual-key="" onclick="selectOnbTheme(this, '')">
+          <div class="onb-theme-dot" style="background:#78350F"></div>
+          <div class="onb-theme-info"><strong>Clássico</strong><span>Tons quentes, tipografia serifada</span></div>
+          <span class="material-symbols-rounded onb-theme-check">check_circle</span>
+        </button>
+        <button class="onb-theme-btn" data-visual-key="serenidade" onclick="selectOnbTheme(this, 'serenidade')">
+          <div class="onb-theme-dot" style="background:#3B6FA0"></div>
+          <div class="onb-theme-info"><strong>Serenidade</strong><span>Azul calmo e contemplativo</span></div>
+          <span class="material-symbols-rounded onb-theme-check">check_circle</span>
+        </button>
+        <button class="onb-theme-btn" data-visual-key="jovem" onclick="selectOnbTheme(this, 'jovem')">
+          <div class="onb-theme-dot" style="background:#7C3AED"></div>
+          <div class="onb-theme-info"><strong>Jovem</strong><span>Moderno e vibrante</span></div>
+          <span class="material-symbols-rounded onb-theme-check">check_circle</span>
+        </button>
+        <button class="onb-theme-btn" data-visual-key="minimalista" onclick="selectOnbTheme(this, 'minimalista')">
+          <div class="onb-theme-dot" style="background:#111111"></div>
+          <div class="onb-theme-info"><strong>Minimalista</strong><span>Limpo e essencial</span></div>
+          <span class="material-symbols-rounded onb-theme-check">check_circle</span>
+        </button>
+        <button class="onb-theme-btn" data-visual-key="natureza" onclick="selectOnbTheme(this, 'natureza')">
+          <div class="onb-theme-dot" style="background:#5B7A3D"></div>
+          <div class="onb-theme-info"><strong>Natureza</strong><span>Verde e terra, orgânico</span></div>
+          <span class="material-symbols-rounded onb-theme-check">check_circle</span>
+        </button>
+      </div>
+      <div class="onb-dark-toggle" onclick="toggleOnbDark()">
+        <div class="onb-dark-left">
+          <span class="material-symbols-rounded" id="onb-dark-icon">light_mode</span>
+          <span>Modo escuro</span>
+        </div>
+        <div class="onb-toggle-track" id="onb-dark-track">
+          <div class="onb-toggle-thumb"></div>
+        </div>
+      </div>
+      <button class="onb-next-btn" onclick="nextOnbStep(3)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
+    </div>
+
+    <!-- Step 3: Name & Age -->
+    <div class="onb-step" id="onb-step-3">
+      <div class="onb-progress"><div class="onb-progress-fill" style="width:28%"></div></div>
       <div class="onb-question">Como posso te chamar?</div>
       <input type="text" class="onb-input" id="onb-name" placeholder="Seu nome">
       <div class="onb-question" style="margin-top:24px">Qual sua faixa etária?</div>
@@ -4993,12 +5076,12 @@ body.modo-missa.brilho-reduzido {
         <button class="onb-opt" onclick="selectOnbOpt(this,'onb-age')">51–70</button>
         <button class="onb-opt" onclick="selectOnbOpt(this,'onb-age')">70+</button>
       </div>
-      <button class="onb-next-btn" onclick="nextOnbStep(3)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
+      <button class="onb-next-btn" onclick="nextOnbStep(4)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
     </div>
 
-    <!-- Step 3: Mass frequency -->
-    <div class="onb-step" id="onb-step-3">
-      <div class="onb-progress"><div class="onb-progress-fill" style="width:40%"></div></div>
+    <!-- Step 4: Mass frequency -->
+    <div class="onb-step" id="onb-step-4">
+      <div class="onb-progress"><div class="onb-progress-fill" style="width:43%"></div></div>
       <div class="onb-question">Com que frequência vai à Missa?</div>
       <div class="onb-options single-col" id="onb-missa">
         <button class="onb-opt-full" onclick="selectOnbOpt(this,'onb-missa')">
@@ -5018,12 +5101,12 @@ body.modo-missa.brilho-reduzido {
           <div><strong>Raramente ou nunca</strong><span>Quero voltar a frequentar</span></div>
         </button>
       </div>
-      <button class="onb-next-btn" onclick="nextOnbStep(4)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
+      <button class="onb-next-btn" onclick="nextOnbStep(5)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
     </div>
 
-    <!-- Step 4: Spiritual practices -->
-    <div class="onb-step" id="onb-step-4">
-      <div class="onb-progress"><div class="onb-progress-fill" style="width:60%"></div></div>
+    <!-- Step 5: Spiritual practices -->
+    <div class="onb-step" id="onb-step-5">
+      <div class="onb-progress"><div class="onb-progress-fill" style="width:57%"></div></div>
       <div class="onb-question">O que já faz parte da sua vida de oração?</div>
       <p class="onb-hint">Marque tudo que se aplica</p>
       <div class="onb-options single-col" id="onb-praticas">
@@ -5052,12 +5135,12 @@ body.modo-missa.brilho-reduzido {
           <div><strong>Estou começando agora</strong><span>Quero aprender a rezar</span></div>
         </button>
       </div>
-      <button class="onb-next-btn" onclick="nextOnbStep(5)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
+      <button class="onb-next-btn" onclick="nextOnbStep(6)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
     </div>
 
-    <!-- Step 5: Notification time -->
-    <div class="onb-step" id="onb-step-5">
-      <div class="onb-progress"><div class="onb-progress-fill" style="width:80%"></div></div>
+    <!-- Step 6: Notification time -->
+    <div class="onb-step" id="onb-step-6">
+      <div class="onb-progress"><div class="onb-progress-fill" style="width:71%"></div></div>
       <div class="onb-question">Quando quer ser lembrado de ler o Evangelho?</div>
       <div class="onb-options" id="onb-horario">
         <button class="onb-opt" onclick="selectOnbOpt(this,'onb-horario')"><span class="material-symbols-rounded" style="font-size:16px">wb_twilight</span> 6h</button>
@@ -5066,11 +5149,11 @@ body.modo-missa.brilho-reduzido {
         <button class="onb-opt" onclick="selectOnbOpt(this,'onb-horario')"><span class="material-symbols-rounded" style="font-size:16px">nightlight</span> 21h</button>
         <button class="onb-opt" onclick="selectOnbOpt(this,'onb-horario')"><span class="material-symbols-rounded" style="font-size:16px">notifications_off</span> Não</button>
       </div>
-      <button class="onb-next-btn" onclick="nextOnbStep(6)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
+      <button class="onb-next-btn" onclick="nextOnbStep(7)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
     </div>
 
-    <!-- Step 6: Done -->
-    <div class="onb-step" id="onb-step-6">
+    <!-- Step 7: Done -->
+    <div class="onb-step" id="onb-step-7">
       <div class="onb-progress"><div class="onb-progress-fill" style="width:100%"></div></div>
       <div class="onb-hero" style="padding-top:40px">
         <div class="onb-done-icon"><span class="material-symbols-rounded">check_circle</span></div>

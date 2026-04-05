@@ -1,0 +1,922 @@
+{
+  "meta": {
+    "versao": "1.0",
+    "cidade": "Fortaleza",
+    "estado": "CE",
+    "totalIgrejas": 30,
+    "atualizadoEm": "2026-04-05",
+    "aviso": "Horários coletados de sites oficiais, horariodemissa.com.br e Arquidiocese de Fortaleza. Sempre confirme por telefone antes de ir."
+  },
+  "igrejas": [
+    {
+      "id": "santa-teresinha-vicente-pinzon",
+      "nome": "Paróquia Santa Teresinha do Menino Jesus",
+      "nomePopular": "Santa Teresinha",
+      "bairro": "Vicente Pinzón",
+      "regiao": "meireles-aldeota",
+      "endereco": "Rua do Entardecer, 130 — Vicente Pinzón",
+      "cep": "60181-000",
+      "lat": -3.7275,
+      "lng": -38.4890,
+      "telefone": "(85) 98681-8676",
+      "whatsapp": "(85) 98681-8676",
+      "redesSociais": {
+        "facebook": "ParoquiaSantaTeresinhaVPCe"
+      },
+      "missas": {
+        "domingo": ["07:00", "09:00", "11:00", "18:00", "20:00"],
+        "segunda": ["07:00", "19:00"],
+        "terca": ["07:00", "19:00"],
+        "quarta": ["07:00", "19:00"],
+        "quinta": ["07:00", "19:00"],
+        "sexta": ["07:00", "19:00"],
+        "sabado": ["07:00", "19:00"]
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "fonte": "facebook",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "cristo-rei-aldeota",
+      "nome": "Paróquia Cristo Rei",
+      "nomePopular": "Cristo Rei",
+      "bairro": "Aldeota",
+      "regiao": "meireles-aldeota",
+      "endereco": "Rua Nogueira Acioli, 805 — Aldeota",
+      "cep": "60110-140",
+      "lat": -3.7327,
+      "lng": -38.5127,
+      "telefone": "(85) 3231-6600",
+      "whatsapp": "(85) 99608-1204",
+      "site": "https://paroquiacristoreice.com.br/",
+      "redesSociais": {
+        "instagram": "@cristorei.paroquia",
+        "youtube": "TV Cristo Rei Canal 90"
+      },
+      "missas": {
+        "domingo": ["06:30", "09:00", "11:00", "17:00", "19:00"],
+        "segunda": ["17:00"],
+        "terca": ["17:00"],
+        "quarta": ["17:00"],
+        "quinta": ["17:00"],
+        "sexta": ["17:00"],
+        "sabado": ["06:30", "17:00"]
+      },
+      "confissoes": {
+        "dias": ["segunda", "terca", "quarta", "quinta", "sexta", "sabado"],
+        "horario": "15:30 às 16:30"
+      },
+      "adoracao": null,
+      "secretaria": "Segunda a Sexta, 10h às 13h e 14h às 17h",
+      "fonte": "site oficial",
+      "confiabilidade": "alta",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "nossa-senhora-da-paz-aldeota",
+      "nome": "Paróquia Nossa Senhora da Paz",
+      "nomePopular": "Igreja da Paz",
+      "bairro": "Aldeota",
+      "regiao": "meireles-aldeota",
+      "endereco": "Rua Visconde de Mauá, 905 — Aldeota",
+      "cep": "60125-160",
+      "lat": -3.7350,
+      "lng": -38.5080,
+      "telefone": "(85) 3224-2398",
+      "site": "http://www.paroquiadapaz.org.br",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["08:00", "11:00", "17:00", "18:30", "20:00"],
+        "segunda": ["17:00", "18:00"],
+        "terca": ["17:00", "18:00"],
+        "quarta": ["17:00", "18:00"],
+        "quinta": ["17:00", "18:00"],
+        "sexta": ["17:00", "18:00"],
+        "sabado": ["17:00", "18:30"]
+      },
+      "confissoes": {
+        "dias": ["segunda", "terca", "quarta", "quinta", "sexta"],
+        "horario": "A partir das 16h"
+      },
+      "adoracao": null,
+      "fonte": "horariodemissa.com.br",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "sao-vicente-de-paulo-dionisio-torres",
+      "nome": "Paróquia São Vicente de Paulo",
+      "nomePopular": "São Vicente",
+      "bairro": "Dionísio Torres",
+      "regiao": "meireles-aldeota",
+      "endereco": "Av. Desembargador Moreira, 2211 — Aldeota/Dionísio Torres",
+      "cep": "60170-002",
+      "lat": -3.7400,
+      "lng": -38.5100,
+      "telefone": "(85) 3224-6489",
+      "whatsapp": "(85) 3224-6489",
+      "site": "https://www.psvpfortaleza.org/",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["06:30", "09:00", "11:30", "17:00", "19:00"],
+        "segunda": ["06:30", "17:30"],
+        "terca": ["06:30", "17:30"],
+        "quarta": ["06:30", "17:30"],
+        "quinta": ["06:30", "17:30"],
+        "sexta": ["06:30", "17:30"],
+        "sabado": ["06:30", "12:00", "17:00"]
+      },
+      "confissoes": {
+        "dias": ["terca", "quarta", "quinta", "sexta"],
+        "horario": "16h às 18h (20 fichas, vários padres)",
+        "detalhes": [
+          "Ter-Sex: Pe. Neto, 16h-18h",
+          "Qui: Pe. Euzébio (Canção Nova), 9h-11h",
+          "Qui: Pe. Bruno, 10h-12h",
+          "Sex: Pe. Milton, 10h-12h e 15h-17h",
+          "Sex: Dom Gabriel (Mosteiro São Bento), 15h-17h"
+        ]
+      },
+      "adoracao": null,
+      "secretaria": "Segunda a Sexta, 8h às 11h30 e 13h30 às 17h30",
+      "fonte": "site oficial",
+      "confiabilidade": "alta",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "santa-luzia-meireles",
+      "nome": "Paróquia Santa Luzia",
+      "nomePopular": "Santa Luzia",
+      "bairro": "Meireles",
+      "regiao": "meireles-aldeota",
+      "endereco": "Rua João Cordeiro, 679 — Meireles/Praia de Iracema",
+      "cep": "60110-300",
+      "lat": -3.7240,
+      "lng": -38.5180,
+      "telefone": "(85) 3254-1444",
+      "site": "https://santaluzia.org.br/",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["08:00", "10:00", "17:00", "19:00"],
+        "segunda": ["17:00"],
+        "terca": ["17:00"],
+        "quarta": ["17:00"],
+        "quinta": ["17:00"],
+        "sexta": ["17:00"],
+        "sabado": ["17:00", "19:00"]
+      },
+      "confissoes": {
+        "dias": ["domingo", "terca", "quarta", "quinta", "sexta", "sabado"],
+        "horario": "16h (Ter-Sáb) / Dom: 9h, 16h, 18h"
+      },
+      "adoracao": null,
+      "secretaria": "Ter-Sex 9h-12h e 14h-19h; Sáb 8h-12h",
+      "fonte": "site oficial",
+      "confiabilidade": "alta",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "nossa-senhora-do-libano-meireles",
+      "nome": "Igreja Nossa Senhora do Líbano",
+      "nomePopular": "Igreja do Líbano",
+      "bairro": "Meireles",
+      "regiao": "meireles-aldeota",
+      "endereco": "Rua Tibúrcio Cavalcante, 509 — Meireles",
+      "cep": "60125-100",
+      "lat": -3.7290,
+      "lng": -38.5050,
+      "telefone": "(85) 3224-7799",
+      "redesSociais": {
+        "facebook": "igrejadolibano",
+        "instagram": "@igrejadolibano"
+      },
+      "missas": {
+        "domingo": ["09:30", "18:00"],
+        "segunda": [],
+        "terca": [],
+        "quarta": [],
+        "quinta": [],
+        "sexta": [],
+        "sabado": []
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "fonte": "horariodemissa.com.br",
+      "confiabilidade": "baixa",
+      "atualizadoEm": "2026-04-05",
+      "observacao": "Dados online desatualizados (2013). Ligar antes."
+    },
+    {
+      "id": "shalom-da-paz-aldeota",
+      "nome": "Comunidade Católica Shalom — Shalom da Paz",
+      "nomePopular": "Shalom da Paz",
+      "bairro": "Aldeota",
+      "regiao": "meireles-aldeota",
+      "endereco": "Rua Maria Tomásia, 72 — Aldeota",
+      "cep": "60150-170",
+      "lat": -3.7370,
+      "lng": -38.5060,
+      "telefone": "(85) 3252-8813",
+      "site": "https://comshalom.org/fortaleza/",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["18:00"],
+        "segunda": ["07:10", "18:00"],
+        "terca": ["07:10"],
+        "quarta": ["07:10"],
+        "quinta": ["07:10"],
+        "sexta": ["07:10", "18:00"],
+        "sabado": ["19:00"]
+      },
+      "confissoes": {
+        "dias": ["segunda", "sexta"],
+        "horario": "A partir das 16h"
+      },
+      "adoracao": null,
+      "fonte": "horariodemissa.com.br",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "capela-irmas-missionarias-aldeota",
+      "nome": "Capela das Irmãs Missionárias",
+      "nomePopular": "Irmãs Missionárias",
+      "bairro": "Aldeota",
+      "regiao": "meireles-aldeota",
+      "endereco": "Av. Rui Barbosa, 1246 — Aldeota",
+      "cep": "60115-221",
+      "lat": -3.7310,
+      "lng": -38.5130,
+      "telefone": "(85) 3224-0188",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["18:00"],
+        "segunda": ["06:30"],
+        "terca": ["06:30"],
+        "quarta": ["06:30"],
+        "quinta": ["06:30"],
+        "sexta": ["06:30"],
+        "sabado": ["18:00"]
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "fonte": "site terceiro",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "capela-christus-filius-dei-aldeota",
+      "nome": "Capela Christus Filius Dei",
+      "nomePopular": "Christus",
+      "bairro": "Aldeota",
+      "regiao": "meireles-aldeota",
+      "endereco": "Rua Silva Paulet, 1654 — Aldeota",
+      "cep": "60120-020",
+      "lat": -3.7345,
+      "lng": -38.5095,
+      "telefone": "(85) 3261-5455",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["18:45"],
+        "segunda": [],
+        "terca": [],
+        "quarta": [],
+        "quinta": [],
+        "sexta": [],
+        "sabado": []
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "fonte": "site terceiro",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05",
+      "observacao": "Sem missas em julho"
+    },
+    {
+      "id": "cancao-nova-fortaleza",
+      "nome": "Canção Nova Fortaleza",
+      "nomePopular": "Canção Nova",
+      "bairro": "Aldeota",
+      "regiao": "meireles-aldeota",
+      "endereco": "Rua Gen. Tertuliano Potiguara, 452",
+      "cep": "60135-280",
+      "lat": -3.7380,
+      "lng": -38.5110,
+      "telefone": null,
+      "redesSociais": {},
+      "missas": {
+        "domingo": [],
+        "segunda": [],
+        "terca": [],
+        "quarta": [],
+        "quinta": [],
+        "sexta": [],
+        "sabado": []
+      },
+      "confissoes": {
+        "dias": ["segunda", "quarta", "sexta"],
+        "horario": "Seg/Qua 14h-17h; Sex 10h-12h e 14h-17h (30 pessoas/período)"
+      },
+      "adoracao": null,
+      "fonte": "blog",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05",
+      "observacao": "Referência para confissões. Verificar missas diretamente."
+    },
+    {
+      "id": "santuario-nossa-senhora-de-fatima",
+      "nome": "Paróquia e Santuário Nossa Senhora de Fátima",
+      "nomePopular": "Igreja de Fátima",
+      "bairro": "Fátima",
+      "regiao": "fatima",
+      "endereco": "Av. Treze de Maio, 200 — Fátima",
+      "cep": "60040-530",
+      "lat": -3.7410,
+      "lng": -38.5270,
+      "telefone": "(85) 3227-5215",
+      "site": "https://igrejadefatima.com.br/",
+      "redesSociais": {
+        "instagram": "@igrejadefatimaoficial",
+        "youtube": "Igreja de Fátima"
+      },
+      "missas": {
+        "domingo": ["07:00", "09:00", "12:00", "17:00", "19:00"],
+        "segunda": ["06:30", "12:00", "17:00"],
+        "terca": ["06:30", "12:00", "17:00"],
+        "quarta": ["06:30", "12:00", "17:00"],
+        "quinta": ["06:30", "12:00", "17:00"],
+        "sexta": ["06:30", "12:00", "17:00"],
+        "sabado": ["06:30", "12:00", "16:00", "17:30", "19:00"]
+      },
+      "confissoes": {
+        "dias": ["terca", "quarta", "quinta", "sexta", "sabado", "domingo"],
+        "horario": "15h30 às 18h"
+      },
+      "adoracao": null,
+      "missaDia13": ["05:00", "06:00", "07:30", "09:00", "10:30", "12:00", "14:00", "15:30", "17:00", "18:30", "20:00"],
+      "transmissoes": ["YouTube (Igreja de Fátima)", "TVC (7h30)", "Instagram (12h e 18h30)"],
+      "secretaria": "Segunda a Sexta, 8h às 17h",
+      "fonte": "site oficial",
+      "confiabilidade": "alta",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "catedral-metropolitana-centro",
+      "nome": "Catedral Metropolitana de São José",
+      "nomePopular": "Catedral",
+      "bairro": "Centro",
+      "regiao": "centro",
+      "endereco": "Rua Sobral, s/n — Centro",
+      "cep": "60030-030",
+      "lat": -3.7260,
+      "lng": -38.5270,
+      "telefone": "(85) 3231-4196",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["10:30", "12:00", "18:30", "20:00"],
+        "segunda": ["12:00"],
+        "terca": ["12:00"],
+        "quarta": ["12:00"],
+        "quinta": ["12:00"],
+        "sexta": ["12:00"],
+        "sabado": ["12:00"]
+      },
+      "confissoes": {
+        "dias": ["terca", "quarta", "quinta", "sexta"],
+        "horario": "9h às 11h"
+      },
+      "adoracao": null,
+      "fonte": "horariodemissa.com.br + arquidiocese",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "igreja-do-carmo-centro",
+      "nome": "Paróquia Nossa Senhora do Carmo",
+      "nomePopular": "Igreja do Carmo",
+      "bairro": "Centro",
+      "regiao": "centro",
+      "endereco": "Praça do Carmo, s/n — Centro",
+      "cep": "60025-180",
+      "lat": -3.7235,
+      "lng": -38.5255,
+      "telefone": "(85) 3253-1489",
+      "site": "https://paroquiadocarmofortaleza.org/",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["09:00", "11:00", "17:00", "19:00"],
+        "segunda": ["12:00"],
+        "terca": ["12:00"],
+        "quarta": ["12:00"],
+        "quinta": ["12:00"],
+        "sexta": ["12:00"],
+        "sabado": ["12:00"]
+      },
+      "confissoes": {
+        "dias": ["terca", "quarta", "quinta", "sexta"],
+        "horario": "8h30-10h30 e 14h30-17h"
+      },
+      "adoracao": null,
+      "secretaria": "Seg-Qui 8h-12h e 13h-17h",
+      "fonte": "site oficial",
+      "confiabilidade": "alta",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "sagrado-coracao-centro",
+      "nome": "Santuário Sagrado Coração de Jesus",
+      "nomePopular": "Sagrado Coração",
+      "bairro": "Centro",
+      "regiao": "centro",
+      "endereco": "Av. Duque de Caxias, 235A — Centro",
+      "cep": "60035-110",
+      "lat": -3.7280,
+      "lng": -38.5300,
+      "telefone": "(85) 3226-2854",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["07:00", "08:30", "16:00", "18:00"],
+        "segunda": ["07:00", "18:00"],
+        "terca": ["07:00", "16:00", "18:00"],
+        "quarta": ["07:00", "16:00", "18:00"],
+        "quinta": ["07:00", "16:00", "18:00"],
+        "sexta": ["07:00", "16:00", "18:00"],
+        "sabado": ["07:00", "16:00", "18:00"]
+      },
+      "confissoes": {
+        "dias": ["terca", "quarta", "quinta", "sexta"],
+        "horario": "A partir das 14h"
+      },
+      "adoracao": null,
+      "fonte": "horariodemissa.com.br",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "sao-benedito-centro",
+      "nome": "Paróquia e Santuário São Benedito",
+      "nomePopular": "São Benedito",
+      "bairro": "Centro",
+      "regiao": "centro",
+      "endereco": "Av. do Imperador, 1165 — Centro",
+      "cep": "60015-052",
+      "lat": -3.7300,
+      "lng": -38.5240,
+      "telefone": "(85) 3231-7892",
+      "site": "http://www.igrejasaobenedito.com.br",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["07:00", "18:00"],
+        "segunda": ["18:20"],
+        "terca": ["18:20"],
+        "quarta": ["18:20"],
+        "quinta": ["18:20"],
+        "sexta": ["18:20"],
+        "sabado": ["18:20"]
+      },
+      "confissoes": {
+        "dias": ["terca", "quarta", "quinta", "sexta"],
+        "horario": "Ter 8h30-11h30; Qua 8h30-12h; Qui-Sex 8h30-12h e 14h-18h"
+      },
+      "adoracao": {
+        "dias": ["segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo"],
+        "horario": "6h às 18h (aberto até 20h)"
+      },
+      "fonte": "horariodemissa.com.br",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "seminario-prainha-centro",
+      "nome": "Igreja N. Sra. da Conceição da Prainha (Seminário)",
+      "nomePopular": "Seminário da Prainha",
+      "bairro": "Centro",
+      "regiao": "centro",
+      "endereco": "Av. Dom Manuel / Mons. Tabosa — Centro",
+      "cep": "60060-090",
+      "lat": -3.7220,
+      "lng": -38.5220,
+      "telefone": null,
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["07:00", "10:00", "17:30"],
+        "segunda": ["17:30"],
+        "terca": ["17:30"],
+        "quarta": ["17:30"],
+        "quinta": ["17:30"],
+        "sexta": ["17:30"],
+        "sabado": ["17:30"]
+      },
+      "confissoes": {
+        "dias": ["terca", "quarta", "quinta", "sexta"],
+        "horario": "10h30 às 11h50"
+      },
+      "adoracao": null,
+      "fonte": "arquidiocese",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05",
+      "observacao": "Missa de domingo às 10h é Tridentina (rito extraordinário)"
+    },
+    {
+      "id": "sao-pedro-praia-iracema",
+      "nome": "Igreja São Pedro",
+      "nomePopular": "São Pedro",
+      "bairro": "Praia de Iracema",
+      "regiao": "centro",
+      "endereco": "Praia de Iracema",
+      "cep": "60060-000",
+      "lat": -3.7210,
+      "lng": -38.5190,
+      "telefone": null,
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["08:00", "17:00"],
+        "segunda": [],
+        "terca": ["17:00"],
+        "quarta": ["17:00"],
+        "quinta": ["17:00"],
+        "sexta": ["17:00"],
+        "sabado": ["17:00"]
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "fonte": "arquidiocese",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "nossa-senhora-remedios-benfica",
+      "nome": "Paróquia Nossa Senhora dos Remédios",
+      "nomePopular": "Remédios",
+      "bairro": "Benfica",
+      "regiao": "benfica",
+      "endereco": "Av. da Universidade, 2974 — Benfica",
+      "cep": "60020-181",
+      "lat": -3.7420,
+      "lng": -38.5380,
+      "telefone": "(85) 3223-5644",
+      "site": "http://www.inossasenhoradosremedios.com.br",
+      "redesSociais": {
+        "instagram": "@nsremediosfort"
+      },
+      "missas": {
+        "domingo": ["07:00", "09:00", "17:00", "19:00"],
+        "segunda": ["06:30"],
+        "terca": ["17:30"],
+        "quarta": ["06:30"],
+        "quinta": ["17:30"],
+        "sexta": ["17:30"],
+        "sabado": ["17:00"]
+      },
+      "confissoes": {
+        "dias": ["sabado"],
+        "horario": "15h às 16h45 (1ª Sexta: 15h às 17h)"
+      },
+      "adoracao": null,
+      "fonte": "horariodemissa.com.br + arquidiocese",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "sao-francisco-jacarecanga",
+      "nome": "Paróquia São Francisco de Assis / N. Sra. dos Navegantes",
+      "nomePopular": "Navegantes",
+      "bairro": "Jacarecanga",
+      "regiao": "centro",
+      "endereco": "Av. Filomeno Gomes, 315 — Jacarecanga",
+      "cep": "60010-280",
+      "lat": -3.7200,
+      "lng": -38.5360,
+      "telefone": "(85) 3238-0978",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["09:30", "11:00", "17:30", "19:00"],
+        "segunda": [],
+        "terca": [],
+        "quarta": [],
+        "quinta": ["08:00", "16:00", "19:00"],
+        "sexta": [],
+        "sabado": []
+      },
+      "confissoes": {
+        "dias": ["domingo", "quinta"],
+        "horario": "30 min antes e após as missas"
+      },
+      "adoracao": null,
+      "fonte": "arquidiocese",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "sao-jose-papicu",
+      "nome": "Paróquia São José",
+      "nomePopular": "São José do Papicu",
+      "bairro": "Papicu",
+      "regiao": "leste",
+      "endereco": "Rua Amélia Benebien, 555 — Papicu",
+      "cep": "60176-010",
+      "lat": -3.7380,
+      "lng": -38.4980,
+      "telefone": "(85) 3249-2097",
+      "site": "http://www.paroquiasaojosepapicu.org.br/",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["06:30", "08:30", "17:00", "19:00"],
+        "segunda": ["06:30", "19:00"],
+        "terca": ["06:30", "19:00"],
+        "quarta": ["06:30", "19:00"],
+        "quinta": ["06:30", "19:00"],
+        "sexta": ["06:30", "19:00"],
+        "sabado": ["06:30", "19:00"]
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "secretaria": "Seg-Sex 7h30-11h30 e 13h30-17h30; Sáb 7h30-13h30",
+      "fonte": "arquidiocese",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "nossa-senhora-saude-mucuripe",
+      "nome": "Paróquia Nossa Senhora da Saúde",
+      "nomePopular": "Igreja da Saúde",
+      "bairro": "Mucuripe",
+      "regiao": "leste",
+      "endereco": "Av. da Abolição, 3929 — Mucuripe",
+      "cep": "60165-082",
+      "lat": -3.7250,
+      "lng": -38.4930,
+      "telefone": "(85) 3263-1538",
+      "site": "http://www.paroquiadasaude.com.br",
+      "redesSociais": {
+        "instagram": "@paroquiasaudemucuripe"
+      },
+      "missas": {
+        "domingo": ["07:00", "08:30", "17:00", "19:00"],
+        "segunda": ["17:30"],
+        "terca": ["17:30"],
+        "quarta": ["17:30"],
+        "quinta": ["17:30"],
+        "sexta": ["17:30"],
+        "sabado": ["17:00"]
+      },
+      "confissoes": {
+        "dias": ["terca", "quarta", "quinta", "sexta"],
+        "horario": "A partir das 15h30"
+      },
+      "adoracao": {
+        "dias": ["terca", "quarta", "quinta", "sexta"],
+        "horario": "8h às 11h e 15h às 17h"
+      },
+      "capelaSaoPedroBeiraMar": {
+        "missas": { "todosOsDias": ["18:30"] }
+      },
+      "fonte": "horariodemissa.com.br",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "sao-joao-batista-tauape",
+      "nome": "Paróquia São João Batista",
+      "nomePopular": "São João do Tauape",
+      "bairro": "São João do Tauape",
+      "regiao": "leste",
+      "endereco": "Rua Capitão Gustavo, 3940 — São João do Tauape",
+      "cep": "60120-140",
+      "lat": -3.7450,
+      "lng": -38.5020,
+      "telefone": "(85) 3257-6797",
+      "redesSociais": {
+        "instagram": "@paroquiasaojoaodotauape"
+      },
+      "missas": {
+        "domingo": ["07:00", "08:30", "17:30"],
+        "segunda": ["06:00", "17:00"],
+        "terca": ["06:00", "17:00"],
+        "quarta": ["06:00", "17:00"],
+        "quinta": ["06:00", "17:00"],
+        "sexta": ["06:00", "17:00"],
+        "sabado": ["06:00", "17:00"]
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "fonte": "arquidiocese",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "sao-pedro-sao-paulo-guanabara",
+      "nome": "Paróquia São Pedro e São Paulo",
+      "nomePopular": "São Pedro e São Paulo",
+      "bairro": "Jardim Guanabara",
+      "regiao": "leste",
+      "endereco": "Rua Padre Teodoro, 996 — Jardim Guanabara",
+      "cep": "60346-255",
+      "lat": -3.7500,
+      "lng": -38.4950,
+      "telefone": "(85) 2010-0791",
+      "whatsapp": "(85) 3479-2871",
+      "site": "https://www.tercodoshomensspsp.com.br/",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["07:30", "17:00", "19:00"],
+        "segunda": [],
+        "terca": ["19:00"],
+        "quarta": [],
+        "quinta": ["19:00"],
+        "sexta": ["19:00"],
+        "sabado": ["06:30", "17:30"]
+      },
+      "confissoes": {
+        "dias": ["terca"],
+        "horario": "15h"
+      },
+      "adoracao": {
+        "dias": ["quinta"],
+        "horario": "18h"
+      },
+      "fonte": "site oficial",
+      "confiabilidade": "alta",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "nossa-senhora-lourdes-dunas",
+      "nome": "Paróquia Nossa Senhora de Lourdes",
+      "nomePopular": "Lourdes / Dunas",
+      "bairro": "Dunas",
+      "regiao": "leste",
+      "endereco": "Av. Dolor Barreira, s/n — Lourdes",
+      "cep": "60177-070",
+      "lat": -3.7460,
+      "lng": -38.4870,
+      "telefone": "(85) 3262-2770",
+      "redesSociais": {
+        "instagram": "@paroquiadelourdes.dunas"
+      },
+      "missas": {
+        "domingo": ["11:00", "18:00", "20:00"],
+        "segunda": ["18:30"],
+        "terca": ["18:30"],
+        "quarta": ["18:30"],
+        "quinta": ["18:30"],
+        "sexta": ["18:30"],
+        "sabado": ["18:00"]
+      },
+      "confissoes": {
+        "dias": ["segunda", "terca", "quarta", "quinta", "sexta"],
+        "horario": "17h30"
+      },
+      "adoracao": null,
+      "fonte": "horariodemissa.com.br",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "sao-joao-eudes-menino-deus",
+      "nome": "Paróquia São João Eudes — Igreja Matriz Menino Deus",
+      "nomePopular": "Menino Deus",
+      "bairro": "Eng. Luciano Cavalcante",
+      "regiao": "sul",
+      "endereco": "Rua Jaime Leonel — Eng. Luciano Cavalcante",
+      "cep": "60810-480",
+      "lat": -3.7650,
+      "lng": -38.4850,
+      "telefone": "(85) 3278-1263",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["07:00", "19:00"],
+        "segunda": [],
+        "terca": ["18:30"],
+        "quarta": [],
+        "quinta": ["19:00"],
+        "sexta": ["19:00"],
+        "sabado": ["19:00"]
+      },
+      "confissoes": {
+        "dias": ["terca", "quinta"],
+        "horario": "Após as 16h30"
+      },
+      "adoracao": null,
+      "fonte": "horariodemissa.com.br",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "nossa-senhora-aparecida-praia-futuro",
+      "nome": "Paróquia Nossa Senhora Aparecida",
+      "nomePopular": "Aparecida",
+      "bairro": "Praia do Futuro",
+      "regiao": "leste",
+      "endereco": "Rua Prof. Álvaro Costa, 257 — Praia do Futuro",
+      "cep": "60182-292",
+      "lat": -3.7350,
+      "lng": -38.4720,
+      "telefone": "(85) 3263-3858",
+      "redesSociais": {},
+      "missas": {
+        "domingo": ["19:00"],
+        "segunda": [],
+        "terca": ["17:30"],
+        "quarta": ["17:30"],
+        "quinta": ["17:30"],
+        "sexta": ["17:30"],
+        "sabado": ["17:30"]
+      },
+      "confissoes": {
+        "dias": ["quinta"],
+        "horario": "9h às 11h e 15h às 17h"
+      },
+      "adoracao": null,
+      "fonte": "arquidiocese",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05",
+      "observacao": "Capela N. Sra. Fátima: Dom 7h30"
+    },
+    {
+      "id": "shalom-coco",
+      "nome": "Comunidade Católica Shalom — Cocó",
+      "nomePopular": "Shalom Cocó",
+      "bairro": "Cocó",
+      "regiao": "leste",
+      "endereco": "R. Andrade Furtado, 749 — Cocó",
+      "cep": "60822-120",
+      "lat": -3.7480,
+      "lng": -38.4900,
+      "telefone": null,
+      "redesSociais": {
+        "instagram": "@shalom_coco"
+      },
+      "missas": {
+        "domingo": ["06:30", "18:15"],
+        "segunda": ["06:30", "18:15"],
+        "terca": ["06:30", "18:15"],
+        "quarta": ["06:30", "18:15"],
+        "quinta": ["06:30", "18:15"],
+        "sexta": ["06:30", "18:15"],
+        "sabado": ["06:30", "18:15"]
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "fonte": "comshalom.org",
+      "confiabilidade": "media",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "capela-menino-deus-fatima",
+      "nome": "Capela do Menino Deus",
+      "nomePopular": "Menino Deus (Fátima)",
+      "bairro": "Fátima",
+      "regiao": "fatima",
+      "endereco": "Av. Treze de Maio, 1520 — Fátima",
+      "cep": "60040-531",
+      "lat": -3.7415,
+      "lng": -38.5260,
+      "telefone": null,
+      "redesSociais": {},
+      "missas": {
+        "domingo": [],
+        "segunda": [],
+        "terca": [],
+        "quarta": [],
+        "quinta": [],
+        "sexta": [],
+        "sabado": ["17:00"]
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "fonte": "site terceiro",
+      "confiabilidade": "baixa",
+      "atualizadoEm": "2026-04-05"
+    },
+    {
+      "id": "rosario-dos-pretos-centro",
+      "nome": "Igreja do Rosário dos Pretos",
+      "nomePopular": "Rosário",
+      "bairro": "Centro",
+      "regiao": "centro",
+      "endereco": "Praça Gen. Tibúrcio (Praça dos Leões) — Centro",
+      "cep": "60060-320",
+      "lat": -3.7250,
+      "lng": -38.5260,
+      "telefone": null,
+      "redesSociais": {},
+      "missas": {
+        "domingo": [],
+        "segunda": [],
+        "terca": [],
+        "quarta": [],
+        "quinta": [],
+        "sexta": [],
+        "sabado": []
+      },
+      "confissoes": null,
+      "adoracao": null,
+      "fonte": "nenhuma",
+      "confiabilidade": "baixa",
+      "atualizadoEm": "2026-04-05",
+      "observacao": "Possivelmente em restauração. Verificar com Arquidiocese."
+    }
+  ]
+}

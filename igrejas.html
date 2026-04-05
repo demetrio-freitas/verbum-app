@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Verbum — Igrejas Perto de Mim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F2F1EC;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --accent: #78350F;
+  --accent-light: #D97706;
+  --accent-soft: rgba(120,53,15,0.06);
+  --accent-glow: rgba(120,53,15,0.12);
+  --gold: #B45309;
+  --gold-light: rgba(180,83,9,0.08);
+  --border: rgba(28,25,23,0.06);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.06);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --gospel-gradient: linear-gradient(145deg, #A0622B 0%, #78350F 100%);
+  --green: #16A34A;
+  --green-soft: rgba(22,163,74,0.08);
+}
+
+[data-theme="dark"] {
+  --bg: #0C0A09;
+  --bg-card: #1C1917;
+  --bg-elevated: #292524;
+  --text-primary: #FAFAF9;
+  --text-secondary: #A8A29E;
+  --text-tertiary: #57534E;
+  --accent: #D97706;
+  --accent-light: #F59E0B;
+  --accent-soft: rgba(217,119,6,0.08);
+  --accent-glow: rgba(217,119,6,0.12);
+  --gold: #D97706;
+  --gold-light: rgba(217,119,6,0.06);
+  --border: rgba(250,250,249,0.06);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+  --gospel-gradient: linear-gradient(145deg, #B07030 0%, #78350F 100%);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* =================== HEADER =================== */
+.app-header {
+  position: sticky; top:0; z-index:100;
+  background: var(--bg);
+  padding: 14px 20px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+}
+
+.app-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.app-logo span { font-weight: 300; color: var(--text-tertiary); font-size: 0.65em; margin-left: 4px; letter-spacing: 0.04em; }
+
+.header-actions { display: flex; gap: 4px; }
+
+.icon-btn {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent;
+  color: var(--text-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Material Symbols Rounded';
+  font-size: 22px;
+}
+.icon-btn:hover { background: var(--accent-soft); color: var(--accent); }
+
+/* =================== SECTION TITLE =================== */
+.section-title {
+  padding: 16px 20px 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.section-title .count {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* =================== SEARCH =================== */
+.search-area { padding: 8px 20px 0; }
+.search-box {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+.search-box:focus-within { border-color: var(--accent-glow); }
+.search-box .material-symbols-rounded { font-size: 20px; color: var(--text-tertiary); }
+.search-box input {
+  flex: 1; border: none; background: none; outline: none;
+  font-family: var(--font-body); font-size: 0.85rem;
+  color: var(--text-primary);
+}
+.search-box input::placeholder { color: var(--text-tertiary); }
+
+/* =================== FILTERS =================== */
+.filters {
+  display: flex; gap: 8px;
+  padding: 12px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filters::-webkit-scrollbar { display: none; }
+
+.filter-chip {
+  white-space: nowrap;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex; align-items: center; gap: 4px;
+}
+.filter-chip:hover { border-color: var(--accent); color: var(--accent); }
+.filter-chip.active {
+  background: var(--accent);
+  color: #FFF;
+  border-color: var(--accent);
+}
+.filter-chip .material-symbols-rounded { font-size: 14px; }
+
+/* =================== DESTAQUE =================== */
+.highlight-card {
+  margin: 4px 20px 12px;
+  background: var(--gospel-gradient);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  color: #FFF;
+  position: relative;
+  overflow: hidden;
+}
+.highlight-card::after {
+  content: '';
+  position: absolute; top: -20px; right: -20px;
+  width: 100px; height: 100px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+.highlight-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+.highlight-label .material-symbols-rounded { font-size: 14px; }
+.highlight-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.highlight-meta { font-size: 0.8rem; opacity: 0.85; }
+.highlight-time {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 8px;
+  display: flex; align-items: baseline; gap: 6px;
+}
+.highlight-time small { font-size: 0.75rem; font-weight: 400; opacity: 0.7; }
+.highlight-hidden { display: none; }
+
+/* =================== CHURCH CARDS =================== */
+.church-list { padding: 0 20px 120px; display: flex; flex-direction: column; gap: 10px; }
+
+.church-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.church-card-header {
+  padding: 14px 16px;
+  cursor: pointer;
+  display: flex; align-items: flex-start; gap: 12px;
+}
+
+.church-icon {
+  width: 40px; height: 40px; min-width: 40px;
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  font-family: 'Material Symbols Rounded';
+  font-size: 22px;
+}
+
+.church-info { flex: 1; min-width: 0; }
+
+.church-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.church-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+
+.badge {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+.badge-bairro { background: var(--bg-elevated); color: var(--text-secondary); }
+.badge-confissao { background: var(--green-soft); color: var(--green); }
+.badge-adoracao { background: rgba(124,58,237,0.06); color: #7C3AED; }
+
+.church-next {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+.church-next strong { color: var(--gold); font-weight: 700; }
+.church-next .material-symbols-rounded { font-size: 14px; color: var(--text-tertiary); }
+
+.church-confiabilidade {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+.dot-alta { background: var(--green); }
+.dot-media { background: var(--accent-light); }
+.dot-baixa { background: var(--text-tertiary); }
+
+.church-right {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.church-right .icon-btn { width: 32px; height: 32px; font-size: 18px; }
+.church-expand-icon {
+  font-family: 'Material Symbols Rounded';
+  font-size: 20px;
+  color: var(--text-tertiary);
+  transition: transform 0.3s;
+}
+.church-card.expanded .church-expand-icon { transform: rotate(180deg); }
+
+/* =================== EXPANDED =================== */
+.church-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.church-card.expanded .church-detail { max-height: 800px; }
+
+.church-detail-inner {
+  padding: 0 16px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.detail-section { padding: 12px 0 0; }
+.detail-section-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 4px 12px;
+  font-size: 0.8rem;
+}
+.schedule-day { font-weight: 600; color: var(--text-secondary); }
+.schedule-times { color: var(--text-primary); }
+.schedule-times.empty { color: var(--text-tertiary); font-style: italic; }
+
+.detail-info {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: flex; align-items: flex-start; gap: 8px;
+  margin-bottom: 4px;
+}
+.detail-info .material-symbols-rounded { font-size: 16px; color: var(--text-tertiary); margin-top: 2px; }
+
+.detail-obs {
+  font-size: 0.75rem;
+  color: var(--accent-light);
+  background: var(--accent-soft);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin-top: 8px;
+  display: flex; align-items: flex-start; gap: 6px;
+}
+.detail-obs .material-symbols-rounded { font-size: 16px; }
+
+.detail-actions {
+  display: flex; gap: 8px;
+  margin-top: 12px;
+}
+.detail-btn {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.detail-btn:hover { border-color: var(--accent); color: var(--accent); }
+.detail-btn .material-symbols-rounded { font-size: 16px; }
+
+/* =================== EMPTY STATE =================== */
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  display: none;
+}
+.empty-state .material-symbols-rounded { font-size: 48px; color: var(--text-tertiary); margin-bottom: 12px; }
+.empty-state h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.empty-state p { font-size: 0.8rem; color: var(--text-tertiary); }
+
+/* =================== BOTTOM NAV =================== */
+.bottom-nav {
+  position: fixed; bottom:0; left:50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  display: flex;
+  padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+  z-index: 100;
+  backdrop-filter: blur(24px);
+}
+.nav-item {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 6px 0;
+  border: none; background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: var(--font-body);
+  text-decoration: none;
+}
+.nav-item .material-symbols-rounded { font-size: 24px; transition: all 0.2s; }
+.nav-item span:last-child { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.02em; }
+.nav-item.active { color: var(--accent); }
+.nav-item.active .material-symbols-rounded { transform: scale(1.1); }
+
+@keyframes slideUp { from { transform: translateY(12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.church-card { animation: slideUp 0.3s ease backwards; }
+</style>
+</head>
+
+<body>
+
+<header class="app-header">
+  <div class="app-logo">Verbum <span>igrejas</span></div>
+  <div class="header-actions">
+    <button class="icon-btn" id="darkToggle" title="Modo escuro">dark_mode</button>
+  </div>
+</header>
+
+<div class="section-title">
+  <h2>Igrejas Perto de Mim</h2>
+  <span class="count" id="count">30 igrejas</span>
+</div>
+
+<div class="search-area">
+  <div class="search-box">
+    <span class="material-symbols-rounded">search</span>
+    <input type="text" id="searchInput" placeholder="Buscar por nome ou bairro..." oninput="filterChurches()">
+  </div>
+</div>
+
+<div class="filters">
+  <button class="filter-chip active" data-filter="todos" onclick="setFilter(this)">
+    <span class="material-symbols-rounded">tune</span> Todos
+  </button>
+  <button class="filter-chip" data-filter="missa-agora" onclick="setFilter(this)">
+    <span class="material-symbols-rounded">schedule</span> Missa Agora
+  </button>
+  <button class="filter-chip" data-filter="confissao" onclick="setFilter(this)">
+    <span class="material-symbols-rounded">person</span> Confissao
+  </button>
+  <button class="filter-chip" data-filter="adoracao" onclick="setFilter(this)">
+    <span class="material-symbols-rounded">brightness_7</span> Adoracao
+  </button>
+  <button class="filter-chip" data-filter="meireles-aldeota" onclick="setFilter(this)">Meireles/Aldeota</button>
+  <button class="filter-chip" data-filter="centro" onclick="setFilter(this)">Centro</button>
+  <button class="filter-chip" data-filter="leste" onclick="setFilter(this)">Leste</button>
+</div>
+
+<div class="highlight-card" id="highlightCard">
+  <div class="highlight-label">
+    <span class="material-symbols-rounded">church</span>
+    PROXIMA MISSA
+  </div>
+  <div class="highlight-name" id="hlName">—</div>
+  <div class="highlight-meta"><span id="hlBairro">—</span></div>
+  <div class="highlight-time">
+    <span id="hlTime">--:--</span>
+    <small id="hlMinutes">—</small>
+  </div>
+</div>
+
+<div class="church-list" id="churchList"></div>
+
+<div class="empty-state" id="emptyState">
+  <span class="material-symbols-rounded">search_off</span>
+  <h3>Nenhuma igreja encontrada</h3>
+  <p>Tente outro termo ou remova os filtros</p>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="liturgia-app (1).html">
+    <span class="material-symbols-rounded">menu_book</span>
+    <span>Leituras</span>
+  </a>
+  <a class="nav-item" href="liturgia-app (1).html">
+    <span class="material-symbols-rounded">auto_stories</span>
+    <span>Missa</span>
+  </a>
+  <a class="nav-item active">
+    <span class="material-symbols-rounded">church</span>
+    <span>Igrejas</span>
+  </a>
+  <a class="nav-item" href="liturgia-app (1).html">
+    <span class="material-symbols-rounded">folded_hands</span>
+    <span>Oracoes</span>
+  </a>
+  <a class="nav-item" href="liturgia-app (1).html">
+    <span class="material-symbols-rounded">more_horiz</span>
+    <span>Mais</span>
+  </a>
+</nav>
+
+<script>
+// =================== DATA (all static, trusted) ===================
+const IGREJAS=[{id:"santa-teresinha",nome:"Paroquia Santa Teresinha do Menino Jesus",pop:"Santa Teresinha",bairro:"Vicente Pinzon",regiao:"meireles-aldeota",end:"Rua do Entardecer, 130",tel:"(85) 98681-8676",missas:{domingo:["07:00","09:00","11:00","18:00","20:00"],segunda:["07:00","19:00"],terca:["07:00","19:00"],quarta:["07:00","19:00"],quinta:["07:00","19:00"],sexta:["07:00","19:00"],sabado:["07:00","19:00"]},conf:null,ador:null,nivel:"media",obs:null},{id:"cristo-rei",nome:"Paroquia Cristo Rei",pop:"Cristo Rei",bairro:"Aldeota",regiao:"meireles-aldeota",end:"Rua Nogueira Acioli, 805",tel:"(85) 3231-6600",missas:{domingo:["06:30","09:00","11:00","17:00","19:00"],segunda:["17:00"],terca:["17:00"],quarta:["17:00"],quinta:["17:00"],sexta:["17:00"],sabado:["06:30","17:00"]},conf:"Seg-Sab 15:30-16:30",ador:null,nivel:"alta",obs:null},{id:"paz",nome:"Paroquia N. Sra. da Paz",pop:"Igreja da Paz",bairro:"Aldeota",regiao:"meireles-aldeota",end:"Rua Visconde de Maua, 905",tel:"(85) 3224-2398",missas:{domingo:["08:00","11:00","17:00","18:30","20:00"],segunda:["17:00","18:00"],terca:["17:00","18:00"],quarta:["17:00","18:00"],quinta:["17:00","18:00"],sexta:["17:00","18:00"],sabado:["17:00","18:30"]},conf:"Seg-Sex a partir das 16h",ador:null,nivel:"media",obs:null},{id:"sao-vicente",nome:"Paroquia Sao Vicente de Paulo",pop:"Sao Vicente",bairro:"Dionisio Torres",regiao:"meireles-aldeota",end:"Av. Des. Moreira, 2211",tel:"(85) 3224-6489",missas:{domingo:["06:30","09:00","11:30","17:00","19:00"],segunda:["06:30","17:30"],terca:["06:30","17:30"],quarta:["06:30","17:30"],quinta:["06:30","17:30"],sexta:["06:30","17:30"],sabado:["06:30","12:00","17:00"]},conf:"Ter-Sex 16h-18h (20 fichas)",ador:null,nivel:"alta",obs:null},{id:"santa-luzia",nome:"Paroquia Santa Luzia",pop:"Santa Luzia",bairro:"Meireles",regiao:"meireles-aldeota",end:"Rua Joao Cordeiro, 679",tel:"(85) 3254-1444",missas:{domingo:["08:00","10:00","17:00","19:00"],segunda:["17:00"],terca:["17:00"],quarta:["17:00"],quinta:["17:00"],sexta:["17:00"],sabado:["17:00","19:00"]},conf:"Ter-Sab 16h / Dom 9h,16h,18h",ador:null,nivel:"alta",obs:null},{id:"libano",nome:"Igreja N. Sra. do Libano",pop:"Igreja do Libano",bairro:"Meireles",regiao:"meireles-aldeota",end:"Rua Tiburcio Cavalcante, 509",tel:"(85) 3224-7799",missas:{domingo:["09:30","18:00"],segunda:[],terca:[],quarta:[],quinta:[],sexta:[],sabado:[]},conf:null,ador:null,nivel:"baixa",obs:"Dados desatualizados (2013). Ligar antes."},{id:"shalom-paz",nome:"Comunidade Shalom da Paz",pop:"Shalom da Paz",bairro:"Aldeota",regiao:"meireles-aldeota",end:"Rua Maria Tomasia, 72",tel:"(85) 3252-8813",missas:{domingo:["18:00"],segunda:["07:10","18:00"],terca:["07:10"],quarta:["07:10"],quinta:["07:10"],sexta:["07:10","18:00"],sabado:["19:00"]},conf:"Seg e Sex a partir das 16h",ador:null,nivel:"media",obs:null},{id:"missionarias",nome:"Capela das Irmas Missionarias",pop:"Irmas Missionarias",bairro:"Aldeota",regiao:"meireles-aldeota",end:"Av. Rui Barbosa, 1246",tel:"(85) 3224-0188",missas:{domingo:["18:00"],segunda:["06:30"],terca:["06:30"],quarta:["06:30"],quinta:["06:30"],sexta:["06:30"],sabado:["18:00"]},conf:null,ador:null,nivel:"media",obs:null},{id:"christus",nome:"Capela Christus Filius Dei",pop:"Christus",bairro:"Aldeota",regiao:"meireles-aldeota",end:"Rua Silva Paulet, 1654",tel:"(85) 3261-5455",missas:{domingo:["18:45"],segunda:[],terca:[],quarta:[],quinta:[],sexta:[],sabado:[]},conf:null,ador:null,nivel:"media",obs:"Sem missas em julho"},{id:"cancao-nova",nome:"Cancao Nova Fortaleza",pop:"Cancao Nova",bairro:"Aldeota",regiao:"meireles-aldeota",end:"Rua Gen. Tertuliano Potiguara, 452",tel:null,missas:{domingo:[],segunda:[],terca:[],quarta:[],quinta:[],sexta:[],sabado:[]},conf:"Seg/Qua 14h-17h; Sex 10h-17h",ador:null,nivel:"media",obs:"Referencia para confissoes"},{id:"fatima",nome:"Santuario N. Sra. de Fatima",pop:"Igreja de Fatima",bairro:"Fatima",regiao:"fatima",end:"Av. Treze de Maio, 200",tel:"(85) 3227-5215",missas:{domingo:["07:00","09:00","12:00","17:00","19:00"],segunda:["06:30","12:00","17:00"],terca:["06:30","12:00","17:00"],quarta:["06:30","12:00","17:00"],quinta:["06:30","12:00","17:00"],sexta:["06:30","12:00","17:00"],sabado:["06:30","12:00","16:00","17:30","19:00"]},conf:"Ter-Dom 15:30-18h",ador:null,nivel:"alta",obs:"Dia 13: 11 missas (5h-20h)"},{id:"catedral",nome:"Catedral Metropolitana de Sao Jose",pop:"Catedral",bairro:"Centro",regiao:"centro",end:"Rua Sobral, s/n",tel:"(85) 3231-4196",missas:{domingo:["10:30","12:00","18:30","20:00"],segunda:["12:00"],terca:["12:00"],quarta:["12:00"],quinta:["12:00"],sexta:["12:00"],sabado:["12:00"]},conf:"Ter-Sex 9h-11h",ador:null,nivel:"media",obs:null},{id:"carmo",nome:"Paroquia N. Sra. do Carmo",pop:"Igreja do Carmo",bairro:"Centro",regiao:"centro",end:"Praca do Carmo, s/n",tel:"(85) 3253-1489",missas:{domingo:["09:00","11:00","17:00","19:00"],segunda:["12:00"],terca:["12:00"],quarta:["12:00"],quinta:["12:00"],sexta:["12:00"],sabado:["12:00"]},conf:"Ter-Sex 8:30-10:30 e 14:30-17h",ador:null,nivel:"alta",obs:null},{id:"sagrado-coracao",nome:"Santuario Sagrado Coracao de Jesus",pop:"Sagrado Coracao",bairro:"Centro",regiao:"centro",end:"Av. Duque de Caxias, 235A",tel:"(85) 3226-2854",missas:{domingo:["07:00","08:30","16:00","18:00"],segunda:["07:00","18:00"],terca:["07:00","16:00","18:00"],quarta:["07:00","16:00","18:00"],quinta:["07:00","16:00","18:00"],sexta:["07:00","16:00","18:00"],sabado:["07:00","16:00","18:00"]},conf:"Ter-Sex a partir das 14h",ador:null,nivel:"media",obs:null},{id:"sao-benedito",nome:"Santuario Sao Benedito",pop:"Sao Benedito",bairro:"Centro",regiao:"centro",end:"Av. do Imperador, 1165",tel:"(85) 3231-7892",missas:{domingo:["07:00","18:00"],segunda:["18:20"],terca:["18:20"],quarta:["18:20"],quinta:["18:20"],sexta:["18:20"],sabado:["18:20"]},conf:"Ter 8:30-11:30; Qua-Sex 8:30-18h",ador:"Diariamente 6h-18h",nivel:"media",obs:null},{id:"prainha",nome:"Igreja N. Sra. da Conceicao da Prainha",pop:"Seminario da Prainha",bairro:"Centro",regiao:"centro",end:"Av. Dom Manuel / Mons. Tabosa",tel:null,missas:{domingo:["07:00","10:00","17:30"],segunda:["17:30"],terca:["17:30"],quarta:["17:30"],quinta:["17:30"],sexta:["17:30"],sabado:["17:30"]},conf:"Ter-Sex 10:30-11:50",ador:null,nivel:"media",obs:"Dom 10h: Missa Tridentina"},{id:"sao-pedro",nome:"Igreja Sao Pedro",pop:"Sao Pedro",bairro:"Praia de Iracema",regiao:"centro",end:"Praia de Iracema",tel:null,missas:{domingo:["08:00","17:00"],segunda:[],terca:["17:00"],quarta:["17:00"],quinta:["17:00"],sexta:["17:00"],sabado:["17:00"]},conf:null,ador:null,nivel:"media",obs:null},{id:"remedios",nome:"Paroquia N. Sra. dos Remedios",pop:"Remedios",bairro:"Benfica",regiao:"centro",end:"Av. da Universidade, 2974",tel:"(85) 3223-5644",missas:{domingo:["07:00","09:00","17:00","19:00"],segunda:["06:30"],terca:["17:30"],quarta:["06:30"],quinta:["17:30"],sexta:["17:30"],sabado:["17:00"]},conf:"Sab 15h-16:45",ador:null,nivel:"media",obs:null},{id:"navegantes",nome:"Paroquia Sao Francisco de Assis",pop:"Navegantes",bairro:"Jacarecanga",regiao:"centro",end:"Av. Filomeno Gomes, 315",tel:"(85) 3238-0978",missas:{domingo:["09:30","11:00","17:30","19:00"],segunda:[],terca:[],quarta:[],quinta:["08:00","16:00","19:00"],sexta:[],sabado:[]},conf:"30 min antes/apos missas",ador:null,nivel:"media",obs:null},{id:"sao-jose-papicu",nome:"Paroquia Sao Jose",pop:"Sao Jose do Papicu",bairro:"Papicu",regiao:"leste",end:"Rua Amelia Benebien, 555",tel:"(85) 3249-2097",missas:{domingo:["06:30","08:30","17:00","19:00"],segunda:["06:30","19:00"],terca:["06:30","19:00"],quarta:["06:30","19:00"],quinta:["06:30","19:00"],sexta:["06:30","19:00"],sabado:["06:30","19:00"]},conf:null,ador:null,nivel:"media",obs:null},{id:"saude",nome:"Paroquia N. Sra. da Saude",pop:"Igreja da Saude",bairro:"Mucuripe",regiao:"leste",end:"Av. da Abolicao, 3929",tel:"(85) 3263-1538",missas:{domingo:["07:00","08:30","17:00","19:00"],segunda:["17:30"],terca:["17:30"],quarta:["17:30"],quinta:["17:30"],sexta:["17:30"],sabado:["17:00"]},conf:"Ter-Sex a partir das 15:30",ador:"Ter-Sex 8h-11h e 15h-17h",nivel:"media",obs:"Capela Sao Pedro (Beira Mar): diaria 18:30"},{id:"sao-joao",nome:"Paroquia Sao Joao Batista",pop:"Sao Joao do Tauape",bairro:"Sao Joao do Tauape",regiao:"leste",end:"Rua Capitao Gustavo, 3940",tel:"(85) 3257-6797",missas:{domingo:["07:00","08:30","17:30"],segunda:["06:00","17:00"],terca:["06:00","17:00"],quarta:["06:00","17:00"],quinta:["06:00","17:00"],sexta:["06:00","17:00"],sabado:["06:00","17:00"]},conf:null,ador:null,nivel:"media",obs:null},{id:"spsp",nome:"Paroquia Sao Pedro e Sao Paulo",pop:"Sao Pedro e Sao Paulo",bairro:"Jd. Guanabara",regiao:"leste",end:"Rua Padre Teodoro, 996",tel:"(85) 2010-0791",missas:{domingo:["07:30","17:00","19:00"],segunda:[],terca:["19:00"],quarta:[],quinta:["19:00"],sexta:["19:00"],sabado:["06:30","17:30"]},conf:"Ter 15h",ador:"Qui 18h",nivel:"alta",obs:null},{id:"lourdes",nome:"Paroquia N. Sra. de Lourdes",pop:"Lourdes / Dunas",bairro:"Dunas",regiao:"leste",end:"Av. Dolor Barreira, s/n",tel:"(85) 3262-2770",missas:{domingo:["11:00","18:00","20:00"],segunda:["18:30"],terca:["18:30"],quarta:["18:30"],quinta:["18:30"],sexta:["18:30"],sabado:["18:00"]},conf:"Seg-Sex 17:30",ador:null,nivel:"media",obs:null},{id:"menino-deus",nome:"Paroquia Sao Joao Eudes",pop:"Menino Deus",bairro:"Eng. L. Cavalcante",regiao:"sul",end:"Rua Jaime Leonel",tel:"(85) 3278-1263",missas:{domingo:["07:00","19:00"],segunda:[],terca:["18:30"],quarta:[],quinta:["19:00"],sexta:["19:00"],sabado:["19:00"]},conf:"Ter e Qui apos 16:30",ador:null,nivel:"media",obs:null},{id:"aparecida",nome:"Paroquia N. Sra. Aparecida",pop:"Aparecida",bairro:"Praia do Futuro",regiao:"leste",end:"Rua Prof. Alvaro Costa, 257",tel:"(85) 3263-3858",missas:{domingo:["19:00"],segunda:[],terca:["17:30"],quarta:["17:30"],quinta:["17:30"],sexta:["17:30"],sabado:["17:30"]},conf:"Qui 9h-11h e 15h-17h",ador:null,nivel:"media",obs:"Capela N. Sra. Fatima: Dom 7:30"},{id:"shalom-coco",nome:"Comunidade Shalom Coco",pop:"Shalom Coco",bairro:"Coco",regiao:"leste",end:"R. Andrade Furtado, 749",tel:null,missas:{domingo:["06:30","18:15"],segunda:["06:30","18:15"],terca:["06:30","18:15"],quarta:["06:30","18:15"],quinta:["06:30","18:15"],sexta:["06:30","18:15"],sabado:["06:30","18:15"]},conf:null,ador:null,nivel:"media",obs:null},{id:"cap-menino-deus",nome:"Capela do Menino Deus",pop:"Menino Deus (Fatima)",bairro:"Fatima",regiao:"fatima",end:"Av. Treze de Maio, 1520",tel:null,missas:{domingo:[],segunda:[],terca:[],quarta:[],quinta:[],sexta:[],sabado:["17:00"]},conf:null,ador:null,nivel:"baixa",obs:null},{id:"rosario",nome:"Igreja do Rosario dos Pretos",pop:"Rosario",bairro:"Centro",regiao:"centro",end:"Praca Gen. Tiburcio",tel:null,missas:{domingo:[],segunda:[],terca:[],quarta:[],quinta:[],sexta:[],sabado:[]},conf:null,ador:null,nivel:"baixa",obs:"Possivelmente em restauracao."}];
+
+const DIAS=['domingo','segunda','terca','quarta','quinta','sexta','sabado'];
+const DIAS_L={domingo:'Domingo',segunda:'Segunda',terca:'Terca',quarta:'Quarta',quinta:'Quinta',sexta:'Sexta',sabado:'Sabado'};
+
+function diaAtual(){return DIAS[new Date().getDay()];}
+function horaAtual(){var n=new Date();return String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');}
+function minutosAte(h){var p=h.split(':').map(Number),a=new Date(),t=new Date();t.setHours(p[0],p[1],0,0);return Math.round((t-a)/60000);}
+
+function proxMissa(ig){
+  var d=diaAtual(),a=horaAtual(),m=ig.missas[d]||[];
+  for(var i=0;i<m.length;i++){if(m[i]>a)return{h:m[i],hoje:true};}
+  var idx=DIAS.indexOf(d);
+  for(var j=1;j<=7;j++){var nd=DIAS[(idx+j)%7],ms=ig.missas[nd]||[];if(ms.length>0)return{h:ms[0],hoje:false,dia:DIAS_L[nd]};}
+  return null;
+}
+
+// =================== ESCAPING (safe DOM building) ===================
+function esc(s){if(!s)return'';var d=document.createElement('div');d.textContent=s;return d.textContent;}
+
+// =================== RENDER ===================
+var activeFilter='todos';
+
+function renderHighlight(){
+  var d=diaAtual(),best=null,bestMin=Infinity;
+  for(var i=0;i<IGREJAS.length;i++){
+    var ms=IGREJAS[i].missas[d]||[];
+    for(var j=0;j<ms.length;j++){
+      var mn=minutosAte(ms[j]);
+      if(mn>0&&mn<bestMin){bestMin=mn;best={ig:IGREJAS[i],h:ms[j],mn:mn};}
+    }
+  }
+  var card=document.getElementById('highlightCard');
+  if(!best||bestMin>120){card.style.display='none';return;}
+  card.style.display='';
+  document.getElementById('hlName').textContent=best.ig.pop;
+  document.getElementById('hlBairro').textContent=best.ig.bairro;
+  document.getElementById('hlTime').textContent=best.h;
+  document.getElementById('hlMinutes').textContent='em '+best.mn+' min';
+}
+
+function buildCard(ig,idx){
+  var card=document.createElement('div');
+  card.className='church-card';
+  card.style.animationDelay=(idx*0.04)+'s';
+
+  var prox=proxMissa(ig);
+  var proxTxt=prox?(prox.hoje?prox.h+' hoje':prox.h+' '+prox.dia):'Sem horario';
+
+  // Header
+  var header=document.createElement('div');
+  header.className='church-card-header';
+  header.onclick=function(){card.classList.toggle('expanded');};
+
+  var icon=document.createElement('div');
+  icon.className='church-icon';
+  icon.textContent='church';
+
+  var info=document.createElement('div');
+  info.className='church-info';
+
+  var name=document.createElement('div');
+  name.className='church-name';
+  name.textContent=ig.pop||ig.nome;
+
+  var badges=document.createElement('div');
+  badges.className='church-badges';
+  var bb=document.createElement('span');bb.className='badge badge-bairro';bb.textContent=ig.bairro;badges.appendChild(bb);
+  if(ig.conf){var bc=document.createElement('span');bc.className='badge badge-confissao';bc.textContent='Confissao';badges.appendChild(bc);}
+  if(ig.ador){var ba=document.createElement('span');ba.className='badge badge-adoracao';ba.textContent='Adoracao';badges.appendChild(ba);}
+
+  var next=document.createElement('div');
+  next.className='church-next';
+  var si=document.createElement('span');si.className='material-symbols-rounded';si.textContent='schedule';next.appendChild(si);
+  var nt=document.createElement('span');
+  if(prox&&prox.hoje){
+    nt.innerHTML='Proxima missa: <strong>'+esc(prox.h)+'</strong> hoje';
+  } else if(prox){
+    nt.innerHTML='Proxima missa: <strong>'+esc(prox.h)+'</strong> '+esc(prox.dia);
+  } else {
+    nt.textContent='Sem horario disponivel';
+  }
+  next.appendChild(nt);
+
+  var conf=document.createElement('div');
+  conf.className='church-confiabilidade';
+  var dot=document.createElement('span');dot.className='dot dot-'+ig.nivel;conf.appendChild(dot);
+  var ct=document.createTextNode(ig.nivel==='alta'?' Verificado':ig.nivel==='media'?' Nao verificado':' Desatualizado');conf.appendChild(ct);
+
+  info.appendChild(name);info.appendChild(badges);info.appendChild(next);info.appendChild(conf);
+
+  var right=document.createElement('div');
+  right.className='church-right';
+  if(ig.tel){
+    var telBtn=document.createElement('a');telBtn.className='icon-btn';telBtn.href='tel:'+ig.tel.replace(/[^\d+]/g,'');
+    telBtn.textContent='call';telBtn.title='Ligar';telBtn.onclick=function(e){e.stopPropagation();};
+    right.appendChild(telBtn);
+  }
+  var expIcon=document.createElement('span');expIcon.className='church-expand-icon';expIcon.textContent='expand_more';
+  right.appendChild(expIcon);
+
+  header.appendChild(icon);header.appendChild(info);header.appendChild(right);
+
+  // Detail
+  var detail=document.createElement('div');detail.className='church-detail';
+  var inner=document.createElement('div');inner.className='church-detail-inner';
+
+  // Schedule
+  var secM=document.createElement('div');secM.className='detail-section';
+  var ttlM=document.createElement('div');ttlM.className='detail-section-title';ttlM.textContent='HORARIOS DE MISSA';
+  var grid=document.createElement('div');grid.className='schedule-grid';
+  for(var d=0;d<DIAS.length;d++){
+    var dayEl=document.createElement('div');dayEl.className='schedule-day';dayEl.textContent=DIAS_L[DIAS[d]];
+    var timesEl=document.createElement('div');var ts=(ig.missas[DIAS[d]]||[]).join(', ');
+    timesEl.className='schedule-times'+(ts?'':' empty');timesEl.textContent=ts||'\u2014';
+    grid.appendChild(dayEl);grid.appendChild(timesEl);
+  }
+  secM.appendChild(ttlM);secM.appendChild(grid);inner.appendChild(secM);
+
+  if(ig.conf){
+    var secC=document.createElement('div');secC.className='detail-section';
+    var ttlC=document.createElement('div');ttlC.className='detail-section-title';ttlC.textContent='CONFISSOES';
+    var infoC=document.createElement('div');infoC.className='detail-info';
+    var icC=document.createElement('span');icC.className='material-symbols-rounded';icC.textContent='person';
+    infoC.appendChild(icC);var txC=document.createTextNode(ig.conf);infoC.appendChild(txC);
+    secC.appendChild(ttlC);secC.appendChild(infoC);inner.appendChild(secC);
+  }
+
+  if(ig.ador){
+    var secA=document.createElement('div');secA.className='detail-section';
+    var ttlA=document.createElement('div');ttlA.className='detail-section-title';ttlA.textContent='ADORACAO AO SANTISSIMO';
+    var infoA=document.createElement('div');infoA.className='detail-info';
+    var icA=document.createElement('span');icA.className='material-symbols-rounded';icA.textContent='brightness_7';
+    infoA.appendChild(icA);var txA=document.createTextNode(ig.ador);infoA.appendChild(txA);
+    secA.appendChild(ttlA);secA.appendChild(infoA);inner.appendChild(secA);
+  }
+
+  // Endereco
+  var secE=document.createElement('div');secE.className='detail-section';
+  var ttlE=document.createElement('div');ttlE.className='detail-section-title';ttlE.textContent='ENDERECO';
+  var infoE=document.createElement('div');infoE.className='detail-info';
+  var icE=document.createElement('span');icE.className='material-symbols-rounded';icE.textContent='location_on';
+  infoE.appendChild(icE);infoE.appendChild(document.createTextNode(ig.end));
+  secE.appendChild(ttlE);secE.appendChild(infoE);
+  if(ig.tel){var infoT=document.createElement('div');infoT.className='detail-info';var icT=document.createElement('span');icT.className='material-symbols-rounded';icT.textContent='call';infoT.appendChild(icT);infoT.appendChild(document.createTextNode(ig.tel));secE.appendChild(infoT);}
+  inner.appendChild(secE);
+
+  if(ig.obs){
+    var obsD=document.createElement('div');obsD.className='detail-obs';
+    var icO=document.createElement('span');icO.className='material-symbols-rounded';icO.textContent='info';
+    obsD.appendChild(icO);obsD.appendChild(document.createTextNode(ig.obs));inner.appendChild(obsD);
+  }
+
+  // Actions
+  var acts=document.createElement('div');acts.className='detail-actions';
+  if(ig.tel){
+    var btnL=document.createElement('a');btnL.className='detail-btn';btnL.href='tel:'+ig.tel.replace(/[^\d+]/g,'');
+    var icL=document.createElement('span');icL.className='material-symbols-rounded';icL.textContent='call';
+    btnL.appendChild(icL);btnL.appendChild(document.createTextNode('Ligar'));acts.appendChild(btnL);
+  }
+  var btnM=document.createElement('a');btnM.className='detail-btn';
+  btnM.href='https://www.google.com/maps/search/'+encodeURIComponent(ig.nome+' '+ig.bairro+' Fortaleza');
+  btnM.target='_blank';btnM.rel='noopener';
+  var icM=document.createElement('span');icM.className='material-symbols-rounded';icM.textContent='map';
+  btnM.appendChild(icM);btnM.appendChild(document.createTextNode('Mapa'));acts.appendChild(btnM);
+  inner.appendChild(acts);
+
+  detail.appendChild(inner);
+  card.appendChild(header);card.appendChild(detail);
+  return card;
+}
+
+function renderChurches(){
+  var list=document.getElementById('churchList');
+  var query=document.getElementById('searchInput').value.toLowerCase().trim();
+  // Clear safely
+  while(list.firstChild)list.removeChild(list.firstChild);
+  var count=0;
+  for(var i=0;i<IGREJAS.length;i++){
+    var ig=IGREJAS[i];
+    if(query){
+      var hay=(ig.nome+' '+ig.pop+' '+ig.bairro).toLowerCase();
+      if(hay.indexOf(query)===-1)continue;
+    }
+    if(activeFilter==='missa-agora'){
+      var d=diaAtual(),a=horaAtual(),ms=ig.missas[d]||[],tem=false;
+      for(var j=0;j<ms.length;j++){var mn=minutosAte(ms[j]);if(mn>-10&&mn<60){tem=true;break;}}
+      if(!tem)continue;
+    }else if(activeFilter==='confissao'){
+      if(!ig.conf)continue;
+    }else if(activeFilter==='adoracao'){
+      if(!ig.ador)continue;
+    }else if(activeFilter!=='todos'){
+      if(ig.regiao!==activeFilter)continue;
+    }
+    list.appendChild(buildCard(ig,count));
+    count++;
+  }
+  document.getElementById('count').textContent=count+' igreja'+(count!==1?'s':'');
+  document.getElementById('emptyState').style.display=count===0?'block':'none';
+}
+
+function setFilter(btn){
+  var chips=document.querySelectorAll('.filter-chip');
+  for(var i=0;i<chips.length;i++)chips[i].classList.remove('active');
+  btn.classList.add('active');
+  activeFilter=btn.getAttribute('data-filter');
+  renderChurches();
+}
+
+function filterChurches(){renderChurches();}
+
+// Dark mode
+document.getElementById('darkToggle').addEventListener('click',function(e){
+  e.stopPropagation();
+  var h=document.documentElement;
+  if(h.getAttribute('data-theme')==='dark'){h.removeAttribute('data-theme');}
+  else{h.setAttribute('data-theme','dark');}
+});
+
+// Init
+renderHighlight();
+renderChurches();
+setInterval(renderHighlight,60000);
+</script>
+</body>
+</html>
