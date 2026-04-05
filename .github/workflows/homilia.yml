@@ -1,0 +1,58 @@
+name: Pipeline Homilia Diária
+
+on:
+  schedule:
+    # 7h BRT (10h UTC)
+    - cron: '0 10 * * *'
+    # 9h BRT (12h UTC) — fallback
+    - cron: '0 12 * * *'
+    # 15h BRT (18h UTC) — último fallback
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract-homilia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install -r pipeline/requirements.txt
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Run pipeline
+        run: python pipeline/pipeline_homilia.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add data/ audio/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "feat(homilia): add daily homilia"
+          git push
+
+      - name: Notify on failure
+        if: failure()
+        run: echo "::error::Pipeline homilia falhou! Verifique os logs."

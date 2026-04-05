@@ -4803,6 +4803,143 @@ body.modo-missa.brilho-reduzido {
   color: #FFF;
 }
 
+/* Homilia Thumbnail */
+.homilia-thumb-container {
+  position: relative;
+  margin: 0 16px 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.homilia-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+.homilia-thumb-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.homilia-thumb-play span { font-size: 36px; }
+
+/* Video embed */
+.homilia-video-container {
+  margin: 0 16px 12px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.homilia-video-container iframe { border-radius: 12px; }
+
+/* Transcript */
+.homilia-transcript {
+  margin: 0 16px 16px;
+  padding: 16px;
+  background: var(--card-bg, #f8f5f0);
+  border-radius: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.homilia-transcript-text {
+  font-family: var(--font-reading, 'Cormorant Garamond', serif);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text-primary, #2c1810);
+}
+.homilia-transcript-text p {
+  margin-bottom: 16px;
+  text-indent: 1.5em;
+}
+
+/* Action buttons */
+.homilia-actions {
+  display: flex;
+  gap: 10px;
+  padding: 0 16px 16px;
+}
+.homilia-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: 1.5px solid var(--border-color, #d4c5b0);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-primary, #2c1810);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.homilia-action-btn.active {
+  background: var(--accent, #8B4513);
+  color: #fff;
+  border-color: var(--accent, #8B4513);
+}
+.homilia-action-btn span { font-size: 20px; }
+
+/* Episode feed */
+.homilia-feed { padding: 0 16px 20px; }
+.homilia-feed-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary, #8B7355);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.homilia-feed-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+.homilia-feed-scroll::-webkit-scrollbar { height: 0; }
+.homilia-episode-card {
+  min-width: 100px;
+  padding: 10px 12px;
+  background: var(--card-bg, #f8f5f0);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+  border: 1.5px solid transparent;
+}
+.homilia-episode-card.active { border-color: var(--accent, #8B4513); }
+.homilia-episode-card:hover { transform: translateY(-2px); }
+.homilia-ep-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary, #2c1810);
+}
+.homilia-ep-title {
+  font-size: 11px;
+  color: var(--text-secondary, #8B7355);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90px;
+}
+.homilia-ep-duration {
+  font-size: 11px;
+  color: var(--text-secondary, #8B7355);
+  margin-top: 4px;
+}
+
 /* Section title helper */
 .section-title {
   font-family: var(--font-display);
@@ -5170,6 +5307,48 @@ body.modo-missa.brilho-reduzido {
         <button class="apf-speed-opt" data-speed="1.5" onclick="setAudioSpeed(1.5)">1.5x</button>
         <button class="apf-speed-opt" data-speed="2" onclick="setAudioSpeed(2)">2x</button>
       </div>
+    </div>
+
+    <!-- Audio element real -->
+    <audio id="homilia-audio" preload="metadata"></audio>
+
+    <!-- Thumbnail da homilia -->
+    <div class="homilia-thumb-container" id="homilia-thumb-container" onclick="toggleVideoEmbed()" style="display:none">
+      <img id="homilia-thumb" class="homilia-thumb" alt="Thumbnail da homilia">
+      <div class="homilia-thumb-play">
+        <span class="material-symbols-rounded">play_circle</span>
+      </div>
+    </div>
+
+    <!-- Video embed (expandível) -->
+    <div class="homilia-video-container" id="homilia-video-container" style="display:none">
+      <iframe id="homilia-iframe" width="100%" height="220" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Transcrição (expandível) -->
+    <div class="homilia-transcript" id="homilia-transcript" style="display:none">
+      <div class="homilia-transcript-text" id="homilia-transcript-text"></div>
+    </div>
+
+    <!-- Botões Vídeo / Transcrição -->
+    <div class="homilia-actions" id="homilia-actions" style="display:none">
+      <button class="homilia-action-btn" onclick="toggleVideoEmbed()">
+        <span class="material-symbols-rounded">smart_display</span>
+        Vídeo
+      </button>
+      <button class="homilia-action-btn" onclick="toggleTranscript()">
+        <span class="material-symbols-rounded">description</span>
+        Ler transcrição
+      </button>
+    </div>
+
+    <!-- Feed de episódios anteriores -->
+    <div class="homilia-feed" id="homilia-feed" style="display:none">
+      <div class="homilia-feed-title">Homilias anteriores</div>
+      <div class="homilia-feed-scroll" id="homilia-feed-scroll"></div>
     </div>
 
     <!-- 1a Leitura -->
@@ -7731,143 +7910,262 @@ function saveNote() {
   showToast('Anotação salva!');
 }
 
-// =================== AUDIO PLAYER ===================
-let playing = false;
-let progress = 0;
-let audioSpeed = 1;
-const TOTAL_DURATION = 492; // 8:12 in seconds
-let audioInterval = null;
+// =================== AUDIO PLAYER (REAL) ===================
+var homiliaAudio = null;
+var currentHomiliaDate = null;
+var playing = false;
+var audioSpeed = 1;
 
-function togglePlay(btn) {
-  playing = !playing;
-  btn.textContent = playing ? 'pause' : 'play_arrow';
-
-  if (playing) {
-    startAudioProgress();
-  } else {
-    clearInterval(audioInterval);
+async function loadHomilia(date) {
+  if (!date) {
+    var today = new Date();
+    date = today.toISOString().split('T')[0];
+  }
+  try {
+    var resp = await fetch('data/homilia-' + date + '.json');
+    if (!resp.ok) {
+      if (date === new Date().toISOString().split('T')[0]) {
+        var yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        return loadHomilia(yesterday.toISOString().split('T')[0]);
+      }
+      console.warn('No homilia for ' + date);
+      return;
+    }
+    var data = await resp.json();
+    currentHomiliaDate = date;
+    renderHomilia(data);
+    loadHomiliaFeed();
+  } catch (err) {
+    console.error('Failed to load homilia:', err);
   }
 }
 
-function startAudioProgress() {
-  clearInterval(audioInterval);
-  audioInterval = setInterval(() => {
-    if (!playing) { clearInterval(audioInterval); return; }
+function renderHomilia(data) {
+  var titleEl = document.querySelector('.audio-title');
+  var subtitleEl = document.querySelector('.audio-subtitle');
+  if (titleEl) titleEl.textContent = data.liturgy && data.liturgy.day ? data.liturgy.day : data.video.title;
+  if (subtitleEl) {
+    var dur = formatDuration(data.audio ? data.audio.duration_seconds : (data.video.duration_seconds || 0));
+    subtitleEl.textContent = data.priest.name + ' \u00B7 ' + data.priest.channel + ' \u00B7 ' + dur;
+  }
 
-    progress = Math.min(progress + (audioSpeed / TOTAL_DURATION) * 100, 100);
-    updateAudioUI();
-
-    if (progress >= 100) {
+  // Set audio source (clone to remove old event listeners)
+  homiliaAudio = document.getElementById('homilia-audio');
+  if (homiliaAudio && data.audio && data.audio.file) {
+    var newAudio = homiliaAudio.cloneNode(false);
+    homiliaAudio.parentNode.replaceChild(newAudio, homiliaAudio);
+    homiliaAudio = newAudio;
+    homiliaAudio.id = 'homilia-audio';
+    homiliaAudio.src = data.audio.file;
+    homiliaAudio.load();
+    homiliaAudio.addEventListener('loadedmetadata', function() {
+      document.getElementById('apf-duration').textContent = formatDuration(homiliaAudio.duration);
+    });
+    homiliaAudio.addEventListener('timeupdate', updateAudioProgress);
+    homiliaAudio.addEventListener('ended', function() {
       playing = false;
-      clearInterval(audioInterval);
       document.getElementById('apf-play').textContent = 'play_arrow';
-    }
-  }, 1000);
+    });
+  }
+
+  // Thumbnail
+  var thumbContainer = document.getElementById('homilia-thumb-container');
+  var thumbImg = document.getElementById('homilia-thumb');
+  if (thumbContainer && data.video.thumbnail) {
+    thumbImg.src = data.video.thumbnail;
+    thumbContainer.style.display = 'block';
+    thumbContainer.dataset.embedUrl = data.video.embed_url;
+  }
+
+  // Transcript (safe DOM)
+  var transcriptText = document.getElementById('homilia-transcript-text');
+  if (transcriptText && data.transcript && data.transcript.paragraphs) {
+    transcriptText.textContent = '';
+    data.transcript.paragraphs.forEach(function(text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      transcriptText.appendChild(p);
+    });
+  }
+
+  // Show action buttons and feed
+  var actions = document.getElementById('homilia-actions');
+  var feed = document.getElementById('homilia-feed');
+  if (actions) actions.style.display = 'flex';
+  if (feed) feed.style.display = 'block';
+
+  // Duration display
+  var durationEl = document.getElementById('apf-duration');
+  if (durationEl) {
+    durationEl.textContent = formatDuration(data.audio ? data.audio.duration_seconds : (data.video.duration_seconds || 0));
+  }
+  document.getElementById('apf-current').textContent = '0:00';
+  var fill = document.getElementById('apf-fill');
+  var thumb = document.getElementById('apf-thumb');
+  if (fill) fill.style.width = '0%';
+  if (thumb) thumb.style.left = '0%';
+
+  // Reset play state
+  playing = false;
+  document.getElementById('apf-play').textContent = 'play_arrow';
 }
 
-function updateAudioUI() {
-  const fill = document.getElementById('apf-fill');
-  const thumb = document.getElementById('apf-thumb');
-  const currentTime = document.getElementById('apf-current');
+function formatDuration(seconds) {
+  var min = Math.floor(seconds / 60);
+  var sec = Math.floor(seconds % 60);
+  return min + ':' + (sec < 10 ? '0' : '') + sec;
+}
 
-  fill.style.width = progress + '%';
-  thumb.style.left = progress + '%';
+function togglePlay(btn) {
+  if (!homiliaAudio || !homiliaAudio.src) {
+    showToast('Carregando áudio...');
+    return;
+  }
+  playing = !playing;
+  btn.textContent = playing ? 'pause' : 'play_arrow';
+  if (playing) { homiliaAudio.play(); } else { homiliaAudio.pause(); }
+}
 
-  // Calculate current time
-  const elapsed = (progress / 100) * TOTAL_DURATION;
-  const min = Math.floor(elapsed / 60);
-  const sec = Math.floor(elapsed % 60);
-  currentTime.textContent = min + ':' + sec.toString().padStart(2, '0');
+function updateAudioProgress() {
+  if (!homiliaAudio || !homiliaAudio.duration) return;
+  var progress = (homiliaAudio.currentTime / homiliaAudio.duration) * 100;
+  var fill = document.getElementById('apf-fill');
+  var thumb = document.getElementById('apf-thumb');
+  var currentTime = document.getElementById('apf-current');
+  if (fill) fill.style.width = progress + '%';
+  if (thumb) thumb.style.left = progress + '%';
+  if (currentTime) currentTime.textContent = formatDuration(homiliaAudio.currentTime);
+}
 
-  // Update duration based on speed
-  const remaining = (TOTAL_DURATION - elapsed) / audioSpeed;
-  const rMin = Math.floor((TOTAL_DURATION / audioSpeed) / 60);
-  const rSec = Math.floor((TOTAL_DURATION / audioSpeed) % 60);
+function seekAudio(e) {
+  if (!homiliaAudio || !homiliaAudio.duration) return;
+  var track = document.getElementById('apf-track');
+  var rect = track.getBoundingClientRect();
+  var x = (e.clientX || e.touches[0].clientX) - rect.left;
+  var pct = Math.max(0, Math.min(1, x / rect.width));
+  homiliaAudio.currentTime = pct * homiliaAudio.duration;
+}
+
+function skipAudio(seconds) {
+  if (!homiliaAudio) return;
+  homiliaAudio.currentTime = Math.max(0, Math.min(homiliaAudio.duration || 0, homiliaAudio.currentTime + seconds));
+  if (navigator.vibrate) navigator.vibrate(10);
 }
 
 function cycleAudioSpeed() {
-  const panel = document.getElementById('apf-speed-options');
+  var panel = document.getElementById('apf-speed-options');
   panel.classList.toggle('open');
   document.getElementById('apf-speed').classList.toggle('open');
 }
 
 function setAudioSpeed(speed) {
   audioSpeed = speed;
-
-  // Update button label
-  const label = speed === 1 ? '1x' : speed + 'x';
+  if (homiliaAudio) homiliaAudio.playbackRate = speed;
+  var label = speed === 1 ? '1x' : speed + 'x';
   document.getElementById('apf-speed').textContent = label;
-
-  // Update active state
-  document.querySelectorAll('.apf-speed-opt').forEach(b => {
+  document.querySelectorAll('.apf-speed-opt').forEach(function(b) {
     b.classList.toggle('active', parseFloat(b.dataset.speed) === speed);
   });
-
-  // Update subtitle with adjusted duration
-  const adjustedMin = Math.floor((TOTAL_DURATION / speed) / 60);
-  const adjustedSec = Math.floor((TOTAL_DURATION / speed) % 60);
-  const sub = document.querySelector('.audio-subtitle');
-  sub.textContent = 'Pe. Roger Araújo • ' + adjustedMin + ':' + adjustedSec.toString().padStart(2, '0');
-  document.getElementById('apf-duration').textContent = adjustedMin + ':' + adjustedSec.toString().padStart(2, '0');
-
-  // Update TTS rate too
-  if (isSpeaking && window.speechSynthesis) {
-    // TTS can't change rate mid-stream, so restart
-    window.speechSynthesis.cancel();
-    isSpeaking = false;
-    const btn = document.getElementById('toolbar-listen');
-    btn.classList.remove('playing');
-    btn.innerHTML = '<span class="material-symbols-rounded" style="font-size:18px">play_arrow</span> escutar o texto';
-  }
-
-  // Restart interval if playing
-  if (playing) startAudioProgress();
-
-  // Close panel
   document.getElementById('apf-speed-options').classList.remove('open');
   document.getElementById('apf-speed').classList.remove('open');
-
   showToast('Velocidade: ' + label);
 }
 
-function seekAudio(e) {
-  const track = document.getElementById('apf-track');
-  const rect = track.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  progress = Math.max(0, Math.min(100, (x / rect.width) * 100));
-  updateAudioUI();
+// Video embed toggle
+function toggleVideoEmbed() {
+  var videoContainer = document.getElementById('homilia-video-container');
+  var thumbContainer = document.getElementById('homilia-thumb-container');
+  var iframe = document.getElementById('homilia-iframe');
+  var btn = document.querySelector('.homilia-action-btn');
+  if (videoContainer.style.display === 'none') {
+    iframe.src = thumbContainer.dataset.embedUrl + '?autoplay=1';
+    videoContainer.style.display = 'block';
+    thumbContainer.style.display = 'none';
+    if (btn) btn.classList.add('active');
+    if (homiliaAudio && playing) {
+      homiliaAudio.pause();
+      playing = false;
+      document.getElementById('apf-play').textContent = 'play_arrow';
+    }
+  } else {
+    iframe.src = '';
+    videoContainer.style.display = 'none';
+    thumbContainer.style.display = 'block';
+    if (btn) btn.classList.remove('active');
+  }
 }
 
-function skipAudio(seconds) {
-  const jumpPercent = (seconds / TOTAL_DURATION) * 100;
-  progress = Math.max(0, Math.min(100, progress + jumpPercent));
-  updateAudioUI();
-  if (navigator.vibrate) navigator.vibrate(10);
+// Transcript toggle
+function toggleTranscript() {
+  var transcript = document.getElementById('homilia-transcript');
+  var btns = document.querySelectorAll('.homilia-action-btn');
+  var btn = btns[1];
+  if (transcript.style.display === 'none') {
+    transcript.style.display = 'block';
+    if (btn) btn.classList.add('active');
+  } else {
+    transcript.style.display = 'none';
+    if (btn) btn.classList.remove('active');
+  }
 }
 
-// Make thumb draggable
-document.addEventListener('DOMContentLoaded', () => {
-  const thumb = document.getElementById('apf-thumb');
-  const track = document.getElementById('apf-track');
+// Episode feed (safe DOM creation)
+async function loadHomiliaFeed() {
+  try {
+    var resp = await fetch('data/homilias-index.json');
+    if (!resp.ok) return;
+    var index = await resp.json();
+    var scroll = document.getElementById('homilia-feed-scroll');
+    if (!scroll) return;
+    scroll.textContent = '';
+    index.episodes.forEach(function(ep) {
+      var dateParts = ep.date.split('-');
+      var dateLabel = dateParts[2] + '/' + dateParts[1];
+      var isActive = ep.date === currentHomiliaDate;
+      var card = document.createElement('div');
+      card.className = 'homilia-episode-card' + (isActive ? ' active' : '');
+      card.onclick = function() { loadHomilia(ep.date); };
+      var dateDiv = document.createElement('div');
+      dateDiv.className = 'homilia-ep-date';
+      dateDiv.textContent = dateLabel;
+      var titleDiv = document.createElement('div');
+      titleDiv.className = 'homilia-ep-title';
+      titleDiv.textContent = ep.title;
+      var durDiv = document.createElement('div');
+      durDiv.className = 'homilia-ep-duration';
+      durDiv.textContent = formatDuration(ep.duration);
+      card.appendChild(dateDiv);
+      card.appendChild(titleDiv);
+      card.appendChild(durDiv);
+      scroll.appendChild(card);
+    });
+  } catch (err) {
+    console.error('Failed to load feed:', err);
+  }
+}
+
+// Thumb dragging
+document.addEventListener('DOMContentLoaded', function() {
+  loadHomilia();
+
+  var thumb = document.getElementById('apf-thumb');
+  var track = document.getElementById('apf-track');
   if (!thumb || !track) return;
-
-  let dragging = false;
-
-  thumb.addEventListener('mousedown', () => dragging = true);
-  thumb.addEventListener('touchstart', () => dragging = true, { passive: true });
-
-  const moveHandler = (clientX) => {
-    if (!dragging) return;
-    const rect = track.getBoundingClientRect();
-    const x = clientX - rect.left;
-    progress = Math.max(0, Math.min(100, (x / rect.width) * 100));
-    updateAudioUI();
+  var dragging = false;
+  thumb.addEventListener('mousedown', function() { dragging = true; });
+  thumb.addEventListener('touchstart', function() { dragging = true; }, { passive: true });
+  var moveHandler = function(clientX) {
+    if (!dragging || !homiliaAudio || !homiliaAudio.duration) return;
+    var rect = track.getBoundingClientRect();
+    var x = clientX - rect.left;
+    var pct = Math.max(0, Math.min(1, x / rect.width));
+    homiliaAudio.currentTime = pct * homiliaAudio.duration;
   };
-
-  document.addEventListener('mousemove', e => moveHandler(e.clientX));
-  document.addEventListener('touchmove', e => moveHandler(e.touches[0].clientX), { passive: true });
-  document.addEventListener('mouseup', () => dragging = false);
-  document.addEventListener('touchend', () => dragging = false);
+  document.addEventListener('mousemove', function(e) { moveHandler(e.clientX); });
+  document.addEventListener('touchmove', function(e) { moveHandler(e.touches[0].clientX); }, { passive: true });
+  document.addEventListener('mouseup', function() { dragging = false; });
+  document.addEventListener('touchend', function() { dragging = false; });
 });
 
 // =================== MORE MENU ===================
