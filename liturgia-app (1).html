@@ -5292,47 +5292,47 @@ body.modo-missa.brilho-reduzido {
 <!-- CONTENT -->
 <div class="content-area">
 
+  <!-- NAV TABS (fora das sections para ficarem sempre visíveis) -->
+  <div class="nav-tabs" id="reading-tabs">
+    <button class="nav-tab active" data-tab="all">Todas as Leituras</button>
+    <button class="nav-tab" data-tab="1leitura">1ª Leitura</button>
+    <button class="nav-tab" data-tab="salmo">Salmo</button>
+    <button class="nav-tab" data-tab="2leitura">2ª Leitura</button>
+    <button class="nav-tab" data-tab="evangelho">Evangelho</button>
+    <button class="nav-tab" data-tab="santo">Santo do Dia</button>
+    <button class="nav-tab" data-tab="curiosidade">Curiosidade</button>
+  </div>
+
+  <!-- TOOLBAR (fora das sections para ficar sempre visível) -->
+  <div class="content-toolbar" id="reading-toolbar">
+    <div class="toolbar-group">
+      <button class="toolbar-btn" onclick="adjustFontSize(-1)" title="Diminuir fonte">
+        <span style="font-weight:700;font-size:13px">A</span><span style="font-size:9px">−</span>
+      </button>
+      <button class="toolbar-btn" onclick="adjustFontSize(1)" title="Aumentar fonte">
+        <span style="font-weight:700;font-size:13px">A</span><span style="font-size:9px">+</span>
+      </button>
+    </div>
+    <button class="toolbar-icon-btn" id="toolbar-listen" onclick="toggleListenMode(this)" title="Escutar o texto">
+      <span class="material-symbols-rounded">play_arrow</span>
+    </button>
+    <button class="toolbar-focus-btn" onclick="enterFocusMode()" title="Modo foco">
+      <span class="material-symbols-rounded" style="font-size:20px">fullscreen</span>
+      foco
+    </button>
+    <button class="toolbar-icon-btn" onclick="copyAllReadings()" title="Copiar tudo" id="toolbar-copy-btn">
+      <span class="material-symbols-rounded">content_copy</span>
+    </button>
+    <button class="toolbar-icon-btn" onclick="openShareModal()" title="Compartilhar">
+      <span class="material-symbols-rounded">share</span>
+    </button>
+    <button class="toolbar-wpp-btn" onclick="sendToWhatsApp()" title="Enviar para WhatsApp">
+      <span class="material-symbols-rounded" style="font-size:18px">chat</span>
+    </button>
+  </div>
+
   <!-- ========= ALL READINGS ========= -->
   <div class="content-section active" id="section-all">
-
-    <!-- NAV TABS (contextual to Leituras) -->
-    <div class="nav-tabs" id="reading-tabs">
-      <button class="nav-tab active" data-tab="all">Todas as Leituras</button>
-      <button class="nav-tab" data-tab="1leitura">1ª Leitura</button>
-      <button class="nav-tab" data-tab="salmo">Salmo</button>
-      <button class="nav-tab" data-tab="2leitura">2ª Leitura</button>
-      <button class="nav-tab" data-tab="evangelho">Evangelho</button>
-      <button class="nav-tab" data-tab="santo">Santo do Dia</button>
-      <button class="nav-tab" data-tab="curiosidade">Curiosidade</button>
-    </div>
-
-    <!-- TOOLBAR (contextual to Leituras) -->
-    <div class="content-toolbar">
-      <div class="toolbar-group">
-        <button class="toolbar-btn" onclick="adjustFontSize(-1)" title="Diminuir fonte">
-          <span style="font-weight:700;font-size:13px">A</span><span style="font-size:9px">−</span>
-        </button>
-        <button class="toolbar-btn" onclick="adjustFontSize(1)" title="Aumentar fonte">
-          <span style="font-weight:700;font-size:13px">A</span><span style="font-size:9px">+</span>
-        </button>
-      </div>
-      <button class="toolbar-icon-btn" id="toolbar-listen" onclick="toggleListenMode(this)" title="Escutar o texto">
-        <span class="material-symbols-rounded">play_arrow</span>
-      </button>
-      <button class="toolbar-focus-btn" onclick="enterFocusMode()" title="Modo foco">
-        <span class="material-symbols-rounded" style="font-size:20px">fullscreen</span>
-        foco
-      </button>
-      <button class="toolbar-icon-btn" onclick="copyAllReadings()" title="Copiar tudo" id="toolbar-copy-btn">
-        <span class="material-symbols-rounded">content_copy</span>
-      </button>
-      <button class="toolbar-icon-btn" onclick="openShareModal()" title="Compartilhar">
-        <span class="material-symbols-rounded">share</span>
-      </button>
-      <button class="toolbar-wpp-btn" onclick="sendToWhatsApp()" title="Enviar para WhatsApp">
-        <span class="material-symbols-rounded" style="font-size:18px">chat</span>
-      </button>
-    </div>
 
     <!-- VERSÍCULO DO DIA — Widget Card -->
     <div class="verse-widget-wrapper">
@@ -7901,9 +7901,21 @@ function switchMainTab(tab) {
   const navBtn = document.querySelector(`.bottom-nav .nav-item[data-main="${tab}"]`);
   if (navBtn) navBtn.classList.add('active');
 
-  // Reset reading tabs
-  if (['oracoes','notes','salvos','busca','settings'].includes(tab)) {
+  // Show/hide reading tabs and toolbar for non-reading sections
+  const readingTabs = document.getElementById('reading-tabs');
+  const readingToolbar = document.getElementById('reading-toolbar');
+  const isReadingSection = ['all','1leitura','salmo','2leitura','evangelho','santo','curiosidade'].includes(tab);
+  if (readingTabs) readingTabs.style.display = isReadingSection ? '' : 'none';
+  if (readingToolbar) readingToolbar.style.display = isReadingSection ? '' : 'none';
+
+  // Reset reading tabs active state for non-reading sections
+  if (!isReadingSection) {
     document.querySelectorAll('#reading-tabs .nav-tab').forEach(t => t.classList.remove('active'));
+  } else if (tab === 'all') {
+    // When returning to Leituras, re-activate "Todas as Leituras" tab
+    document.querySelectorAll('#reading-tabs .nav-tab').forEach(t => t.classList.remove('active'));
+    const allTab = document.querySelector('#reading-tabs .nav-tab[data-tab="all"]');
+    if (allTab) allTab.classList.add('active');
   }
 
   // Scroll to top
@@ -8487,26 +8499,60 @@ function tercoToggleAudio() {
 document.addEventListener('DOMContentLoaded', initTerco);
 
 // =================== ONBOARDING ===================
-let onbData = { name: '', age: '', missa: '', praticas: [], horario: '' };
+let onbData = { name: '', age: '', missa: '', praticas: [], horario: '', theme: '', darkMode: false };
+
+function selectOnbTheme(btn, theme) {
+  document.querySelectorAll('.onb-theme-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  onbData.theme = theme;
+  // Apply theme live
+  if (theme) {
+    document.body.setAttribute('data-visual', theme);
+  } else {
+    document.body.removeAttribute('data-visual');
+  }
+  // Sync settings panel
+  document.querySelectorAll('.theme-option').forEach(t => t.classList.remove('active'));
+  var settingsBtn = document.querySelector('.theme-option[data-visual="' + theme + '"]');
+  if (settingsBtn) settingsBtn.classList.add('active');
+}
+
+function toggleOnbDark() {
+  onbData.darkMode = !onbData.darkMode;
+  var track = document.getElementById('onb-dark-track');
+  var icon = document.getElementById('onb-dark-icon');
+  track.classList.toggle('on', onbData.darkMode);
+  icon.textContent = onbData.darkMode ? 'dark_mode' : 'light_mode';
+  // Apply dark mode live
+  if (onbData.darkMode) {
+    document.body.setAttribute('data-theme', 'dark');
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) toggle.classList.add('active');
+  } else {
+    document.body.removeAttribute('data-theme');
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) toggle.classList.remove('active');
+  }
+}
 
 function nextOnbStep(step) {
   // Collect data from current step
-  if (step === 3) {
+  if (step === 4) {
     onbData.name = document.getElementById('onb-name').value.trim() || 'Peregrino';
     const ageBtn = document.querySelector('#onb-age .onb-opt.selected');
     onbData.age = ageBtn ? ageBtn.textContent.trim() : '';
   }
-  if (step === 4) {
+  if (step === 5) {
     const missaBtn = document.querySelector('#onb-missa .onb-opt-full.selected');
     onbData.missa = missaBtn ? missaBtn.querySelector('strong').textContent.trim() : '';
   }
-  if (step === 5) {
+  if (step === 6) {
     onbData.praticas = [];
     document.querySelectorAll('#onb-praticas .onb-opt-full.selected').forEach(b => {
       onbData.praticas.push(b.querySelector('strong').textContent.trim());
     });
   }
-  if (step === 6) {
+  if (step === 7) {
     const horBtn = document.querySelector('#onb-horario .onb-opt.selected');
     onbData.horario = horBtn ? horBtn.textContent.trim() : '';
 
@@ -8543,13 +8589,9 @@ function finishOnboarding() {
   const overlay = document.getElementById('onboarding');
   overlay.classList.add('hidden');
 
-  // Apply theme based on age
-  if (onbData.age === 'Até 18' || onbData.age === '19–30') {
-    document.body.setAttribute('data-visual', 'jovem');
-    document.querySelectorAll('.theme-option').forEach(t => t.classList.remove('active'));
-    const jovemBtn = document.querySelector('.theme-option[data-visual="jovem"]');
-    if (jovemBtn) jovemBtn.classList.add('active');
-  } else if (onbData.age === '70+') {
+  // Theme already applied live during onboarding step 2
+  // Adjust font size for older users
+  if (onbData.age === '70+') {
     changeFontSize(1.15);
     const slider = document.querySelector('input[type="range"]');
     if (slider) slider.value = 1.15;

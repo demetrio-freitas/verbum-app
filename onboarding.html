@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Verbum — Onboarding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   DESIGN TOKENS — ONBOARDING
+   ======================================== */
+:root {
+  --bg: #FAFAF7;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F2F1EC;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --accent: #78350F;
+  --accent-light: #D97706;
+  --accent-soft: rgba(120,53,15,0.06);
+  --accent-glow: rgba(120,53,15,0.12);
+  --green: #16A34A;
+  --green-soft: rgba(22,163,74,0.08);
+  --border: rgba(28,25,23,0.06);
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+/* ========================================
+   THEME DEFINITIONS
+   ======================================== */
+[data-theme="classico"] {
+  --bg: #FAFAF7; --bg-card: #FFFFFF; --bg-elevated: #F2F1EC;
+  --text-primary: #1C1917; --text-secondary: #57534E; --text-tertiary: #A8A29E;
+  --accent: #78350F; --accent-light: #D97706;
+  --accent-soft: rgba(120,53,15,0.06); --accent-glow: rgba(120,53,15,0.12);
+  --border: rgba(28,25,23,0.06);
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+[data-theme="classico"][data-mode="dark"] {
+  --bg: #0C0A09; --bg-card: #1C1917; --bg-elevated: #292524;
+  --text-primary: #FAFAF9; --text-secondary: #A8A29E; --text-tertiary: #57534E;
+  --accent: #D97706; --accent-light: #F59E0B;
+  --accent-soft: rgba(217,119,6,0.08); --accent-glow: rgba(217,119,6,0.12);
+  --border: rgba(250,250,249,0.06);
+}
+
+[data-theme="serenidade"] {
+  --bg: #F0F4F8; --bg-card: #FFFFFF; --bg-elevated: #E3EAF0;
+  --text-primary: #1B2A3D; --text-secondary: #5A6F85; --text-tertiary: #8B9DB0;
+  --accent: #3B6FA0; --accent-light: #7BA7D0;
+  --accent-soft: rgba(59,111,160,0.08); --accent-glow: rgba(59,111,160,0.12);
+  --border: rgba(27,42,61,0.08);
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Nunito', sans-serif;
+}
+[data-theme="serenidade"][data-mode="dark"] {
+  --bg: #0E1620; --bg-card: #162030; --bg-elevated: #1E2D40;
+  --text-primary: #D8E3EE; --text-secondary: #8B9DB0; --text-tertiary: #5A6F85;
+  --accent: #7BA7D0; --accent-light: #A3C4E0;
+  --accent-soft: rgba(123,167,208,0.1); --accent-glow: rgba(123,167,208,0.12);
+  --border: rgba(216,227,238,0.08);
+}
+
+[data-theme="jovem"] {
+  --bg: #F5F0FA; --bg-card: #FFFFFF; --bg-elevated: #EDE5F5;
+  --text-primary: #1E1229; --text-secondary: #6B5A7D; --text-tertiary: #9A8AAD;
+  --accent: #7C3AED; --accent-light: #A78BFA;
+  --accent-soft: rgba(124,58,237,0.08); --accent-glow: rgba(124,58,237,0.12);
+  --border: rgba(30,18,41,0.07);
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+}
+[data-theme="jovem"][data-mode="dark"] {
+  --bg: #110D1B; --bg-card: #1A1525; --bg-elevated: #241E32;
+  --text-primary: #E8E0F0; --text-secondary: #9A8AAD; --text-tertiary: #6B5A7D;
+  --accent: #A78BFA; --accent-light: #C4B5FD;
+  --accent-soft: rgba(167,139,250,0.1); --accent-glow: rgba(167,139,250,0.12);
+  --border: rgba(232,224,240,0.07);
+}
+
+[data-theme="minimalista"] {
+  --bg: #FFFFFF; --bg-card: #FAFAFA; --bg-elevated: #F0F0F0;
+  --text-primary: #111111; --text-secondary: #555555; --text-tertiary: #999999;
+  --accent: #111111; --accent-light: #555555;
+  --accent-soft: rgba(17,17,17,0.04); --accent-glow: rgba(17,17,17,0.08);
+  --border: rgba(0,0,0,0.06);
+  --font-display: 'Lora', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+[data-theme="minimalista"][data-mode="dark"] {
+  --bg: #0A0A0A; --bg-card: #141414; --bg-elevated: #1E1E1E;
+  --text-primary: #E5E5E5; --text-secondary: #999999; --text-tertiary: #555555;
+  --accent: #E5E5E5; --accent-light: #CCCCCC;
+  --accent-soft: rgba(229,229,229,0.06); --accent-glow: rgba(229,229,229,0.08);
+  --border: rgba(255,255,255,0.06);
+}
+
+[data-theme="natureza"] {
+  --bg: #F2F0EB; --bg-card: #FAFAF7; --bg-elevated: #E8E5DD;
+  --text-primary: #2C2E1F; --text-secondary: #5E6349; --text-tertiary: #8B9070;
+  --accent: #5B7A3D; --accent-light: #8DAA6F;
+  --accent-soft: rgba(91,122,61,0.08); --accent-glow: rgba(91,122,61,0.12);
+  --border: rgba(44,46,31,0.08);
+  --font-display: 'Lora', serif;
+  --font-body: 'Nunito', sans-serif;
+}
+[data-theme="natureza"][data-mode="dark"] {
+  --bg: #111410; --bg-card: #1A1E17; --bg-elevated: #232820;
+  --text-primary: #DDE0D5; --text-secondary: #8B9070; --text-tertiary: #5E6349;
+  --accent: #8DAA6F; --accent-light: #A8C48A;
+  --accent-soft: rgba(141,170,111,0.1); --accent-glow: rgba(141,170,111,0.12);
+  --border: rgba(221,224,213,0.07);
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* ========================================
+   PHONE FRAME
+   ======================================== */
+.phone-frame {
+  max-width: 390px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+.progress-bar {
+  height: 3px;
+  background: var(--bg-elevated);
+  margin: 12px 20px 0;
+  border-radius: 2px;
+  transition: background 0.4s ease;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+/* ========================================
+   STEP CONTAINER
+   ======================================== */
+.steps-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.step {
+  display: none;
+  padding: 40px 24px;
+  min-height: 100%;
+  animation: fadeIn 0.35s ease;
+}
+.step.active { display: flex; flex-direction: column; justify-content: center; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   STEP 0: WELCOME
+   ======================================== */
+.welcome { align-items: center; text-align: center; }
+.welcome h1 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color 0.4s ease;
+}
+.welcome .subtitle {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--text-secondary);
+  margin-top: 12px;
+  line-height: 1.5;
+  transition: color 0.4s ease;
+}
+.welcome .hint {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-top: 20px;
+  line-height: 1.5;
+  transition: color 0.4s ease;
+}
+
+/* ========================================
+   STEP 1: THEME SELECTOR
+   ======================================== */
+.step-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  transition: font-family 0.4s ease, color 0.4s ease;
+}
+.step-desc {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+  transition: color 0.4s ease;
+}
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 12px;
+  transition: color 0.4s ease;
+}
+
+.theme-list { display: flex; flex-direction: column; gap: 10px; }
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.theme-option:active { transform: scale(0.98); }
+.theme-option.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.theme-dot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.theme-info { flex: 1; }
+.theme-info .name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color 0.4s ease;
+}
+.theme-info .desc {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+  transition: color 0.4s ease;
+}
+.theme-check {
+  color: var(--accent);
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.4s ease;
+}
+.theme-option.selected .theme-check { opacity: 1; }
+
+/* Dark mode toggle */
+.dark-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  margin-top: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+.dark-toggle-left {
+  display: flex; align-items: center; gap: 12px;
+}
+.dark-toggle-left .material-symbols-rounded {
+  font-size: 22px;
+  color: var(--accent);
+  transition: color 0.4s ease;
+}
+.dark-toggle-left span:last-child {
+  font-size: 15px;
+  color: var(--text-primary);
+  transition: color 0.4s ease;
+}
+.toggle-track {
+  width: 48px; height: 28px;
+  border-radius: 14px;
+  background: var(--bg-elevated);
+  position: relative;
+  transition: background 0.3s ease;
+}
+.toggle-track.on { background: var(--accent); }
+.toggle-thumb {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #FFF;
+  position: absolute;
+  top: 3px; left: 3px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.toggle-track.on .toggle-thumb { transform: translateX(20px); }
+
+/* ========================================
+   STEP 2: NAME & AGE
+   ======================================== */
+.name-input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 24px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.4s ease, color 0.4s ease;
+}
+.name-input::placeholder { color: var(--text-tertiary); }
+.name-input:focus { border-color: var(--accent); }
+
+.age-chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.age-chip {
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-size: 14px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.age-chip:active { transform: scale(0.96); }
+.age-chip.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ========================================
+   STEP 3: MASS FREQUENCY
+   ======================================== */
+.option-list { display: flex; flex-direction: column; gap: 10px; }
+.option-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.option-card:active { transform: scale(0.98); }
+.option-card.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.option-card .material-symbols-rounded {
+  font-size: 22px;
+  color: var(--text-tertiary);
+  transition: color 0.2s ease;
+}
+.option-card.selected .material-symbols-rounded { color: var(--accent); }
+.option-card .label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color 0.4s ease;
+}
+.option-card .sublabel {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+  transition: color 0.4s ease;
+}
+
+/* ========================================
+   STEP 4: PRACTICES (chips)
+   ======================================== */
+.practice-chips {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.practice-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.practice-chip:active { transform: scale(0.96); }
+.practice-chip .material-symbols-rounded {
+  font-size: 18px;
+  color: var(--text-tertiary);
+  transition: color 0.2s ease;
+}
+.practice-chip.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.practice-chip.selected .material-symbols-rounded { color: var(--accent); }
+
+/* ========================================
+   STEP 5: NOTIFICATION TIME
+   ======================================== */
+.notif-row {
+  display: flex; gap: 10px; justify-content: center;
+}
+.notif-option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 0;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.notif-option:active { transform: scale(0.96); }
+.notif-option .material-symbols-rounded {
+  font-size: 22px;
+  color: var(--text-tertiary);
+  transition: color 0.2s ease;
+}
+.notif-option.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.notif-option.selected .material-symbols-rounded { color: var(--accent); }
+
+/* ========================================
+   STEP 6: DONE
+   ======================================== */
+.done { align-items: center; text-align: center; }
+.done .material-symbols-rounded {
+  font-size: 64px;
+  color: var(--green);
+}
+.done h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 16px;
+  transition: font-family 0.4s ease, color 0.4s ease;
+}
+.done p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 12px;
+  line-height: 1.6;
+  transition: color 0.4s ease;
+}
+
+/* ========================================
+   BOTTOM BUTTON
+   ======================================== */
+.bottom-bar {
+  padding: 0 24px 24px;
+}
+.btn-primary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: #FFF;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary .material-symbols-rounded { font-size: 20px; }
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+.steps-wrapper::-webkit-scrollbar { width: 0; }
+</style>
+</head>
+<body data-theme="classico" data-mode="light">
+
+<div class="phone-frame">
+  <!-- Progress Bar -->
+  <div class="progress-bar">
+    <div class="progress-bar-fill" id="progressFill" style="width: 14.28%"></div>
+  </div>
+
+  <div class="steps-wrapper">
+    <!-- Step 0: Welcome -->
+    <div class="step active welcome" data-step="0">
+      <h1>Verbum</h1>
+      <p class="subtitle">Sua caminhada diária<br>com a Palavra de Deus</p>
+      <p class="hint">Vamos personalizar o app para a sua jornada de fé.<br>Leva menos de 1 minuto.</p>
+    </div>
+
+    <!-- Step 1: Theme -->
+    <div class="step" data-step="1">
+      <h2 class="step-title">Qual é o seu estilo?</h2>
+      <p class="step-desc">Escolha o tema visual do app. Você pode mudar depois.</p>
+      <div class="theme-list">
+        <div class="theme-option selected" data-theme-key="classico" onclick="selectTheme(this)">
+          <div class="theme-dot" style="background:#78350F"></div>
+          <div class="theme-info">
+            <div class="name">Clássico</div>
+            <div class="desc">Tons quentes, tipografia serifada</div>
+          </div>
+          <span class="material-symbols-rounded theme-check">check_circle</span>
+        </div>
+        <div class="theme-option" data-theme-key="serenidade" onclick="selectTheme(this)">
+          <div class="theme-dot" style="background:#3B6FA0"></div>
+          <div class="theme-info">
+            <div class="name">Serenidade</div>
+            <div class="desc">Azul calmo e contemplativo</div>
+          </div>
+          <span class="material-symbols-rounded theme-check">check_circle</span>
+        </div>
+        <div class="theme-option" data-theme-key="jovem" onclick="selectTheme(this)">
+          <div class="theme-dot" style="background:#7C3AED"></div>
+          <div class="theme-info">
+            <div class="name">Jovem</div>
+            <div class="desc">Moderno e vibrante</div>
+          </div>
+          <span class="material-symbols-rounded theme-check">check_circle</span>
+        </div>
+        <div class="theme-option" data-theme-key="minimalista" onclick="selectTheme(this)">
+          <div class="theme-dot" style="background:#111111"></div>
+          <div class="theme-info">
+            <div class="name">Minimalista</div>
+            <div class="desc">Limpo e essencial</div>
+          </div>
+          <span class="material-symbols-rounded theme-check">check_circle</span>
+        </div>
+        <div class="theme-option" data-theme-key="natureza" onclick="selectTheme(this)">
+          <div class="theme-dot" style="background:#5B7A3D"></div>
+          <div class="theme-info">
+            <div class="name">Natureza</div>
+            <div class="desc">Verde e terra, orgânico</div>
+          </div>
+          <span class="material-symbols-rounded theme-check">check_circle</span>
+        </div>
+      </div>
+
+      <!-- Dark mode toggle -->
+      <div class="dark-toggle" onclick="toggleDark()">
+        <div class="dark-toggle-left">
+          <span class="material-symbols-rounded" id="darkIcon">light_mode</span>
+          <span>Modo escuro</span>
+        </div>
+        <div class="toggle-track" id="darkTrack">
+          <div class="toggle-thumb"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Name & Age -->
+    <div class="step" data-step="2">
+      <h2 class="step-title">Como podemos te chamar?</h2>
+      <input type="text" class="name-input" placeholder="Seu nome">
+      <div class="section-label">Faixa etária</div>
+      <div class="age-chips">
+        <div class="age-chip" onclick="selectChip(this, '.age-chip')">Até 18</div>
+        <div class="age-chip" onclick="selectChip(this, '.age-chip')">19–30</div>
+        <div class="age-chip" onclick="selectChip(this, '.age-chip')">31–50</div>
+        <div class="age-chip" onclick="selectChip(this, '.age-chip')">51–70</div>
+        <div class="age-chip" onclick="selectChip(this, '.age-chip')">70+</div>
+      </div>
+    </div>
+
+    <!-- Step 3: Mass Frequency -->
+    <div class="step" data-step="3">
+      <h2 class="step-title">Com que frequência vai à Missa?</h2>
+      <div class="option-list">
+        <div class="option-card" onclick="selectCard(this)">
+          <span class="material-symbols-rounded">event_repeat</span>
+          <div>
+            <div class="label">Todo domingo</div>
+            <div class="sublabel">E às vezes durante a semana</div>
+          </div>
+        </div>
+        <div class="option-card" onclick="selectCard(this)">
+          <span class="material-symbols-rounded">calendar_month</span>
+          <div>
+            <div class="label">Quase todo domingo</div>
+            <div class="sublabel">Quando consigo ir</div>
+          </div>
+        </div>
+        <div class="option-card" onclick="selectCard(this)">
+          <span class="material-symbols-rounded">event</span>
+          <div>
+            <div class="label">Algumas vezes por mês</div>
+            <div class="sublabel">Vou quando posso</div>
+          </div>
+        </div>
+        <div class="option-card" onclick="selectCard(this)">
+          <span class="material-symbols-rounded">event_busy</span>
+          <div>
+            <div class="label">Raramente ou nunca</div>
+            <div class="sublabel">Quero voltar a frequentar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Spiritual Practices -->
+    <div class="step" data-step="4">
+      <h2 class="step-title">O que já faz parte da sua vida de oração?</h2>
+      <div class="practice-chips">
+        <div class="practice-chip" onclick="toggleChip(this)">
+          <span class="material-symbols-rounded">radio_button_checked</span> Terço/Rosário
+        </div>
+        <div class="practice-chip" onclick="toggleChip(this)">
+          <span class="material-symbols-rounded">auto_stories</span> Lectio Divina
+        </div>
+        <div class="practice-chip" onclick="toggleChip(this)">
+          <span class="material-symbols-rounded">schedule</span> Liturgia das Horas
+        </div>
+        <div class="practice-chip" onclick="toggleChip(this)">
+          <span class="material-symbols-rounded">hourglass_top</span> Novenas
+        </div>
+        <div class="practice-chip" onclick="toggleChip(this)">
+          <span class="material-symbols-rounded">self_improvement</span> Adoração ao Santíssimo
+        </div>
+        <div class="practice-chip" onclick="toggleChip(this)">
+          <span class="material-symbols-rounded">wb_twilight</span> Estou começando agora
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Notification Time -->
+    <div class="step" data-step="5">
+      <h2 class="step-title">Quando quer ser lembrado de ler o Evangelho?</h2>
+      <div class="notif-row">
+        <div class="notif-option" onclick="selectNotif(this)">
+          <span class="material-symbols-rounded">wb_twilight</span> 6h
+        </div>
+        <div class="notif-option" onclick="selectNotif(this)">
+          <span class="material-symbols-rounded">wb_sunny</span> 8h
+        </div>
+        <div class="notif-option" onclick="selectNotif(this)">
+          <span class="material-symbols-rounded">lunch_dining</span> 12h
+        </div>
+        <div class="notif-option" onclick="selectNotif(this)">
+          <span class="material-symbols-rounded">nightlight</span> 21h
+        </div>
+        <div class="notif-option" onclick="selectNotif(this)">
+          <span class="material-symbols-rounded">notifications_off</span> Não
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 6: Done -->
+    <div class="step done" data-step="6">
+      <span class="material-symbols-rounded">check_circle</span>
+      <h2>Tudo pronto!</h2>
+      <p>O app foi personalizado para a sua caminhada. Você pode mudar qualquer configuração depois.</p>
+    </div>
+  </div>
+
+  <!-- Bottom Button -->
+  <div class="bottom-bar">
+    <button class="btn-primary" id="btnNext" onclick="nextStep()">
+      <span id="btnLabel">Começar</span>
+      <span class="material-symbols-rounded" id="btnIcon">arrow_forward</span>
+    </button>
+  </div>
+</div>
+
+<script>
+let currentStep = 0;
+const totalSteps = 7;
+let isDark = false;
+
+function nextStep() {
+  if (currentStep >= totalSteps - 1) {
+    alert('Onboarding completo! 🙏');
+    return;
+  }
+  document.querySelector(`.step[data-step="${currentStep}"]`).classList.remove('active');
+  currentStep++;
+  document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+  updateProgress();
+  updateButton();
+  // Scroll to top of step
+  document.querySelector('.steps-wrapper').scrollTop = 0;
+}
+
+function updateProgress() {
+  const pct = ((currentStep + 1) / totalSteps) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function updateButton() {
+  const label = document.getElementById('btnLabel');
+  const icon = document.getElementById('btnIcon');
+  if (currentStep === 0) {
+    label.textContent = 'Começar';
+    icon.textContent = 'arrow_forward';
+  } else if (currentStep === totalSteps - 1) {
+    label.textContent = 'Começar a rezar';
+    icon.textContent = 'menu_book';
+  } else {
+    label.textContent = 'Continuar';
+    icon.textContent = 'arrow_forward';
+  }
+}
+
+function selectTheme(el) {
+  document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  const themeKey = el.dataset.themeKey;
+  document.body.dataset.theme = themeKey;
+}
+
+function toggleDark() {
+  isDark = !isDark;
+  document.body.dataset.mode = isDark ? 'dark' : 'light';
+  document.getElementById('darkTrack').classList.toggle('on', isDark);
+  document.getElementById('darkIcon').textContent = isDark ? 'dark_mode' : 'light_mode';
+}
+
+function selectChip(el, selector) {
+  document.querySelectorAll(selector).forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function selectCard(el) {
+  el.parentElement.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function toggleChip(el) {
+  el.classList.toggle('selected');
+}
+
+function selectNotif(el) {
+  document.querySelectorAll('.notif-option').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+</script>
+</body>
+</html>
