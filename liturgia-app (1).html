@@ -9380,72 +9380,140 @@ function changeMaxNotif(delta) {
   var dd = today.getDate(), mm = today.getMonth(), yy = today.getFullYear();
   if (yy !== 2026 || mm !== 3 || dd < 6 || dd > 12) return;
 
+  // Dados litúrgicos: chave = dia do mês de abril 2026
+  var L = {
+    6: { t:'Segunda-feira da Oitava da Páscoa', ds:'Segunda-feira', dt:'06 de Abril de 2026',
+      v:['"Ide anunciar a meus irmãos que se dirijam para a Galileia. Lá eles me verão."','Mateus 28,10'],
+      l1:['Atos dos Apóstolos 2,14.22-33','Naqueles dias, Pedro, de pé com os onze Apóstolos, levantou a voz e disse: "Homens de Israel, escutai estas palavras: Jesus de Nazaré foi um homem aprovado por Deus diante de vós com milagres, prodígios e sinais. Entregue segundo o plano determinado e a presciência de Deus, vós o matastes, pregando-o numa cruz por mãos de ímpios. Mas Deus o ressuscitou, libertando-o das dores da morte, porque não era possível que ela o dominasse. Deus ressuscitou este Jesus: todos nós somos testemunhas disso. Exaltado pela direita de Deus e tendo recebido do Pai o Espírito Santo prometido, derramou-o, como vós vedes e ouvis."'],
+      sl:['Salmo 15 (16)','R: Guardai-me, ó Deus, porque em vós me refugio.\n\nGuardai-me, ó Deus, porque em vós me refugio. Eu digo ao Senhor: "Vós sois o meu Senhor." R.\n\nEu bendigo o Senhor, que me aconselha, e até de noite me adverte o coração. Eu sempre tenho o Senhor ante os meus olhos. R.\n\nPor isso o meu coração está contente, minha alma rejubila de alegria, e até meu corpo repousa em segurança. Pois não haveis de me entregar à morte. R.'],
+      l2:null,
+      ev:['Mateus 28,8-15','Naquele tempo, as mulheres partiram depressa do sepulcro. Com medo e com grande alegria, correram para dar a notícia aos discípulos. E eis que Jesus veio ao encontro delas, e disse: "Alegrai-vos!" Elas se aproximaram, abraçaram seus pés e o adoraram. Então Jesus disse a elas: "Não tenhais medo. Ide comunicar a meus irmãos que se dirijam para a Galileia. Lá eles me verão." Enquanto elas iam, alguns guardas foram à cidade e contaram aos sumos sacerdotes tudo o que havia acontecido. Estes reuniram-se com os anciãos e deram uma grande soma de dinheiro aos soldados, com a recomendação: "Dizei que os discípulos vieram de noite e roubaram o corpo, enquanto dormíeis." Os soldados aceitaram o dinheiro e fizeram como tinham sido instruídos.'],
+      rf:'"Alegrai-vos!" \u2014 É a primeira palavra do Ressuscitado às mulheres. A alegria pascal nasce do encontro com Cristo vivo. Mesmo em meio ao medo, a alegria da Ressurreição é mais forte.',
+      sn:'Segunda da Oitava', sd:'A Oitava de Páscoa continua: cada dia desta semana é celebrado como o próprio Domingo de Páscoa. Aleluia!'
+    },
+    7: { t:'Terça-feira da Oitava da Páscoa', ds:'Terça-feira', dt:'07 de Abril de 2026',
+      v:['"Maria! \u2014 Rabôni!" (que quer dizer: Mestre!)','João 20,16'],
+      l1:['Atos dos Apóstolos 2,36-41','Naqueles dias, Pedro disse aos judeus: "Que toda a casa de Israel saiba com certeza: Deus tornou Senhor e Cristo este Jesus que vós crucificastes." Ouvindo isso, ficaram com o coração compungido e perguntaram a Pedro e aos demais apóstolos: "Irmãos, que devemos fazer?" Pedro respondeu: "Arrependei-vos e cada um de vós seja batizado em nome de Jesus Cristo, para o perdão dos vossos pecados. E recebereis o dom do Espírito Santo." Com muitas outras palavras dava testemunho e exortava: "Salvai-vos desta geração perversa!" Os que aceitaram a sua palavra foram batizados. Naquele dia, juntaram-se a eles cerca de três mil pessoas.'],
+      sl:['Salmo 32 (33)','R: A terra está cheia da bondade do Senhor.\n\nReta é a palavra do Senhor, e tudo o que ele faz merece fé. Ele ama o direito e a justiça, a terra está cheia da bondade do Senhor. R.\n\nMas o Senhor pousa o olhar sobre os que o temem, sobre aqueles que esperam sua graça, para da morte libertar as suas vidas. R.\n\nEm Deus está a nossa esperança, pois ele é nosso auxílio e proteção! Sobre nós venha, Senhor, a vossa graça, da mesma forma que em vós nós esperamos! R.'],
+      l2:null,
+      ev:['João 20,11-18','Naquele tempo, Maria estava do lado de fora do túmulo, chorando. Enquanto chorava, inclinou-se para olhar dentro do túmulo e viu dois anjos vestidos de branco, sentados onde o corpo de Jesus fora colocado. Perguntaram: "Mulher, por que choras?" Ela respondeu: "Levaram o meu Senhor e não sei onde o colocaram." Voltou-se para trás e viu Jesus, de pé, mas não sabia que era ele. Jesus disse: "Mulher, por que choras? A quem procuras?" Pensando que fosse o jardineiro, ela disse: "Senhor, se foste tu que o levaste, dize-me onde o colocaste." Então Jesus disse: "Maria!" Ela voltou-se e disse: "Rabôni!" (Mestre). Jesus disse: "Não me segures, porque ainda não subi ao Pai. Mas vai dizer aos meus irmãos: Subo para o meu Pai e vosso Pai, meu Deus e vosso Deus." Maria Madalena foi anunciar aos discípulos: "Eu vi o Senhor!", e contou o que ele lhe tinha dito.'],
+      rf:'"Maria!" \u2014 Bastou Jesus chamá-la pelo nome para que tudo mudasse. O luto virou encontro, a perda virou presença. No silêncio da oração, ele nos chama pelo nome \u2014 e espera nossa resposta.',
+      sn:'Terça da Oitava', sd:'Maria Madalena é a primeira a ver o Ressuscitado. A tradição a chama "Apóstola dos Apóstolos" \u2014 foi ela quem levou a boa-nova aos Doze.'
+    },
+    8: { t:'Quarta-feira da Oitava da Páscoa', ds:'Quarta-feira', dt:'08 de Abril de 2026',
+      v:['"Não ardia o nosso coração quando ele nos falava pelo caminho e nos explicava as Escrituras?"','Lucas 24,32'],
+      l1:['Atos dos Apóstolos 3,1-10','Naqueles dias, Pedro e João subiam ao Templo para a oração das três horas da tarde. Havia ali um homem, paralítico de nascença, que era colocado junto à porta do Templo chamada "Formosa". Pedro disse: "Não tenho ouro nem prata, mas o que tenho eu te dou: em nome de Jesus Cristo, o Nazareno, levanta-te e anda!" Pegou-o pela mão direita e o levantou. Na mesma hora, os pés e os tornozelos ficaram firmes. De um pulo, ficou de pé e começou a andar. Entrou com eles no Templo, andando, saltando e louvando a Deus. Todo o povo o viu andando e louvando a Deus, e ficaram admirados e estupefatos.'],
+      sl:['Salmo 104 (105)','R: Alegrem-se os corações que buscam o Senhor.\n\nDai graças ao Senhor, invocai o seu nome, anunciai entre os povos os seus feitos! Cantai para ele, salmodiai, publicai todas as suas maravilhas! R.\n\nGloriai-vos em seu nome santo, alegrem-se os corações que buscam o Senhor! Procurai o Senhor Deus e o seu poder, procurai sem cessar a sua face! R.\n\nEle é o Senhor, ele é nosso Deus; seus julgamentos valem para toda a terra. R.'],
+      l2:null,
+      ev:['Lucas 24,13-35','Naquele dia, dois dos discípulos iam a caminho de Emaús. Conversavam sobre tudo o que havia acontecido. O próprio Jesus se aproximou e começou a caminhar com eles, mas os olhos deles estavam impedidos de reconhecê-lo. Começando por Moisés e por todos os Profetas, explicou-lhes tudo o que as Escrituras diziam a seu respeito. Quando se aproximaram da aldeia, insistiram: "Fica conosco, pois já é tarde." Quando se pôs à mesa, tomou o pão, abençoou-o, partiu-o e lhes deu. Então seus olhos se abriram e o reconheceram. Mas ele desapareceu. Disseram: "Não ardia o nosso coração quando ele nos explicava as Escrituras?" Levantaram-se na mesma hora e voltaram a Jerusalém, onde os Onze disseram: "O Senhor ressuscitou de verdade!" Então contaram como o tinham reconhecido ao partir o pão.'],
+      rf:'"Fica conosco, pois já é tarde." \u2014 Jesus se aproxima de quem caminha desiludido. O coração arde quando a Palavra é explicada. Os olhos se abrem quando o pão é partido. A Eucaristia é o lugar privilegiado do encontro com o Ressuscitado.',
+      sn:'Quarta da Oitava', sd:'O episódio de Emaús mostra a estrutura da Missa: Liturgia da Palavra ("explicou as Escrituras") e Eucaristia ("reconheceram-no ao partir o pão").'
+    },
+    9: { t:'Quinta-feira da Oitava da Páscoa', ds:'Quinta-feira', dt:'09 de Abril de 2026',
+      v:['"Vede as minhas mãos e os meus pés: sou eu mesmo! Apalpai e vede!"','Lucas 24,39'],
+      l1:['Atos dos Apóstolos 3,11-26','Naqueles dias, como o paralítico curado não largava Pedro e João, todo o povo correu até eles no Pórtico de Salomão. Pedro disse: "Israelitas, por que vos admirais? O Deus de Abraão, de Isaac e de Jacó glorificou o seu servo Jesus, que vós entregastes e rejeitastes diante de Pilatos. Vós rejeitastes o Santo e o Justo e pedistes a libertação de um assassino. Matastes o Autor da vida, mas Deus o ressuscitou dos mortos: nós somos testemunhas disso. E pela fé em seu nome, este homem que vedes foi curado. Arrependei-vos e convertei-vos, para que os vossos pecados sejam apagados."'],
+      sl:['Salmo 8','R: Ó Senhor, nosso Deus, como é grande vosso nome por toda a terra!\n\nÓ Senhor, nosso Deus, como é grande vosso nome por toda a terra! Vossa majestade se elevou acima dos céus. R.\n\nQue é o ser humano, para dele vos lembrardes, o filho do homem, para visitá-lo? Pouco abaixo dos anjos o criastes, de glória e honra o coroastes. R.\n\nSobre as obras de vossas mãos lhe destes poder e sob seus pés tudo pusestes. R.'],
+      l2:null,
+      ev:['Lucas 24,35-48','Naquele tempo, os dois discípulos de Emaús contaram como tinham reconhecido Jesus ao partir o pão. Ainda estavam falando, quando Jesus apareceu no meio deles: "A paz esteja convosco!" Cheios de medo, pensavam ver um fantasma. Jesus disse: "Por que estais perturbados? Vede as minhas mãos e os meus pés: sou eu mesmo! Apalpai e vede! Um fantasma não tem carne nem ossos." Mostrou-lhes as mãos e os pés. Mas ainda não acreditavam, por causa da alegria. Jesus disse: "Tendes algo para comer?" Deram-lhe peixe assado. Ele comeu diante deles. Depois disse: "Era preciso que se cumprisse tudo o que está escrito sobre mim na Lei, nos Profetas e nos Salmos." Abriu-lhes a inteligência para entenderem as Escrituras: "O Cristo sofrerá e ressuscitará ao terceiro dia, e no seu nome será pregada a conversão a todas as nações. Vós sereis testemunhas."'],
+      rf:'"Vede as minhas mãos e os meus pés." \u2014 Jesus ressuscitado não escondeu suas feridas: mostrou-as. A Ressurreição não apagou a cruz, mas a transformou em sinal de vitória. Nossas próprias feridas, oferecidas a Deus, podem se tornar lugar de encontro.',
+      sn:'Quinta da Oitava', sd:'Jesus come peixe diante dos discípulos \u2014 a Ressurreição é corporal, real, concreta. Não é uma metáfora: o Ressuscitado tem carne e ossos.'
+    },
+    10: { t:'Sexta-feira da Oitava da Páscoa', ds:'Sexta-feira', dt:'10 de Abril de 2026',
+      v:['"É o Senhor!" \u2014 Simão Pedro lançou-se ao mar ao ouvir que era o Senhor.','João 21,7'],
+      l1:['Atos dos Apóstolos 4,1-12','Naqueles dias, os sacerdotes, o chefe da guarda do Templo e os saduceus prenderam Pedro e João. No dia seguinte, os chefes perguntaram: "Com que poder ou em nome de quem fizestes isso?" Pedro, cheio do Espírito Santo, disse: "Já que somos interrogados sobre um benefício feito a um enfermo, ficai sabendo: é pelo nome de Jesus Cristo, o Nazareno, aquele que vós crucificastes e que Deus ressuscitou dos mortos \u2014 é por ele que este homem está curado. Ele é a pedra que vós, os construtores, rejeitastes e que se tornou a pedra angular. Em nenhum outro há salvação, pois não há outro nome debaixo do céu pelo qual devamos ser salvos."'],
+      sl:['Salmo 117 (118)','R: A pedra que os construtores rejeitaram tornou-se a pedra angular.\n\nDai graças ao Senhor, porque ele é bom! "Eterna é a sua misericórdia!" É melhor refugiar-se no Senhor do que confiar nos homens. R.\n\nA pedra que os pedreiros rejeitaram tornou-se agora a pedra angular. Pelo Senhor é que foi feito tudo isso: que maravilha é para os nossos olhos! R.\n\nBendito o que vem em nome do Senhor! Vós sois o meu Deus, eu vos dou graças; vós sois o meu Deus, eu vos exalto. R.'],
+      l2:null,
+      ev:['João 21,1-14','Naquele tempo, Jesus apareceu aos discípulos junto ao mar de Tiberíades. Estavam juntos Simão Pedro, Tomé, Natanael, os filhos de Zebedeu e outros dois. Pedro disse: "Vou pescar." Saíram, mas naquela noite não pescaram nada. Ao amanhecer, Jesus estava na praia. Disse: "Lançai a rede à direita do barco." Lançaram e não conseguiam puxá-la de tantos peixes. O discípulo amado disse a Pedro: "É o Senhor!" Pedro lançou-se ao mar. Ao saltarem em terra, viram brasas com peixe e pão. Jesus disse: "Vinde comer." Nenhum ousava perguntar "Quem és tu?", pois sabiam que era o Senhor. Jesus tomou o pão e lhes deu, e fez o mesmo com o peixe. Esta foi a terceira vez que Jesus apareceu aos discípulos.'],
+      rf:'"Lançai a rede à direita." \u2014 Sem Jesus, a noite foi infrutífera. Basta uma palavra do Senhor para transformar a frustração em abundância. A vida cristã não é esforço próprio \u2014 é obediência confiante.',
+      sn:'Sexta da Oitava', sd:'Os 153 peixes grandes: número que os Padres da Igreja interpretavam como a totalidade dos povos, símbolo da missão universal da Igreja.'
+    },
+    11: { t:'Sábado da Oitava da Páscoa', ds:'Sábado', dt:'11 de Abril de 2026',
+      v:['"Ide pelo mundo inteiro e proclamai o Evangelho a toda criatura!"','Marcos 16,15'],
+      l1:['Atos dos Apóstolos 4,13-21','Naqueles dias, os chefes e anciãos, vendo a firmeza de Pedro e João e percebendo que eram homens simples, ficaram admirados. Reconheciam que tinham estado com Jesus. Mas vendo o homem curado de pé junto a eles, nada tinham a dizer. Mandaram-nos sair do Sinédrio e deliberaram: "O que fazer com esses homens? Um sinal notável foi realizado por eles; não podemos negá-lo." Chamaram-nos e proibiram que falassem em nome de Jesus. Pedro e João responderam: "Julgai se é justo obedecer-vos a vós ou a Deus. Não podemos deixar de falar do que vimos e ouvimos." Depois de ameaçá-los, soltaram-nos.'],
+      sl:['Salmo 117 (118)','R: Dou-vos graças, ó Senhor, porque me ouvistes.\n\nDai graças ao Senhor, porque ele é bom! "Eterna é a sua misericórdia!" O Senhor é minha força e meu canto, ele se tornou o meu Salvador. R.\n\nA mão direita do Senhor fez maravilhas, a mão direita do Senhor me levantou! Não morrerei, mas viverei para contar as grandes obras do Senhor! R.\n\nAbri-me as portas da justiça; vou entrar para dar graças ao Senhor. Esta é a porta do Senhor; os justos poderão entrar por ela. R.'],
+      l2:null,
+      ev:['Marcos 16,9-15','Jesus, tendo ressuscitado de manhã cedo, no primeiro dia da semana, apareceu primeiro a Maria Madalena, da qual havia expulsado sete demônios. Ela foi anunciar aos que tinham estado com ele e que estavam tristes e chorando. Mas não acreditaram. Depois apareceu sob outra forma a dois que iam a caminho do campo. Também não lhes deram crédito. Por fim, apareceu aos Onze, enquanto estavam à mesa, e censurou-lhes a falta de fé e a dureza de coração, porque não tinham acreditado naqueles que o viram ressuscitado. E disse-lhes: "Ide pelo mundo inteiro e proclamai o Evangelho a toda criatura!"'],
+      rf:'"Ide pelo mundo inteiro." \u2014 O Ressuscitado não convida ao recolhimento, mas ao envio. A Páscoa não é para guardar, é para proclamar. Cada cristão batizado é missionário \u2014 não por mérito, mas por mandato do próprio Cristo.',
+      sn:'Sábado da Oitava', sd:'Último dia da Oitava. Amanhã celebra-se o 2\u00ba Domingo da Páscoa, também chamado "Domingo da Divina Misericórdia", instituído por São João Paulo II.'
+    },
+    12: { t:'2\u00ba Domingo da Páscoa \u2014 Divina Misericórdia', ds:'Domingo', dt:'12 de Abril de 2026',
+      v:['"Felizes os que creem sem ter visto!"','João 20,29'],
+      l1:['Atos dos Apóstolos 5,12-16','Naqueles dias, muitos sinais e prodígios eram realizados pelas mãos dos apóstolos. Todos costumavam reunir-se no Pórtico de Salomão. Ninguém ousava unir-se a eles, mas o povo os tinha em grande estima. Cada vez mais aumentava o número dos que acreditavam no Senhor. Levavam os doentes para as ruas, para que ao menos a sombra de Pedro cobrisse alguns deles. Também das cidades vizinhas acorria gente trazendo doentes e todos eram curados.'],
+      sl:['Salmo 117 (118)','R: Dai graças ao Senhor, porque ele é bom, porque eterna é a sua misericórdia.\n\nA casa de Israel agora o diga: "Eterna é a sua misericórdia!" A casa de Aarão agora o diga: "Eterna é a sua misericórdia!" R.\n\nA mão direita do Senhor fez maravilhas, a mão direita do Senhor me levantou! Não morrerei, mas viverei para contar as grandes obras do Senhor! R.\n\nA pedra que os pedreiros rejeitaram tornou-se a pedra angular. Pelo Senhor é que foi feito tudo isso: que maravilha é para os nossos olhos! R.'],
+      l2:['Apocalipse 1,9-11a.12-13.17-19','Eu, João, vosso irmão e companheiro na tribulação, estava na ilha de Patmos, por causa da Palavra de Deus. Num domingo, fui tomado pelo Espírito e ouvi uma voz como de trombeta: "O que vês, escreve num livro." Voltei-me e vi sete candelabros de ouro e, no meio deles, alguém semelhante a um filho de homem, vestido com túnica longa e cinto de ouro. Ao vê-lo, caí a seus pés como morto. Ele pôs a mão sobre mim e disse: "Não tenhas medo! Eu sou o Primeiro e o Último, o que vive. Estive morto, mas eis que estou vivo pelos séculos dos séculos e tenho as chaves da morte e do inferno."'],
+      ev:['João 20,19-31','Na tarde do primeiro dia da semana, estando fechadas as portas, Jesus entrou e disse: "A paz esteja convosco!" Mostrou-lhes as mãos e o lado. Os discípulos se alegraram. Jesus disse: "Assim como o Pai me enviou, também eu vos envio." Soprou sobre eles: "Recebei o Espírito Santo. A quem perdoardes os pecados, serão perdoados." Tomé não estava presente. Os outros disseram: "Vimos o Senhor!" Ele disse: "Se eu não vir a marca dos pregos e não puser o dedo nela e a mão no lado dele, não acreditarei." Oito dias depois, Jesus voltou e disse a Tomé: "Põe o teu dedo aqui e vê as minhas mãos. Estende a tua mão e põe-na no meu lado. Não sejas incrédulo, mas crê!" Tomé respondeu: "Meu Senhor e meu Deus!" Jesus disse: "Acreditaste porque me viste? Felizes os que creem sem ter visto!" Jesus realizou muitos outros sinais. Estes foram escritos para que acrediteis que Jesus é o Cristo, o Filho de Deus, e para que, crendo, tenhais vida em seu nome.'],
+      rf:'"Meu Senhor e meu Deus!" \u2014 Tomé duvidou, mas fez a profissão de fé mais completa do Evangelho. Jesus não rejeitou sua dúvida \u2014 convidou-o a tocar. A fé não exige anestesiar as perguntas, mas levá-las ao encontro de Cristo.',
+      sn:'Divina Misericórdia', sd:'Festa instituída por São João Paulo II em 2000, atendendo ao pedido de Jesus a Santa Faustina: "Desejo que o primeiro domingo depois da Páscoa seja a Festa da Misericórdia."'
+    }
+  };
+
+  var d = L[dd];
+  if (!d) return;
+
   // Data bar
-  const litTitle = document.getElementById('liturgical-title');
-  const dateDisplay = document.getElementById('date-display');
-  if (litTitle) litTitle.textContent = 'Segunda-feira da Oitava da Páscoa';
-  if (dateDisplay) dateDisplay.textContent = 'Segunda-feira, 06 de Abril de 2026';
+  var el = document.getElementById('liturgical-title');
+  if (el) el.textContent = d.t;
+  el = document.getElementById('date-display');
+  if (el) el.textContent = d.ds + ', ' + d.dt;
 
   // Missa header
-  const missaSub = document.querySelector('.missa-subtitle');
-  const missaDate = document.querySelector('.missa-date');
-  if (missaSub) missaSub.textContent = 'Segunda-feira da Oitava da Páscoa';
-  if (missaDate) missaDate.textContent = '6 de Abril de 2026 • Tempo Pascal';
+  el = document.querySelector('.missa-subtitle');
+  if (el) el.textContent = d.t;
+  el = document.querySelector('.missa-date');
+  if (el) el.textContent = d.dt + ' \u2022 Tempo Pascal';
 
-  // Versículo do dia
-  const verseText = document.querySelector('.verse-widget-text');
-  const verseRef = document.querySelector('.verse-widget-ref');
-  if (verseText) verseText.textContent = '"Ide anunciar a meus irmãos que se dirijam para a Galileia. Lá eles me verão."';
-  if (verseRef) verseRef.textContent = 'Mateus 28,10';
+  // Versículo
+  el = document.querySelector('.verse-widget-text');
+  if (el) el.textContent = d.v[0];
+  el = document.querySelector('.verse-widget-ref');
+  if (el) el.textContent = d.v[1];
 
-  // Leituras — atualiza referências via textContent
-  const readingCards = document.querySelectorAll('#section-all .reading-card');
+  // Leituras
+  var cards = document.querySelectorAll('#section-all .reading-card');
 
   // 1a Leitura
-  const r1 = document.getElementById('reading-1');
-  if (readingCards[0]) {
-    const ref = readingCards[0].querySelector('.reading-reference');
-    if (ref) ref.textContent = 'Atos dos Apóstolos 2,14.22-33';
-  }
-  if (r1) r1.textContent = 'No dia de Pentecostes, Pedro, de pé com os onze Apóstolos, levantou a voz e falou à multidão: "Homens de Israel, escutai estas palavras: Jesus de Nazaré foi um homem aprovado por Deus diante de vós com milagres, prodígios e sinais. Entregue segundo o plano determinado e a presciência de Deus, vós o matastes, pregando-o numa cruz por mãos de ímpios. Mas Deus o ressuscitou, libertando-o das dores da morte, porque não era possível que ela o dominasse. Deus ressuscitou este Jesus: todos nós somos testemunhas disso."';
+  if (cards[0]) { el = cards[0].querySelector('.reading-reference'); if (el) el.textContent = d.l1[0]; }
+  el = document.getElementById('reading-1');
+  if (el) el.textContent = d.l1[1];
 
   // Salmo
-  const salmo = document.getElementById('reading-salmo');
-  if (readingCards[1]) {
-    const ref = readingCards[1].querySelector('.reading-reference');
-    if (ref) ref.textContent = 'Salmo 15 (16)';
-  }
-  if (salmo) salmo.textContent = 'R: Guardai-me, ó Deus, porque em vós me refugio. — Guardai-me, ó Deus, porque em vós me refugio. Eu digo ao Senhor: "Vós sois o meu Senhor." R. — Eu bendigo o Senhor, que me aconselha, e até de noite me adverte o coração. R. — Por isso o meu coração está contente, minha alma rejubila de alegria, e até meu corpo repousa em segurança. R.';
+  if (cards[1]) { el = cards[1].querySelector('.reading-reference'); if (el) el.textContent = d.sl[0]; }
+  el = document.getElementById('reading-salmo');
+  if (el) el.textContent = d.sl[1];
 
-  // 2a Leitura — na segunda da oitava não há 2a leitura
-  if (readingCards[2]) {
-    const label = readingCards[2].querySelector('.reading-label');
-    if (label && label.textContent === 'Segunda Leitura') {
-      readingCards[2].style.display = 'none';
+  // 2a Leitura
+  if (cards[2]) {
+    var lbl = cards[2].querySelector('.reading-label');
+    if (lbl && lbl.textContent === 'Segunda Leitura') {
+      if (d.l2) {
+        el = cards[2].querySelector('.reading-reference'); if (el) el.textContent = d.l2[0];
+        el = document.getElementById('reading-2'); if (el) el.textContent = d.l2[1];
+      } else {
+        cards[2].style.display = 'none';
+      }
     }
   }
 
   // Evangelho
-  const evRef = document.querySelector('.gospel-highlight .reading-reference');
-  const ev = document.getElementById('reading-evangelho');
-  if (evRef) evRef.textContent = 'Mateus 28,8-15';
-  if (ev) ev.textContent = 'As mulheres partiram depressa do sepulcro. Com medo e com grande alegria, correram para dar a notícia aos discípulos. E eis que Jesus veio ao encontro delas, e disse: "Alegrai-vos!" Elas se aproximaram, abraçaram seus pés e o adoraram. Então Jesus disse a elas: "Não tenhais medo. Ide comunicar a meus irmãos que se dirijam para a Galileia. Lá eles me verão." Enquanto elas iam, alguns guardas foram à cidade e contaram aos sumos sacerdotes tudo o que havia acontecido. Estes reuniram-se com os anciãos e deram uma grande soma de dinheiro aos soldados, com a recomendação: "Dizei que os discípulos vieram de noite e roubaram o corpo, enquanto dormíeis." Os soldados aceitaram o dinheiro e fizeram como tinham sido instruídos.';
+  el = document.querySelector('.gospel-highlight .reading-reference');
+  if (el) el.textContent = d.ev[0];
+  el = document.getElementById('reading-evangelho');
+  if (el) el.textContent = d.ev[1];
 
   // Reflexão
-  const reflQuote = document.querySelector('.reflection-quote');
-  if (reflQuote) reflQuote.textContent = '"Alegrai-vos!" — É a primeira palavra do Ressuscitado às mulheres. Não é uma ordem, é um convite. A alegria pascal não é fingida nem forçada: nasce do encontro com Cristo vivo. Mesmo em meio ao medo, a alegria da Ressurreição é mais forte.';
+  el = document.querySelector('.reflection-quote');
+  if (el) el.textContent = d.rf;
 
-  // Saint card
-  const saintName = document.querySelector('.saint-name');
-  const saintDesc = document.querySelector('.saint-desc');
-  if (saintName) saintName.textContent = 'Segunda da Oitava';
-  if (saintDesc) saintDesc.textContent = 'A Oitava de Páscoa continua: cada dia desta semana é celebrado como o próprio Domingo de Páscoa. Aleluia!';
+  // Santo / Celebração
+  el = document.querySelector('.saint-name');
+  if (el) el.textContent = d.sn;
+  el = document.querySelector('.saint-desc');
+  if (el) el.textContent = d.sd;
 
-  // Liturgia das Horas subtitle
-  const oficioSubs = document.querySelectorAll('.section-subtitle');
-  oficioSubs.forEach(function(el) {
-    if (el.textContent.includes('Domingo de Páscoa')) {
-      el.textContent = 'Liturgia das Horas — Segunda-feira da Oitava da Páscoa';
+  // Liturgia das Horas
+  document.querySelectorAll('.section-subtitle').forEach(function(s) {
+    if (s.textContent.includes('Páscoa') || s.textContent.includes('Oitava')) {
+      s.textContent = 'Liturgia das Horas \u2014 ' + d.t;
     }
   });
 })();
