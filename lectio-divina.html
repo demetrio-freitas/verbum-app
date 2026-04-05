@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Verbum — Lectio Divina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F2F1EC;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --accent: #78350F;
+  --accent-light: #D97706;
+  --accent-soft: rgba(120,53,15,0.06);
+  --accent-glow: rgba(120,53,15,0.12);
+  --gold: #B45309;
+  --gold-light: rgba(180,83,9,0.08);
+  --border: rgba(28,25,23,0.06);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.06);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --gospel-gradient: linear-gradient(145deg, #A0622B 0%, #78350F 100%);
+  --green: #16A34A;
+  --green-soft: rgba(22,163,74,0.08);
+}
+
+[data-theme="dark"] {
+  --bg: #0C0A09;
+  --bg-card: #1C1917;
+  --bg-elevated: #292524;
+  --text-primary: #FAFAF9;
+  --text-secondary: #A8A29E;
+  --text-tertiary: #57534E;
+  --accent: #D97706;
+  --accent-light: #F59E0B;
+  --accent-soft: rgba(217,119,6,0.08);
+  --accent-glow: rgba(217,119,6,0.12);
+  --gold: #D97706;
+  --gold-light: rgba(217,119,6,0.06);
+  --border: rgba(250,250,249,0.06);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+  --gospel-gradient: linear-gradient(145deg, #B07030 0%, #78350F 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+  position: relative;
+}
+
+/* ===== SCREENS ===== */
+.screen {
+  display: none;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.screen.active { display: flex; }
+
+/* ===== HEADER ===== */
+.lectio-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  padding: 14px 20px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.icon-btn {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent;
+  color: var(--text-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Material Symbols Rounded';
+  font-size: 22px;
+}
+.icon-btn:hover { background: var(--accent-soft); color: var(--accent); }
+
+.header-timer {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+.header-timer.done { color: var(--accent-light); }
+
+.header-title {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar {
+  display: flex; gap: 4px;
+  padding: 12px 20px 0;
+}
+.progress-seg {
+  flex: 1; height: 3px; border-radius: 2px;
+  background: var(--bg-elevated);
+  transition: background 0.4s;
+}
+.progress-seg.done { background: var(--accent-light); }
+.progress-seg.active { background: var(--accent); }
+
+/* ===== STEP HEADER ===== */
+.step-header {
+  text-align: center;
+  padding: 16px 20px 8px;
+}
+.step-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 2px;
+  color: var(--accent); font-weight: 600; margin-bottom: 4px;
+}
+.step-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 600;
+  color: var(--text-primary); margin-bottom: 2px;
+}
+.step-translation {
+  font-size: 12px; color: var(--text-tertiary);
+}
+
+/* ===== INSTRUCTION CARD ===== */
+.instruction {
+  margin: 12px 20px;
+  background: var(--accent-soft);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 13px; color: var(--text-secondary);
+  font-style: italic; text-align: center;
+  line-height: 1.5;
+}
+
+/* ===== READING TEXT ===== */
+.reading-ref {
+  font-size: 11px; color: var(--text-tertiary);
+  text-align: center; padding: 8px 20px 4px;
+  font-weight: 500;
+}
+.reading-body {
+  padding: 8px 24px 20px;
+  font-family: var(--font-display);
+  font-size: 1.2rem; line-height: 1.75;
+  color: var(--text-primary);
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ===== VERSE CARD ===== */
+.verse-card {
+  margin: 8px 20px 12px;
+  background: var(--accent-glow);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+.verse-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--accent-light); font-weight: 600; margin-bottom: 8px;
+}
+.verse-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem; color: var(--text-primary);
+  line-height: 1.6; font-style: italic;
+}
+
+/* ===== MEDITATION PROMPT ===== */
+.meditation-prompt {
+  font-family: var(--font-display);
+  font-size: 1rem; color: var(--text-primary);
+  text-align: center; padding: 8px 24px;
+  line-height: 1.5;
+}
+
+/* ===== NOTE INPUT ===== */
+.note-input {
+  margin: 8px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 14px; color: var(--text-primary);
+  background: var(--bg-card);
+  min-height: 90px; resize: none;
+  outline: none; width: calc(100% - 40px);
+  transition: border-color 0.2s;
+}
+.note-input::placeholder { color: var(--text-tertiary); }
+.note-input:focus { border-color: var(--accent-soft); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+/* ===== TIMER CIRCLE ===== */
+.timer-circle {
+  width: 80px; height: 80px; border-radius: 50%;
+  border: 3px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  margin: 16px auto;
+  font-family: var(--font-body);
+  font-size: 18px; font-weight: 600;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  transition: border-color 0.3s, color 0.3s;
+}
+.timer-circle.done { border-color: var(--accent-light); color: var(--accent-light); }
+
+/* ===== CONTEMPLATIO ===== */
+.contemplatio-area {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 28px; padding: 40px 24px;
+}
+.pulse-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--accent-light);
+  animation: pulse 3s ease-in-out infinite;
+}
+.pulse-dot.delay { animation-delay: 1.5s; }
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.3); }
+}
+.contemplatio-text {
+  font-size: 15px; color: var(--text-tertiary);
+  text-align: center; line-height: 1.7;
+}
+
+/* ===== ENTRY SCREEN ===== */
+.entry-content {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 32px 24px; gap: 4px;
+}
+.entry-emoji { font-size: 48px; margin-bottom: 12px; }
+.entry-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem; font-weight: 700;
+  color: var(--text-primary);
+}
+.entry-ref { font-size: 13px; color: var(--text-tertiary); margin-bottom: 4px; }
+.entry-desc {
+  font-size: 13px; color: var(--text-secondary);
+  text-align: center; line-height: 1.5;
+  max-width: 260px; margin: 8px 0 20px;
+}
+.dur-label {
+  font-size: 11px; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.dur-row { display: flex; gap: 8px; margin-bottom: 28px; }
+.dur-btn {
+  padding: 10px 18px; border-radius: 22px;
+  border: 1.5px solid var(--bg-elevated);
+  background: transparent; color: var(--text-secondary);
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+.dur-btn.sel {
+  border-color: var(--accent); color: var(--accent);
+  background: var(--accent-soft);
+}
+.dur-btn:hover:not(.sel) { border-color: var(--text-tertiary); }
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: var(--accent); color: #FAFAF7;
+  border: none; padding: 14px 48px; border-radius: 28px;
+  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: transform 0.1s, opacity 0.2s;
+}
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:hover { opacity: 0.92; }
+
+.btn-next {
+  background: var(--accent); color: #FAFAF7;
+  border: none; padding: 12px 32px; border-radius: 24px;
+  font-family: var(--font-body); font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: transform 0.1s;
+  display: flex; align-items: center; gap: 4px;
+  margin: 0 auto;
+}
+.btn-next:active { transform: scale(0.97); }
+.btn-next.finish { background: var(--accent-light); }
+
+.bottom-bar {
+  padding: 12px 20px 28px;
+  text-align: center;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+/* ===== COMPLETION ===== */
+.completion-content {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 32px 24px; gap: 4px;
+}
+.comp-emoji { font-size: 48px; margin-bottom: 12px; }
+.comp-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem; color: var(--text-primary);
+}
+.comp-msg {
+  font-size: 13px; color: var(--text-secondary);
+  text-align: center; line-height: 1.5; margin-bottom: 16px;
+}
+.stats-row { display: flex; gap: 40px; margin-bottom: 24px; }
+.stat { text-align: center; }
+.stat-num { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+.stat-label {
+  font-size: 10px; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 2px;
+}
+.btn-row { display: flex; gap: 12px; }
+.btn-outline {
+  padding: 10px 20px; border-radius: 20px;
+  border: 1.5px solid var(--bg-elevated);
+  background: transparent; color: var(--text-secondary);
+  font-family: var(--font-body); font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--text-tertiary); }
+.btn-filled {
+  padding: 10px 20px; border-radius: 20px;
+  background: var(--accent); color: #FAFAF7; border: none;
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: transform 0.1s;
+}
+.btn-filled:active { transform: scale(0.97); }
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  position: fixed; bottom: 16px; right: 16px;
+  z-index: 200;
+}
+.theme-toggle button {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-family: 'Material Symbols Rounded';
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all 0.2s;
+}
+.theme-toggle button:hover { background: var(--accent-soft); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ SCREEN: ENTRY ═══════════ -->
+<div class="screen active" id="screen-entry">
+  <div class="lectio-header">
+    <button class="icon-btn" title="Voltar">arrow_back</button>
+    <span class="header-title">Lectio Divina</span>
+    <div style="width:38px"></div>
+  </div>
+  <div class="entry-content">
+    <div class="entry-emoji">📖</div>
+    <div class="entry-title">Lectio Divina</div>
+    <div class="entry-ref">Evangelho do dia — Mateus 28,1-10</div>
+    <div class="entry-desc">Uma jornada contemplativa em 4 etapas com a Palavra de Deus</div>
+    <div class="dur-label">Duração</div>
+    <div class="dur-row">
+      <button class="dur-btn" data-min="12" onclick="selectDuration(this)">12 min</button>
+      <button class="dur-btn sel" data-min="20" onclick="selectDuration(this)">20 min</button>
+      <button class="dur-btn" data-min="40" onclick="selectDuration(this)">40 min</button>
+    </div>
+    <button class="btn-primary" onclick="startLectio()">Iniciar</button>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: LECTIO (Etapa 1) ═══════════ -->
+<div class="screen" id="screen-lectio">
+  <div class="lectio-header">
+    <button class="icon-btn" onclick="confirmExit()">close</button>
+    <span class="header-timer" id="timer-display-1">5:00</span>
+    <div style="width:38px"></div>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-seg active"></div>
+    <div class="progress-seg"></div>
+    <div class="progress-seg"></div>
+    <div class="progress-seg"></div>
+  </div>
+  <div class="step-header">
+    <div class="step-label">Etapa 1 de 4</div>
+    <div class="step-name">Lectio</div>
+    <div class="step-translation">Leitura</div>
+  </div>
+  <div class="instruction">Leia lentamente o Evangelho. Pare no trecho que tocar seu coração.</div>
+  <div class="reading-ref">Mateus 28,1-10</div>
+  <div class="reading-body">
+    <sup>1</sup>Depois do sábado, ao amanhecer do primeiro dia da semana, Maria Madalena e a outra Maria foram ver o sepulcro.
+    <br><br>
+    <sup>2</sup>De repente, houve um grande tremor de terra: o anjo do Senhor desceu do céu e, aproximando-se, retirou a pedra e sentou-se nela. <sup>3</sup>Sua aparência era como um relâmpago, e suas vestes eram brancas como a neve.
+    <br><br>
+    <sup>4</sup>Os guardas tremeram de medo e ficaram como mortos. <sup>5</sup>O anjo disse às mulheres: "Não tenhais medo! Sei que procurais Jesus, o crucificado. <sup>6</sup>Ele não está aqui! Ressuscitou, como havia dito. Vinde ver o lugar onde ele jazia.
+    <br><br>
+    <sup>7</sup>Ide depressa contar aos discípulos: Ele ressuscitou dos mortos e vai à vossa frente para a Galileia. Lá o vereis." Eis o que eu tinha a dizer-vos.
+    <br><br>
+    <sup>8</sup>As mulheres, cheias de medo e grande alegria, saíram depressa do sepulcro e foram correndo levar a notícia aos discípulos. <sup>9</sup>De repente, Jesus saiu ao encontro delas, dizendo: "Alegrai-vos!" Elas se aproximaram e, prostradas diante dele, abraçaram-lhe os pés.
+    <br><br>
+    <sup>10</sup>Então Jesus disse-lhes: "Não tenhais medo. Ide dizer a meus irmãos que se dirijam para a Galileia. Lá me verão."
+  </div>
+  <div class="bottom-bar">
+    <button class="btn-next" onclick="goToStep('meditatio')">Próxima etapa <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: MEDITATIO (Etapa 2) ═══════════ -->
+<div class="screen" id="screen-meditatio">
+  <div class="lectio-header">
+    <button class="icon-btn" onclick="confirmExit()">close</button>
+    <span class="header-timer" id="timer-display-2">5:00</span>
+    <div style="width:38px"></div>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-seg done"></div>
+    <div class="progress-seg active"></div>
+    <div class="progress-seg"></div>
+    <div class="progress-seg"></div>
+  </div>
+  <div class="step-header">
+    <div class="step-label">Etapa 2 de 4</div>
+    <div class="step-name">Meditatio</div>
+    <div class="step-translation">Meditação</div>
+  </div>
+  <div class="instruction">O que Deus quer te dizer através desta passagem? Reflita em silêncio.</div>
+  <div class="verse-card">
+    <div class="verse-label">Trecho que te tocou</div>
+    <div class="verse-text">"Não tenhais medo! Ele não está aqui! Ressuscitou, como havia dito!"</div>
+  </div>
+  <div class="meditation-prompt">O que esta palavra desperta em você hoje?</div>
+  <textarea class="note-input" id="note-meditatio" placeholder="Toque para anotar sua reflexão..."></textarea>
+  <div style="flex:1"></div>
+  <div class="bottom-bar">
+    <button class="btn-next" onclick="goToStep('oratio')">Próxima etapa <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: ORATIO (Etapa 3) ═══════════ -->
+<div class="screen" id="screen-oratio">
+  <div class="lectio-header">
+    <button class="icon-btn" onclick="confirmExit()">close</button>
+    <span class="header-timer" id="timer-display-3">5:00</span>
+    <div style="width:38px"></div>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-seg done"></div>
+    <div class="progress-seg done"></div>
+    <div class="progress-seg active"></div>
+    <div class="progress-seg"></div>
+  </div>
+  <div class="step-header">
+    <div class="step-label">Etapa 3 de 4</div>
+    <div class="step-name">Oratio</div>
+    <div class="step-translation">Oração</div>
+  </div>
+  <div class="instruction">Fale com Deus sobre o que meditou. Entregue seus pensamentos e sentimentos.</div>
+  <div class="timer-circle" id="timer-circle-3">5:00</div>
+  <div class="meditation-prompt" style="font-size:1.1rem;">
+    Senhor, o que queres de mim<br>através desta Palavra?
+  </div>
+  <textarea class="note-input" id="note-oratio" placeholder="Sua oração pessoal..."></textarea>
+  <div style="flex:1"></div>
+  <div class="bottom-bar">
+    <button class="btn-next" onclick="goToStep('contemplatio')">Próxima etapa <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: CONTEMPLATIO (Etapa 4) ═══════════ -->
+<div class="screen" id="screen-contemplatio">
+  <div class="lectio-header">
+    <button class="icon-btn" onclick="confirmExit()">close</button>
+    <span class="header-timer" id="timer-display-4">5:00</span>
+    <div style="width:38px"></div>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-seg done"></div>
+    <div class="progress-seg done"></div>
+    <div class="progress-seg done"></div>
+    <div class="progress-seg active"></div>
+  </div>
+  <div class="step-header">
+    <div class="step-label">Etapa 4 de 4</div>
+    <div class="step-name">Contemplatio</div>
+    <div class="step-translation">Contemplação</div>
+  </div>
+  <div class="contemplatio-area">
+    <div class="pulse-dot"></div>
+    <div class="contemplatio-text">
+      Descanse na presença de Deus.<br>
+      Não é preciso pensar nem falar.<br>
+      Apenas esteja.
+    </div>
+    <div class="pulse-dot delay"></div>
+  </div>
+  <div class="bottom-bar">
+    <button class="btn-next finish" onclick="completeLectio()">Concluir <span class="material-symbols-rounded" style="font-size:18px">check</span></button>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: COMPLETION ═══════════ -->
+<div class="screen" id="screen-completion">
+  <div class="completion-content">
+    <div class="comp-emoji">🕊️</div>
+    <div class="comp-title">Lectio Completa</div>
+    <div class="comp-msg">Que a Palavra de hoje<br>permaneça no seu coração.</div>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num" id="stat-minutes">20</div>
+        <div class="stat-label">minutos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" id="stat-streak">1</div>
+        <div class="stat-label">dias seguidos</div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-outline" onclick="goToScreen('entry')">Voltar</button>
+      <button class="btn-filled" onclick="shareLectio()">Compartilhar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Theme toggle -->
+<div class="theme-toggle">
+  <button onclick="toggleTheme()" id="theme-btn">dark_mode</button>
+</div>
+
+<script>
+// ===== STATE =====
+let selectedMinutes = 20;
+let timerInterval = null;
+let timerRemaining = 0;
+let currentStep = 0; // 0-3
+let streak = parseInt(localStorage.getItem('verbum-lectio-streak') || '0');
+let lastDate = localStorage.getItem('verbum-lectio-last') || '';
+
+// ===== NAVIGATION =====
+function goToScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goToStep(step) {
+  const steps = ['lectio', 'meditatio', 'oratio', 'contemplatio'];
+  currentStep = steps.indexOf(step);
+  goToScreen(step);
+  startTimer(currentStep + 1);
+}
+
+function confirmExit() {
+  const m = document.getElementById('note-meditatio')?.value || '';
+  const o = document.getElementById('note-oratio')?.value || '';
+  if (m.trim() || o.trim()) {
+    if (confirm('Deseja sair? Suas anotações serão perdidas.')) {
+      resetAll();
+      goToScreen('entry');
+    }
+  } else {
+    resetAll();
+    goToScreen('entry');
+  }
+}
+
+// ===== DURATION =====
+function selectDuration(btn) {
+  document.querySelectorAll('.dur-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  selectedMinutes = parseInt(btn.dataset.min);
+}
+
+// ===== START =====
+function startLectio() {
+  currentStep = 0;
+  goToScreen('lectio');
+  startTimer(1);
+}
+
+// ===== TIMER =====
+function startTimer(stepNum) {
+  if (timerInterval) clearInterval(timerInterval);
+  timerRemaining = (selectedMinutes * 60) / 4;
+  updateTimerDisplay(stepNum);
+
+  timerInterval = setInterval(() => {
+    if (timerRemaining > 0) {
+      timerRemaining--;
+      updateTimerDisplay(stepNum);
+    } else {
+      clearInterval(timerInterval);
+      // Mark timer as done
+      const el = document.getElementById('timer-display-' + stepNum);
+      if (el) el.classList.add('done');
+      const circle = document.getElementById('timer-circle-' + stepNum);
+      if (circle) circle.classList.add('done');
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay(stepNum) {
+  const m = Math.floor(timerRemaining / 60);
+  const s = timerRemaining % 60;
+  const display = m + ':' + s.toString().padStart(2, '0');
+
+  const el = document.getElementById('timer-display-' + stepNum);
+  if (el) el.textContent = display;
+  const circle = document.getElementById('timer-circle-' + stepNum);
+  if (circle) circle.textContent = display;
+}
+
+// ===== COMPLETION =====
+function completeLectio() {
+  if (timerInterval) clearInterval(timerInterval);
+
+  // Update streak
+  const today = new Date().toISOString().split('T')[0];
+  if (lastDate !== today) {
+    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    if (lastDate === yesterday) {
+      streak++;
+    } else {
+      streak = 1;
+    }
+    lastDate = today;
+    localStorage.setItem('verbum-lectio-streak', streak);
+    localStorage.setItem('verbum-lectio-last', today);
+  }
+
+  document.getElementById('stat-minutes').textContent = selectedMinutes;
+  document.getElementById('stat-streak').textContent = streak;
+
+  goToScreen('completion');
+}
+
+function shareLectio() {
+  const text = 'Hoje fiz Lectio Divina com Mateus 28,1-10 no Verbum. ' + selectedMinutes + ' minutos com a Palavra de Deus.';
+  if (navigator.share) {
+    navigator.share({ text });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Texto copiado para a área de transferência!');
+    });
+  }
+}
+
+// ===== RESET =====
+function resetAll() {
+  if (timerInterval) clearInterval(timerInterval);
+  document.getElementById('note-meditatio').value = '';
+  document.getElementById('note-oratio').value = '';
+  // Reset timer displays
+  for (let i = 1; i <= 4; i++) {
+    const el = document.getElementById('timer-display-' + i);
+    if (el) { el.textContent = '5:00'; el.classList.remove('done'); }
+  }
+  const circle = document.getElementById('timer-circle-3');
+  if (circle) { circle.textContent = '5:00'; circle.classList.remove('done'); }
+}
+
+// ===== THEME =====
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', isDark ? '' : 'dark');
+  document.getElementById('theme-btn').textContent = isDark ? 'dark_mode' : 'light_mode';
+  localStorage.setItem('verbum-theme', isDark ? 'light' : 'dark');
+}
+
+// Restore theme
+if (localStorage.getItem('verbum-theme') === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  document.getElementById('theme-btn').textContent = 'light_mode';
+}
+</script>
+
+</body>
+</html>
