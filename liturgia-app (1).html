@@ -5171,7 +5171,7 @@ body.modo-missa.brilho-reduzido {
 
 <!-- HEADER -->
 <header class="app-header">
-  <div class="app-logo">Verbum<span>liturgia</span></div>
+  <div class="app-logo" onclick="switchMainTab('all')" style="cursor:pointer">Verbum<span>liturgia</span></div>
   <div class="header-actions">
     <button class="icon-btn" onclick="toggleTheme()" title="Modo escuro">dark_mode</button>
     <button class="icon-btn" onclick="openShareModal()" title="Compartilhar">share</button>
@@ -5295,6 +5295,7 @@ body.modo-missa.brilho-reduzido {
   <!-- NAV TABS (fora das sections para ficarem sempre visíveis) -->
   <div class="nav-tabs" id="reading-tabs">
     <button class="nav-tab active" data-tab="all">Todas as Leituras</button>
+    <button class="nav-tab" data-tab="homilia">Homilia</button>
     <button class="nav-tab" data-tab="1leitura">1ª Leitura</button>
     <button class="nav-tab" data-tab="salmo">Salmo</button>
     <button class="nav-tab" data-tab="2leitura">2ª Leitura</button>
@@ -5357,81 +5358,6 @@ body.modo-missa.brilho-reduzido {
           Widget
         </button>
       </div>
-    </div>
-
-    <!-- Audio player -->
-    <div class="audio-player-full" id="audio-player-full">
-      <div class="apf-top">
-        <button class="apf-skip-btn" onclick="skipAudio(-10)" title="Retroceder 10s">
-          <span class="material-symbols-rounded">replay_10</span>
-        </button>
-        <button class="play-btn" id="apf-play" onclick="togglePlay(this)">play_arrow</button>
-        <button class="apf-skip-btn" onclick="skipAudio(10)" title="Avançar 10s">
-          <span class="material-symbols-rounded">forward_10</span>
-        </button>
-        <div class="audio-info">
-          <div class="audio-title">Homilia do dia</div>
-          <div class="audio-subtitle">Pe. Roger Araújo • 8 min</div>
-        </div>
-        <button class="apf-speed-btn" id="apf-speed" onclick="cycleAudioSpeed()">1x</button>
-      </div>
-      <div class="apf-progress-row">
-        <span class="apf-time" id="apf-current">0:00</span>
-        <div class="apf-progress-track" id="apf-track" onclick="seekAudio(event)">
-          <div class="apf-progress-fill" id="apf-fill"></div>
-          <div class="apf-progress-thumb" id="apf-thumb"></div>
-        </div>
-        <span class="apf-time" id="apf-duration">8:12</span>
-      </div>
-      <div class="apf-speed-options" id="apf-speed-options">
-        <button class="apf-speed-opt" data-speed="0.75" onclick="setAudioSpeed(0.75)">0.75x</button>
-        <button class="apf-speed-opt active" data-speed="1" onclick="setAudioSpeed(1)">1x</button>
-        <button class="apf-speed-opt" data-speed="1.25" onclick="setAudioSpeed(1.25)">1.25x</button>
-        <button class="apf-speed-opt" data-speed="1.5" onclick="setAudioSpeed(1.5)">1.5x</button>
-        <button class="apf-speed-opt" data-speed="2" onclick="setAudioSpeed(2)">2x</button>
-      </div>
-    </div>
-
-    <!-- Audio element real -->
-    <audio id="homilia-audio" preload="metadata"></audio>
-
-    <!-- Thumbnail da homilia -->
-    <div class="homilia-thumb-container" id="homilia-thumb-container" onclick="toggleVideoEmbed()" style="display:none">
-      <img id="homilia-thumb" class="homilia-thumb" alt="Thumbnail da homilia">
-      <div class="homilia-thumb-play">
-        <span class="material-symbols-rounded">play_circle</span>
-      </div>
-    </div>
-
-    <!-- Video embed (expandível) -->
-    <div class="homilia-video-container" id="homilia-video-container" style="display:none">
-      <iframe id="homilia-iframe" width="100%" height="220" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        sandbox="allow-scripts allow-same-origin allow-presentation"
-        allowfullscreen></iframe>
-    </div>
-
-    <!-- Transcrição (expandível) -->
-    <div class="homilia-transcript" id="homilia-transcript" style="display:none">
-      <div class="homilia-transcript-text" id="homilia-transcript-text"></div>
-    </div>
-
-    <!-- Botões Vídeo / Transcrição -->
-    <div class="homilia-actions" id="homilia-actions" style="display:none">
-      <button class="homilia-action-btn" onclick="toggleVideoEmbed()">
-        <span class="material-symbols-rounded">smart_display</span>
-        Vídeo
-      </button>
-      <button class="homilia-action-btn" onclick="toggleTranscript()">
-        <span class="material-symbols-rounded">description</span>
-        Ler transcrição
-      </button>
-    </div>
-
-    <!-- Feed de episódios anteriores -->
-    <div class="homilia-feed" id="homilia-feed" style="display:none">
-      <div class="homilia-feed-title">Homilias anteriores</div>
-      <div class="homilia-feed-scroll" id="homilia-feed-scroll"></div>
     </div>
 
     <!-- 1a Leitura -->
