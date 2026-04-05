@@ -4156,6 +4156,300 @@ body.modo-missa.brilho-reduzido {
   border-radius: var(--radius-md);
 }
 
+/* =================== NOTIFICAÇÕES LITÚRGICAS =================== */
+.notif-header-card {
+  background: linear-gradient(145deg, #D97706 0%, #92400E 100%);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  color: #FFF;
+  margin: 0 16px 16px;
+  text-align: center;
+}
+.notif-header-card .notif-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.notif-header-card .notif-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.notif-status-bar {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin: 0 16px 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.notif-status-bar.on { background: var(--green-soft); color: var(--green); }
+.notif-status-bar.off { background: rgba(220,38,38,0.06); color: #DC2626; }
+.notif-status-bar .material-symbols-rounded { font-size: 18px; }
+
+/* Grupo de notificação */
+.notif-group {
+  margin: 0 16px 20px;
+}
+.notif-group-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.notif-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.notif-card-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+}
+.notif-card-icon {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+  font-family: 'Material Symbols Rounded';
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.notif-card-icon.novena { background: rgba(124,58,237,0.08); color: #7C3AED; }
+.notif-card-icon.preceito { background: rgba(220,38,38,0.06); color: #DC2626; }
+.notif-card-icon.tempo { background: rgba(22,163,74,0.08); color: #16A34A; }
+.notif-card-icon.santo { background: var(--gold-light); color: var(--gold); }
+.notif-card-icon.paroquia { background: var(--accent-soft); color: var(--accent); }
+.notif-card-info { flex: 1; }
+.notif-card-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1px;
+}
+.notif-card-desc {
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+}
+.notif-card-freq {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  background: var(--bg-elevated);
+  padding: 2px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Toggle melhorado */
+.notif-toggle {
+  width: 44px; height: 24px;
+  border-radius: 12px;
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.notif-toggle::after {
+  content: '';
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+  position: absolute;
+  top: 2px; left: 2px;
+  transition: all 0.3s;
+}
+.notif-toggle.on { background: var(--accent); border-color: var(--accent); }
+.notif-toggle.on::after { left: 22px; background: #FFF; }
+
+/* Horário */
+.notif-horario-section {
+  margin: 0 16px 20px;
+}
+.notif-horario-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.notif-horario-options {
+  display: flex; gap: 6px;
+  flex-wrap: wrap;
+}
+.notif-horario-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 80px;
+}
+.notif-horario-btn .horario-time {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.notif-horario-btn .horario-label {
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+.notif-horario-btn.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.notif-horario-btn.active .horario-time { color: var(--accent); }
+.notif-horario-btn.active .horario-label { color: var(--accent); }
+
+/* Frequência */
+.notif-freq-section {
+  margin: 0 16px 20px;
+}
+.notif-freq-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.notif-freq-label { font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); }
+.notif-freq-value {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: flex; align-items: center; gap: 4px;
+}
+.notif-freq-stepper {
+  display: flex; align-items: center; gap: 8px;
+}
+.notif-freq-stepper button {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-family: 'Material Symbols Rounded';
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Preview de notificação */
+.notif-preview {
+  margin: 0 16px 20px;
+}
+.notif-preview-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+.notif-preview-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  display: flex; align-items: flex-start; gap: 12px;
+  box-shadow: var(--shadow-md);
+}
+.notif-preview-icon {
+  width: 36px; height: 36px;
+  background: var(--gospel-gradient);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: #FFF;
+  font-family: 'Material Symbols Rounded';
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.notif-preview-content { flex: 1; }
+.notif-preview-app {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+.notif-preview-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+.notif-preview-body {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+.notif-preview-time {
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+/* Próximas notificações */
+.notif-upcoming {
+  margin: 0 16px 16px;
+}
+.notif-upcoming-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.notif-upcoming-item:last-child { border-bottom: none; }
+.notif-upcoming-date {
+  width: 44px; text-align: center; flex-shrink: 0;
+}
+.notif-upcoming-date .day {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.notif-upcoming-date .month {
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+.notif-upcoming-info { flex: 1; }
+.notif-upcoming-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.notif-upcoming-type {
+  font-size: 0.62rem;
+  color: var(--text-tertiary);
+}
+.notif-upcoming-badge {
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.notif-upcoming-badge.preceito { background: rgba(220,38,38,0.08); color: #DC2626; }
+.notif-upcoming-badge.tempo { background: rgba(22,163,74,0.08); color: #16A34A; }
+.notif-upcoming-badge.santo { background: var(--gold-light); color: var(--gold); }
+.notif-upcoming-badge.novena { background: rgba(124,58,237,0.06); color: #7C3AED; }
+
 /* =================== BOTTOM NAV =================== */
 .bottom-nav {
   position: fixed; bottom:0; left:50%; transform: translateX(-50%);
@@ -6094,12 +6388,12 @@ body.modo-missa.brilho-reduzido {
           <span>A</span>
         </div>
       </div>
-      <div class="setting-item">
+      <div class="setting-item" style="cursor:pointer" onclick="switchMainTab('notificacoes')">
         <div class="setting-label">
           <span class="material-symbols-rounded">notifications</span>
-          <div>Lembrete diário<small>Agendar horário para leitura</small></div>
+          <div>Notificações Litúrgicas<small>Novenas, preceitos, tempos, santos — 3 ativos</small></div>
         </div>
-        <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+        <span class="material-symbols-rounded" style="color:var(--text-tertiary);font-size:18px">chevron_right</span>
       </div>
       <div class="setting-item">
         <div class="setting-label">
@@ -6588,6 +6882,81 @@ body.modo-missa.brilho-reduzido {
     <div style="height:100px"></div>
   </div>
 
+  <!-- ========= NOTIFICACOES LITURGICAS ========= -->
+  <div class="content-section" id="section-notificacoes">
+
+    <div class="notif-header-card">
+      <div class="notif-title">Notificacoes Liturgicas</div>
+      <div class="notif-subtitle">Receba lembretes sobre a vida da Igreja no seu dia a dia</div>
+    </div>
+
+    <div class="notif-status-bar on" id="notif-status-bar">
+      <span class="material-symbols-rounded">notifications_active</span>
+      Notificacoes ativadas - 3 tipos ativos
+    </div>
+
+    <div class="notif-preview">
+      <div class="notif-preview-label">Exemplo de como aparece no celular</div>
+      <div class="notif-preview-card">
+        <div class="notif-preview-icon">auto_stories</div>
+        <div class="notif-preview-content">
+          <div class="notif-preview-app">Verbum</div>
+          <div class="notif-preview-title" id="notif-preview-title">Amanha e Corpus Christi</div>
+          <div class="notif-preview-body" id="notif-preview-body">Dia de preceito - nao esqueca da Santa Missa. Toque para ver os horarios da sua paroquia.</div>
+        </div>
+        <div class="notif-preview-time">6h</div>
+      </div>
+    </div>
+
+    <div class="notif-group">
+      <div class="notif-group-label">Tipos de notificacao</div>
+
+      <div class="notif-card"><div class="notif-card-row"><div class="notif-card-icon novena">hourglass_top</div><div class="notif-card-info"><div class="notif-card-name">Novenas</div><div class="notif-card-desc">Lembrete diario durante novenas ativas</div></div><div class="notif-card-freq">1/dia x 9 dias</div><div class="notif-toggle on" onclick="toggleNotif(this)" data-type="novena"></div></div></div>
+
+      <div class="notif-card"><div class="notif-card-row"><div class="notif-card-icon preceito">priority_high</div><div class="notif-card-info"><div class="notif-card-name">Dias de Preceito</div><div class="notif-card-desc">Aviso na vespera de dias de Missa obrigatoria</div></div><div class="notif-card-freq">~12/ano</div><div class="notif-toggle on" onclick="toggleNotif(this)" data-type="preceito"></div></div></div>
+
+      <div class="notif-card"><div class="notif-card-row"><div class="notif-card-icon tempo">park</div><div class="notif-card-info"><div class="notif-card-name">Tempos Liturgicos</div><div class="notif-card-desc">Inicio do Advento, Quaresma, Pascoa...</div></div><div class="notif-card-freq">~8/ano</div><div class="notif-toggle on" onclick="toggleNotif(this)" data-type="tempo"></div></div></div>
+
+      <div class="notif-card"><div class="notif-card-row"><div class="notif-card-icon santo">person_celebrate</div><div class="notif-card-info"><div class="notif-card-name">Santos do Dia</div><div class="notif-card-desc">Solenidades e festas maiores do calendario</div></div><div class="notif-card-freq">~30/ano</div><div class="notif-toggle" onclick="toggleNotif(this)" data-type="santo"></div></div></div>
+
+      <div class="notif-card"><div class="notif-card-row"><div class="notif-card-icon paroquia">church</div><div class="notif-card-info"><div class="notif-card-name">Minha Paroquia</div><div class="notif-card-desc">Avisos do padre: Missa extra, eventos, cancelamentos</div></div><div class="notif-card-freq">max 3/semana</div><div class="notif-toggle" onclick="toggleNotif(this)" data-type="paroquia"></div></div></div>
+    </div>
+
+    <div class="notif-horario-section">
+      <div class="notif-horario-label">Quando quer receber?</div>
+      <div class="notif-horario-options">
+        <button class="notif-horario-btn active" onclick="selectNotifHorario(this,'manha')" data-horario="manha"><span class="horario-time">6h</span><span class="horario-label">Manha</span></button>
+        <button class="notif-horario-btn" onclick="selectNotifHorario(this,'premissa')" data-horario="premissa"><span class="horario-time">30min</span><span class="horario-label">Pre-Missa</span></button>
+        <button class="notif-horario-btn" onclick="selectNotifHorario(this,'noite')" data-horario="noite"><span class="horario-time">20h</span><span class="horario-label">Noite</span></button>
+      </div>
+    </div>
+
+    <div class="notif-freq-section">
+      <div class="notif-freq-row">
+        <div class="notif-freq-label">Maximo por dia</div>
+        <div class="notif-freq-stepper">
+          <button onclick="changeMaxNotif(-1)">remove</button>
+          <span class="notif-freq-value" id="notif-max-display">1</span>
+          <button onclick="changeMaxNotif(1)">add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="notif-upcoming">
+      <div class="notif-group-label">Proximas notificacoes</div>
+      <div class="notif-upcoming-item"><div class="notif-upcoming-date"><div class="day">13</div><div class="month">Abr</div></div><div class="notif-upcoming-info"><div class="notif-upcoming-title">Domingo de Ramos</div><div class="notif-upcoming-type">Inicio da Semana Santa</div></div><div class="notif-upcoming-badge tempo">Tempo</div></div>
+      <div class="notif-upcoming-item"><div class="notif-upcoming-date"><div class="day">17</div><div class="month">Abr</div></div><div class="notif-upcoming-info"><div class="notif-upcoming-title">Quinta-feira Santa</div><div class="notif-upcoming-type">Instituicao da Eucaristia</div></div><div class="notif-upcoming-badge preceito">Preceito</div></div>
+      <div class="notif-upcoming-item"><div class="notif-upcoming-date"><div class="day">18</div><div class="month">Abr</div></div><div class="notif-upcoming-info"><div class="notif-upcoming-title">Sexta-feira Santa</div><div class="notif-upcoming-type">Paixao do Senhor - jejum e abstinencia</div></div><div class="notif-upcoming-badge preceito">Preceito</div></div>
+      <div class="notif-upcoming-item"><div class="notif-upcoming-date"><div class="day">20</div><div class="month">Abr</div></div><div class="notif-upcoming-info"><div class="notif-upcoming-title">Domingo de Pascoa</div><div class="notif-upcoming-type">Ressurreicao do Senhor</div></div><div class="notif-upcoming-badge tempo">Tempo</div></div>
+      <div class="notif-upcoming-item"><div class="notif-upcoming-date"><div class="day">29</div><div class="month">Abr</div></div><div class="notif-upcoming-info"><div class="notif-upcoming-title">Santa Catarina de Sena</div><div class="notif-upcoming-type">Padroeira da Europa</div></div><div class="notif-upcoming-badge santo">Santo</div></div>
+      <div class="notif-upcoming-item"><div class="notif-upcoming-date"><div class="day">01</div><div class="month">Mai</div></div><div class="notif-upcoming-info"><div class="notif-upcoming-title">Sao Jose Operario</div><div class="notif-upcoming-type">Padroeiro dos trabalhadores</div></div><div class="notif-upcoming-badge santo">Santo</div></div>
+    </div>
+
+    <div style="height:100px"></div>
+  </div>
+
+
+
 <nav class="bottom-nav">
   <button class="nav-item active" data-main="all" onclick="switchMainTab('all')">
     <span class="material-symbols-rounded">menu_book</span>
@@ -6650,6 +7019,10 @@ body.modo-missa.brilho-reduzido {
       <button class="more-menu-item" onclick="closeMoreMenu(); switchMainTab('exame')" style="background:rgba(124,58,237,0.06)">
         <span class="material-symbols-rounded" style="color:#7C3AED">psychology</span>
         <span style="color:#7C3AED;font-weight:700">Confissão</span>
+      </button>
+      <button class="more-menu-item" onclick="closeMoreMenu(); switchMainTab('notificacoes')">
+        <span class="material-symbols-rounded">notifications</span>
+        <span>Notificações</span>
       </button>
       <button class="more-menu-item" onclick="closeMoreMenu(); switchMainTab('santo-ano')">
         <span class="material-symbols-rounded">person_celebrate</span>
@@ -8867,6 +9240,55 @@ function switchContricao(btn, version) {
   document.getElementById('contricao-moderna').style.display = version === 'moderna' ? 'block' : 'none';
   document.getElementById('contricao-breve').style.display = version === 'breve' ? 'block' : 'none';
 }
+
+// =================== NOTIFICACOES LITURGICAS ===================
+var notifMaxPerDay = 1;
+
+function toggleNotif(el) {
+  el.classList.toggle('on');
+  updateNotifStatus();
+}
+
+function updateNotifStatus() {
+  var active = document.querySelectorAll('.notif-toggle.on').length;
+  var bar = document.getElementById('notif-status-bar');
+  if (active > 0) {
+    bar.className = 'notif-status-bar on';
+    var icon = bar.querySelector('.material-symbols-rounded');
+    icon.textContent = 'notifications_active';
+    // Update text node
+    var nodes = bar.childNodes;
+    for (var i = 0; i < nodes.length; i++) {
+      if (nodes[i].nodeType === 3 && nodes[i].textContent.trim().length > 0) {
+        nodes[i].textContent = '\n      Notificacoes ativadas - ' + active + ' tipo' + (active > 1 ? 's' : '') + ' ativo' + (active > 1 ? 's' : '') + '\n    ';
+        break;
+      }
+    }
+  } else {
+    bar.className = 'notif-status-bar off';
+    var icon2 = bar.querySelector('.material-symbols-rounded');
+    icon2.textContent = 'notifications_off';
+    var nodes2 = bar.childNodes;
+    for (var j = 0; j < nodes2.length; j++) {
+      if (nodes2[j].nodeType === 3 && nodes2[j].textContent.trim().length > 0) {
+        nodes2[j].textContent = '\n      Notificacoes desativadas\n    ';
+        break;
+      }
+    }
+  }
+}
+
+function selectNotifHorario(btn, horario) {
+  document.querySelectorAll('.notif-horario-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  var labels = { manha: 'Manha (6h)', premissa: 'Pre-Missa (30min antes)', noite: 'Noite (20h)' };
+  showToast('Horario definido: ' + labels[horario]);
+}
+
+function changeMaxNotif(delta) {
+  notifMaxPerDay = Math.max(1, Math.min(3, notifMaxPerDay + delta));
+  document.getElementById('notif-max-display').textContent = notifMaxPerDay;
+}
 </script>
 
 <!-- FOCUS MODE OVERLAY -->
@@ -8950,14 +9372,13 @@ function switchContricao(btn, version) {
 </div>
 
 <script>
-// =================== AUTO DATE SWITCH — 06/04/2026 ===================
-// Segunda-feira da Oitava da Páscoa
-// Nota: innerHTML é usado aqui com conteúdo estático (hardcoded), não user input.
-// Não há risco de XSS pois todo o conteúdo é controlado pelo desenvolvedor.
+// =================== AUTO DATE SWITCH — OITAVA DA PÁSCOA 2026 ===================
+// Troca automática de conteúdo litúrgico de 06/04 a 12/04/2026
+// Todo o conteúdo é estático (hardcoded pelo desenvolvedor), sem input externo.
 (function() {
-  const today = new Date();
-  const isApril6 = today.getDate() === 6 && today.getMonth() === 3 && today.getFullYear() === 2026;
-  if (!isApril6) return;
+  var today = new Date();
+  var dd = today.getDate(), mm = today.getMonth(), yy = today.getFullYear();
+  if (yy !== 2026 || mm !== 3 || dd < 6 || dd > 12) return;
 
   // Data bar
   const litTitle = document.getElementById('liturgical-title');
