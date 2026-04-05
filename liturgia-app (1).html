@@ -3486,6 +3486,676 @@ input[type="range"]::-webkit-slider-thumb {
 
 .theme-option.active .theme-name { color: var(--accent); }
 
+/* =================== FOLHETO DIGITAL DA MISSA =================== */
+.missa-header-card {
+  background: var(--gospel-gradient);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  color: #FFF;
+  margin: 0 16px 16px;
+  text-align: center;
+}
+.missa-header-card .missa-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.missa-header-card .missa-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+.missa-header-card .missa-date {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.modo-missa-toggle {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin: 0 16px 20px;
+  padding: 14px 20px;
+  background: var(--accent-soft);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: all 0.3s;
+}
+.modo-missa-toggle .material-symbols-rounded { font-size: 20px; }
+.modo-missa-toggle.active {
+  background: var(--accent);
+  color: #FFF;
+  border-color: var(--accent);
+}
+
+/* Âncoras laterais */
+.missa-nav-sidebar {
+  position: fixed;
+  right: max(calc((100vw - 480px) / 2 + 4px), 4px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+}
+.missa-nav-sidebar.visible { display: flex; }
+.missa-nav-dot {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: 'Material Symbols Rounded';
+  font-size: 16px;
+  color: var(--text-tertiary);
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+.missa-nav-dot:hover, .missa-nav-dot.active {
+  background: var(--accent);
+  color: #FFF;
+  border-color: var(--accent);
+}
+.missa-nav-dot .dot-label {
+  display: none;
+  position: absolute;
+  right: 40px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+.missa-nav-dot:hover .dot-label { display: block; }
+
+/* Botão próxima parte flutuante */
+.missa-next-btn {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 95;
+  display: none;
+  align-items: center; gap: 8px;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #FFF;
+  border: none;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s;
+  animation: pulseBtn 2s infinite;
+}
+.missa-next-btn.visible { display: flex; }
+.missa-next-btn .material-symbols-rounded { font-size: 18px; }
+@keyframes pulseBtn {
+  0%, 100% { box-shadow: var(--shadow-lg); }
+  50% { box-shadow: 0 4px 20px rgba(120,53,15,0.3); }
+}
+
+/* Seções do folheto */
+.missa-part {
+  margin: 0 16px 20px;
+  scroll-margin-top: 80px;
+}
+.missa-part-label {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.missa-part-label .material-symbols-rounded { font-size: 20px; }
+.missa-part-number {
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+
+/* Diálogos S/P */
+.missa-dialog {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+}
+.missa-dialog-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+.missa-line {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.missa-line .tag-s, .missa-line .tag-p {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.missa-line .tag-s {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.missa-line .tag-p {
+  background: var(--green-soft);
+  color: var(--green);
+}
+.missa-line.povo {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+}
+
+.missa-rubric {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin: 8px 0;
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+}
+
+.missa-prayer-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin: 10px 0;
+}
+
+.missa-variable-note {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 14px;
+  background: var(--gold-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin: 8px 0;
+}
+.missa-variable-note .material-symbols-rounded { font-size: 16px; }
+
+/* Leituras embed (referência às que já existem) */
+.missa-leituras-link {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 16px;
+  background: var(--accent-soft);
+  border-radius: var(--radius-md);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 8px 0;
+}
+.missa-leituras-link:hover { background: var(--accent-glow); }
+.missa-leituras-link .material-symbols-rounded { font-size: 20px; }
+
+/* Cantos sugeridos */
+.missa-canto {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+}
+.missa-canto-icon {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  font-family: 'Material Symbols Rounded';
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.missa-canto-info { flex: 1; }
+.missa-canto-momento { font-size: 0.62rem; color: var(--text-tertiary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.missa-canto-nome { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); }
+
+/* Modo Missa ativo */
+body.modo-missa {
+  --font-scale: 1.15;
+}
+body.modo-missa .app-header,
+body.modo-missa .bottom-nav {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+body.modo-missa .app-header:hover,
+body.modo-missa .bottom-nav:hover {
+  opacity: 1;
+}
+body.modo-missa .missa-line.povo {
+  font-size: 1.05rem;
+  background: var(--green-soft);
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* Brilho reduzido (classe extra) */
+body.modo-missa.brilho-reduzido {
+  filter: brightness(0.75);
+}
+
+/* =================== EXAME DE CONSCIÊNCIA =================== */
+.exame-header-card {
+  background: linear-gradient(145deg, #7C3AED 0%, #4C1D95 100%);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  color: #FFF;
+  margin: 0 16px 8px;
+  text-align: center;
+}
+[data-visual="classico"] .exame-header-card,
+:root:not([data-visual]) .exame-header-card {
+  background: linear-gradient(145deg, #6D28D9 0%, #4C1D95 100%);
+}
+.exame-header-card .exame-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.exame-header-card .exame-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.exame-disclaimer {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 0 16px 16px;
+  padding: 12px 14px;
+  background: rgba(124,58,237,0.06);
+  border-left: 3px solid #7C3AED;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.7rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+.exame-disclaimer .material-symbols-rounded { font-size: 18px; color: #7C3AED; flex-shrink: 0; margin-top: 1px; }
+
+.exame-privacy-bar {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin: 0 16px 16px;
+  padding: 10px;
+  background: var(--green-soft);
+  border-radius: var(--radius-sm);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--green);
+}
+.exame-privacy-bar .material-symbols-rounded { font-size: 16px; }
+
+/* Estado de vida */
+.exame-estado-section {
+  margin: 0 16px 20px;
+}
+.exame-estado-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+.exame-estado-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.exame-estado-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 16px 12px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all 0.2s;
+}
+.exame-estado-btn .material-symbols-rounded { font-size: 28px; color: var(--text-tertiary); transition: color 0.2s; }
+.exame-estado-btn span:last-child { font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); }
+.exame-estado-btn.active {
+  border-color: #7C3AED;
+  background: rgba(124,58,237,0.06);
+}
+.exame-estado-btn.active .material-symbols-rounded { color: #7C3AED; }
+.exame-estado-btn.active span:last-child { color: #7C3AED; }
+
+/* Ultima confissão */
+.exame-ultima {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 16px 20px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.exame-ultima-label { font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); flex-shrink: 0; }
+.exame-ultima-select {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-primary);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Mandamentos / Seções */
+.exame-mandamento {
+  margin: 0 16px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.exame-mandamento-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.exame-mandamento-header:hover { background: var(--accent-soft); }
+.exame-mandamento-num {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(124,58,237,0.08);
+  color: #7C3AED;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.exame-mandamento-title {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.exame-mandamento-count {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  background: var(--bg-elevated);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+.exame-mandamento-arrow {
+  font-family: 'Material Symbols Rounded';
+  font-size: 20px;
+  color: var(--text-tertiary);
+  transition: transform 0.3s;
+}
+.exame-mandamento.open .exame-mandamento-arrow { transform: rotate(180deg); }
+.exame-mandamento-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.exame-mandamento.open .exame-mandamento-body {
+  max-height: 2000px;
+}
+.exame-mandamento-body-inner {
+  padding: 0 16px 16px;
+}
+
+/* Checkbox perguntas */
+.exame-pergunta {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.exame-pergunta:last-child { border-bottom: none; }
+.exame-check {
+  width: 22px; height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: all 0.2s;
+  font-family: 'Material Symbols Rounded';
+  font-size: 16px;
+  color: transparent;
+}
+.exame-pergunta.checked .exame-check {
+  background: #7C3AED;
+  border-color: #7C3AED;
+  color: #FFF;
+}
+.exame-pergunta-text {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+.exame-pergunta.checked .exame-pergunta-text {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.exame-pergunta-tag {
+  display: inline-block;
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(124,58,237,0.08);
+  color: #7C3AED;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* Resumo */
+.exame-resumo {
+  margin: 20px 16px;
+  padding: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  display: none;
+}
+.exame-resumo.visible { display: block; }
+.exame-resumo-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.exame-resumo-desc {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+.exame-resumo-list {
+  list-style: none;
+  padding: 0;
+}
+.exame-resumo-list li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.exame-resumo-list li:last-child { border-bottom: none; }
+.exame-resumo-list li::before {
+  content: '•';
+  color: #7C3AED;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.exame-resumo-empty {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+/* Botões de ação do exame */
+.exame-actions {
+  display: flex; gap: 8px;
+  margin: 0 16px 16px;
+}
+.exame-action-btn {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 13px 16px;
+  border-radius: var(--radius-md);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.exame-action-btn.primary {
+  background: #7C3AED;
+  color: #FFF;
+}
+.exame-action-btn.primary:hover { background: #6D28D9; }
+.exame-action-btn.danger {
+  background: rgba(220,38,38,0.08);
+  color: #DC2626;
+  border: 1px solid rgba(220,38,38,0.15);
+}
+.exame-action-btn.danger:hover { background: rgba(220,38,38,0.14); }
+
+/* Guia do Rito */
+.exame-rito {
+  margin: 0 16px 16px;
+}
+.exame-rito-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.exame-rito-title .material-symbols-rounded { font-size: 20px; color: #7C3AED; }
+.exame-rito-step {
+  display: flex; gap: 14px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+.exame-rito-step-num {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(124,58,237,0.08);
+  color: #7C3AED;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.exame-rito-step-content { flex: 1; }
+.exame-rito-step-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+.exame-rito-step-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.exame-rito-fala {
+  font-style: italic;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin-top: 6px;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+/* Ato de Contrição */
+.exame-contricao {
+  margin: 0 16px 16px;
+}
+.exame-contricao-tabs {
+  display: flex; gap: 4px;
+  margin-bottom: 12px;
+}
+.exame-contricao-tab {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.exame-contricao-tab.active {
+  background: rgba(124,58,237,0.08);
+  color: #7C3AED;
+  border-color: #7C3AED;
+}
+.exame-contricao-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
 /* =================== BOTTOM NAV =================== */
 .bottom-nav {
   position: fixed; bottom:0; left:50%; transform: translateX(-50%);
@@ -3998,8 +4668,8 @@ input[type="range"]::-webkit-slider-thumb {
 <!-- DATE BAR -->
 <div class="date-bar">
   <div class="date-info">
-    <div class="date-liturgical" id="liturgical-title">Sábado Santo</div>
-    <div class="date-calendar" id="date-display">Sábado, 04 de Abril de 2026</div>
+    <div class="date-liturgical" id="liturgical-title">Domingo de Páscoa</div>
+    <div class="date-calendar" id="date-display">Domingo, 05 de Abril de 2026</div>
   </div>
   <div class="liturgical-badge">
     <div class="liturgical-dot" style="background:#FFFFFF"></div>
@@ -4018,8 +4688,8 @@ input[type="range"]::-webkit-slider-thumb {
     <div class="lit-seg" data-tempo="tríduo" style="left:36.5%;width:0.8%;" title="Tríduo Pascal"></div>
     <div class="lit-seg" data-tempo="pascoa" style="left:37.3%;width:13.7%;" title="Tempo Pascal"></div>
     <div class="lit-seg" data-tempo="comum2" style="left:51%;width:49%;" title="Tempo Comum"></div>
-    <!-- Today marker — Sábado Santo = Tríduo Pascal, April 4 ≈ 36.8% of year -->
-    <div class="lit-today-marker" style="left:36.8%">
+    <!-- Today marker — Domingo de Páscoa = Tempo Pascal, April 5 ≈ 37.5% of year -->
+    <div class="lit-today-marker" style="left:37.5%">
       <div class="lit-today-dot"></div>
     </div>
   </div>
@@ -4057,14 +4727,14 @@ input[type="range"]::-webkit-slider-thumb {
           <span class="lit-detail-dates">18 Fev – 1 Abr</span>
         </div>
       </div>
-      <div class="lit-detail-item current">
+      <div class="lit-detail-item">
         <div class="lit-detail-color" data-tempo="tríduo"></div>
         <div class="lit-detail-info">
           <span class="lit-detail-name">Tríduo</span>
           <span class="lit-detail-dates">2 – 4 Abr</span>
         </div>
       </div>
-      <div class="lit-detail-item">
+      <div class="lit-detail-item current">
         <div class="lit-detail-color" data-tempo="pascoa"></div>
         <div class="lit-detail-info">
           <span class="lit-detail-name">Páscoa</span>
@@ -4155,8 +4825,8 @@ input[type="range"]::-webkit-slider-thumb {
       <div class="verse-widget" id="verse-widget">
         <div class="verse-widget-glow"></div>
         <div class="verse-widget-label">Versículo do dia</div>
-        <div class="verse-widget-text">"Não tenhais medo! Ele não está aqui! Ressuscitou, como havia dito!"</div>
-        <div class="verse-widget-ref">Mateus 28,5-6</div>
+        <div class="verse-widget-text">"Ele viu e acreditou. De fato, eles ainda não tinham compreendido a Escritura, segundo a qual Jesus devia ressuscitar dos mortos."</div>
+        <div class="verse-widget-ref">João 20,8-9</div>
         <div class="verse-widget-brand">Verbum</div>
       </div>
       <div class="verse-widget-actions">
@@ -4211,13 +4881,11 @@ input[type="range"]::-webkit-slider-thumb {
     <!-- 1a Leitura -->
     <div class="reading-card">
       <div class="reading-label">Primeira Leitura</div>
-      <div class="reading-reference">Gênesis 1,1 – 2,2</div>
+      <div class="reading-reference">Atos dos Apóstolos 10,34a.37-43</div>
       <div class="reading-text" id="reading-1">
-        <sup>1</sup>No princípio Deus criou o céu e a terra. <sup>2</sup>A terra estava deserta e vazia, as trevas cobriam a face do abismo e o Espírito de Deus pairava sobre as águas. <sup>3</sup>Deus disse: "Faça-se a luz!" E a luz se fez. <sup>4</sup>Deus viu que a luz era boa e separou a luz das trevas. <sup>5</sup>E à luz Deus chamou "dia" e às trevas, "noite". Houve uma tarde e uma manhã: primeiro dia.<br><br>
-        <sup>6</sup>Deus disse: "Faça-se um firmamento entre as águas, separando umas das outras". <sup>7</sup>E Deus fez o firmamento, e separou as águas que estavam embaixo das que estavam em cima do firmamento. E assim se fez. <sup>8</sup>Ao firmamento Deus chamou "céu". Houve uma tarde e uma manhã: segundo dia.<br><br>
-        <sup>9</sup>Deus disse: "Juntem-se as águas que estão debaixo do céu num só lugar e apareça o solo enxuto!" E assim se fez. <sup>10</sup>Ao solo enxuto Deus chamou "terra" e ao ajuntamento das águas, "mar". E Deus viu que era bom.<br><br>
-        <sup>26</sup>Deus disse: "Façamos o homem à nossa imagem e segundo a nossa semelhança, para que domine sobre os peixes do mar, sobre as aves do céu, sobre os animais de toda a terra, e sobre todos os répteis que rastejam sobre a terra". <sup>27</sup>E Deus criou o homem à sua imagem, à imagem de Deus ele o criou: homem e mulher os criou.<br><br>
-        <sup>2,1</sup>Assim foram concluídos o céu e a terra com todo o seu exército. <sup>2</sup>No sétimo dia, Deus acabou toda a obra que havia feito. E no sétimo dia, descansou de toda a obra que fizera.
+        Naqueles dias, Pedro tomou a palavra e disse: <sup>37</sup>"Vós sabeis o que aconteceu em toda a Judeia, a começar pela Galileia, depois do batismo pregado por João: <sup>38</sup>como Deus ungiu Jesus de Nazaré com o Espírito Santo e com poder. Ele andou por toda parte, fazendo o bem e curando todos os que eram dominados pelo diabo, porque Deus estava com ele.<br><br>
+        <sup>39</sup>E nós somos testemunhas de tudo o que ele fez na terra dos judeus e em Jerusalém. Eles o mataram, suspendendo-o num madeiro. <sup>40</sup>Mas Deus o ressuscitou no terceiro dia e permitiu que aparecesse, <sup>41</sup>não a todo o povo, mas às testemunhas que Deus havia escolhido: a nós, que comemos e bebemos com ele, depois que ressuscitou dos mortos.<br><br>
+        <sup>42</sup>E nos mandou pregar ao povo e dar testemunho de que Deus o constituiu juiz dos vivos e dos mortos. <sup>43</sup>Dele todos os profetas dão testemunho: quem nele crê recebe o perdão dos pecados, por meio do seu nome."
       </div>
       <button class="expand-btn" onclick="toggleReading(this, 'reading-1')">
         <span class="material-symbols-rounded">expand_more</span>
@@ -4239,17 +4907,24 @@ input[type="range"]::-webkit-slider-thumb {
     <!-- Salmo -->
     <div class="reading-card">
       <div class="reading-label">Salmo Responsorial</div>
-      <div class="reading-reference">Salmo 103 (104)</div>
+      <div class="reading-reference">Salmo 117 (118)</div>
       <div class="reading-text" id="reading-salmo">
-        <strong style="color:var(--accent)">R: Enviai o vosso Espírito, Senhor, e renovai a face da terra.</strong><br><br>
-        Bendize, ó minha alma, ao Senhor!<br>
-        Ó meu Deus e meu Senhor, como sois grande!<br>
-        De majestade e esplendor vos revestis<br>
-        e de luz vos envolvestes como num manto. <strong>R.</strong><br><br>
-        Que numerosas, ó Senhor, são vossas obras,<br>
-        e que sabedoria em todas elas!<br>
-        Encheu-se a terra com as vossas criaturas!<br>
-        Bendize, ó minha alma, ao Senhor! <strong>R.</strong>
+        <strong style="color:var(--accent)">R: Este é o dia que o Senhor fez para nós: alegremo-nos e nele exultemos!</strong><br><br>
+        Dai graças ao Senhor, porque ele é bom!<br>
+        "Eterna é a sua misericórdia!"<br>
+        A casa de Israel agora o diga:<br>
+        "Eterna é a sua misericórdia!" <strong>R.</strong><br><br>
+        A mão direita do Senhor fez maravilhas,<br>
+        a mão direita do Senhor me levantou,<br>
+        a mão direita do Senhor fez maravilhas! <strong>R.</strong><br><br>
+        A pedra que os pedreiros rejeitaram,<br>
+        tornou-se agora a pedra angular.<br>
+        Pelo Senhor é que foi feito tudo isso:<br>
+        que maravilha é para os nossos olhos! <strong>R.</strong><br><br>
+        Este é o dia que o Senhor fez para nós:<br>
+        alegremo-nos e nele exultemos!<br>
+        Ó Senhor, dai-nos a salvação!<br>
+        Ó Senhor, dai-nos a vitória! <strong>R.</strong>
       </div>
       <button class="expand-btn" onclick="toggleReading(this, 'reading-salmo')">
         <span class="material-symbols-rounded">expand_more</span>
@@ -4268,11 +4943,10 @@ input[type="range"]::-webkit-slider-thumb {
     <!-- 2a Leitura -->
     <div class="reading-card">
       <div class="reading-label">Segunda Leitura</div>
-      <div class="reading-reference">Romanos 6,3b-11</div>
+      <div class="reading-reference">Colossenses 3,1-4</div>
       <div class="reading-text" id="reading-2">
-        Irmãos: <sup>3b</sup>Todos nós, que fomos batizados em Cristo Jesus, fomos batizados na sua morte. <sup>4</sup>Pelo batismo na sua morte, fomos sepultados com ele, para que, como Cristo ressuscitou dos mortos pela glória do Pai, assim também nós levemos uma vida nova.<br><br>
-        <sup>8</sup>Se, pois, morremos com Cristo, cremos que também viveremos com ele. <sup>9</sup>Sabemos que Cristo ressuscitado dos mortos não morre mais; a morte já não tem poder sobre ele. <sup>10</sup>Pois aquele que morreu, morreu para o pecado uma vez por todas; mas aquele que vive, é para Deus que vive.<br><br>
-        <sup>11</sup>Assim, vós também considerai-vos mortos para o pecado e vivos para Deus, em Jesus Cristo.
+        Irmãos: <sup>1</sup>Se ressuscitastes com Cristo, buscai as coisas do alto, onde Cristo está sentado à direita de Deus. <sup>2</sup>Pensai nas coisas do alto e não nas da terra.<br><br>
+        <sup>3</sup>De fato, vós morrestes e a vossa vida está escondida com Cristo em Deus. <sup>4</sup>Quando Cristo, que é a vossa vida, se manifestar, então vós também vos manifestareis com ele na glória.
       </div>
       <button class="expand-btn" onclick="toggleReading(this, 'reading-2')">
         <span class="material-symbols-rounded">expand_more</span>
@@ -4291,12 +4965,13 @@ input[type="range"]::-webkit-slider-thumb {
     <!-- EVANGELHO -->
     <div class="gospel-highlight">
       <div class="reading-label">Evangelho</div>
-      <div class="reading-reference">Mateus 28,1-10</div>
+      <div class="reading-reference">João 20,1-9</div>
       <div class="reading-text" id="reading-evangelho">
-        <sup>1</sup>Depois do sábado, ao amanhecer do primeiro dia da semana, Maria Madalena e a outra Maria foram ver o sepulcro. <sup>2</sup>De repente, houve um grande tremor de terra: o anjo do Senhor desceu do céu e, aproximando-se, retirou a pedra e sentou-se nela. <sup>3</sup>Sua aparência era como um relâmpago, e suas vestes eram brancas como a neve.<br><br>
-        <sup>4</sup>Os guardas ficaram com tanto medo do anjo, que tremeram, e ficaram como mortos. <sup>5</sup>Então o anjo disse às mulheres: "Não tenhais medo! Sei que procurais Jesus, que foi crucificado. <sup>6</sup>Ele não está aqui! Ressuscitou, como havia dito! Vinde ver o lugar em que ele estava."<br><br>
-        <sup>7</sup>"Ide depressa contar aos discípulos que ele ressuscitou dos mortos, e que vai à vossa frente para a Galileia. Lá vós o vereis. É o que tenho a dizer-vos". <sup>8</sup>As mulheres partiram depressa do sepulcro. Com medo e com grande alegria, correram para dar a notícia aos discípulos.<br><br>
-        <sup>9</sup>E eis que Jesus veio ao encontro delas, e disse: "Alegrai-vos!" Elas se aproximaram, abraçaram seus pés e o adoraram. <sup>10</sup>Então Jesus disse a elas: "Não tenhais medo. Ide comunicar a meus irmãos que se dirijam para a Galileia. Lá eles me verão."
+        <sup>1</sup>No primeiro dia da semana, Maria Madalena foi ao túmulo de Jesus, bem de madrugada, quando ainda estava escuro, e viu que a pedra tinha sido retirada do túmulo.<br><br>
+        <sup>2</sup>Então ela saiu correndo e foi encontrar Simão Pedro e o outro discípulo, aquele que Jesus amava, e lhes disse: "Tiraram o Senhor do túmulo, e não sabemos onde o colocaram."<br><br>
+        <sup>3</sup>Saíram, então, Pedro e o outro discípulo e foram ao túmulo. <sup>4</sup>Os dois corriam juntos, mas o outro discípulo correu mais depressa que Pedro e chegou primeiro ao túmulo. <sup>5</sup>Inclinando-se, viu as faixas de linho no chão, mas não entrou.<br><br>
+        <sup>6</sup>Chegou também Simão Pedro, que vinha atrás, e entrou no túmulo. Viu as faixas de linho deitadas no chão <sup>7</sup>e o pano que tinha estado sobre a cabeça de Jesus, não posto com as faixas, mas enrolado num lugar à parte.<br><br>
+        <sup>8</sup>Então entrou também o outro discípulo, que tinha chegado primeiro ao túmulo. Ele viu e acreditou. <sup>9</sup>De fato, eles ainda não tinham compreendido a Escritura, segundo a qual Jesus devia ressuscitar dos mortos.
       </div>
       <button class="expand-btn" onclick="toggleReading(this, 'reading-evangelho')">
         <span class="material-symbols-rounded">expand_more</span>
@@ -4319,7 +4994,7 @@ input[type="range"]::-webkit-slider-thumb {
     <div class="reflection-card">
       <div class="reading-label" style="margin-bottom:12px">Reflexão do dia</div>
       <div class="reflection-quote">
-        "Não tenhais medo!" — É a palavra que ressoa desde a manhã da Ressurreição. O medo paralisa, mas a fé nos coloca em movimento. As mulheres correram com alegria, mesmo sem entender tudo. Assim somos chamados: a correr ao encontro do Ressuscitado, mesmo nas incertezas.
+        "Ele viu e acreditou." — O discípulo amado não precisou de anjos, nem de aparições. Bastou ver os sinais — as faixas no chão, o pano dobrado — para crer. A fé pascal não exige provas espetaculares: ela nasce de quem olha com o coração e reconhece que a morte não tem a última palavra.
       </div>
       <div class="reflection-author">Pe. Roger Araújo — Comunidade Canção Nova</div>
     </div>
@@ -4327,11 +5002,12 @@ input[type="range"]::-webkit-slider-thumb {
     <!-- SAINT -->
     <div class="saint-card">
       <div class="saint-image-circle">
-        <div class="saint-monogram">VP</div>
+        <img src="https://img.cancaonova.com/cnimages/canais/uploads/sites/2/2023/04/sao-vicente-ferrer-dominicano-maior-pregador-do-seculo-xiv.jpg" alt="São Vicente Ferrer" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="saint-monogram" style="display:none">VF</div>
       </div>
       <div class="saint-info">
-        <div class="saint-name">Vigília Pascal</div>
-        <div class="saint-desc">A Vigília Pascal é celebrada na noite deste Sábado Santo — é a mais solene e bela liturgia de todo o ano litúrgico, quando a Igreja celebra a Ressurreição de Cristo.</div>
+        <div class="saint-name">São Vicente Ferrer</div>
+        <div class="saint-desc">Presbítero dominicano espanhol (1350–1419), o maior pregador do século XIV. Chamado de "Anjo do Apocalipse", percorreu toda a Europa durante 20 anos pregando conversão.</div>
       </div>
     </div>
 
@@ -4341,12 +5017,11 @@ input[type="range"]::-webkit-slider-thumb {
   <div class="content-section" id="section-1leitura">
     <div class="reading-card" style="border-left: 3px solid var(--accent);">
       <div class="reading-label">Primeira Leitura</div>
-      <div class="reading-reference">Gênesis 1,1 – 2,2</div>
+      <div class="reading-reference">Atos dos Apóstolos 10,34a.37-43</div>
       <div class="reading-text expanded">
-        <sup>1</sup>No princípio Deus criou o céu e a terra. <sup>2</sup>A terra estava deserta e vazia, as trevas cobriam a face do abismo e o Espírito de Deus pairava sobre as águas. <sup>3</sup>Deus disse: "Faça-se a luz!" E a luz se fez. <sup>4</sup>Deus viu que a luz era boa e separou a luz das trevas. <sup>5</sup>E à luz Deus chamou "dia" e às trevas, "noite". Houve uma tarde e uma manhã: primeiro dia.<br><br>
-        <sup>6</sup>Deus disse: "Faça-se um firmamento entre as águas, separando umas das outras". <sup>7</sup>E Deus fez o firmamento, e separou as águas que estavam embaixo das que estavam em cima do firmamento. E assim se fez. <sup>8</sup>Ao firmamento Deus chamou "céu". Houve uma tarde e uma manhã: segundo dia.<br><br>
-        <sup>26</sup>Deus disse: "Façamos o homem à nossa imagem e segundo a nossa semelhança". <sup>27</sup>E Deus criou o homem à sua imagem, à imagem de Deus ele o criou: homem e mulher os criou.<br><br>
-        <sup>2,1</sup>Assim foram concluídos o céu e a terra com todo o seu exército. <sup>2</sup>No sétimo dia, Deus acabou toda a obra que havia feito. E no sétimo dia, descansou de toda a obra que fizera.
+        Naqueles dias, Pedro tomou a palavra e disse: <sup>37</sup>"Vós sabeis o que aconteceu em toda a Judeia, a começar pela Galileia, depois do batismo pregado por João: <sup>38</sup>como Deus ungiu Jesus de Nazaré com o Espírito Santo e com poder. Ele andou por toda parte, fazendo o bem e curando todos os que eram dominados pelo diabo, porque Deus estava com ele.<br><br>
+        <sup>39</sup>E nós somos testemunhas de tudo o que ele fez na terra dos judeus e em Jerusalém. Eles o mataram, suspendendo-o num madeiro. <sup>40</sup>Mas Deus o ressuscitou no terceiro dia e permitiu que aparecesse, <sup>41</sup>não a todo o povo, mas às testemunhas que Deus havia escolhido: a nós, que comemos e bebemos com ele, depois que ressuscitou dos mortos.<br><br>
+        <sup>42</sup>E nos mandou pregar ao povo e dar testemunho de que Deus o constituiu juiz dos vivos e dos mortos. <sup>43</sup>Dele todos os profetas dão testemunho: quem nele crê recebe o perdão dos pecados, por meio do seu nome."
       </div>
     </div>
   </div>
@@ -4354,13 +5029,20 @@ input[type="range"]::-webkit-slider-thumb {
   <div class="content-section" id="section-salmo">
     <div class="reading-card">
       <div class="reading-label">Salmo Responsorial</div>
-      <div class="reading-reference">Salmo 103 (104)</div>
+      <div class="reading-reference">Salmo 117 (118)</div>
       <div class="reading-text expanded">
-        <strong style="color:var(--accent)">R: Enviai o vosso Espírito, Senhor, e renovai a face da terra.</strong><br><br>
-        Bendize, ó minha alma, ao Senhor!<br>
-        Ó meu Deus e meu Senhor, como sois grande!<br>
-        De majestade e esplendor vos revestis<br>
-        e de luz vos envolvestes como num manto. <strong>R.</strong>
+        <strong style="color:var(--accent)">R: Este é o dia que o Senhor fez para nós: alegremo-nos e nele exultemos!</strong><br><br>
+        Dai graças ao Senhor, porque ele é bom!<br>
+        "Eterna é a sua misericórdia!"<br>
+        A casa de Israel agora o diga:<br>
+        "Eterna é a sua misericórdia!" <strong>R.</strong><br><br>
+        A mão direita do Senhor fez maravilhas,<br>
+        a mão direita do Senhor me levantou,<br>
+        a mão direita do Senhor fez maravilhas! <strong>R.</strong><br><br>
+        A pedra que os pedreiros rejeitaram,<br>
+        tornou-se agora a pedra angular.<br>
+        Pelo Senhor é que foi feito tudo isso:<br>
+        que maravilha é para os nossos olhos! <strong>R.</strong>
       </div>
     </div>
   </div>
@@ -4368,10 +5050,10 @@ input[type="range"]::-webkit-slider-thumb {
   <div class="content-section" id="section-2leitura">
     <div class="reading-card">
       <div class="reading-label">Segunda Leitura</div>
-      <div class="reading-reference">Romanos 6,3b-11</div>
+      <div class="reading-reference">Colossenses 3,1-4</div>
       <div class="reading-text expanded">
-        Irmãos: <sup>3b</sup>Todos nós, que fomos batizados em Cristo Jesus, fomos batizados na sua morte. <sup>4</sup>Pelo batismo na sua morte, fomos sepultados com ele, para que, como Cristo ressuscitou dos mortos pela glória do Pai, assim também nós levemos uma vida nova.<br><br>
-        <sup>11</sup>Assim, vós também considerai-vos mortos para o pecado e vivos para Deus, em Jesus Cristo.
+        Irmãos: <sup>1</sup>Se ressuscitastes com Cristo, buscai as coisas do alto, onde Cristo está sentado à direita de Deus. <sup>2</sup>Pensai nas coisas do alto e não nas da terra.<br><br>
+        <sup>3</sup>De fato, vós morrestes e a vossa vida está escondida com Cristo em Deus. <sup>4</sup>Quando Cristo, que é a vossa vida, se manifestar, então vós também vos manifestareis com ele na glória.
       </div>
     </div>
   </div>
@@ -4379,11 +5061,12 @@ input[type="range"]::-webkit-slider-thumb {
   <div class="content-section" id="section-evangelho">
     <div class="gospel-highlight">
       <div class="reading-label">Evangelho</div>
-      <div class="reading-reference">Mateus 28,1-10</div>
+      <div class="reading-reference">João 20,1-9</div>
       <div class="reading-text expanded">
-        <sup>1</sup>Depois do sábado, ao amanhecer do primeiro dia da semana, Maria Madalena e a outra Maria foram ver o sepulcro. <sup>2</sup>De repente, houve um grande tremor de terra: o anjo do Senhor desceu do céu e, aproximando-se, retirou a pedra e sentou-se nela.<br><br>
-        <sup>5</sup>Então o anjo disse às mulheres: "Não tenhais medo! Sei que procurais Jesus, que foi crucificado. <sup>6</sup>Ele não está aqui! Ressuscitou, como havia dito!"<br><br>
-        <sup>9</sup>E eis que Jesus veio ao encontro delas, e disse: "Alegrai-vos!" Elas se aproximaram, abraçaram seus pés e o adoraram. <sup>10</sup>Então Jesus disse a elas: "Não tenhais medo. Ide comunicar a meus irmãos que se dirijam para a Galileia. Lá eles me verão."
+        <sup>1</sup>No primeiro dia da semana, Maria Madalena foi ao túmulo de Jesus, bem de madrugada, quando ainda estava escuro, e viu que a pedra tinha sido retirada do túmulo.<br><br>
+        <sup>2</sup>Então ela saiu correndo e foi encontrar Simão Pedro e o outro discípulo, aquele que Jesus amava, e lhes disse: "Tiraram o Senhor do túmulo, e não sabemos onde o colocaram."<br><br>
+        <sup>3</sup>Saíram, então, Pedro e o outro discípulo e foram ao túmulo. <sup>4</sup>Os dois corriam juntos, mas o outro discípulo correu mais depressa que Pedro e chegou primeiro ao túmulo.<br><br>
+        <sup>8</sup>Então entrou também o outro discípulo, que tinha chegado primeiro ao túmulo. Ele viu e acreditou. <sup>9</sup>De fato, eles ainda não tinham compreendido a Escritura, segundo a qual Jesus devia ressuscitar dos mortos.
       </div>
     </div>
   </div>
@@ -4391,46 +5074,46 @@ input[type="range"]::-webkit-slider-thumb {
   <!-- ========= SANTO DO DIA ========= -->
   <div class="content-section" id="section-santo">
 
-    <!-- Santo principal -->
+    <!-- Domingo de Páscoa — Solenidade tem precedência sobre santo do dia -->
     <div class="santo-do-dia-hero">
       <div class="santo-hero-image">
-        <div class="santo-hero-monogram">SI</div>
+        <div class="santo-hero-monogram">JC</div>
         <div class="santo-hero-image-badge">
           <span class="material-symbols-rounded" style="font-size:12px">image</span>
         </div>
       </div>
-      <div class="santo-hero-badge">4 de Abril</div>
-      <h2 class="santo-hero-name">Santo Isidoro de Sevilha</h2>
-      <p class="santo-hero-title">Bispo e Doutor da Igreja (560–636)</p>
+      <div class="santo-hero-badge">5 de Abril</div>
+      <h2 class="santo-hero-name">Domingo de Páscoa</h2>
+      <p class="santo-hero-title">Ressurreição do Senhor — A maior solenidade do Ano Litúrgico</p>
       <div class="santo-hero-tags">
-        <span class="santo-tag">Padroeiro da Internet</span>
-        <span class="santo-tag">Doutor da Igreja</span>
-        <span class="santo-tag">Festa: 4 de Abril</span>
+        <span class="santo-tag">Solenidade</span>
+        <span class="santo-tag">Tempo Pascal</span>
+        <span class="santo-tag">Cor: Branco</span>
       </div>
     </div>
 
     <div class="reading-card">
-      <div class="reading-label">Quem foi</div>
+      <div class="reading-label">O que celebramos</div>
       <div class="reading-text expanded" style="max-height:none;font-family:var(--font-body);font-size:0.9rem;line-height:1.7;">
-        Isidoro nasceu em 560, em Sevilha, Espanha, numa família que deu quatro santos à Igreja. O mais novo de quatro irmãos, teve dificuldades de aprendizado na infância, mas superou tudo e tornou-se uma das mentes mais brilhantes do século VII.<br><br>
-        Foi arcebispo de Sevilha por 36 anos. Sua obra mais monumental é as <strong>"Etymologiae"</strong> — considerada a primeira enciclopédia cristã, com 21 volumes que compilavam todo o conhecimento da época: teologia, filosofia, gramática, astronomia, geografia e medicina. Esse livro foi referência por nove séculos.<br><br>
-        Presidiu o IV Concílio de Toledo (633), que teve impacto enorme na legislação da Igreja e do Reino Visigótico. Combateu o arianismo e defendeu a ortodoxia católica com firmeza e erudição.
+        A Páscoa é o coração de toda a fé cristã. Neste dia, a Igreja celebra com alegria transbordante a <strong>Ressurreição de Jesus Cristo</strong>, que venceu a morte e abriu para a humanidade as portas da vida eterna.<br><br>
+        A palavra "Páscoa" vem do hebraico <strong><em>Pesach</em></strong>, que significa "passagem". Para os judeus, era a memória da libertação do Egito. Para os cristãos, é a passagem definitiva: da morte para a vida, do pecado para a graça, das trevas para a luz.<br><br>
+        São Paulo resume: <em>"Se Cristo não ressuscitou, vã é a nossa fé"</em> (1Cor 15,14). A Ressurreição não é um detalhe — é o fundamento de tudo.
       </div>
     </div>
 
     <div class="reflection-card">
-      <div class="reading-label" style="margin-bottom:12px">Como morreu</div>
+      <div class="reading-label" style="margin-bottom:12px">A Oitava da Páscoa</div>
       <div class="reflection-quote">
-        No dia 4 de abril de 636, sentindo que a morte se aproximava, dividiu todos os seus bens com os pobres, pediu perdão publicamente por seus pecados, recebeu a eucaristia uma última vez e, orando aos pés do altar, ali morreu.
+        A alegria da Páscoa é tão grande que a Igreja a celebra por <strong>oito dias seguidos</strong> (a Oitava), como se cada dia fosse o próprio Domingo de Páscoa. Durante toda a semana, o Aleluia ressoa em todas as celebrações, e as leituras narram os encontros dos discípulos com o Ressuscitado.
       </div>
-      <div class="reflection-author">Proclamado Doutor da Igreja pelo Papa Bento XIV em 1722</div>
+      <div class="reflection-author">O Tempo Pascal se estende por 50 dias, até Pentecostes</div>
     </div>
 
     <div class="reading-card">
       <div class="reading-label" style="color:var(--gold)">Você sabia?</div>
       <div class="reading-text expanded" style="max-height:none;font-family:var(--font-body);font-size:0.9rem;line-height:1.7;">
-        <strong>Padroeiro da internet.</strong> Em 1997, o Papa João Paulo II sugeriu Santo Isidoro de Sevilha como padroeiro dos que trabalham com computadores e a internet, justamente porque suas "Etymologiae" foram a tentativa mais ambiciosa de organizar todo o conhecimento humano — exatamente como a internet faz hoje.<br><br>
-        Dante Alighieri o citou no Paraíso, na <em>Divina Comédia</em>, onde viu "brilhar o espírito ardente" desse teólogo.
+        <strong>O ovo de Páscoa</strong> tem origem cristã. Na Igreja primitiva, ovos eram proibidos durante a Quaresma. Quando a Páscoa chegava, os ovos acumulados eram decorados e distribuídos como presente — simbolizando a nova vida que brota do túmulo vazio.<br><br>
+        O <strong>coelho</strong> entrou na tradição popular depois, como símbolo de fertilidade e abundância de vida. Já o <strong>Aleluia</strong>, suprimido durante a Quaresma, volta a ressoar com toda a força neste dia.
       </div>
       <div class="card-actions">
         <button class="card-action-btn" onclick="toggleBookmark(this)">
@@ -4445,7 +5128,7 @@ input[type="range"]::-webkit-slider-thumb {
     <div class="section-subtitle" style="margin-top:8px">Oração do dia</div>
     <div class="reflection-card">
       <div class="prayer-detail-text" style="font-family:var(--font-display);font-size:1.05rem;line-height:1.8;">
-        Ó Santo Isidoro, a vossa fé vos levava a esquecer o mundo para contemplar as belezas do Reino de Deus. Intercedei por nós, para que tenhamos sede do conhecimento a serviço da fé, e que usemos cada dom recebido para a glória de Deus e o bem do próximo.<br><br>
+        Ó Deus, que neste dia, pelo vosso Filho Unigênito, vencestes a morte e nos abristes as portas da vida eterna, concedei que nós, celebrando a Ressurreição do Senhor, sejamos renovados pelo vosso Espírito na luz da vida nova. Por Nosso Senhor Jesus Cristo, vosso Filho, na unidade do Espírito Santo.<br><br>
         Amém.
       </div>
     </div>
@@ -4462,12 +5145,12 @@ input[type="range"]::-webkit-slider-thumb {
 
     <!-- Curiosidade 1: sobre a liturgia do dia -->
     <div class="reading-card">
-      <div class="reading-label" style="color:var(--gold)">A Vigília Pascal</div>
-      <div class="reading-reference">A noite mais importante do ano litúrgico</div>
+      <div class="reading-label" style="color:var(--gold)">O Evangelho de Páscoa</div>
+      <div class="reading-reference">Por que João 20 e não os Sinóticos?</div>
       <div class="reading-text expanded" style="max-height:none;font-family:var(--font-body);font-size:0.9rem;line-height:1.7;">
-        A Vigília Pascal, celebrada nesta noite de Sábado Santo, é chamada de <strong>"a mãe de todas as vigílias"</strong>. É considerada a celebração mais importante de todo o ano litúrgico — mais até que o Natal.<br><br>
-        A celebração começa na escuridão total. Todas as luzes da igreja são apagadas. Do lado de fora, um fogo novo é abençoado, e dele se acende o <strong>Círio Pascal</strong> — uma grande vela que representa Cristo, a Luz do Mundo. O sacerdote proclama três vezes: <em>"Eis a luz de Cristo"</em>, e pouco a pouco toda a igreja se ilumina, vela por vela.<br><br>
-        São <strong>9 leituras, 8 salmos e 8 orações</strong> — um resumo de toda a história da salvação, da Criação até a Ressurreição.
+        A Missa do Dia do Domingo de Páscoa proclama <strong>João 20,1-9</strong> — o relato do túmulo vazio. Diferente de Mateus e Marcos, João não fala de anjos ou terremotos. O foco é o <strong>ato de crer</strong>: o discípulo amado "viu e acreditou".<br><br>
+        Este é o único Evangelho da Ressurreição que termina com a fé nascendo <strong>antes</strong> de uma aparição de Jesus. O discípulo amado não precisou ver Jesus — bastaram os sinais: as faixas no chão e o pano dobrado.<br><br>
+        Os Padres da Igreja interpretavam o <strong>pano dobrado à parte</strong> como sinal de ordem e intenção: não foi um roubo, foi uma Ressurreição.
       </div>
       <div class="card-actions">
         <button class="card-action-btn" onclick="openShareModal()">
@@ -4481,29 +5164,29 @@ input[type="range"]::-webkit-slider-thumb {
 
     <!-- Curiosidade 2: sobre algo bíblico -->
     <div class="reading-card">
-      <div class="reading-label" style="color:var(--gold)">O Alfa e o Ômega</div>
-      <div class="reading-reference">O significado das letras no Círio Pascal</div>
+      <div class="reading-label" style="color:var(--gold)">A Corrida ao Túmulo</div>
+      <div class="reading-reference">Pedro e o Discípulo Amado</div>
       <div class="reading-text expanded" style="max-height:none;font-family:var(--font-body);font-size:0.9rem;line-height:1.7;">
-        No Círio Pascal, o sacerdote traça uma <strong>cruz</strong>, marca as letras gregas <strong>Α</strong> (alfa) e <strong>Ω</strong> (ômega) e insere <strong>5 grãos de incenso</strong> em memória das cinco chagas de Cristo na cruz.<br><br>
-        Alfa e Ômega são a primeira e a última letras do alfabeto grego. Representam que Cristo é o <em>"Princípio e o Fim"</em> de todas as coisas (Apocalipse 22,13). O ano corrente também é inscrito, simbolizando que Cristo é o Senhor do tempo e da história.
+        No Evangelho de hoje, Pedro e "o outro discípulo" correm juntos ao túmulo, mas o jovem chega primeiro. No entanto, <strong>espera Pedro entrar primeiro</strong> — um gesto de respeito à autoridade apostólica.<br><br>
+        A tradição identifica o "discípulo amado" como <strong>São João Evangelista</strong>, o mais jovem dos apóstolos, que teria vivido até cerca de 100 anos. Ele é o único apóstolo que não morreu mártir.
       </div>
     </div>
 
     <!-- Curiosidade 3: fato histórico -->
     <div class="reading-card">
-      <div class="reading-label" style="color:var(--gold)">Curiosidade histórica</div>
-      <div class="reading-reference">A Vigília que mudou de horário</div>
+      <div class="reading-label" style="color:var(--gold)">A Sequência Pascal</div>
+      <div class="reading-reference">O Victimae Paschali Laudes</div>
       <div class="reading-text expanded" style="max-height:none;font-family:var(--font-body);font-size:0.9rem;line-height:1.7;">
-        Até o século V, a Vigília Pascal era celebrada durante a noite, como manda a tradição. Mas com o tempo, foi sendo antecipada — chegando ao ponto de ser celebrada às <strong>10 da manhã de sábado</strong>!<br><br>
-        Para manter a simbologia da "noite", <strong>tapavam-se as janelas das igrejas</strong> para fingir que era escuro. Só em <strong>1951</strong>, o Papa Pio XII restaurou a celebração para o horário noturno original. O Concílio Vaticano II confirmou essa decisão.
+        Antes do Evangelho, a liturgia de Páscoa inclui a <strong>Sequência</strong> — um hino poético do século XI atribuído a Wipo de Borgonha. É uma das apenas <strong>4 sequências</strong> que sobreviveram à reforma do Concílio de Trento (1570).<br><br>
+        O texto é dramático: <em>"A morte e a vida travaram um duelo admirável. O Senhor da vida, que morreu, reina vivo."</em> Maria Madalena é chamada como testemunha: "Dize-nos, Maria, o que viste no caminho?"
       </div>
     </div>
 
     <!-- Curiosidade 4: número/dado -->
     <div class="curiosidade-fact-card">
-      <div class="curiosidade-fact-number">7</div>
+      <div class="curiosidade-fact-number">50</div>
       <div class="curiosidade-fact-text">
-        <strong>leituras do Antigo Testamento</strong> são proclamadas na Vigília Pascal, percorrendo toda a história da salvação — da Criação de Gênesis até as profecias de Ezequiel. É a maior série de leituras de qualquer celebração do ano.
+        <strong>dias dura o Tempo Pascal</strong> — de hoje até Pentecostes. A palavra "Pentecostes" vem do grego <em>pentekostos</em> ("quinquagésimo"). É o período mais longo de celebração do ano litúrgico.
       </div>
     </div>
 
@@ -4519,7 +5202,7 @@ input[type="range"]::-webkit-slider-thumb {
   <!-- ========= LITURGIA DAS HORAS ========= -->
   <div class="content-section" id="section-oficio">
 
-    <div class="section-subtitle">Liturgia das Horas — Sábado Santo</div>
+    <div class="section-subtitle">Liturgia das Horas — Domingo de Páscoa</div>
 
     <!-- Time indicator -->
     <div class="oficio-time-bar">
@@ -4560,61 +5243,62 @@ input[type="range"]::-webkit-slider-thumb {
         <div class="oficio-part">
           <div class="oficio-part-label">Hino</div>
           <div class="oficio-part-text oficio-hymn">
-            Chorando vos cantamos<br>
-            um hino de louvor;<br>
-            as faltas perdoai-nos,<br>
-            de todos Redentor!<br><br>
-            Vencestes o inimigo,<br>
-            morrendo sobre a cruz:<br>
-            marcada em nossas frontes,<br>
-            é o sol que nos conduz.<br><br>
-            Por nós descer quisestes<br>
-            da morte à região:<br>
-            aos pais que aguardavam<br>
-            trouxestes salvação.<br><br>
-            Curai nossas feridas,<br>
-            pedimo-vos, Senhor,<br>
-            a vós e ao Pai louvando<br>
-            e ao Espírito de amor.
+            Ó Cristo, Rei da Glória,<br>
+            Vencedor da morte atroz,<br>
+            do túmulo surgistes<br>
+            trazendo a luz a nós!<br><br>
+            A morte foi vencida,<br>
+            o pecado já não tem<br>
+            domínio sobre aqueles<br>
+            que em Vós a vida vem!<br><br>
+            Aleluia, aleluia!<br>
+            Ressuscitou o Senhor!<br>
+            Cantemos jubilosos<br>
+            ao nosso Redentor!<br><br>
+            A Vós, Jesus Ressuscitado,<br>
+            ao Pai e ao Espírito de amor,<br>
+            seja a glória para sempre.<br>
+            Amém! Aleluia!
           </div>
         </div>
 
         <div class="oficio-part">
-          <div class="oficio-part-label">Salmo 63 (64)</div>
-          <div class="oficio-part-ant">Ant. Lamentarão a sua morte como a um filho primogênito, pois foi morto o Inocente, Jesus Cristo, Senhor nosso.</div>
+          <div class="oficio-part-label">Salmo 117 (118)</div>
+          <div class="oficio-part-ant">Ant. Este é o dia que o Senhor fez para nós: alegremo-nos e nele exultemos! Aleluia!</div>
           <div class="oficio-part-text">
-            Ó Deus, ouvi a minha voz, o meu lamento!<br>
-            Salvai-me a vida do inimigo aterrador!<br>
-            Protegei-me das intrigas dos perversos<br>
-            e do tumulto dos obreiros da maldade!<br><br>
-            Eles afiam suas línguas como espadas,<br>
-            lançam palavras venenosas como flechas,<br>
-            para ferir os inocentes às ocultas<br>
-            e atingi-los de repente, sem temor.<br><br>
-            O homem justo há de alegrar-se no Senhor<br>
-            e junto dele encontrará o seu refúgio,<br>
-            e os de reto coração triunfarão.
+            Dai graças ao Senhor, porque ele é bom!<br>
+            "Eterna é a sua misericórdia!"<br>
+            A casa de Israel agora o diga:<br>
+            "Eterna é a sua misericórdia!"<br><br>
+            A mão direita do Senhor fez maravilhas,<br>
+            a mão direita do Senhor me levantou!<br>
+            Não morrerei, mas ao contrário, viverei<br>
+            para contar as grandes obras do Senhor!<br><br>
+            A pedra que os pedreiros rejeitaram,<br>
+            tornou-se agora a pedra angular.<br>
+            Pelo Senhor é que foi feito tudo isso:<br>
+            que maravilha é para os nossos olhos!
           </div>
         </div>
 
         <div class="oficio-part">
-          <div class="oficio-part-label">Cântico de Isaías 38,10-14.17-20</div>
-          <div class="oficio-part-ant">Ant. Das portas do abismo livrai-me, Senhor!</div>
+          <div class="oficio-part-label">Cântico de Daniel 3,57-88</div>
+          <div class="oficio-part-ant">Ant. Aleluia, aleluia, aleluia!</div>
           <div class="oficio-part-text">
-            Eu dizia: "É necessário que eu me vá<br>
-            no apogeu de minha vida e de meus dias;<br>
-            para a mansão triste dos mortos descerei,<br>
-            sem viver o que me resta dos meus anos."<br><br>
-            Mas vós livrastes minha vida do sepulcro,<br>
-            e lançastes para trás os meus pecados.<br>
-            Só os vivos é que podem vos louvar,<br>
-            como hoje eu vos louvo agradecido.
+            Todas as obras do Senhor, bendizei o Senhor!<br>
+            Louvai-o e exaltai-o para sempre!<br>
+            Anjos do Senhor, bendizei o Senhor!<br>
+            Céus, bendizei o Senhor!<br><br>
+            Sol e lua, bendizei o Senhor!<br>
+            Estrelas do céu, bendizei o Senhor!<br>
+            Chuvas e orvalhos, bendizei o Senhor!<br>
+            Louvai-o e exaltai-o para sempre!
           </div>
         </div>
 
         <div class="oficio-part">
           <div class="oficio-part-label">Salmo 150</div>
-          <div class="oficio-part-ant">Ant. Estive morto e agora vivo: sou o Vivente pelos séculos; tenho as chaves dos abismos e a vitória sobre a morte.</div>
+          <div class="oficio-part-ant">Ant. Cristo ressuscitou dos mortos! Aleluia! A ele a glória e o poder pelos séculos dos séculos!</div>
           <div class="oficio-part-text">
             Louvai o Senhor Deus no santuário,<br>
             louvai-o no alto céu de seu poder!<br>
@@ -4644,7 +5328,7 @@ input[type="range"]::-webkit-slider-thumb {
         <div class="oficio-part">
           <div class="oficio-part-label">Oração conclusiva</div>
           <div class="oficio-part-text">
-            Pai cheio de bondade, vosso Filho unigênito desceu à mansão dos mortos e dela surgiu vitorioso: concedei aos vossos fiéis, sepultados com ele no batismo, que, pela força de sua ressurreição, participem da vida eterna com ele. Que convosco vive e reina, na unidade do Espírito Santo. Amém.
+            Ó Deus, que neste dia vencestes a morte e nos abristes as portas da vida eterna: concedei que nós, celebrando a Ressurreição do Senhor, sejamos renovados pelo vosso Espírito na luz da vida nova. Por Nosso Senhor Jesus Cristo. Amém. Aleluia!
           </div>
         </div>
 
@@ -4670,9 +5354,12 @@ input[type="range"]::-webkit-slider-thumb {
       <div class="oficio-card-body" id="oficio-body-vesperas">
 
         <div class="oficio-part">
-          <div class="oficio-part-label">Nota sobre este dia</div>
-          <div class="oficio-part-text" style="font-style:italic;color:var(--text-tertiary)">
-            No Sábado Santo, as Vésperas não são rezadas separadamente — a Vigília Pascal as substitui. A Igreja permanece em silêncio junto ao sepulcro, aguardando a Ressurreição.
+          <div class="oficio-part-label">Abertura</div>
+          <div class="oficio-part-text">
+            <strong>V.</strong> Vinde, ó Deus, em meu auxílio.<br>
+            <strong>R.</strong> Socorrei-me sem demora. Aleluia!<br>
+            Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+            Como era no princípio, agora e sempre. Amém. Aleluia!
           </div>
         </div>
 
@@ -5528,15 +6215,387 @@ input[type="range"]::-webkit-slider-thumb {
 
   </div>
 
+  <!-- ========= FOLHETO DIGITAL DA MISSA ========= -->
+  <div class="content-section" id="section-missa">
+
+    <!-- Header do Folheto -->
+    <div class="missa-header-card">
+      <div class="missa-title">Santa Missa</div>
+      <div class="missa-subtitle">Domingo de Páscoa — Ressurreição do Senhor</div>
+      <div class="missa-date">5 de Abril de 2026 • Tempo Pascal</div>
+    </div>
+
+    <!-- Toggle Modo Missa -->
+    <button class="modo-missa-toggle" id="modo-missa-btn" onclick="toggleModoMissa()">
+      <span class="material-symbols-rounded">phone_android</span>
+      Ativar Modo Missa
+    </button>
+
+    <!-- ══════ RITOS INICIAIS ══════ -->
+    <div class="missa-part" id="missa-ritos-iniciais">
+      <div class="missa-part-number">Parte I</div>
+      <div class="missa-part-label">
+        <span class="material-symbols-rounded">church</span>
+        Ritos Iniciais
+      </div>
+
+      <!-- Saudação -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Saudação</div>
+        <div class="missa-rubric">O sacerdote faz o sinal da cruz e saúda o povo.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Em nome do Pai e do Filho e do Espírito Santo.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Amém.</div>
+        <div class="missa-line"><span class="tag-s">S</span> A graça de nosso Senhor Jesus Cristo, o amor do Pai e a comunhão do Espírito Santo estejam convosco.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Bendito seja Deus, que nos reuniu no amor de Cristo.</div>
+      </div>
+
+      <!-- Ato Penitencial -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Ato Penitencial</div>
+        <div class="missa-variable-note">
+          <span class="material-symbols-rounded">info</span>
+          O celebrante escolhe uma das 3 formas
+        </div>
+        <div class="missa-rubric">Forma I — Confiteor</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Confesso a Deus todo-poderoso e a vós, irmãos e irmãs, que pequei muitas vezes por pensamentos e palavras, atos e omissões,</div>
+        <div class="missa-rubric" style="border:0;padding:0;margin:2px 0 4px 28px;font-style:italic;font-size:0.7rem">(batendo no peito)</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> por minha culpa, minha tão grande culpa. E peço à Virgem Maria, aos anjos e santos, e a vós, irmãos e irmãs, que rogueis por mim a Deus, nosso Senhor.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Deus todo-poderoso tenha compaixão de nós, perdoe os nossos pecados e nos conduza à vida eterna.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Amém.</div>
+      </div>
+
+      <!-- Kyrie -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Senhor, tende piedade</div>
+        <div class="missa-line"><span class="tag-s">S</span> Senhor, tende piedade de nós.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Senhor, tende piedade de nós.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Cristo, tende piedade de nós.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Cristo, tende piedade de nós.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Senhor, tende piedade de nós.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Senhor, tende piedade de nós.</div>
+      </div>
+
+      <!-- Glória -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Glória</div>
+        <div class="missa-rubric">Rezado ou cantado aos domingos (exceto Advento e Quaresma) e solenidades.</div>
+        <div class="missa-prayer-text">Glória a Deus nas alturas e paz na terra aos homens por Ele amados. Senhor Deus, Rei dos céus, Deus Pai todo-poderoso: nós Vos louvamos, nós Vos bendizemos, nós Vos adoramos, nós Vos glorificamos, nós Vos damos graças por vossa imensa glória.<br><br>Senhor Jesus Cristo, Filho Unigênito, Senhor Deus, Cordeiro de Deus, Filho de Deus Pai: Vós que tirais o pecado do mundo, tende piedade de nós; Vós que tirais o pecado do mundo, acolhei a nossa súplica; Vós que estais à direita do Pai, tende piedade de nós.<br><br>Só Vós sois o Santo; só Vós, o Senhor; só Vós, o Altíssimo, Jesus Cristo; com o Espírito Santo, na glória de Deus Pai. Amém.</div>
+      </div>
+
+      <!-- Oração do Dia -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Oração do Dia (Coleta)</div>
+        <div class="missa-variable-note">
+          <span class="material-symbols-rounded">calendar_today</span>
+          Própria do dia — varia conforme o calendário litúrgico
+        </div>
+        <div class="missa-line"><span class="tag-s">S</span> Oremos.</div>
+        <div class="missa-rubric">Breve pausa de silêncio.</div>
+        <div class="missa-prayer-text">Ó Deus, que neste dia, pelo vosso Filho Unigênito, vencestes a morte e nos abristes as portas da vida eterna, concedei que nós, celebrando a Ressurreição do Senhor, sejamos renovados pelo vosso Espírito na luz da vida nova. Por Nosso Senhor Jesus Cristo, vosso Filho, na unidade do Espírito Santo.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Amém.</div>
+      </div>
+    </div>
+
+    <!-- ══════ LITURGIA DA PALAVRA ══════ -->
+    <div class="missa-part" id="missa-liturgia-palavra">
+      <div class="missa-part-number">Parte II</div>
+      <div class="missa-part-label">
+        <span class="material-symbols-rounded">menu_book</span>
+        Liturgia da Palavra
+      </div>
+
+      <div class="missa-leituras-link" onclick="switchMainTab('all')">
+        <span class="material-symbols-rounded">menu_book</span>
+        Ver leituras completas do dia (1ª Leitura, Salmo, 2ª Leitura, Evangelho)
+      </div>
+
+      <!-- Aclamação ao Evangelho -->
+      <div class="missa-dialog" style="margin-top:12px">
+        <div class="missa-dialog-title">Aclamação ao Evangelho</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Aleluia, Aleluia, Aleluia!</div>
+        <div class="missa-rubric">O diácono ou sacerdote proclama o Evangelho.</div>
+        <div class="missa-line"><span class="tag-s">S</span> O Senhor esteja convosco.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Ele está no meio de nós.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Proclamação do Evangelho de Jesus Cristo segundo Mateus.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Glória a vós, Senhor!</div>
+        <div class="missa-rubric">Após a leitura:</div>
+        <div class="missa-line"><span class="tag-s">S</span> Palavra da salvação.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Glória a vós, Senhor!</div>
+      </div>
+
+      <!-- Homilia -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Homilia</div>
+        <div class="missa-rubric">O sacerdote faz a reflexão sobre as leituras do dia.</div>
+      </div>
+
+      <!-- Profissão de Fé -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Profissão de Fé (Creio)</div>
+        <div class="missa-prayer-text">Creio em Deus Pai todo-poderoso, Criador do céu e da terra; e em Jesus Cristo, seu único Filho, nosso Senhor; que foi concebido pelo poder do Espírito Santo; nasceu da Virgem Maria; padeceu sob Pôncio Pilatos, foi crucificado, morto e sepultado; desceu à mansão dos mortos; ressuscitou ao terceiro dia; subiu aos céus, está sentado à direita de Deus Pai todo-poderoso, de onde há de vir a julgar os vivos e os mortos.<br><br>Creio no Espírito Santo, na Santa Igreja Católica, na comunhão dos santos, na remissão dos pecados, na ressurreição da carne, na vida eterna. Amém.</div>
+      </div>
+
+      <!-- Oração dos Fiéis -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Oração dos Fiéis</div>
+        <div class="missa-variable-note">
+          <span class="material-symbols-rounded">group</span>
+          As preces variam conforme a celebração
+        </div>
+        <div class="missa-rubric">Após cada intenção:</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Senhor, escutai a nossa prece!</div>
+      </div>
+    </div>
+
+    <!-- ══════ LITURGIA EUCARÍSTICA ══════ -->
+    <div class="missa-part" id="missa-liturgia-eucaristica">
+      <div class="missa-part-number">Parte III</div>
+      <div class="missa-part-label">
+        <span class="material-symbols-rounded">local_dining</span>
+        Liturgia Eucarística
+      </div>
+
+      <!-- Oração sobre as Oferendas -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Apresentação das Oferendas</div>
+        <div class="missa-line"><span class="tag-s">S</span> Bendito sejais, Senhor, Deus do universo, pelo pão que recebemos de vossa bondade, fruto da terra e do trabalho do homem, que agora vos apresentamos e para nós se vai tornar pão da vida.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Bendito seja Deus para sempre!</div>
+        <div class="missa-line"><span class="tag-s">S</span> Bendito sejais, Senhor, Deus do universo, pelo vinho que recebemos de vossa bondade, fruto da videira e do trabalho do homem, que agora vos apresentamos e para nós se vai tornar vinho da salvação.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Bendito seja Deus para sempre!</div>
+        <div class="missa-line"><span class="tag-s">S</span> Orai, irmãos e irmãs, para que o nosso sacrifício seja aceito por Deus Pai todo-poderoso.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Receba o Senhor por tuas mãos este sacrifício, para glória do seu nome, para nosso bem e de toda a sua santa Igreja.</div>
+      </div>
+
+      <!-- Prefácio -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Prefácio</div>
+        <div class="missa-line"><span class="tag-s">S</span> O Senhor esteja convosco.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Ele está no meio de nós.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Corações ao alto!</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> O nosso coração está em Deus.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Demos graças ao Senhor, nosso Deus.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> É nosso dever e nossa salvação.</div>
+      </div>
+
+      <!-- Santo -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Santo</div>
+        <div class="missa-prayer-text" style="font-weight:600">Santo, Santo, Santo, Senhor Deus do universo! O céu e a terra proclamam a vossa glória. Hosana nas alturas! Bendito o que vem em nome do Senhor! Hosana nas alturas!</div>
+      </div>
+
+      <!-- Consagração -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Oração Eucarística</div>
+        <div class="missa-rubric">Narrativa da Instituição e Consagração.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Tomai, todos, e comei: isto é o meu Corpo, que será entregue por vós.</div>
+        <div class="missa-rubric" style="border:0;padding:0;margin:4px 0;text-align:center;font-weight:600;color:var(--accent)">O sacerdote eleva a hóstia consagrada.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Tomai, todos, e bebei: este é o cálice do meu Sangue, o Sangue da nova e eterna Aliança, que será derramado por vós e por todos, para remissão dos pecados. Fazei isto em memória de Mim.</div>
+        <div class="missa-rubric" style="border:0;padding:0;margin:4px 0;text-align:center;font-weight:600;color:var(--accent)">O sacerdote eleva o cálice.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Eis o mistério da fé!</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Anunciamos, Senhor, a vossa morte e proclamamos a vossa ressurreição. Vinde, Senhor Jesus!</div>
+      </div>
+
+      <!-- Pai Nosso -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Pai Nosso</div>
+        <div class="missa-prayer-text">Pai nosso que estais nos céus, santificado seja o vosso nome, venha a nós o vosso reino, seja feita a vossa vontade assim na terra como no céu. O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Livrai-nos de todos os males, ó Pai, e dai-nos hoje a vossa paz. Pela vossa misericórdia, livrai-nos do pecado e de toda perturbação, enquanto, vivendo a esperança, aguardamos a vinda do Salvador, Jesus Cristo.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Vosso é o reino, o poder e a glória para sempre!</div>
+      </div>
+
+      <!-- Saudação da Paz -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Saudação da Paz</div>
+        <div class="missa-line"><span class="tag-s">S</span> A paz do Senhor esteja sempre convosco.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> O amor de Cristo nos uniu.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Saudai-vos na paz de Cristo.</div>
+      </div>
+
+      <!-- Cordeiro de Deus -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Cordeiro de Deus</div>
+        <div class="missa-prayer-text">Cordeiro de Deus, que tirais o pecado do mundo, <strong>tende piedade de nós</strong>.<br>Cordeiro de Deus, que tirais o pecado do mundo, <strong>tende piedade de nós</strong>.<br>Cordeiro de Deus, que tirais o pecado do mundo, <strong>dai-nos a paz</strong>.</div>
+      </div>
+
+      <!-- Comunhão -->
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Comunhão</div>
+        <div class="missa-line"><span class="tag-s">S</span> Eis o Cordeiro de Deus, que tira o pecado do mundo. Felizes os convidados para a ceia do Senhor.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Senhor, eu não sou digno(a) de que entreis em minha morada, mas dizei uma palavra e serei salvo(a).</div>
+      </div>
+    </div>
+
+    <!-- ══════ RITOS FINAIS ══════ -->
+    <div class="missa-part" id="missa-ritos-finais">
+      <div class="missa-part-number">Parte IV</div>
+      <div class="missa-part-label">
+        <span class="material-symbols-rounded">waving_hand</span>
+        Ritos Finais
+      </div>
+
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Bênção Final</div>
+        <div class="missa-line"><span class="tag-s">S</span> O Senhor esteja convosco.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Ele está no meio de nós.</div>
+        <div class="missa-line"><span class="tag-s">S</span> Abençoe-vos Deus todo-poderoso, Pai e Filho e Espírito Santo.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Amém.</div>
+      </div>
+
+      <div class="missa-dialog">
+        <div class="missa-dialog-title">Envio</div>
+        <div class="missa-line"><span class="tag-s">S</span> Ide em paz e o Senhor vos acompanhe.</div>
+        <div class="missa-line povo"><span class="tag-p">P</span> Graças a Deus.</div>
+      </div>
+    </div>
+
+    <!-- ══════ CANTOS SUGERIDOS ══════ -->
+    <div class="missa-part" id="missa-cantos">
+      <div class="missa-part-number">Cantos</div>
+      <div class="missa-part-label">
+        <span class="material-symbols-rounded">music_note</span>
+        Cantos Sugeridos
+      </div>
+      <div class="missa-variable-note">
+        <span class="material-symbols-rounded">church</span>
+        Cantos podem ser personalizados pela sua paróquia no Modo Paróquia
+      </div>
+
+      <div class="missa-canto">
+        <div class="missa-canto-icon">music_note</div>
+        <div class="missa-canto-info">
+          <div class="missa-canto-momento">Entrada</div>
+          <div class="missa-canto-nome">Exulte o céu de alegria</div>
+        </div>
+      </div>
+      <div class="missa-canto">
+        <div class="missa-canto-icon">music_note</div>
+        <div class="missa-canto-info">
+          <div class="missa-canto-momento">Ofertório</div>
+          <div class="missa-canto-nome">Ofertório pascal</div>
+        </div>
+      </div>
+      <div class="missa-canto">
+        <div class="missa-canto-icon">music_note</div>
+        <div class="missa-canto-info">
+          <div class="missa-canto-momento">Comunhão</div>
+          <div class="missa-canto-nome">Ressuscitou, aleluia!</div>
+        </div>
+      </div>
+      <div class="missa-canto">
+        <div class="missa-canto-icon">music_note</div>
+        <div class="missa-canto-info">
+          <div class="missa-canto-momento">Final</div>
+          <div class="missa-canto-nome">Vós sois a luz do mundo</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:100px"></div>
+  </div>
+
 </div>
+
+  <!-- ========= EXAME DE CONSCIÊNCIA ========= -->
+  <div class="content-section" id="section-exame">
+
+    <div class="exame-header-card">
+      <div class="exame-title">Exame de Consciência</div>
+      <div class="exame-subtitle">Preparação para o Sacramento da Reconciliação</div>
+    </div>
+
+    <div class="exame-disclaimer">
+      <span class="material-symbols-rounded">info</span>
+      <span>A absolvição dos pecados só é concedida por um sacerdote no Sacramento da Reconciliação (Confissão). Este exame é apenas uma ferramenta de preparação pessoal.</span>
+    </div>
+
+    <div class="exame-privacy-bar">
+      <span class="material-symbols-rounded">lock</span>
+      100% privado — nenhum dado sai do seu celular
+    </div>
+
+    <div class="exame-ultima">
+      <span class="exame-ultima-label">Última confissão:</span>
+      <select class="exame-ultima-select" id="exame-ultima-select">
+        <option value="">Selecione...</option>
+        <option value="1sem">Menos de 1 semana</option>
+        <option value="1mes">Menos de 1 mês</option>
+        <option value="3mes">1 a 3 meses</option>
+        <option value="6mes">3 a 6 meses</option>
+        <option value="1ano">6 meses a 1 ano</option>
+        <option value="mais">Mais de 1 ano</option>
+        <option value="muito">Muitos anos / não lembro</option>
+      </select>
+    </div>
+
+    <div class="exame-estado-section">
+      <div class="exame-estado-label">Qual é o seu estado de vida?</div>
+      <div class="exame-estado-grid">
+        <button class="exame-estado-btn" data-estado="jovem" onclick="selectEstadoVida(this,'jovem')"><span class="material-symbols-rounded">school</span><span>Jovem</span></button>
+        <button class="exame-estado-btn" data-estado="solteiro" onclick="selectEstadoVida(this,'solteiro')"><span class="material-symbols-rounded">person</span><span>Solteiro(a)</span></button>
+        <button class="exame-estado-btn active" data-estado="casado" onclick="selectEstadoVida(this,'casado')"><span class="material-symbols-rounded">favorite</span><span>Casado(a)</span></button>
+        <button class="exame-estado-btn" data-estado="religioso" onclick="selectEstadoVida(this,'religioso')"><span class="material-symbols-rounded">church</span><span>Religioso(a)</span></button>
+      </div>
+    </div>
+
+    <div class="exame-actions">
+      <button class="exame-action-btn primary" onclick="toggleExameResumo()"><span class="material-symbols-rounded" style="font-size:18px">checklist</span> Ver meu resumo</button>
+      <button class="exame-action-btn danger" onclick="limparExame()"><span class="material-symbols-rounded" style="font-size:18px">delete_forever</span> Limpar tudo</button>
+    </div>
+
+    <div class="exame-resumo" id="exame-resumo">
+      <div class="exame-resumo-title">Meu resumo pessoal</div>
+      <div class="exame-resumo-desc">Leve esta lista ao confessionário. Nenhum dado é enviado para nenhum servidor.</div>
+      <ul class="exame-resumo-list" id="exame-resumo-list"></ul>
+      <div class="exame-resumo-empty" id="exame-resumo-empty">Nenhum item marcado ainda. Faça o exame abaixo e marque os itens que se aplicam a você.</div>
+    </div>
+
+    <div class="exame-mandamento" id="exame-m1"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m1')"><div class="exame-mandamento-num">1</div><div class="exame-mandamento-title">Amar a Deus sobre todas as coisas</div><div class="exame-mandamento-count" data-count="m1">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Tenho duvidado da existência de Deus ou da minha fé?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Deixei de rezar por muito tempo?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Coloquei dinheiro, trabalho ou outra coisa acima de Deus?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Participei de superstições, horóscopo ou ocultismo?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Fui ingrato(a) com Deus?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Tenho vergonha de demonstrar minha fé?</div></div></div></div></div>
+
+    <div class="exame-mandamento" id="exame-m2"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m2')"><div class="exame-mandamento-num">2</div><div class="exame-mandamento-title">Não tomar o Nome de Deus em vão</div><div class="exame-mandamento-count" data-count="m2">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Usei o nome de Deus como palavrão?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Fiz juramentos falsos?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Falei da Igreja com desrespeito?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Amaldiçoei ou desejei mal a alguém?</div></div></div></div></div>
+
+    <div class="exame-mandamento" id="exame-m3"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m3')"><div class="exame-mandamento-num">3</div><div class="exame-mandamento-title">Guardar domingos e festas</div><div class="exame-mandamento-count" data-count="m3">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Deixei de ir à Missa no domingo sem motivo grave?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Cheguei atrasado(a) ou saí antes do fim?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Fiquei no celular durante a Missa?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Trabalhei no domingo sem necessidade?</div></div></div></div></div>
+
+    <div class="exame-mandamento" id="exame-m4"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m4')"><div class="exame-mandamento-num">4</div><div class="exame-mandamento-title">Honrar pai e mãe</div><div class="exame-mandamento-count" data-count="m4">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Desrespeitei ou maltratei meus pais?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Deixei de ajudar meus pais quando precisaram?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Causei sofrimento à família por egoísmo?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Fui negligente na educação dos filhos? <span class="exame-pergunta-tag">Casado(a)</span></div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Tive vergonha dos pais diante dos amigos? <span class="exame-pergunta-tag">Jovem</span></div></div></div></div></div>
+
+    <div class="exame-mandamento" id="exame-m5"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m5')"><div class="exame-mandamento-num">5</div><div class="exame-mandamento-title">Não matar</div><div class="exame-mandamento-count" data-count="m5">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Tive ódio, rancor ou desejo de vingança?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Briguei ou fui violento(a)?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Guardei mágoa e me recusei a perdoar?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Prejudiquei minha saúde com excessos?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Fui indiferente ao sofrimento alheio?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Pratiquei bullying? <span class="exame-pergunta-tag">Jovem</span></div></div></div></div></div>
+
+    <div class="exame-mandamento" id="exame-m6"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m6')"><div class="exame-mandamento-num">6</div><div class="exame-mandamento-title">Não pecar contra a castidade</div><div class="exame-mandamento-count" data-count="m6">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Consenti em pensamentos impuros?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Assisti pornografia?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Pratiquei atos impuros?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Fui infiel ao cônjuge? <span class="exame-pergunta-tag">Casado(a)</span></div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Quebrei voto de castidade? <span class="exame-pergunta-tag">Religioso(a)</span></div></div></div></div></div>
+
+    <div class="exame-mandamento" id="exame-m7"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m7')"><div class="exame-mandamento-num">7</div><div class="exame-mandamento-title">Não roubar</div><div class="exame-mandamento-count" data-count="m7">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Roubei ou peguei algo alheio?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Fui desonesto(a) no trabalho ou estudos?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Danifiquei propriedade alheia?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Deixei de pagar dívidas podendo?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Colei em provas? <span class="exame-pergunta-tag">Jovem</span></div></div></div></div></div>
+
+    <div class="exame-mandamento" id="exame-m8"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m8')"><div class="exame-mandamento-num">8</div><div class="exame-mandamento-title">Não levantar falso testemunho</div><div class="exame-mandamento-count" data-count="m8">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Menti prejudicando alguém?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Fofoquei ou espalhei boatos?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Julguei alguém sem conhecer os fatos?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Revelei segredos confiados?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Espalhei fake news nas redes?</div></div></div></div></div>
+
+    <div class="exame-mandamento" id="exame-m9"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m9')"><div class="exame-mandamento-num">9</div><div class="exame-mandamento-title">Não cobiçar o cônjuge alheio</div><div class="exame-mandamento-count" data-count="m9">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Desejei intimidade com pessoa comprometida?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Alimentei fantasias impuras?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Flertei com pessoa comprometida?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Tive ciúmes excessivos? <span class="exame-pergunta-tag">Casado(a)</span></div></div></div></div></div>
+
+    <div class="exame-mandamento" id="exame-m10"><div class="exame-mandamento-header" onclick="toggleMandamento('exame-m10')"><div class="exame-mandamento-num">10</div><div class="exame-mandamento-title">Não cobiçar as coisas alheias</div><div class="exame-mandamento-count" data-count="m10">0</div><div class="exame-mandamento-arrow">expand_more</div></div><div class="exame-mandamento-body"><div class="exame-mandamento-body-inner"><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Tive inveja dos bens ou sucesso alheio?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Fui ganancioso(a) enquanto outros precisam?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Reclamei da vida sem gratidão?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Deixei de ser generoso(a)?</div></div><div class="exame-pergunta" onclick="toggleExamePergunta(this)"><div class="exame-check">check</div><div class="exame-pergunta-text">Inveja de likes/aparência nas redes? <span class="exame-pergunta-tag">Jovem</span></div></div></div></div></div>
+
+    <div class="exame-rito"><div class="exame-rito-title"><span class="material-symbols-rounded">menu_book</span> Passo a passo da Confissão</div>
+      <div class="exame-rito-step"><div class="exame-rito-step-num">1</div><div class="exame-rito-step-content"><div class="exame-rito-step-label">Chegue e cumprimente</div><div class="exame-rito-step-desc">Faça o sinal da cruz e diga:</div><div class="exame-rito-fala">"Em nome do Pai e do Filho e do Espírito Santo. Amém. Padre, me abençoe porque eu pequei. Minha última confissão foi há [tempo]."</div></div></div>
+      <div class="exame-rito-step"><div class="exame-rito-step-num">2</div><div class="exame-rito-step-content"><div class="exame-rito-step-label">Confesse seus pecados</div><div class="exame-rito-step-desc">Diga ao padre os itens que marcou. Seja honesto(a) e simples.</div></div></div>
+      <div class="exame-rito-step"><div class="exame-rito-step-num">3</div><div class="exame-rito-step-content"><div class="exame-rito-step-label">Ouça o padre</div><div class="exame-rito-step-desc">Ele dará conselhos e uma penitência.</div></div></div>
+      <div class="exame-rito-step"><div class="exame-rito-step-num">4</div><div class="exame-rito-step-content"><div class="exame-rito-step-label">Reze o Ato de Contrição</div><div class="exame-rito-step-desc">Pode ler do celular — o padre não se importa.</div></div></div>
+      <div class="exame-rito-step"><div class="exame-rito-step-num">5</div><div class="exame-rito-step-content"><div class="exame-rito-step-label">Receba a absolvição</div><div class="exame-rito-step-desc">O padre diz "Eu te absolvo..." Responda:</div><div class="exame-rito-fala">"Amém."</div></div></div>
+      <div class="exame-rito-step"><div class="exame-rito-step-num">6</div><div class="exame-rito-step-content"><div class="exame-rito-step-label">Cumpra a penitência</div><div class="exame-rito-step-desc">Reze o que o padre indicou e agradeça a Deus.</div></div></div>
+    </div>
+
+    <div class="exame-contricao"><div class="exame-rito-title"><span class="material-symbols-rounded">folded_hands</span> Ato de Contrição</div>
+      <div class="exame-contricao-tabs"><button class="exame-contricao-tab active" onclick="switchContricao(this,'tradicional')">Tradicional</button><button class="exame-contricao-tab" onclick="switchContricao(this,'moderna')">Moderna</button><button class="exame-contricao-tab" onclick="switchContricao(this,'breve')">Breve</button></div>
+      <div class="exame-contricao-text" id="contricao-tradicional">Meu Deus, eu me arrependo de todo coração de Vos ter ofendido, porque sois infinitamente bom e o pecado Vos desagrada. Proponho firmemente, com a ajuda da vossa graça, não mais Vos ofender e fugir das ocasiões próximas de pecado. Peço-Vos perdão pela Paixão e Morte de Nosso Senhor Jesus Cristo. Amém.</div>
+      <div class="exame-contricao-text" id="contricao-moderna" style="display:none">Senhor meu Jesus Cristo, Deus de amor e de misericórdia, eu me arrependo de todos os meus pecados. Arrependo-me porque ofendi a Vós, que sois tão bom. Ajudai-me a não pecar mais e a viver segundo o vosso Evangelho. Amém.</div>
+      <div class="exame-contricao-text" id="contricao-breve" style="display:none">Senhor, tende piedade de mim, pecador(a). Arrependo-me de todo coração. Ajudai-me a não pecar mais. Amém.</div>
+    </div>
+
+    <div style="height:100px"></div>
+  </div>
+
 <nav class="bottom-nav">
   <button class="nav-item active" data-main="all" onclick="switchMainTab('all')">
     <span class="material-symbols-rounded">menu_book</span>
     <span>Leituras</span>
   </button>
-  <button class="nav-item" data-main="oficio" onclick="switchMainTab('oficio')">
-    <span class="material-symbols-rounded">schedule</span>
-    <span>Ofício</span>
+  <button class="nav-item" data-main="missa" onclick="switchMainTab('missa')">
+    <span class="material-symbols-rounded">auto_stories</span>
+    <span>Missa</span>
   </button>
   <button class="nav-item" data-main="terco" onclick="switchMainTab('terco')">
     <span class="material-symbols-rounded">radio_button_checked</span>
@@ -5560,6 +6619,10 @@ input[type="range"]::-webkit-slider-thumb {
       <button class="icon-btn" onclick="closeMoreMenu()" style="width:32px;height:32px;font-size:18px">close</button>
     </div>
     <div class="more-menu-grid">
+      <button class="more-menu-item" onclick="closeMoreMenu(); switchMainTab('oficio')">
+        <span class="material-symbols-rounded">schedule</span>
+        <span>Ofício</span>
+      </button>
       <button class="more-menu-item" onclick="closeMoreMenu(); switchMainTab('notes')">
         <span class="material-symbols-rounded">edit_note</span>
         <span>Notas</span>
@@ -5584,6 +6647,10 @@ input[type="range"]::-webkit-slider-thumb {
         <span class="material-symbols-rounded">calendar_month</span>
         <span>Calendário</span>
       </button>
+      <button class="more-menu-item" onclick="closeMoreMenu(); switchMainTab('exame')" style="background:rgba(124,58,237,0.06)">
+        <span class="material-symbols-rounded" style="color:#7C3AED">psychology</span>
+        <span style="color:#7C3AED;font-weight:700">Confissão</span>
+      </button>
       <button class="more-menu-item" onclick="closeMoreMenu(); switchMainTab('santo-ano')">
         <span class="material-symbols-rounded">person_celebrate</span>
         <span>Santo do Ano</span>
@@ -5596,13 +6663,43 @@ input[type="range"]::-webkit-slider-thumb {
   </div>
 </div>
 
+<!-- MISSA NAV SIDEBAR -->
+<div class="missa-nav-sidebar" id="missa-nav-sidebar">
+  <button class="missa-nav-dot" onclick="scrollToMissaPart('missa-ritos-iniciais')" data-part="missa-ritos-iniciais" title="Ritos Iniciais">
+    <span class="dot-label">Ritos Iniciais</span>
+    church
+  </button>
+  <button class="missa-nav-dot" onclick="scrollToMissaPart('missa-liturgia-palavra')" data-part="missa-liturgia-palavra" title="Liturgia da Palavra">
+    <span class="dot-label">Liturgia da Palavra</span>
+    menu_book
+  </button>
+  <button class="missa-nav-dot" onclick="scrollToMissaPart('missa-liturgia-eucaristica')" data-part="missa-liturgia-eucaristica" title="Liturgia Eucarística">
+    <span class="dot-label">Liturgia Eucarística</span>
+    local_dining
+  </button>
+  <button class="missa-nav-dot" onclick="scrollToMissaPart('missa-ritos-finais')" data-part="missa-ritos-finais" title="Ritos Finais">
+    <span class="dot-label">Ritos Finais</span>
+    waving_hand
+  </button>
+  <button class="missa-nav-dot" onclick="scrollToMissaPart('missa-cantos')" data-part="missa-cantos" title="Cantos">
+    <span class="dot-label">Cantos</span>
+    music_note
+  </button>
+</div>
+
+<!-- MISSA NEXT BUTTON -->
+<button class="missa-next-btn" id="missa-next-btn" onclick="goToNextMissaPart()">
+  <span class="material-symbols-rounded">arrow_downward</span>
+  Próxima parte
+</button>
+
 <!-- SHARE MODAL -->
 <div class="modal-overlay" id="share-modal" onclick="closeShareModal(event)">
   <div class="share-modal" onclick="event.stopPropagation()">
     <h3>Compartilhar Evangelho</h3>
     <div class="share-preview">
-      <div class="verse">"Não tenhais medo! Ele não está aqui! Ressuscitou, como havia dito!"</div>
-      <div class="ref">Mateus 28,5-6</div>
+      <div class="verse">"Ele viu e acreditou."</div>
+      <div class="ref">João 20,8</div>
       <div class="brand">Verbum • Evangelho do Dia</div>
     </div>
     <div class="share-buttons">
@@ -5639,29 +6736,29 @@ input[type="range"]::-webkit-slider-thumb {
       <div class="story-tpl-item active" data-tpl="editorial" onclick="selectStoryTemplate(this,'editorial')">
         <div class="story-tpl-preview tpl-editorial">
           <div class="tpl-mini-label">VERSÍCULO DO DIA</div>
-          <div class="tpl-mini-verse">"Não tenhais medo!"</div>
-          <div class="tpl-mini-ref">Mt 28,6</div>
+          <div class="tpl-mini-verse">"Ele viu e acreditou."</div>
+          <div class="tpl-mini-ref">Jo 20,8</div>
         </div>
         <span class="story-tpl-name">Editorial</span>
       </div>
       <div class="story-tpl-item" data-tpl="minimal" onclick="selectStoryTemplate(this,'minimal')">
         <div class="story-tpl-preview tpl-minimal">
-          <div class="tpl-mini-verse" style="color:#111">"Não tenhais medo!"</div>
-          <div class="tpl-mini-ref" style="color:#999">Mt 28,6</div>
+          <div class="tpl-mini-verse" style="color:#111">"Ele viu e acreditou."</div>
+          <div class="tpl-mini-ref" style="color:#999">Jo 20,8</div>
         </div>
         <span class="story-tpl-name">Minimalista</span>
       </div>
       <div class="story-tpl-item" data-tpl="dark" onclick="selectStoryTemplate(this,'dark')">
         <div class="story-tpl-preview tpl-dark">
-          <div class="tpl-mini-verse">"Não tenhais medo!"</div>
-          <div class="tpl-mini-ref">Mt 28,6</div>
+          <div class="tpl-mini-verse">"Ele viu e acreditou."</div>
+          <div class="tpl-mini-ref">Jo 20,8</div>
         </div>
         <span class="story-tpl-name">Noturno</span>
       </div>
       <div class="story-tpl-item" data-tpl="gold" onclick="selectStoryTemplate(this,'gold')">
         <div class="story-tpl-preview tpl-gold">
-          <div class="tpl-mini-verse">"Não tenhais medo!"</div>
-          <div class="tpl-mini-ref">Mt 28,6</div>
+          <div class="tpl-mini-verse">"Ele viu e acreditou."</div>
+          <div class="tpl-mini-ref">Jo 20,8</div>
         </div>
         <span class="story-tpl-name">Dourado</span>
       </div>
@@ -5738,10 +6835,10 @@ input[type="range"]::-webkit-slider-thumb {
 <div class="verse-anno-overlay" id="verse-anno-overlay" onclick="closeAnnotation(event)">
   <div class="verse-anno-popup" onclick="event.stopPropagation()">
     <div class="verse-anno-header">
-      <div class="verse-anno-ref" id="anno-ref">Gn 1,3</div>
+      <div class="verse-anno-ref" id="anno-ref">Jo 20,8</div>
       <button class="icon-btn" onclick="closeAnnotation()" style="width:32px;height:32px;font-size:18px">close</button>
     </div>
-    <div class="verse-anno-quote" id="anno-quote">"Faça-se a luz!" E a luz se fez.</div>
+    <div class="verse-anno-quote" id="anno-quote">"Ele viu e acreditou."</div>
     <textarea class="verse-anno-input" id="anno-input" placeholder="Escreva sua reflexão sobre este versículo..."></textarea>
     <div class="verse-anno-footer">
       <div class="verse-anno-meta" id="anno-meta"></div>
@@ -5855,15 +6952,15 @@ function copyAllReadings() {
   // Build formatted text with all readings
   let text = '';
   text += '✝ LITURGIA DO DIA\n';
-  text += 'Sábado Santo — 04 de abril de 2026\n';
+  text += 'Domingo de Páscoa — 05 de abril de 2026\n';
   text += 'Cor litúrgica: Branco\n';
   text += '═══════════════════════\n\n';
 
   // 1a Leitura
   const r1 = document.getElementById('reading-1');
   if (r1) {
-    text += '📖 PRIMEIRA LEITURA (Gn 1,1–2,2)\n';
-    text += 'Leitura do Livro do Gênesis\n\n';
+    text += '📖 PRIMEIRA LEITURA (At 10,34a.37-43)\n';
+    text += 'Leitura dos Atos dos Apóstolos\n\n';
     text += r1.textContent.trim() + '\n\n';
     text += '───────────────────────\n\n';
   }
@@ -5871,7 +6968,7 @@ function copyAllReadings() {
   // Salmo
   const salmo = document.getElementById('reading-salmo');
   if (salmo) {
-    text += '🎵 SALMO RESPONSORIAL (Sl 103)\n\n';
+    text += '🎵 SALMO RESPONSORIAL (Sl 117)\n\n';
     text += salmo.textContent.trim() + '\n\n';
     text += '───────────────────────\n\n';
   }
@@ -5879,7 +6976,7 @@ function copyAllReadings() {
   // 2a Leitura
   const r2 = document.getElementById('reading-2');
   if (r2) {
-    text += '📖 SEGUNDA LEITURA (Rm 6,3b-11)\n\n';
+    text += '📖 SEGUNDA LEITURA (Cl 3,1-4)\n\n';
     text += r2.textContent.trim() + '\n\n';
     text += '───────────────────────\n\n';
   }
@@ -5887,8 +6984,8 @@ function copyAllReadings() {
   // Evangelho
   const ev = document.getElementById('reading-evangelho');
   if (ev) {
-    text += '📜 EVANGELHO (Mt 28,1-10)\n';
-    text += 'Proclamação do Evangelho de Jesus Cristo segundo Mateus\n\n';
+    text += '📜 EVANGELHO (Jo 20,1-9)\n';
+    text += 'Proclamação do Evangelho de Jesus Cristo segundo João\n\n';
     text += ev.textContent.trim() + '\n\n';
     text += '═══════════════════════\n';
   }
@@ -6997,36 +8094,36 @@ function updateWppMessage() {
   let msg = '';
 
   // Header
-  msg += '✝️ *Liturgia do dia — Sábado Santo*\n';
-  msg += '📅 04 de abril de 2026\n';
-  msg += '🟣 Cor litúrgica: Branco\n';
+  msg += '✝️ *Liturgia do dia — Domingo de Páscoa*\n';
+  msg += '📅 05 de abril de 2026\n';
+  msg += '⚪ Cor litúrgica: Branco\n';
   msg += '━━━━━━━━━━━━━━━━━━\n\n';
 
   if (incReading) {
-    msg += '📖 *1ª Leitura — Gênesis 1,1–2,2*\n\n';
-    msg += 'No princípio Deus criou o céu e a terra. A terra estava deserta e vazia, as trevas cobriam a face do abismo e o Espírito de Deus pairava sobre as águas. Deus disse: "Faça-se a luz!" E a luz se fez.\n\n';
-    msg += '_[...] E Deus criou o homem à sua imagem, à imagem de Deus ele o criou: homem e mulher os criou. No sétimo dia, Deus acabou toda a obra que havia feito._\n\n';
+    msg += '📖 *1ª Leitura — Atos 10,34a.37-43*\n\n';
+    msg += 'Pedro tomou a palavra: "Vós sabeis o que aconteceu... como Deus ungiu Jesus de Nazaré com o Espírito Santo e com poder."\n\n';
+    msg += '_"Deus o ressuscitou no terceiro dia... Dele todos os profetas dão testemunho: quem nele crê recebe o perdão dos pecados."_\n\n';
     msg += '━━━━━━━━━━━━━━━━━━\n\n';
   }
 
   if (incGospel) {
-    msg += '📜 *Evangelho — Mateus 28,1-10*\n\n';
-    msg += 'Depois do sábado, ao amanhecer do primeiro dia da semana, Maria Madalena e a outra Maria foram ver o sepulcro. De repente, houve um grande tremor de terra.\n\n';
-    msg += 'O anjo disse às mulheres: *"Não tenhais medo! Sei que procurais Jesus, que foi crucificado. Ele não está aqui! Ressuscitou, como havia dito!"*\n\n';
-    msg += 'Jesus veio ao encontro delas e disse: *"Alegrai-vos!"*\n\n';
+    msg += '📜 *Evangelho — João 20,1-9*\n\n';
+    msg += 'No primeiro dia da semana, Maria Madalena foi ao túmulo de Jesus, bem de madrugada, e viu que a pedra tinha sido retirada.\n\n';
+    msg += 'Pedro e o outro discípulo correram ao túmulo. *"Então entrou também o outro discípulo. Ele viu e acreditou."*\n\n';
+    msg += '_De fato, eles ainda não tinham compreendido a Escritura, segundo a qual Jesus devia ressuscitar dos mortos._\n\n';
     msg += '━━━━━━━━━━━━━━━━━━\n\n';
   }
 
   if (incReflection) {
     msg += '💭 *Reflexão*\n\n';
-    msg += '_"Não tenhais medo!" — É a palavra que ressoa desde a manhã da Ressurreição. O medo paralisa, mas a fé nos coloca em movimento. As mulheres correram com alegria, mesmo sem entender tudo._\n\n';
+    msg += '_"Ele viu e acreditou." — O discípulo amado não precisou de aparições. Bastou ver os sinais para crer. A fé pascal nasce de quem olha com o coração._\n\n';
     msg += '— Pe. Roger Araújo\n\n';
     msg += '━━━━━━━━━━━━━━━━━━\n\n';
   }
 
   if (incSaint) {
-    msg += '🕊️ *Santo do dia — Santo Isidoro de Sevilha*\n';
-    msg += 'Bispo e Doutor da Igreja (560–636). Escreveu a primeira enciclopédia cristã. Padroeiro da internet.\n\n';
+    msg += '🕊️ *Domingo de Páscoa — Ressurreição do Senhor*\n';
+    msg += 'A maior solenidade do ano litúrgico. "Se Cristo não ressuscitou, vã é a nossa fé" (1Cor 15,14).\n\n';
     msg += '━━━━━━━━━━━━━━━━━━\n\n';
   }
 
@@ -7595,6 +8692,181 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') exitFocusMode();
 });
+
+// =================== FOLHETO DIGITAL DA MISSA ===================
+let modoMissaActive = false;
+let wakeLock = null;
+const missaParts = ['missa-ritos-iniciais', 'missa-liturgia-palavra', 'missa-liturgia-eucaristica', 'missa-ritos-finais', 'missa-cantos'];
+const missaPartLabels = ['Liturgia da Palavra', 'Liturgia Eucarística', 'Ritos Finais', 'Cantos', 'Fim da Missa'];
+let currentMissaPart = 0;
+
+// Toggle Modo Missa
+async function toggleModoMissa() {
+  modoMissaActive = !modoMissaActive;
+  const btn = document.getElementById('modo-missa-btn');
+  const body = document.body;
+  const icon = btn.querySelector('.material-symbols-rounded');
+
+  if (modoMissaActive) {
+    body.classList.add('modo-missa');
+    btn.classList.add('active');
+    icon.textContent = 'phone_android';
+    btn.lastChild.textContent = ' Modo Missa Ativo';
+
+    // Wake Lock — impede tela de apagar
+    try {
+      if ('wakeLock' in navigator) {
+        wakeLock = await navigator.wakeLock.request('screen');
+      }
+    } catch (e) { /* silencioso em browsers sem suporte */ }
+
+    showToast('Modo Missa ativado — tela sempre ligada. Lembre-se de silenciar o celular.');
+  } else {
+    body.classList.remove('modo-missa');
+    body.classList.remove('brilho-reduzido');
+    btn.classList.remove('active');
+    icon.textContent = 'phone_android';
+    btn.lastChild.textContent = ' Ativar Modo Missa';
+
+    if (wakeLock) {
+      wakeLock.release();
+      wakeLock = null;
+    }
+    showToast('Modo Missa desativado');
+  }
+}
+
+// Mostrar/esconder sidebar e botão ao entrar na seção Missa
+const missaObserver = new MutationObserver(() => {
+  const missaSection = document.getElementById('section-missa');
+  const sidebar = document.getElementById('missa-nav-sidebar');
+  const nextBtn = document.getElementById('missa-next-btn');
+  if (missaSection && missaSection.classList.contains('active')) {
+    sidebar.classList.add('visible');
+    nextBtn.classList.add('visible');
+    updateMissaNavHighlight();
+  } else {
+    sidebar.classList.remove('visible');
+    nextBtn.classList.remove('visible');
+    if (modoMissaActive) toggleModoMissa();
+  }
+});
+document.querySelectorAll('.content-section').forEach(el => {
+  missaObserver.observe(el, { attributes: true, attributeFilter: ['class'] });
+});
+
+// Scroll para parte da missa
+function scrollToMissaPart(partId) {
+  const el = document.getElementById(partId);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    currentMissaPart = missaParts.indexOf(partId);
+    updateMissaNavHighlight();
+  }
+}
+
+// Próxima parte
+function goToNextMissaPart() {
+  currentMissaPart = Math.min(currentMissaPart + 1, missaParts.length - 1);
+  scrollToMissaPart(missaParts[currentMissaPart]);
+}
+
+// Highlight da nav lateral baseado no scroll
+function updateMissaNavHighlight() {
+  document.querySelectorAll('.missa-nav-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentMissaPart);
+  });
+  const nextBtn = document.getElementById('missa-next-btn');
+  const nextIcon = nextBtn.querySelector('.material-symbols-rounded');
+  const label = missaPartLabels[currentMissaPart];
+  if (currentMissaPart >= missaParts.length - 1) {
+    nextIcon.textContent = 'check_circle';
+  } else {
+    nextIcon.textContent = 'arrow_downward';
+  }
+  // Update text node after icon
+  const textNode = nextBtn.childNodes[nextBtn.childNodes.length - 1];
+  if (textNode.nodeType === 3) {
+    textNode.textContent = ' ' + label;
+  }
+}
+
+// Detectar scroll position para atualizar nav
+window.addEventListener('scroll', () => {
+  const missaSection = document.getElementById('section-missa');
+  if (!missaSection || !missaSection.classList.contains('active')) return;
+
+  for (let i = missaParts.length - 1; i >= 0; i--) {
+    const el = document.getElementById(missaParts[i]);
+    if (el && el.getBoundingClientRect().top <= 120) {
+      if (currentMissaPart !== i) {
+        currentMissaPart = i;
+        updateMissaNavHighlight();
+      }
+      break;
+    }
+  }
+});
+
+// =================== EXAME DE CONSCIÊNCIA ===================
+let selectedEstado = 'casado';
+
+function selectEstadoVida(btn, estado) {
+  document.querySelectorAll('.exame-estado-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedEstado = estado;
+}
+
+function toggleMandamento(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+function toggleExamePergunta(el) {
+  el.classList.toggle('checked');
+  const mandamento = el.closest('.exame-mandamento');
+  const count = mandamento.querySelectorAll('.exame-pergunta.checked').length;
+  const countEl = mandamento.querySelector('.exame-mandamento-count');
+  countEl.textContent = count;
+}
+
+function toggleExameResumo() {
+  const resumo = document.getElementById('exame-resumo');
+  resumo.classList.toggle('visible');
+  if (resumo.classList.contains('visible')) {
+    updateExameResumo();
+    resumo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function updateExameResumo() {
+  const list = document.getElementById('exame-resumo-list');
+  const empty = document.getElementById('exame-resumo-empty');
+  const checked = document.querySelectorAll('#section-exame .exame-pergunta.checked');
+  while (list.firstChild) list.removeChild(list.firstChild);
+  if (checked.length === 0) { empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  checked.forEach(function(p) {
+    var li = document.createElement('li');
+    li.textContent = p.querySelector('.exame-pergunta-text').textContent.trim();
+    list.appendChild(li);
+  });
+}
+
+function limparExame() {
+  if (!confirm('Tem certeza? Todos os itens marcados serão apagados permanentemente.')) return;
+  document.querySelectorAll('#section-exame .exame-pergunta.checked').forEach(function(p) { p.classList.remove('checked'); });
+  document.querySelectorAll('.exame-mandamento-count').forEach(function(c) { c.textContent = '0'; });
+  document.getElementById('exame-resumo').classList.remove('visible');
+  showToast('Exame limpo. Todos os dados foram apagados.');
+}
+
+function switchContricao(btn, version) {
+  document.querySelectorAll('.exame-contricao-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('contricao-tradicional').style.display = version === 'tradicional' ? 'block' : 'none';
+  document.getElementById('contricao-moderna').style.display = version === 'moderna' ? 'block' : 'none';
+  document.getElementById('contricao-breve').style.display = version === 'breve' ? 'block' : 'none';
+}
 </script>
 
 <!-- FOCUS MODE OVERLAY -->
@@ -7615,48 +8887,49 @@ document.addEventListener('keydown', (e) => {
   </div>
 
   <div class="focus-swipe-container" id="focus-swipe">
-    <div class="focus-slide" data-label="1ª Leitura" data-ref="Gênesis 1,1 – 2,2">
-      <div class="focus-ref">Gênesis 1,1 – 2,2</div>
+    <div class="focus-slide" data-label="1ª Leitura" data-ref="Atos 10,34a.37-43">
+      <div class="focus-ref">Atos dos Apóstolos 10,34a.37-43</div>
       <div class="focus-text">
-        <sup>1</sup>No princípio Deus criou o céu e a terra. <sup>2</sup>A terra estava deserta e vazia, as trevas cobriam a face do abismo e o Espírito de Deus pairava sobre as águas. <sup>3</sup>Deus disse: "Faça-se a luz!" E a luz se fez. <sup>4</sup>Deus viu que a luz era boa e separou a luz das trevas. <sup>5</sup>E à luz Deus chamou "dia" e às trevas, "noite". Houve uma tarde e uma manhã: primeiro dia.<br><br>
-        <sup>6</sup>Deus disse: "Faça-se um firmamento entre as águas, separando umas das outras". <sup>7</sup>E Deus fez o firmamento, e separou as águas que estavam embaixo das que estavam em cima do firmamento. E assim se fez. <sup>8</sup>Ao firmamento Deus chamou "céu". Houve uma tarde e uma manhã: segundo dia.<br><br>
-        <sup>9</sup>Deus disse: "Juntem-se as águas que estão debaixo do céu num só lugar e apareça o solo enxuto!" E assim se fez. <sup>10</sup>Ao solo enxuto Deus chamou "terra" e ao ajuntamento das águas, "mar". E Deus viu que era bom.<br><br>
-        <sup>26</sup>Deus disse: "Façamos o homem à nossa imagem e segundo a nossa semelhança, para que domine sobre os peixes do mar, sobre as aves do céu, sobre os animais de toda a terra, e sobre todos os répteis que rastejam sobre a terra". <sup>27</sup>E Deus criou o homem à sua imagem, à imagem de Deus ele o criou: homem e mulher os criou.<br><br>
-        <sup>2,1</sup>Assim foram concluídos o céu e a terra com todo o seu exército. <sup>2</sup>No sétimo dia, Deus acabou toda a obra que havia feito. E no sétimo dia, descansou de toda a obra que fizera.
+        Naqueles dias, Pedro tomou a palavra e disse: <sup>37</sup>"Vós sabeis o que aconteceu em toda a Judeia, a começar pela Galileia, depois do batismo pregado por João: <sup>38</sup>como Deus ungiu Jesus de Nazaré com o Espírito Santo e com poder. Ele andou por toda parte, fazendo o bem e curando todos os que eram dominados pelo diabo, porque Deus estava com ele.<br><br>
+        <sup>39</sup>E nós somos testemunhas de tudo o que ele fez na terra dos judeus e em Jerusalém. Eles o mataram, suspendendo-o num madeiro. <sup>40</sup>Mas Deus o ressuscitou no terceiro dia e permitiu que aparecesse, <sup>41</sup>não a todo o povo, mas às testemunhas que Deus havia escolhido: a nós, que comemos e bebemos com ele, depois que ressuscitou dos mortos.<br><br>
+        <sup>42</sup>E nos mandou pregar ao povo e dar testemunho de que Deus o constituiu juiz dos vivos e dos mortos. <sup>43</sup>Dele todos os profetas dão testemunho: quem nele crê recebe o perdão dos pecados, por meio do seu nome."
       </div>
     </div>
 
-    <div class="focus-slide" data-label="Salmo" data-ref="Salmo 103 (104)">
-      <div class="focus-ref">Salmo 103 (104)</div>
+    <div class="focus-slide" data-label="Salmo" data-ref="Salmo 117 (118)">
+      <div class="focus-ref">Salmo 117 (118)</div>
       <div class="focus-text">
-        <strong>R: Enviai o vosso Espírito, Senhor, e renovai a face da terra.</strong><br><br>
-        Bendize, ó minha alma, ao Senhor!<br>
-        Ó meu Deus e meu Senhor, como sois grande!<br>
-        De majestade e esplendor vos revestis<br>
-        e de luz vos envolvestes como num manto. <strong>R.</strong><br><br>
-        Que numerosas, ó Senhor, são vossas obras,<br>
-        e que sabedoria em todas elas!<br>
-        Encheu-se a terra com as vossas criaturas!<br>
-        Bendize, ó minha alma, ao Senhor! <strong>R.</strong>
+        <strong>R: Este é o dia que o Senhor fez para nós: alegremo-nos e nele exultemos!</strong><br><br>
+        Dai graças ao Senhor, porque ele é bom!<br>
+        "Eterna é a sua misericórdia!"<br>
+        A casa de Israel agora o diga:<br>
+        "Eterna é a sua misericórdia!" <strong>R.</strong><br><br>
+        A mão direita do Senhor fez maravilhas,<br>
+        a mão direita do Senhor me levantou,<br>
+        a mão direita do Senhor fez maravilhas! <strong>R.</strong><br><br>
+        A pedra que os pedreiros rejeitaram,<br>
+        tornou-se agora a pedra angular.<br>
+        Pelo Senhor é que foi feito tudo isso:<br>
+        que maravilha é para os nossos olhos! <strong>R.</strong>
       </div>
     </div>
 
-    <div class="focus-slide" data-label="2ª Leitura" data-ref="Romanos 6,3b-11">
-      <div class="focus-ref">Romanos 6,3b-11</div>
+    <div class="focus-slide" data-label="2ª Leitura" data-ref="Colossenses 3,1-4">
+      <div class="focus-ref">Colossenses 3,1-4</div>
       <div class="focus-text">
-        Irmãos: <sup>3b</sup>Todos nós, que fomos batizados em Cristo Jesus, fomos batizados na sua morte. <sup>4</sup>Pelo batismo na sua morte, fomos sepultados com ele, para que, como Cristo ressuscitou dos mortos pela glória do Pai, assim também nós levemos uma vida nova.<br><br>
-        <sup>8</sup>Se, pois, morremos com Cristo, cremos que também viveremos com ele. <sup>9</sup>Sabemos que Cristo ressuscitado dos mortos não morre mais; a morte já não tem poder sobre ele. <sup>10</sup>Pois aquele que morreu, morreu para o pecado uma vez por todas; mas aquele que vive, é para Deus que vive.<br><br>
-        <sup>11</sup>Assim, vós também considerai-vos mortos para o pecado e vivos para Deus, em Jesus Cristo.
+        Irmãos: <sup>1</sup>Se ressuscitastes com Cristo, buscai as coisas do alto, onde Cristo está sentado à direita de Deus. <sup>2</sup>Pensai nas coisas do alto e não nas da terra.<br><br>
+        <sup>3</sup>De fato, vós morrestes e a vossa vida está escondida com Cristo em Deus. <sup>4</sup>Quando Cristo, que é a vossa vida, se manifestar, então vós também vos manifestareis com ele na glória.
       </div>
     </div>
 
-    <div class="focus-slide" data-label="Evangelho" data-ref="Mateus 28,1-10">
-      <div class="focus-ref">Mateus 28,1-10</div>
+    <div class="focus-slide" data-label="Evangelho" data-ref="João 20,1-9">
+      <div class="focus-ref">João 20,1-9</div>
       <div class="focus-text">
-        <sup>1</sup>Depois do sábado, ao amanhecer do primeiro dia da semana, Maria Madalena e a outra Maria foram ver o sepulcro. <sup>2</sup>De repente, houve um grande tremor de terra: o anjo do Senhor desceu do céu e, aproximando-se, retirou a pedra e sentou-se nela. <sup>3</sup>Sua aparência era como um relâmpago, e suas vestes eram brancas como a neve.<br><br>
-        <sup>4</sup>Os guardas ficaram com tanto medo do anjo, que tremeram, e ficaram como mortos. <sup>5</sup>Então o anjo disse às mulheres: "Não tenhais medo! Sei que procurais Jesus, que foi crucificado. <sup>6</sup>Ele não está aqui! Ressuscitou, como havia dito! Vinde ver o lugar em que ele estava."<br><br>
-        <sup>7</sup>"Ide depressa contar aos discípulos que ele ressuscitou dos mortos, e que vai à vossa frente para a Galileia. Lá vós o vereis. É o que tenho a dizer-vos". <sup>8</sup>As mulheres partiram depressa do sepulcro. Com medo e com grande alegria, correram para dar a notícia aos discípulos.<br><br>
-        <sup>9</sup>E eis que Jesus veio ao encontro delas, e disse: "Alegrai-vos!" Elas se aproximaram, abraçaram seus pés e o adoraram. <sup>10</sup>Então Jesus disse a elas: "Não tenhais medo. Ide comunicar a meus irmãos que se dirijam para a Galileia. Lá eles me verão."
+        <sup>1</sup>No primeiro dia da semana, Maria Madalena foi ao túmulo de Jesus, bem de madrugada, quando ainda estava escuro, e viu que a pedra tinha sido retirada do túmulo.<br><br>
+        <sup>2</sup>Então ela saiu correndo e foi encontrar Simão Pedro e o outro discípulo, aquele que Jesus amava, e lhes disse: "Tiraram o Senhor do túmulo, e não sabemos onde o colocaram."<br><br>
+        <sup>3</sup>Saíram, então, Pedro e o outro discípulo e foram ao túmulo. <sup>4</sup>Os dois corriam juntos, mas o outro discípulo correu mais depressa que Pedro e chegou primeiro ao túmulo. <sup>5</sup>Inclinando-se, viu as faixas de linho no chão, mas não entrou.<br><br>
+        <sup>6</sup>Chegou também Simão Pedro, que vinha atrás, e entrou no túmulo. Viu as faixas de linho deitadas no chão <sup>7</sup>e o pano que tinha estado sobre a cabeça de Jesus, não posto com as faixas, mas enrolado num lugar à parte.<br><br>
+        <sup>8</sup>Então entrou também o outro discípulo, que tinha chegado primeiro ao túmulo. Ele viu e acreditou. <sup>9</sup>De fato, eles ainda não tinham compreendido a Escritura, segundo a qual Jesus devia ressuscitar dos mortos.
       </div>
     </div>
   </div>
@@ -7675,6 +8948,87 @@ document.addEventListener('keydown', (e) => {
     Deslize para navegar entre leituras
   </div>
 </div>
+
+<script>
+// =================== AUTO DATE SWITCH — 06/04/2026 ===================
+// Segunda-feira da Oitava da Páscoa
+// Nota: innerHTML é usado aqui com conteúdo estático (hardcoded), não user input.
+// Não há risco de XSS pois todo o conteúdo é controlado pelo desenvolvedor.
+(function() {
+  const today = new Date();
+  const isApril6 = today.getDate() === 6 && today.getMonth() === 3 && today.getFullYear() === 2026;
+  if (!isApril6) return;
+
+  // Data bar
+  const litTitle = document.getElementById('liturgical-title');
+  const dateDisplay = document.getElementById('date-display');
+  if (litTitle) litTitle.textContent = 'Segunda-feira da Oitava da Páscoa';
+  if (dateDisplay) dateDisplay.textContent = 'Segunda-feira, 06 de Abril de 2026';
+
+  // Missa header
+  const missaSub = document.querySelector('.missa-subtitle');
+  const missaDate = document.querySelector('.missa-date');
+  if (missaSub) missaSub.textContent = 'Segunda-feira da Oitava da Páscoa';
+  if (missaDate) missaDate.textContent = '6 de Abril de 2026 • Tempo Pascal';
+
+  // Versículo do dia
+  const verseText = document.querySelector('.verse-widget-text');
+  const verseRef = document.querySelector('.verse-widget-ref');
+  if (verseText) verseText.textContent = '"Ide anunciar a meus irmãos que se dirijam para a Galileia. Lá eles me verão."';
+  if (verseRef) verseRef.textContent = 'Mateus 28,10';
+
+  // Leituras — atualiza referências via textContent
+  const readingCards = document.querySelectorAll('#section-all .reading-card');
+
+  // 1a Leitura
+  const r1 = document.getElementById('reading-1');
+  if (readingCards[0]) {
+    const ref = readingCards[0].querySelector('.reading-reference');
+    if (ref) ref.textContent = 'Atos dos Apóstolos 2,14.22-33';
+  }
+  if (r1) r1.textContent = 'No dia de Pentecostes, Pedro, de pé com os onze Apóstolos, levantou a voz e falou à multidão: "Homens de Israel, escutai estas palavras: Jesus de Nazaré foi um homem aprovado por Deus diante de vós com milagres, prodígios e sinais. Entregue segundo o plano determinado e a presciência de Deus, vós o matastes, pregando-o numa cruz por mãos de ímpios. Mas Deus o ressuscitou, libertando-o das dores da morte, porque não era possível que ela o dominasse. Deus ressuscitou este Jesus: todos nós somos testemunhas disso."';
+
+  // Salmo
+  const salmo = document.getElementById('reading-salmo');
+  if (readingCards[1]) {
+    const ref = readingCards[1].querySelector('.reading-reference');
+    if (ref) ref.textContent = 'Salmo 15 (16)';
+  }
+  if (salmo) salmo.textContent = 'R: Guardai-me, ó Deus, porque em vós me refugio. — Guardai-me, ó Deus, porque em vós me refugio. Eu digo ao Senhor: "Vós sois o meu Senhor." R. — Eu bendigo o Senhor, que me aconselha, e até de noite me adverte o coração. R. — Por isso o meu coração está contente, minha alma rejubila de alegria, e até meu corpo repousa em segurança. R.';
+
+  // 2a Leitura — na segunda da oitava não há 2a leitura
+  if (readingCards[2]) {
+    const label = readingCards[2].querySelector('.reading-label');
+    if (label && label.textContent === 'Segunda Leitura') {
+      readingCards[2].style.display = 'none';
+    }
+  }
+
+  // Evangelho
+  const evRef = document.querySelector('.gospel-highlight .reading-reference');
+  const ev = document.getElementById('reading-evangelho');
+  if (evRef) evRef.textContent = 'Mateus 28,8-15';
+  if (ev) ev.textContent = 'As mulheres partiram depressa do sepulcro. Com medo e com grande alegria, correram para dar a notícia aos discípulos. E eis que Jesus veio ao encontro delas, e disse: "Alegrai-vos!" Elas se aproximaram, abraçaram seus pés e o adoraram. Então Jesus disse a elas: "Não tenhais medo. Ide comunicar a meus irmãos que se dirijam para a Galileia. Lá eles me verão." Enquanto elas iam, alguns guardas foram à cidade e contaram aos sumos sacerdotes tudo o que havia acontecido. Estes reuniram-se com os anciãos e deram uma grande soma de dinheiro aos soldados, com a recomendação: "Dizei que os discípulos vieram de noite e roubaram o corpo, enquanto dormíeis." Os soldados aceitaram o dinheiro e fizeram como tinham sido instruídos.';
+
+  // Reflexão
+  const reflQuote = document.querySelector('.reflection-quote');
+  if (reflQuote) reflQuote.textContent = '"Alegrai-vos!" — É a primeira palavra do Ressuscitado às mulheres. Não é uma ordem, é um convite. A alegria pascal não é fingida nem forçada: nasce do encontro com Cristo vivo. Mesmo em meio ao medo, a alegria da Ressurreição é mais forte.';
+
+  // Saint card
+  const saintName = document.querySelector('.saint-name');
+  const saintDesc = document.querySelector('.saint-desc');
+  if (saintName) saintName.textContent = 'Segunda da Oitava';
+  if (saintDesc) saintDesc.textContent = 'A Oitava de Páscoa continua: cada dia desta semana é celebrado como o próprio Domingo de Páscoa. Aleluia!';
+
+  // Liturgia das Horas subtitle
+  const oficioSubs = document.querySelectorAll('.section-subtitle');
+  oficioSubs.forEach(function(el) {
+    if (el.textContent.includes('Domingo de Páscoa')) {
+      el.textContent = 'Liturgia das Horas — Segunda-feira da Oitava da Páscoa';
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
