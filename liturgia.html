@@ -1008,327 +1008,178 @@ input[type="range"]::-webkit-slider-thumb {
   letter-spacing: 0.01em;
 }
 
-/* =================== TERÇO INTERATIVO =================== */
-.terco-mystery-header {
+/* =================== TERÇO CONTEMPLATIVO =================== */
+.terco-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 520px;
+  justify-content: space-between;
+}
+.terco-mystery-info {
   text-align: center;
-  padding: 20px 20px 12px;
+  padding: 12px 0;
 }
 .terco-mystery-badge {
-  font-size: 0.62rem;
-  font-weight: 700;
+  font-size: 0.55rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--accent);
-  background: var(--accent-soft);
-  padding: 5px 14px;
-  border-radius: 100px;
-  display: inline-block;
-  margin-bottom: 8px;
+  letter-spacing: 0.16em;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
 }
 .terco-mystery-name {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--accent);
 }
 
-/* Visual beads */
-.terco-visual {
+/* Breathing circle */
+.terco-breath-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 16px 24px;
-  max-width: 360px;
-  margin: 0 auto;
 }
-
-.terco-bead {
-  width: 22px; height: 22px;
+.terco-breath-progress {
+  position: absolute;
+  inset: 0;
+}
+.terco-breath-progress circle {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+.terco-breath-bg { stroke: var(--bg-elevated); }
+.terco-breath-fill {
+  stroke: var(--accent);
+  transition: stroke-dashoffset 0.5s ease;
+}
+.terco-breath-inner {
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  background: var(--bg-elevated);
-  border: 1.5px solid var(--border);
-  transition: all 0.25s;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.terco-bead.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: scale(1.3);
-  box-shadow: 0 0 0 4px var(--accent-soft);
-}
-.terco-bead.done {
-  background: var(--accent);
-  border-color: var(--accent);
-  opacity: 0.4;
-}
-.terco-bead.separator {
-  width: 14px; height: 14px;
-  background: var(--gold);
-  border-color: var(--gold);
-  opacity: 0.3;
-  align-self: center;
-}
-.terco-bead.separator.active {
-  opacity: 1;
-  transform: scale(1.3);
-  box-shadow: 0 0 0 4px var(--gold-light);
-}
-.terco-bead.separator.done { opacity: 0.4; }
-.terco-bead.cross {
-  width: 18px; height: 26px;
-  border-radius: 3px;
-  background: var(--text-tertiary);
-  border-color: var(--text-tertiary);
-  opacity: 0.2;
-}
-.terco-bead.cross.active {
-  opacity: 1; background: var(--accent); border-color: var(--accent);
-  transform: scale(1.2);
-  box-shadow: 0 0 0 4px var(--accent-soft);
-}
-.terco-bead.cross.done { opacity: 0.3; background: var(--accent); border-color: var(--accent); }
-
-/* Progress row */
-.terco-progress-row {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0 24px 8px;
-}
-.terco-progress-label {
-  font-size: 0.72rem; font-weight: 600; color: var(--accent);
-  text-transform: uppercase; letter-spacing: 0.06em;
-}
-.terco-progress-count {
-  font-size: 0.68rem; font-weight: 600; color: var(--text-tertiary);
-  font-variant-numeric: tabular-nums;
-}
-
-/* Prayer card */
-.terco-prayer-card {
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 28px 24px;
-  margin: 0 0 16px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 2;
   border: 1px solid var(--border);
-  min-height: 160px;
-  display: flex; align-items: center; justify-content: center;
+}
+.terco-breath-inner:hover {
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.02);
+}
+.terco-breath-inner:active {
+  transform: scale(0.97);
+}
+.terco-breath-label {
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.terco-breath-count {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.terco-breath-sub {
+  font-size: 0.62rem;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* Prayer text */
+.terco-prayer-area {
+  text-align: center;
+  padding: 0 8px;
+  max-width: 340px;
 }
 .terco-prayer-text {
   font-family: var(--font-display);
   font-size: 1.1rem;
-  line-height: 1.8;
+  line-height: 1.9;
   color: var(--text-primary);
-  text-align: center;
 }
-
-/* Controls */
-.terco-controls {
-  display: flex; align-items: center; justify-content: center; gap: 12px;
-  padding: 0 24px 20px;
-}
-.terco-ctrl-btn {
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: var(--bg-card);
-  color: var(--text-secondary);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'Material Symbols Rounded';
-  font-size: 22px;
-}
-.terco-ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
-.terco-ctrl-btn.audio-on { background: var(--accent); color: #FFF; border-color: var(--accent); }
-
-.terco-main-btn {
-  flex: 1; max-width: 200px;
-  height: 52px;
-  border-radius: 100px;
-  border: none;
-  background: var(--accent);
-  color: #FFF;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  transition: all 0.2s;
-}
-.terco-main-btn:hover { opacity: 0.9; transform: scale(1.02); }
-
-/* Mystery selector */
-.terco-mystery-selector {
-  padding: 8px 0 0;
-}
-.terco-mystery-options {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
-}
-.terco-myst-opt {
-  padding: 12px;
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--border);
-  background: var(--bg-card);
-  font-family: var(--font-body);
-  font-size: 0.82rem;
+.terco-prayer-highlight {
+  color: var(--accent);
   font-weight: 600;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.2s;
-  text-align: center;
 }
-.terco-myst-opt small {
-  display: block;
-  font-size: 0.62rem;
-  font-weight: 500;
-  color: var(--text-tertiary);
-  margin-top: 2px;
-}
-.terco-myst-opt:hover { border-color: var(--accent); }
-.terco-myst-opt.active {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: #FFF;
-}
-.terco-myst-opt.active small { color: rgba(255,255,255,0.6); }
 
-/* =================== TERÇO INTERATIVO =================== */
-.terco-header-card {
-  text-align: center;
-  padding: 24px 20px 20px;
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
+/* Bottom area */
+.terco-bottom {
+  width: 100%;
+  padding: 0 0 8px;
+}
+.terco-decades {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
   margin-bottom: 16px;
 }
-.terco-mystery-badge {
-  display: inline-block;
-  padding: 4px 14px; border-radius: 100px;
-  background: var(--accent-soft);
-  font-size: 0.62rem; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--accent); margin-bottom: 10px;
-}
-.terco-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem; font-weight: 700;
-  letter-spacing: -0.02em; margin-bottom: 2px;
-}
-.terco-subtitle {
-  font-size: 0.78rem; color: var(--text-tertiary); margin-bottom: 16px;
-}
-.terco-stats {
-  display: flex; align-items: center; justify-content: center; gap: 0;
-  padding-top: 14px; border-top: 1px solid var(--border);
-}
-.terco-stat { flex:1; text-align: center; }
-.terco-stat-num {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.3rem; font-weight: 700;
-  color: var(--text-primary);
-}
-.terco-stat-label {
-  font-size: 0.6rem; font-weight: 600;
-  color: var(--text-tertiary); text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.terco-stat-divider {
-  width: 1px; height: 28px; background: var(--border);
-}
-
-/* Circular SVG rosary */
-.terco-rosary-container {
-  display: flex; justify-content: center;
-  padding: 8px 0 4px;
-}
-.terco-circle-svg {
-  width: 240px; height: 240px;
-}
-.terco-center-prayer {
-  font-family: var(--font-body);
-  font-size: 11px; font-weight: 700;
-  fill: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-.terco-center-count {
-  font-family: var(--font-display);
-  font-size: 24px; font-weight: 700;
-  fill: var(--text-primary);
-}
-.terco-center-mystery {
-  font-family: var(--font-body);
-  font-size: 9px; font-weight: 500;
-  fill: var(--text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* Prayer card */
-.terco-prayer-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 20px 22px;
-  border: 1px solid var(--border);
-  margin-bottom: 16px;
-  min-height: 120px;
+.terco-decade-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
   transition: all 0.3s;
 }
-.terco-prayer-label {
-  font-size: 0.62rem; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--accent); margin-bottom: 10px;
-}
-.terco-prayer-text {
-  font-family: var(--font-display);
-  font-size: 1.05rem; line-height: 1.75;
-  color: var(--text-primary);
-}
-
-/* Controls */
-.terco-controls {
-  display: flex; align-items: center; justify-content: center; gap: 16px;
-  padding: 8px 0 20px;
-}
-.terco-ctrl-btn {
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: var(--bg-card);
-  color: var(--text-tertiary);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all 0.2s;
-  font-family: 'Material Symbols Rounded'; font-size: 22px;
-}
-.terco-ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
-.terco-ctrl-btn:disabled { opacity: 0.3; pointer-events: none; }
-.terco-ctrl-btn.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
-
-.terco-main-btn {
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  border: none;
+.terco-decade-dot.done { background: var(--accent); opacity: 0.4; }
+.terco-decade-dot.active {
   background: var(--accent);
-  color: #FFF;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all 0.2s;
-  box-shadow: 0 4px 16px rgba(120,53,15,0.2);
+  width: 24px;
+  border-radius: 100px;
 }
-.terco-main-btn:hover { transform: scale(1.05); }
-.terco-main-btn.finish {
-  background: var(--gospel-gradient);
-  animation: tercoFinishPulse 1.5s ease infinite;
+.terco-tap-hint {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+  opacity: 0.7;
 }
-@keyframes tercoFinishPulse {
-  0%,100% { box-shadow: 0 4px 16px rgba(120,53,15,0.2); }
-  50% { box-shadow: 0 4px 24px rgba(120,53,15,0.4); }
+.terco-bottom-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
 }
+.terco-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.2s;
+}
+.terco-icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.terco-icon-btn.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 
 /* Mystery selector */
 .terco-mystery-selector {
-  padding: 4px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
 }
 .terco-mystery-tabs {
   display: flex; gap: 6px;
@@ -1348,6 +1199,38 @@ input[type="range"]::-webkit-slider-thumb {
 .terco-mys-tab.active {
   background: var(--accent); color: #FFF;
   border-color: var(--accent);
+}
+
+/* Mystery card overlay */
+.terco-mystery-card {
+  text-align: center;
+  padding: 20px 0;
+}
+.terco-mystery-card-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.terco-mystery-card-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.terco-mystery-card-hint {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+}
+
+/* Finish animation */
+@keyframes tercoFinishPulse {
+  0%,100% { box-shadow: var(--shadow-md); }
+  50% { box-shadow: 0 4px 24px rgba(120,53,15,0.25); }
 }
 
 /* =================== ONBOARDING =================== */
@@ -6061,126 +5944,69 @@ body.modo-missa.brilho-reduzido {
 
   </div>
 
-  <!-- ========= TERÇO INTERATIVO ========= -->
+  <!-- ========= TERÇO CONTEMPLATIVO ========= -->
   <div class="content-section" id="section-terco">
+    <div class="terco-container">
 
-    <!-- Mystery header -->
-    <div class="terco-mystery-header" id="terco-header">
-      <div class="terco-mystery-badge">Sábado — Mistérios Gloriosos</div>
-      <div class="terco-mystery-name" id="terco-mystery-name">Preparação</div>
-    </div>
-
-    <!-- Visual rosary beads -->
-    <div class="terco-visual" id="terco-visual">
-      <!-- Generated by JS -->
-    </div>
-
-    <!-- Progress -->
-    <div class="terco-progress-row">
-      <span class="terco-progress-label" id="terco-step-label">Sinal da Cruz</span>
-      <span class="terco-progress-count" id="terco-step-count">1 / 65</span>
-    </div>
-
-    <!-- Prayer text -->
-    <div class="terco-prayer-card" id="terco-prayer-card">
-      <div class="terco-prayer-text" id="terco-prayer-text">
-        Em nome do Pai, do Filho e do Espírito Santo. Amém.
+      <!-- Mystery info -->
+      <div class="terco-mystery-info">
+        <div class="terco-mystery-badge" id="terco-mystery-badge">Preparação</div>
+        <div class="terco-mystery-name" id="terco-mystery-name"></div>
       </div>
-    </div>
 
-    <!-- Controls -->
-    <div class="terco-controls">
-      <button class="terco-ctrl-btn" id="terco-prev" onclick="tercoPrev()">
-        <span class="material-symbols-rounded">chevron_left</span>
-      </button>
-      <button class="terco-main-btn" id="terco-next" onclick="tercoNext()">
-        <span class="material-symbols-rounded" style="font-size:20px">navigate_next</span>
-        Próxima
-      </button>
-      <button class="terco-ctrl-btn" id="terco-audio" onclick="tercoToggleAudio()">
-        <span class="material-symbols-rounded">volume_up</span>
-      </button>
-    </div>
-
-    <!-- Mystery selector -->
-    <div class="terco-mystery-selector">
-      <div class="section-subtitle" style="margin-bottom:8px">Escolher mistério</div>
-      <div class="terco-mystery-options">
-        <button class="terco-myst-opt" onclick="setMystery(0)">Gozosos<small>Seg / Sáb</small></button>
-        <button class="terco-myst-opt" onclick="setMystery(1)">Dolorosos<small>Ter / Sex</small></button>
-        <button class="terco-myst-opt active" onclick="setMystery(2)">Gloriosos<small>Qua / Dom</small></button>
-        <button class="terco-myst-opt" onclick="setMystery(3)">Luminosos<small>Qui</small></button>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ========= TERÇO INTERATIVO ========= -->
-  <div class="content-section" id="section-terco">
-
-    <!-- Header with mystery of the day -->
-    <div class="terco-header-card" id="terco-header">
-      <div class="terco-mystery-badge" id="terco-mystery-badge">Mistérios Gloriosos</div>
-      <h2 class="terco-title">Santo Terço</h2>
-      <p class="terco-subtitle" id="terco-subtitle">Sábado — Mistérios Gloriosos</p>
-      <div class="terco-stats">
-        <div class="terco-stat">
-          <span class="terco-stat-num" id="terco-month-count">12</span>
-          <span class="terco-stat-label">este mês</span>
-        </div>
-        <div class="terco-stat-divider"></div>
-        <div class="terco-stat">
-          <span class="terco-stat-num" id="terco-streak-count">5</span>
-          <span class="terco-stat-label">dias seguidos</span>
-        </div>
-        <div class="terco-stat-divider"></div>
-        <div class="terco-stat">
-          <span class="terco-stat-num" id="terco-total-count">87</span>
-          <span class="terco-stat-label">total</span>
+      <!-- Breathing circle (tappable) -->
+      <div class="terco-breath-container" onclick="tercoNext()">
+        <svg class="terco-breath-progress" viewBox="0 0 220 220">
+          <circle class="terco-breath-bg" cx="110" cy="110" r="105" stroke-width="3"/>
+          <circle class="terco-breath-fill" cx="110" cy="110" r="105"
+            stroke-dasharray="659.73"
+            stroke-dashoffset="659.73" id="terco-progress-arc"/>
+        </svg>
+        <div class="terco-breath-inner">
+          <div class="terco-breath-label" id="terco-breath-label">Sinal da Cruz</div>
+          <div class="terco-breath-count" id="terco-breath-count">Início</div>
+          <div class="terco-breath-sub" id="terco-breath-sub"></div>
         </div>
       </div>
-    </div>
 
-    <!-- Circular rosary -->
-    <div class="terco-rosary-container">
-      <svg class="terco-circle-svg" viewBox="0 0 300 300" id="terco-svg">
-        <!-- Background circle -->
-        <circle cx="150" cy="150" r="130" fill="none" stroke="var(--border)" stroke-width="2"/>
-        <!-- Progress arc -->
-        <circle cx="150" cy="150" r="130" fill="none" stroke="var(--accent)" stroke-width="3" 
-          stroke-dasharray="816.81" stroke-dashoffset="816.81" stroke-linecap="round"
-          transform="rotate(-90 150 150)" id="terco-progress-arc"/>
-        <!-- Center info -->
-        <text x="150" y="130" text-anchor="middle" class="terco-center-prayer" id="terco-center-prayer">Sinal da Cruz</text>
-        <text x="150" y="155" text-anchor="middle" class="terco-center-count" id="terco-center-count">Início</text>
-        <text x="150" y="178" text-anchor="middle" class="terco-center-mystery" id="terco-center-mystery"></text>
-      </svg>
-    </div>
-
-    <!-- Current prayer text -->
-    <div class="terco-prayer-card" id="terco-prayer-card">
-      <div class="terco-prayer-label" id="terco-prayer-label">Preparação</div>
-      <div class="terco-prayer-text" id="terco-prayer-text">
-        Pelo sinal da Santa Cruz, livrai-nos, Deus, Nosso Senhor, dos nossos inimigos. Em nome do Pai e do Filho e do Espírito Santo. Amém.
+      <!-- Prayer text -->
+      <div class="terco-prayer-area">
+        <div class="terco-prayer-text" id="terco-prayer-text">
+          Pelo sinal da Santa Cruz, livrai-nos, Deus, Nosso Senhor, dos nossos inimigos. Em nome do Pai e do Filho e do Espírito Santo. Amém.
+        </div>
       </div>
+
+      <!-- Bottom controls -->
+      <div class="terco-bottom">
+        <div class="terco-decades" id="terco-decades">
+          <div class="terco-decade-dot" data-decade="0"></div>
+          <div class="terco-decade-dot" data-decade="1"></div>
+          <div class="terco-decade-dot" data-decade="2"></div>
+          <div class="terco-decade-dot" data-decade="3"></div>
+          <div class="terco-decade-dot" data-decade="4"></div>
+        </div>
+        <div class="terco-tap-hint" id="terco-tap-hint">Toque no círculo para avançar</div>
+        <div class="terco-bottom-controls">
+          <button class="terco-icon-btn" onclick="tercoPrev()" id="terco-prev-btn">
+            <span class="material-symbols-rounded">skip_previous</span>
+          </button>
+          <button class="terco-icon-btn" onclick="tercoToggleSettings()" id="terco-settings-btn">
+            <span class="material-symbols-rounded">tune</span>
+          </button>
+          <button class="terco-icon-btn" onclick="tercoToggleAudio()" id="terco-audio-btn">
+            <span class="material-symbols-rounded">volume_up</span>
+          </button>
+          <button class="terco-icon-btn" onclick="tercoReset()">
+            <span class="material-symbols-rounded">restart_alt</span>
+          </button>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Controls -->
-    <div class="terco-controls">
-      <button class="terco-ctrl-btn" onclick="tercoPrev()" id="terco-prev-btn" disabled>
-        <span class="material-symbols-rounded">skip_previous</span>
-      </button>
-      <button class="terco-main-btn" onclick="tercoNext()" id="terco-next-btn">
-        <span class="material-symbols-rounded" style="font-size:32px">arrow_forward</span>
-      </button>
-      <button class="terco-ctrl-btn" onclick="tercoToggleAudio()" id="terco-audio-btn">
-        <span class="material-symbols-rounded">volume_up</span>
-      </button>
-    </div>
-
-    <!-- Mystery selector -->
-    <div class="terco-mystery-selector">
-      <div class="section-subtitle">Mistérios</div>
+    <!-- Mystery selector (toggled by settings) -->
+    <div class="terco-mystery-selector" id="terco-mystery-selector" style="display:none">
+      <div class="section-subtitle" style="margin-bottom:8px">Mistérios</div>
       <div class="terco-mystery-tabs">
         <button class="terco-mys-tab" data-mys="gozosos" onclick="setTercoMystery('gozosos',this)">Gozosos</button>
         <button class="terco-mys-tab" data-mys="dolorosos" onclick="setTercoMystery('dolorosos',this)">Dolorosos</button>
@@ -7328,6 +7154,10 @@ body.modo-missa.brilho-reduzido {
       <button class="more-menu-item" onclick="closeMoreMenu(); switchMainTab('santo-ano')">
         <span class="material-symbols-rounded">person_celebrate</span>
         <span>Santo do Ano</span>
+      </button>
+      <button class="more-menu-item" onclick="closeMoreMenu(); window.open('biblia.html','_blank')" style="background:var(--gold-light)">
+        <span class="material-symbols-rounded" style="color:var(--gold)">menu_book</span>
+        <span style="color:var(--gold);font-weight:700">Bíblia</span>
       </button>
       <button class="more-menu-item" onclick="closeMoreMenu(); switchMainTab('settings')">
         <span class="material-symbols-rounded">settings</span>

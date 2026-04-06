@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Verbum — Bíblia Sagrada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   VERBUM BÍBLIA — Design Tokens
+   Mesmo sistema do liturgia-app
+   ═══════════════════════════════════════════ */
+:root {
+  --bg: #FAFAF7;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F2F1EC;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --accent: #78350F;
+  --accent-light: #D97706;
+  --accent-soft: rgba(120,53,15,0.06);
+  --accent-glow: rgba(120,53,15,0.12);
+  --gold: #B45309;
+  --gold-light: rgba(180,83,9,0.08);
+  --border: rgba(28,25,23,0.06);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.06);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --font-size-base: 16px;
+  --font-scale: 1;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --tracking-tight: -0.02em;
+  --gospel-gradient: linear-gradient(145deg, #A0622B 0%, #78350F 100%);
+  --green: #16A34A;
+  --green-soft: rgba(22,163,74,0.08);
+  --highlight-bg: rgba(217,119,6,0.12);
+}
+
+/* ═══ DARK MODE ═══ */
+[data-theme="dark"] {
+  --bg: #0C0A09;
+  --bg-card: #1C1917;
+  --bg-elevated: #292524;
+  --text-primary: #FAFAF9;
+  --text-secondary: #A8A29E;
+  --text-tertiary: #57534E;
+  --accent: #D97706;
+  --accent-light: #F59E0B;
+  --accent-soft: rgba(217,119,6,0.08);
+  --accent-glow: rgba(217,119,6,0.12);
+  --gold: #D97706;
+  --gold-light: rgba(217,119,6,0.06);
+  --border: rgba(250,250,249,0.06);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+  --gospel-gradient: linear-gradient(145deg, #B07030 0%, #78350F 100%);
+  --highlight-bg: rgba(217,119,6,0.15);
+}
+
+/* ═══ TEMA: SERENIDADE ═══ */
+[data-visual="serenidade"] {
+  --bg: #F0F4F8; --bg-card: #FFFFFF; --bg-elevated: #E3EAF0;
+  --text-primary: #1B2A3D; --text-secondary: #5A6F85; --text-tertiary: #8B9DB0;
+  --accent: #3B6FA0; --accent-light: #7BA7D0;
+  --accent-soft: rgba(59,111,160,0.08); --accent-glow: rgba(59,111,160,0.12);
+  --gold: #B89B5E; --gold-light: rgba(184,155,94,0.1);
+  --border: rgba(27,42,61,0.08);
+  --shadow-sm: 0 1px 3px rgba(59,111,160,0.06);
+  --shadow-md: 0 4px 16px rgba(59,111,160,0.08);
+  --shadow-lg: 0 8px 32px rgba(59,111,160,0.1);
+  --font-display: 'Playfair Display', serif; --font-body: 'Nunito', sans-serif;
+  --gospel-gradient: linear-gradient(135deg, #3B6FA0 0%, #1B3A5C 100%);
+}
+[data-visual="serenidade"][data-theme="dark"] {
+  --bg: #0E1620; --bg-card: #162030; --bg-elevated: #1E2D40;
+  --text-primary: #D8E3EE; --text-secondary: #8B9DB0; --text-tertiary: #5A6F85;
+  --accent: #7BA7D0; --accent-soft: rgba(123,167,208,0.1);
+  --accent-glow: rgba(123,167,208,0.12); --border: rgba(216,227,238,0.08);
+  --gospel-gradient: linear-gradient(135deg, #3B6FA0 0%, #0E1620 100%);
+}
+
+/* ═══ TEMA: JOVEM ═══ */
+[data-visual="jovem"] {
+  --bg: #F5F0FA; --bg-card: #FFFFFF; --bg-elevated: #EDE5F5;
+  --text-primary: #1E1229; --text-secondary: #6B5A7D; --text-tertiary: #9A8AAD;
+  --accent: #7C3AED; --accent-light: #A78BFA;
+  --accent-soft: rgba(124,58,237,0.08); --accent-glow: rgba(124,58,237,0.12);
+  --gold: #F59E0B; --gold-light: rgba(245,158,11,0.1);
+  --border: rgba(30,18,41,0.07);
+  --radius-sm: 12px; --radius-md: 16px; --radius-lg: 24px; --radius-xl: 32px;
+  --font-display: 'Outfit', sans-serif; --font-body: 'Outfit', sans-serif;
+  --gospel-gradient: linear-gradient(135deg, #7C3AED 0%, #4C1D95 100%);
+}
+[data-visual="jovem"][data-theme="dark"] {
+  --bg: #110D1B; --bg-card: #1A1525; --bg-elevated: #241E32;
+  --text-primary: #E8E0F0; --text-secondary: #9A8AAD; --text-tertiary: #6B5A7D;
+  --accent: #A78BFA; --accent-soft: rgba(167,139,250,0.1);
+  --accent-glow: rgba(167,139,250,0.12); --border: rgba(232,224,240,0.08);
+  --gospel-gradient: linear-gradient(135deg, #7C3AED 0%, #110D1B 100%);
+}
+
+/* ═══ TEMA: MINIMALISTA ═══ */
+[data-visual="minimalista"] {
+  --bg: #FFFFFF; --bg-card: #FAFAFA; --bg-elevated: #F5F5F5;
+  --text-primary: #111111; --text-secondary: #666666; --text-tertiary: #AAAAAA;
+  --accent: #111111; --accent-light: #444444;
+  --accent-soft: rgba(0,0,0,0.04); --accent-glow: rgba(0,0,0,0.08);
+  --gold: #888888; --gold-light: rgba(0,0,0,0.04);
+  --border: rgba(0,0,0,0.06);
+  --shadow-sm: none; --shadow-md: none; --shadow-lg: 0 2px 8px rgba(0,0,0,0.06);
+  --font-display: 'Space Grotesk', sans-serif; --font-body: 'Space Grotesk', sans-serif;
+  --gospel-gradient: linear-gradient(135deg, #333 0%, #111 100%);
+}
+[data-visual="minimalista"][data-theme="dark"] {
+  --bg: #0A0A0A; --bg-card: #141414; --bg-elevated: #1E1E1E;
+  --text-primary: #E5E5E5; --text-secondary: #888888; --text-tertiary: #555555;
+  --accent: #E5E5E5; --accent-soft: rgba(255,255,255,0.06);
+  --accent-glow: rgba(255,255,255,0.08); --border: rgba(255,255,255,0.06);
+  --gospel-gradient: linear-gradient(135deg, #555 0%, #222 100%);
+}
+
+/* ═══ TEMA: NATUREZA ═══ */
+[data-visual="natureza"] {
+  --bg: #F4F6F0; --bg-card: #FFFFFF; --bg-elevated: #E8ECE0;
+  --text-primary: #1A2612; --text-secondary: #546342; --text-tertiary: #8A9878;
+  --accent: #5B7A3D; --accent-light: #7DA358;
+  --accent-soft: rgba(91,122,61,0.08); --accent-glow: rgba(91,122,61,0.12);
+  --gold: #A07D3A; --gold-light: rgba(160,125,58,0.1);
+  --border: rgba(26,38,18,0.06);
+  --shadow-sm: 0 1px 3px rgba(91,122,61,0.05);
+  --shadow-md: 0 4px 16px rgba(91,122,61,0.06);
+  --shadow-lg: 0 8px 32px rgba(91,122,61,0.08);
+  --font-display: 'Lora', serif; --font-body: 'Nunito', sans-serif;
+  --gospel-gradient: linear-gradient(135deg, #5B7A3D 0%, #3A5225 100%);
+}
+[data-visual="natureza"][data-theme="dark"] {
+  --bg: #0D1208; --bg-card: #161E10; --bg-elevated: #1E2A16;
+  --text-primary: #D5DFC8; --text-secondary: #8A9878; --text-tertiary: #546342;
+  --accent: #7DA358; --accent-soft: rgba(125,163,88,0.1);
+  --accent-glow: rgba(125,163,88,0.12); --border: rgba(213,223,200,0.08);
+  --gospel-gradient: linear-gradient(135deg, #5B7A3D 0%, #0D1208 100%);
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { font-size: calc(var(--font-size-base) * var(--font-scale)); }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh; min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+  position: relative;
+}
+
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* ═══════════════════════════════════════════
+   SCREENS
+   ═══════════════════════════════════════════ */
+.screen { display: none; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+.screen.active { display: flex; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
+
+/* ═══════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════ */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  padding: 14px 20px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+}
+
+.header-left { display: flex; align-items: center; gap: 8px; }
+
+.header-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem; font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+.header-subtitle {
+  font-size: 0.75rem; color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.header-actions { display: flex; align-items: center; gap: 4px; }
+
+.icon-btn {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent;
+  color: var(--text-secondary); border-radius: 50%;
+  cursor: pointer; transition: all 0.15s;
+  font-size: 0;
+}
+.icon-btn:hover { background: var(--accent-soft); color: var(--accent); }
+.icon-btn .material-symbols-rounded { font-size: 22px; }
+
+.back-btn {
+  width: auto; padding: 0 4px 0 0; gap: 2px;
+  display: flex; align-items: center;
+  color: var(--accent); font-weight: 500;
+  font-family: var(--font-body); font-size: 0.85rem;
+  border: none; background: transparent; cursor: pointer;
+}
+.back-btn .material-symbols-rounded { font-size: 24px; }
+.back-btn:hover { opacity: 0.8; }
+
+/* ═══════════════════════════════════════════
+   SEARCH BAR
+   ═══════════════════════════════════════════ */
+.search-container { padding: 12px 20px; }
+
+.search-bar {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 10px 16px;
+  transition: all 0.2s;
+}
+.search-bar:focus-within {
+  border-color: var(--accent-glow);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.search-bar .material-symbols-rounded { font-size: 20px; color: var(--text-tertiary); }
+.search-bar input {
+  flex: 1; border: none; background: transparent; outline: none;
+  font-family: var(--font-body); font-size: 0.9rem;
+  color: var(--text-primary);
+}
+.search-bar input::placeholder { color: var(--text-tertiary); }
+
+/* ═══════════════════════════════════════════
+   INDEX SCREEN — Book Pills
+   ═══════════════════════════════════════════ */
+.index-content { padding: 0 20px 40px; overflow-y: auto; flex: 1; }
+
+.testament-label {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 600;
+  color: var(--text-primary);
+  margin: 24px 0 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  letter-spacing: var(--tracking-tight);
+}
+.testament-label:first-child { margin-top: 8px; }
+
+.category-group { margin-bottom: 16px; }
+
+.category-label {
+  font-size: 0.68rem; font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 12px 0 8px;
+}
+
+.pills-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.book-pill {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 44px; height: 36px;
+  padding: 0 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer; transition: all 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+.book-pill:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-glow);
+  color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.book-pill:active { transform: translateY(0); }
+
+.book-pill.gospel {
+  background: var(--gospel-gradient);
+  color: #FFF; border-color: transparent;
+}
+.book-pill.gospel:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ═══════════════════════════════════════════
+   CHAPTERS SCREEN — Number Grid
+   ═══════════════════════════════════════════ */
+.chapters-content { padding: 20px; overflow-y: auto; flex: 1; }
+
+.book-info { text-align: center; margin-bottom: 24px; }
+.book-info h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem; font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-tight);
+}
+.book-info .book-meta {
+  font-size: 0.8rem; color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.chapter-btn {
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem; font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer; transition: all 0.15s;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.chapter-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-glow);
+  color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.chapter-btn:active { transform: translateY(0); }
+.chapter-btn.has-text::after {
+  content: ''; position: absolute; bottom: 4px;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--accent-light);
+}
+
+/* ═══════════════════════════════════════════
+   READING SCREEN — Bible Text
+   ═══════════════════════════════════════════ */
+.reading-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+}
+
+.reading-header-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px 8px;
+}
+
+.chapter-selector {
+  display: flex; align-items: center; gap: 4px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-family: var(--font-body);
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer; transition: all 0.15s;
+}
+.chapter-selector:hover { background: var(--accent-soft); color: var(--accent); }
+.chapter-selector .material-symbols-rounded { font-size: 18px; }
+
+.reading-toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 20px 10px;
+}
+
+.toolbar-group { display: flex; align-items: center; gap: 2px; }
+
+.font-slider-container {
+  display: flex; align-items: center; gap: 8px;
+  width: 120px;
+}
+.font-slider-container span {
+  font-size: 0.65rem; font-weight: 600; color: var(--text-tertiary);
+  font-family: var(--font-display);
+}
+.font-slider-container span:last-child { font-size: 0.95rem; }
+
+input[type="range"] {
+  flex: 1; height: 4px;
+  -webkit-appearance: none; appearance: none;
+  background: var(--bg-elevated); border-radius: 2px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 18px; height: 18px;
+  background: var(--accent); border-radius: 50%;
+  cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.reading-content { padding: 24px 24px 120px; overflow-y: auto; flex: 1; }
+
+.chapter-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem; font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 24px;
+  letter-spacing: var(--tracking-tight);
+}
+
+.verse-text {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: var(--text-primary);
+  text-align: justify;
+  hyphens: auto; -webkit-hyphens: auto;
+}
+
+.verse-num {
+  font-family: var(--font-body);
+  font-size: 0.65em;
+  font-weight: 700;
+  color: var(--accent);
+  vertical-align: super;
+  margin-right: 2px;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.verse-highlight {
+  background: var(--highlight-bg);
+  border-radius: 3px;
+  padding: 1px 0;
+  transition: background 3s ease;
+}
+.verse-highlight.fade { background: transparent; }
+
+.chapter-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24px 0 40px;
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+}
+
+.chapter-nav-btn {
+  display: flex; align-items: center; gap: 4px;
+  padding: 10px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer; transition: all 0.15s;
+}
+.chapter-nav-btn:hover { background: var(--accent-soft); color: var(--accent); }
+.chapter-nav-btn.disabled { opacity: 0.3; pointer-events: none; }
+.chapter-nav-btn .material-symbols-rounded { font-size: 18px; }
+
+/* ═══════════════════════════════════════════
+   SEARCH RESULTS
+   ═══════════════════════════════════════════ */
+.search-results { padding: 0 20px 40px; overflow-y: auto; flex: 1; }
+
+.search-result-count {
+  font-size: 0.78rem; color: var(--text-tertiary);
+  padding: 8px 0 16px; font-weight: 500;
+}
+
+.search-result-item {
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  cursor: pointer; transition: all 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+.search-result-item:hover {
+  border-color: var(--accent-glow);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.search-result-item:active { transform: translateY(0); }
+
+.search-result-ref {
+  font-family: var(--font-display);
+  font-size: 0.95rem; font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.search-result-text {
+  font-size: 0.85rem; line-height: 1.5;
+  color: var(--text-secondary);
+}
+.search-result-text mark {
+  background: var(--highlight-bg);
+  color: var(--text-primary);
+  border-radius: 2px; padding: 1px 2px;
+  font-weight: 600;
+}
+
+.search-empty {
+  text-align: center; padding: 60px 20px;
+  color: var(--text-tertiary);
+}
+.search-empty .material-symbols-rounded { font-size: 48px; opacity: 0.3; display: block; margin-bottom: 12px; }
+.search-empty p { font-size: 0.9rem; }
+
+/* ═══════════════════════════════════════════
+   CHAPTER DROPDOWN OVERLAY
+   ═══════════════════════════════════════════ */
+.chapter-dropdown-overlay {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 200;
+  justify-content: center; align-items: flex-end;
+}
+.chapter-dropdown-overlay.active { display: flex; }
+
+.chapter-dropdown {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  width: 100%; max-width: 480px;
+  max-height: 60vh;
+  padding: 20px;
+  animation: slideUp 0.3s ease;
+  overflow-y: auto;
+}
+
+.chapter-dropdown-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px;
+}
+.chapter-dropdown-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem; font-weight: 600;
+}
+
+.chapter-dropdown-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+.chapter-dropdown-grid .chapter-btn.current {
+  background: var(--accent); color: #FFF;
+  border-color: var(--accent);
+}
+
+/* ═══════════════════════════════════════════
+   THEME PICKER
+   ═══════════════════════════════════════════ */
+.theme-overlay {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 200;
+  justify-content: center; align-items: flex-end;
+}
+.theme-overlay.active { display: flex; }
+
+.theme-panel {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  width: 100%; max-width: 480px;
+  padding: 24px 20px;
+  animation: slideUp 0.3s ease;
+}
+
+.theme-panel h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem; font-weight: 600;
+  margin-bottom: 16px; text-align: center;
+}
+
+.theme-options {
+  display: flex; gap: 12px; justify-content: center;
+  margin-bottom: 20px;
+}
+
+.theme-option {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer; transition: all 0.2s;
+}
+.theme-option.active { border-color: var(--accent); transform: scale(1.1); }
+.theme-option[data-visual="classico"] { background: linear-gradient(135deg, #FAFAF7 50%, #78350F 50%); }
+.theme-option[data-visual="serenidade"] { background: linear-gradient(135deg, #F0F4F8 50%, #3B6FA0 50%); }
+.theme-option[data-visual="jovem"] { background: linear-gradient(135deg, #F5F0FA 50%, #7C3AED 50%); }
+.theme-option[data-visual="minimalista"] { background: linear-gradient(135deg, #FFF 50%, #111 50%); }
+.theme-option[data-visual="natureza"] { background: linear-gradient(135deg, #F4F6F0 50%, #5B7A3D 50%); }
+
+.dark-toggle {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.dark-toggle span { font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
+
+.toggle-switch {
+  width: 48px; height: 28px;
+  background: var(--bg-elevated);
+  border-radius: 14px;
+  position: relative; cursor: pointer;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.toggle-switch::after {
+  content: '';
+  position: absolute; top: 3px; left: 3px;
+  width: 20px; height: 20px;
+  background: var(--text-tertiary);
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+.toggle-switch.active { background: var(--accent); border-color: var(--accent); }
+.toggle-switch.active::after { left: 23px; background: #FFF; }
+
+/* ═══════════════════════════════════════════
+   TOAST & VERSE ACTION
+   ═══════════════════════════════════════════ */
+.toast {
+  position: fixed;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--text-primary); color: var(--bg);
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 0.82rem; font-weight: 500;
+  opacity: 0; transition: all 0.3s;
+  z-index: 300;
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+}
+.toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.verse-action-overlay {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 200;
+  justify-content: center; align-items: flex-end;
+}
+.verse-action-overlay.active { display: flex; }
+
+.verse-action-panel {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  width: 100%; max-width: 480px;
+  padding: 24px 20px;
+  animation: slideUp 0.3s ease;
+}
+
+.verse-action-panel .selected-verse {
+  font-family: var(--font-display);
+  font-size: 1.05rem; line-height: 1.6;
+  color: var(--text-primary);
+  padding: 16px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  text-align: center;
+  font-style: italic;
+}
+.verse-action-panel .selected-ref {
+  font-size: 0.8rem; color: var(--accent);
+  font-weight: 600; text-align: center;
+  margin-bottom: 16px; font-style: normal;
+}
+
+.verse-actions { display: flex; gap: 12px; justify-content: center; }
+.verse-action-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 12px 20px;
+  background: var(--bg-elevated);
+  border: none; border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer; transition: all 0.15s;
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 600;
+}
+.verse-action-btn:hover { background: var(--accent-soft); color: var(--accent); }
+.verse-action-btn .material-symbols-rounded { font-size: 22px; }
+
+/* ═══ SCROLLBAR ═══ */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     TELA 1 — ÍNDICE DE LIVROS
+     ═══════════════════════════════════════════ -->
+<div class="screen active" id="screen-index">
+  <div class="header">
+    <div class="header-left">
+      <div>
+        <div class="header-title">Bíblia Sagrada</div>
+        <div class="header-subtitle">Tradução Ave Maria</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="openThemePicker()" title="Tema">
+        <span class="material-symbols-rounded">palette</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <div class="search-bar">
+      <span class="material-symbols-rounded">search</span>
+      <input type="text" placeholder="Buscar livro, capítulo ou palavra..." id="search-input"
+             oninput="handleSearch(this.value)">
+    </div>
+  </div>
+
+  <div class="index-content" id="index-content"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TELA 2 — CAPÍTULOS
+     ═══════════════════════════════════════════ -->
+<div class="screen" id="screen-chapters">
+  <div class="header">
+    <button class="back-btn" onclick="goToIndex()">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </button>
+    <div class="header-title" id="chapters-book-name"></div>
+    <div style="width:38px"></div>
+  </div>
+
+  <div class="chapters-content">
+    <div class="book-info">
+      <h2 id="chapters-book-full-name"></h2>
+      <div class="book-meta" id="chapters-book-meta"></div>
+    </div>
+    <div class="chapters-grid" id="chapters-grid"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TELA 3 — LEITURA
+     ═══════════════════════════════════════════ -->
+<div class="screen" id="screen-reading">
+  <div class="reading-header">
+    <div class="reading-header-top">
+      <button class="back-btn" onclick="goToChapters()">
+        <span class="material-symbols-rounded">arrow_back</span>
+        <span id="reading-book-name"></span>
+      </button>
+      <button class="chapter-selector" onclick="openChapterDropdown()">
+        <span id="reading-chapter-label">Cap. 1</span>
+        <span class="material-symbols-rounded">expand_more</span>
+      </button>
+      <div class="header-actions">
+        <button class="icon-btn" onclick="openThemePicker()" title="Tema">
+          <span class="material-symbols-rounded">palette</span>
+        </button>
+      </div>
+    </div>
+    <div class="reading-toolbar">
+      <div class="font-slider-container">
+        <span>A</span>
+        <input type="range" min="0.85" max="1.4" step="0.05" value="1"
+               oninput="changeFontSize(this.value)">
+        <span>A</span>
+      </div>
+      <div class="toolbar-group">
+        <button class="icon-btn" onclick="copyChapter()" title="Copiar">
+          <span class="material-symbols-rounded">content_copy</span>
+        </button>
+        <button class="icon-btn" onclick="shareChapter()" title="Compartilhar">
+          <span class="material-symbols-rounded">share</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="reading-content" id="reading-content"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TELA 4 — RESULTADOS DE BUSCA
+     ═══════════════════════════════════════════ -->
+<div class="screen" id="screen-search">
+  <div class="header">
+    <button class="back-btn" onclick="goToIndex(); clearSearch()">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </button>
+    <div style="flex:1; margin: 0 8px;">
+      <div class="search-bar" style="padding: 8px 14px;">
+        <span class="material-symbols-rounded">search</span>
+        <input type="text" placeholder="Buscar..." id="search-input-results"
+               oninput="handleSearchResults(this.value)">
+      </div>
+    </div>
+  </div>
+  <div class="search-results" id="search-results"></div>
+</div>
+
+<!-- ═══ OVERLAYS ═══ -->
+<div class="chapter-dropdown-overlay" id="chapter-dropdown" onclick="closeChapterDropdown(event)">
+  <div class="chapter-dropdown">
+    <div class="chapter-dropdown-header">
+      <h3 id="dropdown-book-name">Capítulos</h3>
+      <button class="icon-btn" onclick="closeChapterDropdown()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="chapter-dropdown-grid" id="dropdown-grid"></div>
+  </div>
+</div>
+
+<div class="theme-overlay" id="theme-overlay" onclick="closeThemePicker(event)">
+  <div class="theme-panel" onclick="event.stopPropagation()">
+    <h3>Aparência</h3>
+    <div class="theme-options">
+      <div class="theme-option active" data-visual="classico" onclick="setVisualTheme('classico')" title="Clássico"></div>
+      <div class="theme-option" data-visual="serenidade" onclick="setVisualTheme('serenidade')" title="Serenidade"></div>
+      <div class="theme-option" data-visual="jovem" onclick="setVisualTheme('jovem')" title="Jovem"></div>
+      <div class="theme-option" data-visual="minimalista" onclick="setVisualTheme('minimalista')" title="Minimalista"></div>
+      <div class="theme-option" data-visual="natureza" onclick="setVisualTheme('natureza')" title="Natureza"></div>
+    </div>
+    <div class="dark-toggle">
+      <span>Modo escuro</span>
+      <div class="toggle-switch" id="dark-toggle" onclick="toggleDarkMode()"></div>
+    </div>
+  </div>
+</div>
+
+<div class="verse-action-overlay" id="verse-action-overlay" onclick="closeVerseAction(event)">
+  <div class="verse-action-panel" onclick="event.stopPropagation()">
+    <div class="selected-verse" id="selected-verse-text"></div>
+    <div class="selected-ref" id="selected-verse-ref"></div>
+    <div class="verse-actions">
+      <button class="verse-action-btn" onclick="copySelectedVerse()">
+        <span class="material-symbols-rounded">content_copy</span> Copiar
+      </button>
+      <button class="verse-action-btn" onclick="shareSelectedVerse()">
+        <span class="material-symbols-rounded">share</span> Compartilhar
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════════
+   DADOS — 73 Livros da Bíblia (Ave Maria)
+   ═══════════════════════════════════════════ */
+const BIBLE_BOOKS = [
+  // ANTIGO TESTAMENTO — Pentateuco
+  { abbrev:'Gn', name:'Gênesis', chapters:50, testament:'AT', category:'Pentateuco' },
+  { abbrev:'Ex', name:'Êxodo', chapters:40, testament:'AT', category:'Pentateuco' },
+  { abbrev:'Lv', name:'Levítico', chapters:27, testament:'AT', category:'Pentateuco' },
+  { abbrev:'Nm', name:'Números', chapters:36, testament:'AT', category:'Pentateuco' },
+  { abbrev:'Dt', name:'Deuteronômio', chapters:34, testament:'AT', category:'Pentateuco' },
+  // Históricos
+  { abbrev:'Js', name:'Josué', chapters:24, testament:'AT', category:'Históricos' },
+  { abbrev:'Jz', name:'Juízes', chapters:21, testament:'AT', category:'Históricos' },
+  { abbrev:'Rt', name:'Rute', chapters:4, testament:'AT', category:'Históricos' },
+  { abbrev:'1Sm', name:'1 Samuel', chapters:31, testament:'AT', category:'Históricos' },
+  { abbrev:'2Sm', name:'2 Samuel', chapters:24, testament:'AT', category:'Históricos' },
+  { abbrev:'1Rs', name:'1 Reis', chapters:22, testament:'AT', category:'Históricos' },
+  { abbrev:'2Rs', name:'2 Reis', chapters:25, testament:'AT', category:'Históricos' },
+  { abbrev:'1Cr', name:'1 Crônicas', chapters:29, testament:'AT', category:'Históricos' },
+  { abbrev:'2Cr', name:'2 Crônicas', chapters:36, testament:'AT', category:'Históricos' },
+  { abbrev:'Esd', name:'Esdras', chapters:10, testament:'AT', category:'Históricos' },
+  { abbrev:'Ne', name:'Neemias', chapters:13, testament:'AT', category:'Históricos' },
+  { abbrev:'Tb', name:'Tobias', chapters:14, testament:'AT', category:'Históricos' },
+  { abbrev:'Jt', name:'Judite', chapters:16, testament:'AT', category:'Históricos' },
+  { abbrev:'Est', name:'Ester', chapters:10, testament:'AT', category:'Históricos' },
+  { abbrev:'1Mc', name:'1 Macabeus', chapters:16, testament:'AT', category:'Históricos' },
+  { abbrev:'2Mc', name:'2 Macabeus', chapters:15, testament:'AT', category:'Históricos' },
+  // Sapienciais
+  { abbrev:'Jó', name:'Jó', chapters:42, testament:'AT', category:'Sapienciais' },
+  { abbrev:'Sl', name:'Salmos', chapters:150, testament:'AT', category:'Sapienciais' },
+  { abbrev:'Pr', name:'Provérbios', chapters:31, testament:'AT', category:'Sapienciais' },
+  { abbrev:'Ecl', name:'Eclesiastes', chapters:12, testament:'AT', category:'Sapienciais' },
+  { abbrev:'Ct', name:'Cântico dos Cânticos', chapters:8, testament:'AT', category:'Sapienciais' },
+  { abbrev:'Sb', name:'Sabedoria', chapters:19, testament:'AT', category:'Sapienciais' },
+  { abbrev:'Eclo', name:'Eclesiástico', chapters:51, testament:'AT', category:'Sapienciais' },
+  // Profetas Maiores
+  { abbrev:'Is', name:'Isaías', chapters:66, testament:'AT', category:'Profetas Maiores' },
+  { abbrev:'Jr', name:'Jeremias', chapters:52, testament:'AT', category:'Profetas Maiores' },
+  { abbrev:'Lm', name:'Lamentações', chapters:5, testament:'AT', category:'Profetas Maiores' },
+  { abbrev:'Br', name:'Baruc', chapters:6, testament:'AT', category:'Profetas Maiores' },
+  { abbrev:'Ez', name:'Ezequiel', chapters:48, testament:'AT', category:'Profetas Maiores' },
+  { abbrev:'Dn', name:'Daniel', chapters:14, testament:'AT', category:'Profetas Maiores' },
+  // Profetas Menores
+  { abbrev:'Os', name:'Oséias', chapters:14, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Jl', name:'Joel', chapters:4, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Am', name:'Amós', chapters:9, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Ab', name:'Abdias', chapters:1, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Jn', name:'Jonas', chapters:4, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Mq', name:'Miqueias', chapters:7, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Na', name:'Naum', chapters:3, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Hab', name:'Habacuc', chapters:3, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Sf', name:'Sofonias', chapters:3, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Ag', name:'Ageu', chapters:2, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Zc', name:'Zacarias', chapters:14, testament:'AT', category:'Profetas Menores' },
+  { abbrev:'Ml', name:'Malaquias', chapters:3, testament:'AT', category:'Profetas Menores' },
+  // NOVO TESTAMENTO — Evangelhos
+  { abbrev:'Mt', name:'Mateus', chapters:28, testament:'NT', category:'Evangelhos', isGospel:true },
+  { abbrev:'Mc', name:'Marcos', chapters:16, testament:'NT', category:'Evangelhos', isGospel:true },
+  { abbrev:'Lc', name:'Lucas', chapters:24, testament:'NT', category:'Evangelhos', isGospel:true },
+  { abbrev:'Jo', name:'João', chapters:21, testament:'NT', category:'Evangelhos', isGospel:true },
+  // Atos
+  { abbrev:'At', name:'Atos dos Apóstolos', chapters:28, testament:'NT', category:'Atos' },
+  // Cartas Paulinas
+  { abbrev:'Rm', name:'Romanos', chapters:16, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'1Cor', name:'1 Coríntios', chapters:16, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'2Cor', name:'2 Coríntios', chapters:13, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'Gl', name:'Gálatas', chapters:6, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'Ef', name:'Efésios', chapters:6, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'Fl', name:'Filipenses', chapters:4, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'Cl', name:'Colossenses', chapters:4, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'1Ts', name:'1 Tessalonicenses', chapters:5, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'2Ts', name:'2 Tessalonicenses', chapters:3, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'1Tm', name:'1 Timóteo', chapters:6, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'2Tm', name:'2 Timóteo', chapters:4, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'Tt', name:'Tito', chapters:3, testament:'NT', category:'Cartas Paulinas' },
+  { abbrev:'Fm', name:'Filêmon', chapters:1, testament:'NT', category:'Cartas Paulinas' },
+  // Hebreus
+  { abbrev:'Hb', name:'Hebreus', chapters:13, testament:'NT', category:'Hebreus' },
+  // Cartas Católicas
+  { abbrev:'Tg', name:'Tiago', chapters:5, testament:'NT', category:'Cartas Católicas' },
+  { abbrev:'1Pd', name:'1 Pedro', chapters:5, testament:'NT', category:'Cartas Católicas' },
+  { abbrev:'2Pd', name:'2 Pedro', chapters:3, testament:'NT', category:'Cartas Católicas' },
+  { abbrev:'1Jo', name:'1 João', chapters:5, testament:'NT', category:'Cartas Católicas' },
+  { abbrev:'2Jo', name:'2 João', chapters:1, testament:'NT', category:'Cartas Católicas' },
+  { abbrev:'3Jo', name:'3 João', chapters:1, testament:'NT', category:'Cartas Católicas' },
+  { abbrev:'Jd', name:'Judas', chapters:1, testament:'NT', category:'Cartas Católicas' },
+  // Apocalipse
+  { abbrev:'Ap', name:'Apocalipse', chapters:22, testament:'NT', category:'Apocalipse' },
+];
+
+/* ═══════════════════════════════════════════
+   TEXTOS DE AMOSTRA — Tradução Ave Maria
+   Protótipo com capítulos selecionados
+   ═══════════════════════════════════════════ */
+const SAMPLE_TEXTS = {
+  'Gn-1': [
+    'No princípio, Deus criou os céus e a terra.',
+    'A terra estava informe e vazia; as trevas cobriam o abismo e o Espírito de Deus pairava sobre as águas.',
+    'Deus disse: "Faça-se a luz!" E a luz foi feita.',
+    'Deus viu que a luz era boa, e separou a luz das trevas.',
+    'Deus chamou à luz DIA, e às trevas NOITE. Houve uma tarde e uma manhã: foi o primeiro dia.',
+    'Deus disse: "Faça-se um firmamento entre as águas, e separe umas das outras."',
+    'Deus fez o firmamento e separou as águas que estavam debaixo do firmamento das que estavam por cima. E assim se fez.',
+    'Deus chamou ao firmamento CÉU. Houve uma tarde e uma manhã: foi o segundo dia.',
+    'Deus disse: "Que as águas que estão debaixo do céu se juntem num mesmo lugar e apareça o elemento seco." E assim se fez.',
+    'Deus chamou ao elemento seco TERRA, e ao ajuntamento das águas MARES. E Deus viu que isso era bom.',
+    'Deus disse: "Que a terra produza verdura, ervas que deem semente, e árvores frutíferas que deem fruto segundo a sua espécie e tenham em si a sua semente sobre a terra." E assim se fez.',
+    'A terra produziu verdura, ervas que davam semente segundo a sua espécie, e árvores que davam fruto e tinham em si a sua semente segundo a sua espécie. E Deus viu que isso era bom.',
+    'Houve uma tarde e uma manhã: foi o terceiro dia.',
+    'Deus disse: "Façam-se luzeiros no firmamento do céu, para separar o dia da noite; sirvam eles de sinais e marquem o tempo, os dias e os anos.',
+    'Brilhem no firmamento dos céus e iluminem a terra." E assim se fez.',
+    'Deus fez os dois grandes luzeiros: o maior para presidir ao dia, e o menor para presidir à noite. Fez também as estrelas.',
+    'Deus colocou-os no firmamento dos céus para iluminar a terra,',
+    'para presidir ao dia e à noite, e para separar a luz das trevas. E Deus viu que isso era bom.',
+    'Houve uma tarde e uma manhã: foi o quarto dia.',
+    'Deus disse: "Pululem as águas de uma multidão de seres vivos, e voem aves sobre a terra, debaixo do firmamento dos céus."',
+    'Deus criou os grandes animais marinhos e todos os seres vivos que se movem nas águas, segundo a sua espécie, e todas as aves segundo a sua espécie. E Deus viu que isso era bom.',
+    'Deus os abençoou: "Frutificai, disse ele, e multiplicai-vos, e enchei as águas do mar; e vós, aves, multiplicai-vos sobre a terra."',
+    'Houve uma tarde e uma manhã: foi o quinto dia.',
+    'Deus disse: "Que a terra produza seres vivos segundo a sua espécie: animais domésticos, répteis e animais selvagens, segundo a sua espécie." E assim se fez.',
+    'Deus fez os animais selvagens segundo a sua espécie, os animais domésticos igualmente, e da mesma forma todos os répteis. E Deus viu que isso era bom.',
+    'Então Deus disse: "Façamos o homem à nossa imagem e semelhança. Que ele domine os peixes do mar, as aves do céu, os animais domésticos e todos os répteis que se arrastam sobre a terra."',
+    'Deus criou o homem à sua imagem; criou-o à imagem de Deus, criou o homem e a mulher.',
+    'Deus os abençoou: "Frutificai, disse ele, e multiplicai-vos, enchei a terra e submetei-a. Dominai sobre os peixes do mar, sobre as aves dos céus e sobre todos os animais que se arrastam sobre a terra."',
+    'Deus disse: "Eis que eu vos dou toda erva que dá semente sobre a terra, e todas as árvores frutíferas que contêm em si mesmas a sua semente, para que vos sirvam de alimento.',
+    'E a todos os animais da terra, a todas as aves dos céus, a tudo o que se arrasta sobre a terra e em que haja sopro de vida, eu dou toda erva verde por alimento." E assim se fez.',
+    'Deus contemplou toda a sua obra, e viu que tudo era muito bom. Houve uma tarde e uma manhã: foi o sexto dia.',
+  ],
+  'Gn-2': [
+    'Assim foram acabados os céus, a terra e todos os seus ornamentos.',
+    'No sétimo dia, Deus acabou a obra que tinha feito; e descansou no sétimo dia de toda a obra que fizera.',
+    'Deus abençoou o sétimo dia e o santificou, porque nesse dia descansou de toda a obra da criação.',
+    'Essa é a história da criação dos céus e da terra. No dia em que o Senhor Deus fez a terra e os céus,',
+    'ainda não havia nenhum arbusto do campo sobre a terra, e nenhuma erva do campo tinha ainda crescido, porque o Senhor Deus não fizera chover sobre a terra e não havia homem para a cultivar.',
+    'Entretanto, subia da terra um vapor que lhe regava toda a superfície.',
+    'Então o Senhor Deus formou o homem do barro da terra, e soprou-lhe nas narinas o sopro da vida, e o homem tornou-se um ser vivente.',
+    'O Senhor Deus plantou um jardim no Éden, do lado do oriente, e nele pôs o homem que tinha formado.',
+    'O Senhor Deus fez brotar da terra toda sorte de árvores agradáveis à vista e boas para alimento; e a árvore da vida no meio do jardim, e a árvore da ciência do bem e do mal.',
+    'Do Éden saía um rio para regar o jardim, e dividia-se dali em quatro braços.',
+    'O nome do primeiro é Fison, que rodeia toda a terra de Hévila, onde se encontra o ouro.',
+    'O ouro dessa terra é bom; ali se encontra o bdélio e a pedra ônix.',
+    'O nome do segundo rio é Geon, que rodeia toda a terra de Cush.',
+    'O nome do terceiro rio é Tigre, que corre ao oriente da Assíria. E o quarto rio é o Eufrates.',
+    'O Senhor Deus tomou o homem e o colocou no jardim do Éden, para o cultivar e guardar.',
+    'O Senhor Deus deu ao homem esta ordem: "Pode comer do fruto de todas as árvores do jardim;',
+    'mas não comas do fruto da árvore da ciência do bem e do mal; porque no dia em que dele comeres, morrerás indubitavelmente."',
+    'O Senhor Deus disse: "Não é bom que o homem esteja só; vou dar-lhe uma auxiliar que lhe seja semelhante."',
+    'Tendo o Senhor Deus formado da terra todos os animais dos campos e todas as aves dos céus, levou-os ao homem, para ver como ele os havia de chamar; e todo nome que o homem pôs aos animais vivos, esse seria o seu nome.',
+    'O homem pôs nome a todos os animais domésticos, a todas as aves dos céus e a todos os animais dos campos; mas não se achava para ele uma auxiliar semelhante a ele.',
+    'Então o Senhor Deus mandou ao homem um profundo sono; e enquanto ele dormia, tomou-lhe uma das costelas e fechou com carne o seu lugar.',
+    'E da costela que tinha tomado do homem, o Senhor Deus fez uma mulher, e levou-a ao homem.',
+    'O homem disse: "Eis agora aqui o osso de meus ossos e a carne de minha carne; ela se chamará mulher, porque foi tomada do homem."',
+    'Por isso o homem deixará o seu pai e a sua mãe, e se unirá à sua mulher; e os dois serão uma só carne.',
+    'Ora, ambos estavam nus, o homem e a sua mulher, e não sentiam vergonha.',
+  ],
+  'Gn-3': [
+    'A serpente era o mais astuto de todos os animais dos campos que o Senhor Deus tinha feito. Ela disse à mulher: "É verdade que Deus vos proibiu comer do fruto de toda árvore do jardim?"',
+    'A mulher respondeu-lhe: "Podemos comer do fruto das árvores do jardim.',
+    'Mas do fruto da árvore que está no meio do jardim, Deus disse: Vós não comereis dele, nem o tocareis, para que não morrais."',
+    'Não, respondeu a serpente, não morrereis.',
+    'Mas Deus sabe que, no dia em que dele comerdes, vossos olhos se abrirão, e sereis como deuses, conhecendo o bem e o mal."',
+    'A mulher, vendo que o fruto da árvore era bom para comer, agradável à vista e desejável para adquirir conhecimento, tomou dele, comeu, e deu ao seu marido, que estava com ela, e ele também comeu.',
+    'Então abriram-se os olhos de ambos e, vendo que estavam nus, coseram folhas de figueira e fizeram cinturões para si.',
+    'Ouvindo a voz do Senhor Deus que passeava pelo jardim à hora da brisa da tarde, o homem e a mulher esconderam-se da face do Senhor Deus entre as árvores do jardim.',
+    'Mas o Senhor Deus chamou o homem e perguntou-lhe: "Onde estás?"',
+    'Ele respondeu: "Ouvi a vossa voz no jardim e, como estava nu, tive medo e escondi-me."',
+    'Deus disse: "Quem te revelou que estavas nu? Comeste do fruto da árvore de que te proibi comer?"',
+    'O homem respondeu: "A mulher que me destes por companheira deu-me do fruto, e eu comi."',
+    'O Senhor Deus disse à mulher: "Por que fizeste isso?" E a mulher respondeu: "A serpente enganou-me, e eu comi."',
+    'O Senhor Deus disse à serpente: "Porque fizeste isso, és maldita entre todos os animais domésticos e entre todos os animais dos campos; andarás de rastos sobre o teu ventre e comerás pó todos os dias de tua vida.',
+    'Porei inimizade entre ti e a mulher, entre a tua descendência e a descendência dela. Esta te ferirá a cabeça, e tu lhe ferirás o calcanhar."',
+    'Disse à mulher: "Multiplicarei os sofrimentos de tua gravidez, entre dores darás à luz filhos. Teus desejos te levarão para o teu marido, e ele te dominará."',
+    'E disse ao homem: "Porque ouviste a voz de tua mulher e comeste do fruto da árvore de que te ordenei que não comesses, maldita é a terra por tua causa. Tirarás dela com trabalho o teu sustento todos os dias de tua vida.',
+    'Ela te produzirá espinhos e abrolhos, e comerás a erva da terra.',
+    'Comerás o pão com o suor do teu rosto, até que voltes à terra de que foste tirado; porque és pó, e em pó te hás de tornar."',
+    'O homem deu à sua mulher o nome de Eva, porque ela era a mãe de todos os viventes.',
+    'O Senhor Deus fez para o homem e sua mulher túnicas de peles e os vestiu.',
+    'Então disse o Senhor Deus: "Eis que o homem se tornou como um de nós, conhecendo o bem e o mal. Agora, pois, cuidemos que ele não estenda a mão e tome também do fruto da árvore da vida, e coma, e viva eternamente."',
+    'O Senhor Deus expulsou-o do jardim do Éden, para que ele cultivasse a terra de que tinha sido formado.',
+    'E, tendo expulsado o homem, colocou ao oriente do jardim do Éden querubins e uma espada flamejante para guardar o caminho da árvore da vida.',
+  ],
+  'Sl-23': [
+    'O Senhor é meu pastor, nada me faltará.',
+    'Em verdes prados ele me faz repousar. Conduz-me junto às águas refrescantes,',
+    'restaura as forças de minha alma. Pelos caminhos retos ele me leva, por amor do seu nome.',
+    'Ainda que eu caminhe por um vale tenebroso, nenhum mal temerei, pois estás comigo. Teu bastão e teu cajado me dão segurança.',
+    'Preparas um banquete para mim à vista de meus inimigos. Unges minha cabeça com óleo, meu cálice transborda.',
+    'A felicidade e a graça hão de seguir-me por todos os dias de minha vida. E habitarei na casa do Senhor por longos dias.',
+  ],
+  'Sl-91': [
+    'O que habita sob a proteção do Altíssimo, que mora à sombra do Onipotente,',
+    'diz ao Senhor: Vós sois meu refúgio e minha fortaleza, meu Deus, em quem eu confio.',
+    'É ele quem vos livra do laço do caçador e da peste perniciosa.',
+    'Ele vos cobrirá com suas plumas, sob suas asas encontrareis refúgio. Sua fidelidade vos será um escudo protetor.',
+    'Não temereis os terrores noturnos, nem a flecha que voa à luz do dia,',
+    'nem a peste que se propaga nas trevas, nem o mal que grassa ao meio-dia.',
+    'Caiam mil homens à vossa esquerda e dez mil à vossa direita: vós não sereis atingidos.',
+    'Basta que abrais os olhos, e vereis o castigo dos ímpios.',
+    'Porque o Senhor é vosso refúgio. Vós fizestes do Altíssimo vossa fortaleza.',
+    'Nenhum mal vos atingirá, nenhum flagelo chegará à vossa tenda.',
+    'Porque aos seus anjos ele mandou que vos guardem em todos os vossos caminhos.',
+    'Eles vos sustentarão nas suas mãos, para que não tropeceis em nenhuma pedra.',
+    'Caminhareis sobre serpentes e víboras, calcareis aos pés o leão e o dragão.',
+    '"Pois que ele se uniu a mim, eu o livrarei; e o protegerei, pois conhece o meu nome.',
+    'Quando me invocar, eu o atenderei; na tribulação estarei com ele. Hei de livrá-lo e o cobrirei de glória.',
+    'Saciá-lo-ei com longos dias, e lhe mostrarei a minha salvação."',
+  ],
+  'Mt-1': [
+    'Livro da origem de Jesus Cristo, filho de Davi, filho de Abraão.',
+    'Abraão gerou Isaac. Isaac gerou Jacó. Jacó gerou Judá e seus irmãos.',
+    'Judá gerou Farés e Zara, de Tamar. Farés gerou Esron. Esron gerou Arão.',
+    'Arão gerou Aminadab. Aminadab gerou Naasson. Naasson gerou Salmon.',
+    'Salmon gerou Booz, de Raab. Booz gerou Obed, de Rute. Obed gerou Jessé.',
+    'Jessé gerou o rei Davi. Davi gerou Salomão, da mulher de Urias.',
+    'Salomão gerou Roboão. Roboão gerou Abias. Abias gerou Asa.',
+    'Asa gerou Josafá. Josafá gerou Jorão. Jorão gerou Ozias.',
+    'Ozias gerou Joatão. Joatão gerou Acaz. Acaz gerou Ezequias.',
+    'Ezequias gerou Manassés. Manassés gerou Amon. Amon gerou Josias.',
+    'Josias gerou Jeconias e seus irmãos, no tempo do exílio da Babilônia.',
+    'Depois do exílio da Babilônia, Jeconias gerou Salatiel. Salatiel gerou Zorobabel.',
+    'Zorobabel gerou Abiúd. Abiúd gerou Eliaquim. Eliaquim gerou Azor.',
+    'Azor gerou Sadoc. Sadoc gerou Aquim. Aquim gerou Eliúd.',
+    'Eliúd gerou Eleazar. Eleazar gerou Matã. Matã gerou Jacó.',
+    'Jacó gerou José, esposo de Maria, da qual nasceu Jesus, que é chamado Cristo.',
+    'Assim, todas as gerações desde Abraão até Davi são catorze; desde Davi até o exílio da Babilônia, catorze; e desde o exílio da Babilônia até o Cristo, catorze.',
+    'Eis como nasceu Jesus Cristo: Maria, sua mãe, estava desposada com José. Antes de coabitarem, aconteceu que ela concebeu por obra do Espírito Santo.',
+    'José, seu esposo, que era um homem justo e não queria difamá-la, resolveu deixá-la secretamente.',
+    'Enquanto assim pensava, eis que um anjo do Senhor lhe apareceu em sonho e lhe disse: "José, filho de Davi, não temas receber Maria como tua esposa, pois o que nela foi concebido vem do Espírito Santo.',
+    'Ela dará à luz um filho, e tu lhe porás o nome de Jesus, porque ele salvará o seu povo de seus pecados."',
+    'Tudo isso aconteceu para que se cumprisse o que o Senhor falou pelo profeta:',
+    '"Eis que a Virgem conceberá e dará à luz um filho, que se chamará Emanuel" (Is 7,14), que significa: Deus conosco.',
+    'Despertando, José fez como o anjo do Senhor lhe havia mandado: recebeu em sua casa sua esposa.',
+    'E, sem que ele a tivesse conhecido, ela deu à luz o seu filho, e ele o chamou JESUS.',
+  ],
+  'Mt-28': [
+    'Depois do sábado, quando amanhecia o primeiro dia da semana, Maria Madalena e a outra Maria foram ver o sepulcro.',
+    'De repente, houve um grande tremor de terra: um anjo do Senhor desceu do céu e, aproximando-se, removeu a pedra e sentou-se nela.',
+    'Sua aparência era como um relâmpago e suas vestes brancas como a neve.',
+    'Com medo dele, os guardas tremeram e ficaram como mortos.',
+    'Mas o anjo disse às mulheres: "Não tenhais medo! Sei que buscais Jesus, que foi crucificado.',
+    'Não está aqui: ressuscitou como tinha dito. Vinde ver o lugar onde repousava.',
+    'Ide depressa dizer aos seus discípulos que ele ressuscitou dos mortos e que vai adiante de vós para a Galileia. Lá o vereis. Eis o que eu tinha a dizer-vos."',
+    'Elas partiram a toda pressa do sepulcro, com medo e grande alegria, e correram a dar a notícia aos discípulos.',
+    'De repente, Jesus lhes saiu ao encontro e disse: "Salve!" Elas se aproximaram, abraçaram-lhe os pés e o adoraram.',
+    'Jesus disse-lhes: "Não temais. Ide dizer a meus irmãos que se dirijam à Galileia; lá me verão."',
+    'Enquanto elas iam, alguns dos guardas foram à cidade e contaram aos príncipes dos sacerdotes tudo o que se havia passado.',
+    'Estes reuniram-se com os anciãos e, depois de deliberarem, deram uma grande soma de dinheiro aos soldados,',
+    'recomendando-lhes: "Dizei que os seus discípulos vieram de noite e o roubaram enquanto dormíeis.',
+    'Se isso chegar ao conhecimento do governador, nós o convenceremos e vos livraremos de complicações."',
+    'Os soldados pegaram o dinheiro e agiram conforme foram instruídos. E essa história se divulgou entre os judeus até o dia de hoje.',
+    'Os onze discípulos foram para a Galileia, ao monte que Jesus lhes tinha indicado.',
+    'Quando o viram, adoraram-no. Alguns, porém, duvidaram.',
+    'Jesus aproximou-se deles e disse: "Todo poder me foi dado no céu e na terra.',
+    'Ide, portanto, e fazei que todas as nações se tornem discípulos, batizando-as em nome do Pai, do Filho e do Espírito Santo,',
+    'e ensinando-as a observar tudo o que vos ordenei. E eis que estou convosco todos os dias, até a consumação dos séculos."',
+  ],
+  'Jo-1': [
+    'No princípio era o Verbo, e o Verbo estava junto de Deus e o Verbo era Deus.',
+    'Ele estava no princípio junto de Deus.',
+    'Tudo foi feito por ele, e sem ele nada foi feito.',
+    'Nele havia a vida e a vida era a luz dos homens.',
+    'A luz resplandece nas trevas, e as trevas não a compreenderam.',
+    'Houve um homem enviado por Deus, que se chamava João.',
+    'Veio como testemunha, para dar testemunho da luz, a fim de que todos cressem por meio dele.',
+    'Não era ele a luz, mas veio para dar testemunho da luz.',
+    'O Verbo era a verdadeira luz que, vindo ao mundo, ilumina todo homem.',
+    'Estava no mundo e o mundo foi feito por ele, e o mundo não o conheceu.',
+    'Veio para o que era seu, mas os seus não o receberam.',
+    'Mas a todos aqueles que o receberam, aos que creem no seu nome, deu-lhes o poder de se tornarem filhos de Deus,',
+    'os quais não nasceram do sangue, nem da vontade da carne, nem da vontade do homem, mas sim de Deus.',
+    'E o Verbo se fez carne e habitou entre nós, e vimos sua glória, a glória que o Filho único recebe do seu Pai, cheio de graça e de verdade.',
+    'João dá testemunho dele e exclama: "Eis aquele de quem eu disse: o que vem depois de mim é maior do que eu, porque existia antes de mim."',
+    'Todos nós recebemos de sua plenitude graça sobre graça.',
+    'Porque a Lei foi dada por Moisés, mas a graça e a verdade vieram por Jesus Cristo.',
+    'Ninguém jamais viu Deus. O Filho único, que está no seio do Pai, foi quem o revelou.',
+    'Eis o testemunho de João, quando os judeus enviaram de Jerusalém sacerdotes e levitas para lhe perguntarem: "Quem és tu?"',
+    'Ele confessou e não negou; confessou: "Eu não sou o Cristo."',
+    'Perguntaram-lhe: "Então quem és? És Elias?" Respondeu: "Não sou." "És o profeta?" Respondeu: "Não."',
+    'Disseram-lhe: "Quem és, para darmos uma resposta aos que nos enviaram? Que dizes de ti mesmo?"',
+    'Respondeu: "Eu sou a voz daquele que clama no deserto: Endireitai o caminho do Senhor — como disse o profeta Isaías."',
+    'Ora, os enviados eram do partido dos fariseus.',
+    'E perguntaram-lhe: "Por que batizas, se não és o Cristo, nem Elias, nem o profeta?"',
+    'João respondeu-lhes: "Eu batizo em água, mas no meio de vós está alguém que vós não conheceis,',
+    'que vem depois de mim, do qual não sou digno de desatar a correia do calçado."',
+    'Isso aconteceu em Betânia, além do Jordão, onde João batizava.',
+    'No dia seguinte, João viu Jesus que vinha a ele e disse: "Eis o Cordeiro de Deus, que tira o pecado do mundo.',
+    'É este de quem eu disse: Depois de mim vem um homem que me é superior, porque existia antes de mim.',
+    'Eu não o conhecia, mas vim batizar em água para que ele fosse manifestado a Israel."',
+    'E João deu testemunho, dizendo: "Vi o Espírito descer do céu em forma de uma pomba e pousar sobre ele.',
+    'Eu não o conhecia, mas aquele que me mandou batizar em água disse-me: Sobre quem vires descer e pousar o Espírito, esse é o que batiza no Espírito Santo.',
+    'Eu vi e dou testemunho de que ele é o Filho de Deus."',
+    'No dia seguinte, João estava de novo com dois dos seus discípulos.',
+    'Viu Jesus que passava e disse: "Eis o Cordeiro de Deus."',
+    'Os dois discípulos ouviram-no falar e seguiram Jesus.',
+    'Jesus voltou-se e, vendo que o seguiam, perguntou-lhes: "Que procurais?" Disseram-lhe: "Rabi (que quer dizer Mestre), onde moras?"',
+    'Respondeu-lhes: "Vinde e vede." Foram e viram onde morava e ficaram com ele naquele dia. Era por volta da hora décima.',
+    'André, irmão de Simão Pedro, era um dos dois que tinham ouvido João e seguido Jesus.',
+    'Ele foi encontrar primeiro o seu irmão Simão e disse-lhe: "Achamos o Messias (que quer dizer o Cristo)."',
+    'E levou-o a Jesus. Jesus, fixando nele o olhar, disse: "Tu és Simão, filho de João; serás chamado Cefas (que quer dizer Pedro)."',
+    'No dia seguinte, Jesus resolveu partir para a Galileia. Encontrou Filipe e disse-lhe: "Segue-me."',
+    'Filipe era de Betsaida, cidade de André e de Pedro.',
+    'Filipe encontrou Natanael e disse-lhe: "Achamos aquele de quem Moisés escreveu na Lei e os profetas: Jesus de Nazaré, filho de José."',
+    'Natanael disse-lhe: "De Nazaré pode sair algo de bom?" Filipe respondeu-lhe: "Vem e vê."',
+    'Jesus viu Natanael que vinha a ele e disse: "Eis um verdadeiro israelita, em quem não há fingimento."',
+    'Perguntou-lhe Natanael: "De onde me conheces?" Respondeu Jesus: "Antes que Filipe te chamasse, eu te vi quando estavas sob a figueira."',
+    'Natanael exclamou: "Mestre, tu és o Filho de Deus, tu és o rei de Israel."',
+    'Jesus respondeu-lhe: "Porque te disse que te vi sob a figueira, crês? Verás coisas maiores do que esta."',
+    'E acrescentou: "Em verdade, em verdade vos digo: vereis o céu aberto e os anjos de Deus subindo e descendo sobre o Filho do Homem."',
+  ],
+  '1Cor-13': [
+    'Ainda que eu fale as línguas dos homens e dos anjos, se não tiver caridade, sou como o bronze que soa ou como o címbalo que retine.',
+    'Mesmo que eu tivesse o dom da profecia, e conhecesse todos os mistérios e toda a ciência; mesmo que tivesse toda a fé, a ponto de transportar montanhas, se não tiver caridade, não sou nada.',
+    'Mesmo que eu distribuísse todos os meus bens aos famintos, mesmo que entregasse o meu corpo às chamas, se não tiver caridade, isso nada me aproveitaria.',
+    'A caridade é paciente, a caridade é prestativa, não é invejosa, não é arrogante.',
+    'Não é presunçosa, não busca o próprio interesse, não se irrita, não guarda rancor.',
+    'Não se alegra com a injustiça, mas se regozija com a verdade.',
+    'Tudo desculpa, tudo crê, tudo espera, tudo suporta.',
+    'A caridade jamais passará. As profecias desaparecerão, o dom das línguas cessará, a ciência findará.',
+    'Porque o nosso conhecimento é imperfeito, e imperfeita é a nossa profecia.',
+    'Mas, quando vier o que é perfeito, o que é imperfeito desaparecerá.',
+    'Quando eu era criança, falava como criança, pensava como criança, raciocinava como criança. Mas, quando me tornei homem, deixei o que era de criança.',
+    'Agora vemos como por um espelho, confusamente; mas então veremos face a face. Agora conheço em parte; mas então conhecerei como sou conhecido.',
+    'Agora, portanto, permanecem estas três coisas: a fé, a esperança, a caridade. Mas a maior delas é a caridade.',
+  ],
+  'Ap-1': [
+    'Revelação de Jesus Cristo, que Deus lhe confiou para mostrar aos seus servos as coisas que devem acontecer em breve. Ele a deu a conhecer, enviando o seu anjo a João, seu servo,',
+    'o qual atestou a palavra de Deus e o testemunho de Jesus Cristo, e tudo o que viu.',
+    'Feliz aquele que lê e aqueles que ouvem as palavras desta profecia e observam as coisas nela escritas, pois o tempo está próximo.',
+    'João, às sete igrejas que estão na Ásia: a graça e a paz estejam convosco, da parte daquele que é, que era e que há de vir, da parte dos sete espíritos que estão diante de seu trono,',
+    'e da parte de Jesus Cristo, a testemunha fiel, o primogênito dos mortos e o príncipe dos reis da terra. Àquele que nos ama, que nos lavou de nossos pecados no seu sangue',
+    'e nos fez reis e sacerdotes para Deus e seu Pai, a ele a glória e o poder pelos séculos dos séculos. Amém.',
+    '"Eis que ele vem com as nuvens, e todos os olhos o verão, até mesmo aqueles que o traspassaram. Todas as tribos da terra se lamentarão por sua causa. Sim. Amém!"',
+    '"Eu sou o Alfa e o Ômega, o princípio e o fim", diz o Senhor Deus, aquele que é, que era e que há de vir, o Todo-Poderoso.',
+    'Eu, João, vosso irmão e companheiro na tribulação, no reino e na perseverança em Jesus, estava na ilha chamada Patmos, por causa da palavra de Deus e do testemunho de Jesus.',
+    'No dia do Senhor, fui arrebatado em êxtase e ouvi, por trás de mim, uma voz forte como de trombeta,',
+    'que dizia: "O que vês, escreve-o num livro e manda-o às sete igrejas: a Éfeso, a Esmirna, a Pérgamo, a Tiatira, a Sardes, a Filadélfia e a Laodiceia."',
+    'Voltei-me para ver quem falava comigo. Tendo-me voltado, vi sete candelabros de ouro,',
+    'e, no meio dos candelabros, alguém semelhante a um Filho de Homem, vestido com um manto longo e com um cinto de ouro à altura do peito.',
+    'Sua cabeça e seus cabelos eram brancos como lã branca, como neve, e seus olhos como chama de fogo.',
+    'Seus pés, semelhantes ao bronze quando está na fornalha ardente, e sua voz era como o ruído de muitas águas.',
+    'Tinha na mão direita sete estrelas, e de sua boca saía uma espada afiada de dois gumes. Seu rosto brilhava como o sol na sua força.',
+    'Quando o vi, caí a seus pés como morto. Ele pôs a mão direita sobre mim e disse: "Não temas! Eu sou o primeiro e o último,',
+    'eu sou aquele que vive. Estive morto, mas eis que estou vivo pelos séculos dos séculos, e tenho as chaves da morte e do inferno.',
+    'Escreve, pois, as coisas que viste, tanto as que são como as que devem acontecer depois destas.',
+    'Quanto ao mistério das sete estrelas que viste em minha mão direita e dos sete candelabros de ouro: as sete estrelas são os anjos das sete igrejas, e os sete candelabros são as sete igrejas."',
+  ],
+};
+
+/* ═══════════════════════════════════════════
+   ESTADO
+   ═══════════════════════════════════════════ */
+let currentBook = null;
+let currentChapter = 1;
+let currentScale = 1;
+let isDark = false;
+let selectedVerseNum = null;
+let selectedVerseText = '';
+
+/* ═══════════════════════════════════════════
+   RENDERIZAR ÍNDICE
+   ═══════════════════════════════════════════ */
+function renderIndex() {
+  const container = document.getElementById('index-content');
+  const frag = document.createDocumentFragment();
+  const testaments = [
+    { key: 'AT', label: 'Antigo Testamento' },
+    { key: 'NT', label: 'Novo Testamento' }
+  ];
+
+  testaments.forEach(function(t) {
+    const label = document.createElement('div');
+    label.className = 'testament-label';
+    label.textContent = t.label;
+    frag.appendChild(label);
+
+    const books = BIBLE_BOOKS.filter(function(b) { return b.testament === t.key; });
+    const seen = {};
+    books.forEach(function(b) {
+      if (!seen[b.category]) {
+        seen[b.category] = [];
+      }
+      seen[b.category].push(b);
+    });
+
+    Object.keys(seen).forEach(function(cat) {
+      const group = document.createElement('div');
+      group.className = 'category-group';
+
+      const catLabel = document.createElement('div');
+      catLabel.className = 'category-label';
+      catLabel.textContent = cat;
+      group.appendChild(catLabel);
+
+      const row = document.createElement('div');
+      row.className = 'pills-row';
+
+      seen[cat].forEach(function(b) {
+        const pill = document.createElement('button');
+        pill.className = b.isGospel ? 'book-pill gospel' : 'book-pill';
+        pill.textContent = b.abbrev;
+        pill.title = b.name;
+        pill.addEventListener('click', function() { openBook(b.abbrev); });
+        row.appendChild(pill);
+      });
+
+      group.appendChild(row);
+      frag.appendChild(group);
+    });
+  });
+
+  container.appendChild(frag);
+}
+
+/* ═══════════════════════════════════════════
+   NAVEGAR — Livro → Capítulos
+   ═══════════════════════════════════════════ */
+function openBook(abbrev) {
+  var book = BIBLE_BOOKS.find(function(b) { return b.abbrev === abbrev; });
+  if (!book) return;
+  currentBook = book;
+
+  document.getElementById('chapters-book-name').textContent = book.name;
+  document.getElementById('chapters-book-full-name').textContent = book.name;
+  document.getElementById('chapters-book-meta').textContent =
+    book.category + ' \u00B7 ' + book.chapters + ' capítulo' + (book.chapters > 1 ? 's' : '');
+
+  var grid = document.getElementById('chapters-grid');
+  grid.textContent = '';
+  for (var i = 1; i <= book.chapters; i++) {
+    (function(num) {
+      var btn = document.createElement('button');
+      btn.className = 'chapter-btn';
+      if (SAMPLE_TEXTS[abbrev + '-' + num]) btn.className += ' has-text';
+      btn.textContent = num;
+      btn.addEventListener('click', function() { openChapter(num); });
+      grid.appendChild(btn);
+    })(i);
+  }
+
+  switchScreen('screen-chapters');
+}
+
+/* ═══════════════════════════════════════════
+   NAVEGAR — Capítulo → Leitura
+   ═══════════════════════════════════════════ */
+function openChapter(num) {
+  if (!currentBook) return;
+  currentChapter = num;
+  renderChapterText();
+  switchScreen('screen-reading');
+}
+
+function renderChapterText() {
+  var book = currentBook;
+  var key = book.abbrev + '-' + currentChapter;
+  var verses = SAMPLE_TEXTS[key];
+
+  document.getElementById('reading-book-name').textContent = book.name;
+  document.getElementById('reading-chapter-label').textContent = 'Cap. ' + currentChapter;
+
+  var content = document.getElementById('reading-content');
+  content.textContent = '';
+
+  // Chapter title
+  var title = document.createElement('div');
+  title.className = 'chapter-title';
+  title.textContent = book.name + ' ' + currentChapter;
+  content.appendChild(title);
+
+  if (verses) {
+    var verseContainer = document.createElement('div');
+    verseContainer.className = 'verse-text';
+
+    verses.forEach(function(v, i) {
+      var num = i + 1;
+      var sup = document.createElement('span');
+      sup.className = 'verse-num';
+      sup.textContent = num;
+      sup.id = 'v-' + num;
+      sup.addEventListener('click', function() { selectVerse(num); });
+      verseContainer.appendChild(sup);
+      verseContainer.appendChild(document.createTextNode(v + ' '));
+    });
+
+    content.appendChild(verseContainer);
+  } else {
+    var placeholder = document.createElement('div');
+    placeholder.className = 'verse-text';
+    placeholder.style.textAlign = 'center';
+    placeholder.style.color = 'var(--text-tertiary)';
+    placeholder.style.padding = '60px 20px';
+
+    var icon = document.createElement('span');
+    icon.className = 'material-symbols-rounded';
+    icon.style.fontSize = '48px';
+    icon.style.display = 'block';
+    icon.style.marginBottom = '12px';
+    icon.style.opacity = '0.3';
+    icon.textContent = 'book';
+    placeholder.appendChild(icon);
+
+    placeholder.appendChild(document.createTextNode(
+      'Texto de ' + book.name + ' ' + currentChapter + ' será carregado na versão completa do app.'
+    ));
+    placeholder.appendChild(document.createElement('br'));
+    placeholder.appendChild(document.createElement('br'));
+
+    var hint = document.createElement('span');
+    hint.style.fontSize = '0.85rem';
+    hint.textContent = 'O protótipo inclui: Gn 1-3, Sl 23, Sl 91, Mt 1, Mt 28, Jo 1, 1Cor 13, Ap 1.';
+    placeholder.appendChild(hint);
+
+    content.appendChild(placeholder);
+  }
+
+  // Chapter navigation
+  var nav = document.createElement('div');
+  nav.className = 'chapter-nav';
+
+  if (currentChapter > 1) {
+    var prevBtn = document.createElement('button');
+    prevBtn.className = 'chapter-nav-btn';
+    var prevIcon = document.createElement('span');
+    prevIcon.className = 'material-symbols-rounded';
+    prevIcon.textContent = 'chevron_left';
+    prevBtn.appendChild(prevIcon);
+    prevBtn.appendChild(document.createTextNode(' Cap. ' + (currentChapter - 1)));
+    prevBtn.addEventListener('click', function() { openChapter(currentChapter - 1); });
+    nav.appendChild(prevBtn);
+  } else {
+    var prevDisabled = document.createElement('button');
+    prevDisabled.className = 'chapter-nav-btn disabled';
+    var pdIcon = document.createElement('span');
+    pdIcon.className = 'material-symbols-rounded';
+    pdIcon.textContent = 'chevron_left';
+    prevDisabled.appendChild(pdIcon);
+    prevDisabled.appendChild(document.createTextNode(' —'));
+    nav.appendChild(prevDisabled);
+  }
+
+  var counter = document.createElement('span');
+  counter.style.fontSize = '0.75rem';
+  counter.style.color = 'var(--text-tertiary)';
+  counter.style.fontWeight = '600';
+  counter.textContent = currentChapter + ' / ' + book.chapters;
+  nav.appendChild(counter);
+
+  if (currentChapter < book.chapters) {
+    var nextBtn = document.createElement('button');
+    nextBtn.className = 'chapter-nav-btn';
+    nextBtn.appendChild(document.createTextNode('Cap. ' + (currentChapter + 1) + ' '));
+    var nextIcon = document.createElement('span');
+    nextIcon.className = 'material-symbols-rounded';
+    nextIcon.textContent = 'chevron_right';
+    nextBtn.appendChild(nextIcon);
+    nextBtn.addEventListener('click', function() { openChapter(currentChapter + 1); });
+    nav.appendChild(nextBtn);
+  } else {
+    var nextDisabled = document.createElement('button');
+    nextDisabled.className = 'chapter-nav-btn disabled';
+    nextDisabled.appendChild(document.createTextNode('— '));
+    var ndIcon = document.createElement('span');
+    ndIcon.className = 'material-symbols-rounded';
+    ndIcon.textContent = 'chevron_right';
+    nextDisabled.appendChild(ndIcon);
+    nav.appendChild(nextDisabled);
+  }
+
+  content.appendChild(nav);
+  content.scrollTop = 0;
+}
+
+/* ═══════════════════════════════════════════
+   VERSE SELECTION
+   ═══════════════════════════════════════════ */
+function selectVerse(num) {
+  var key = currentBook.abbrev + '-' + currentChapter;
+  var verses = SAMPLE_TEXTS[key];
+  if (!verses || !verses[num - 1]) return;
+
+  selectedVerseNum = num;
+  selectedVerseText = verses[num - 1];
+
+  document.getElementById('selected-verse-text').textContent = '\u201C' + selectedVerseText + '\u201D';
+  document.getElementById('selected-verse-ref').textContent =
+    currentBook.name + ' ' + currentChapter + ',' + num;
+
+  document.getElementById('verse-action-overlay').classList.add('active');
+}
+
+function closeVerseAction(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('verse-action-overlay').classList.remove('active');
+}
+
+function copySelectedVerse() {
+  var ref = currentBook.name + ' ' + currentChapter + ',' + selectedVerseNum;
+  var text = '\u201C' + selectedVerseText + '\u201D\n\u2014 ' + ref + ' (Bíblia Ave Maria)';
+  navigator.clipboard.writeText(text).then(function() { showToast('Versículo copiado'); });
+  document.getElementById('verse-action-overlay').classList.remove('active');
+}
+
+function shareSelectedVerse() {
+  var ref = currentBook.name + ' ' + currentChapter + ',' + selectedVerseNum;
+  var text = '\u201C' + selectedVerseText + '\u201D\n\u2014 ' + ref + ' (Bíblia Ave Maria)\n\nVia Verbum App';
+  if (navigator.share) {
+    navigator.share({ text: text });
+  } else {
+    navigator.clipboard.writeText(text);
+    showToast('Texto copiado para compartilhar');
+  }
+  document.getElementById('verse-action-overlay').classList.remove('active');
+}
+
+/* ═══════════════════════════════════════════
+   COPY / SHARE CHAPTER
+   ═══════════════════════════════════════════ */
+function copyChapter() {
+  var key = currentBook.abbrev + '-' + currentChapter;
+  var verses = SAMPLE_TEXTS[key];
+  if (!verses) { showToast('Texto não disponível neste protótipo'); return; }
+  var text = currentBook.name + ' ' + currentChapter + '\n\n' +
+    verses.map(function(v, i) { return (i + 1) + '. ' + v; }).join('\n') +
+    '\n\n\u2014 Bíblia Ave Maria \u00B7 Via Verbum App';
+  navigator.clipboard.writeText(text).then(function() { showToast('Capítulo copiado'); });
+}
+
+function shareChapter() {
+  var key = currentBook.abbrev + '-' + currentChapter;
+  var verses = SAMPLE_TEXTS[key];
+  if (!verses) { showToast('Texto não disponível neste protótipo'); return; }
+  var text = currentBook.name + ' ' + currentChapter + '\n\n' +
+    verses.map(function(v, i) { return (i + 1) + '. ' + v; }).join('\n') +
+    '\n\n\u2014 Bíblia Ave Maria \u00B7 Via Verbum App';
+  if (navigator.share) { navigator.share({ text: text }); }
+  else { navigator.clipboard.writeText(text); showToast('Texto copiado para compartilhar'); }
+}
+
+/* ═══════════════════════════════════════════
+   CHAPTER DROPDOWN
+   ═══════════════════════════════════════════ */
+function openChapterDropdown() {
+  document.getElementById('dropdown-book-name').textContent = currentBook.name;
+  var grid = document.getElementById('dropdown-grid');
+  grid.textContent = '';
+  for (var i = 1; i <= currentBook.chapters; i++) {
+    (function(num) {
+      var btn = document.createElement('button');
+      btn.className = num === currentChapter ? 'chapter-btn current' : 'chapter-btn';
+      btn.textContent = num;
+      btn.addEventListener('click', function() { selectChapterFromDropdown(num); });
+      grid.appendChild(btn);
+    })(i);
+  }
+  document.getElementById('chapter-dropdown').classList.add('active');
+}
+
+function closeChapterDropdown(e) {
+  if (e && e.target && e.target !== e.currentTarget && !e.target.closest('.icon-btn')) return;
+  document.getElementById('chapter-dropdown').classList.remove('active');
+}
+
+function selectChapterFromDropdown(num) {
+  currentChapter = num;
+  renderChapterText();
+  document.getElementById('chapter-dropdown').classList.remove('active');
+}
+
+/* ═══════════════════════════════════════════
+   BUSCA
+   ═══════════════════════════════════════════ */
+function normalizeStr(s) {
+  return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+function handleSearch(val) {
+  if (val.length < 2) return;
+
+  var lower = normalizeStr(val);
+  var bookMatch = BIBLE_BOOKS.find(function(b) {
+    return normalizeStr(b.name).indexOf(lower) !== -1 || normalizeStr(b.abbrev) === lower;
+  });
+
+  if (bookMatch) {
+    var refMatch = val.match(/(\d+)\s*[,:]\s*(\d+)/);
+    var chMatch = val.match(/\s+(\d+)$/);
+    if (refMatch) {
+      openBook(bookMatch.abbrev);
+      setTimeout(function() { openChapter(parseInt(refMatch[1])); }, 100);
+      return;
+    } else if (chMatch) {
+      openBook(bookMatch.abbrev);
+      setTimeout(function() { openChapter(parseInt(chMatch[1])); }, 100);
+      return;
+    }
+  }
+
+  if (val.length >= 3) {
+    document.getElementById('search-input-results').value = val;
+    switchScreen('screen-search');
+    performSearch(val);
+  }
+}
+
+function handleSearchResults(val) {
+  if (val.length < 3) {
+    var container = document.getElementById('search-results');
+    container.textContent = '';
+    var empty = document.createElement('div');
+    empty.className = 'search-empty';
+    var icon = document.createElement('span');
+    icon.className = 'material-symbols-rounded';
+    icon.textContent = 'search';
+    empty.appendChild(icon);
+    var p = document.createElement('p');
+    p.textContent = 'Digite ao menos 3 caracteres';
+    empty.appendChild(p);
+    container.appendChild(empty);
+    return;
+  }
+  performSearch(val);
+}
+
+function performSearch(query) {
+  var results = [];
+  var lower = query.toLowerCase();
+
+  Object.keys(SAMPLE_TEXTS).forEach(function(key) {
+    var parts = key.split('-');
+    var abbrev = parts[0];
+    var ch = parts[1];
+    var book = BIBLE_BOOKS.find(function(b) { return b.abbrev === abbrev; });
+    if (!book) return;
+
+    SAMPLE_TEXTS[key].forEach(function(verse, i) {
+      if (verse.toLowerCase().indexOf(lower) !== -1) {
+        results.push({
+          bookAbbrev: abbrev, bookName: book.name,
+          chapter: parseInt(ch), verseNum: i + 1, text: verse,
+        });
+      }
+    });
+  });
+
+  var container = document.getElementById('search-results');
+  container.textContent = '';
+
+  if (results.length === 0) {
+    var empty = document.createElement('div');
+    empty.className = 'search-empty';
+    var icon = document.createElement('span');
+    icon.className = 'material-symbols-rounded';
+    icon.textContent = 'search_off';
+    empty.appendChild(icon);
+    var p1 = document.createElement('p');
+    p1.textContent = 'Nenhum resultado para "' + query + '"';
+    empty.appendChild(p1);
+    var p2 = document.createElement('p');
+    p2.style.fontSize = '0.78rem';
+    p2.style.marginTop = '8px';
+    p2.style.color = 'var(--text-tertiary)';
+    p2.textContent = 'O protótipo busca nos textos de amostra disponíveis';
+    empty.appendChild(p2);
+    container.appendChild(empty);
+    return;
+  }
+
+  var countDiv = document.createElement('div');
+  countDiv.className = 'search-result-count';
+  countDiv.textContent = results.length + ' resultado' + (results.length > 1 ? 's' : '');
+  container.appendChild(countDiv);
+
+  results.forEach(function(r) {
+    var item = document.createElement('div');
+    item.className = 'search-result-item';
+    item.addEventListener('click', function() {
+      goToSearchResult(r.bookAbbrev, r.chapter, r.verseNum);
+    });
+
+    var ref = document.createElement('div');
+    ref.className = 'search-result-ref';
+    ref.textContent = r.bookName + ' ' + r.chapter + ',' + r.verseNum;
+    item.appendChild(ref);
+
+    var textDiv = document.createElement('div');
+    textDiv.className = 'search-result-text';
+
+    // Highlight matches safely using DOM
+    var lowerText = r.text.toLowerCase();
+    var lowerQuery = query.toLowerCase();
+    var idx = 0;
+    var pos;
+    while ((pos = lowerText.indexOf(lowerQuery, idx)) !== -1) {
+      if (pos > idx) textDiv.appendChild(document.createTextNode(r.text.substring(idx, pos)));
+      var mark = document.createElement('mark');
+      mark.textContent = r.text.substring(pos, pos + query.length);
+      textDiv.appendChild(mark);
+      idx = pos + query.length;
+    }
+    if (idx < r.text.length) textDiv.appendChild(document.createTextNode(r.text.substring(idx)));
+
+    item.appendChild(textDiv);
+    container.appendChild(item);
+  });
+}
+
+function goToSearchResult(abbrev, chapter, verse) {
+  openBook(abbrev);
+  setTimeout(function() {
+    openChapter(chapter);
+    setTimeout(function() {
+      var vEl = document.getElementById('v-' + verse);
+      if (vEl) {
+        vEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 200);
+  }, 100);
+}
+
+function clearSearch() {
+  document.getElementById('search-input').value = '';
+}
+
+/* ═══════════════════════════════════════════
+   DEEP LINK (simulação)
+   ═══════════════════════════════════════════ */
+function deepLink(ref) {
+  var match = ref.match(/^(\w+)\s+(\d+)(?:[,:](\d+))?/);
+  if (!match) return;
+  var abbrev = match[1];
+  var ch = parseInt(match[2]);
+  var vStart = match[3] ? parseInt(match[3]) : null;
+
+  var book = BIBLE_BOOKS.find(function(b) {
+    return b.abbrev.toLowerCase() === abbrev.toLowerCase() ||
+           b.name.toLowerCase() === abbrev.toLowerCase();
+  });
+  if (!book) return;
+
+  openBook(book.abbrev);
+  setTimeout(function() {
+    openChapter(ch);
+    if (vStart) {
+      setTimeout(function() {
+        var vEl = document.getElementById('v-' + vStart);
+        if (vEl) vEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 200);
+    }
+  }, 100);
+}
+
+/* ═══════════════════════════════════════════
+   SCREEN NAVIGATION
+   ═══════════════════════════════════════════ */
+function switchScreen(id) {
+  document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+}
+
+function goToIndex() { switchScreen('screen-index'); }
+function goToChapters() {
+  if (currentBook) openBook(currentBook.abbrev);
+  else goToIndex();
+}
+
+/* ═══════════════════════════════════════════
+   SWIPE NAVIGATION
+   ═══════════════════════════════════════════ */
+var touchStartX = 0;
+var touchStartY = 0;
+
+document.addEventListener('touchstart', function(e) {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener('touchend', function(e) {
+  if (!document.getElementById('screen-reading').classList.contains('active')) return;
+  var dx = e.changedTouches[0].clientX - touchStartX;
+  var dy = e.changedTouches[0].clientY - touchStartY;
+  if (Math.abs(dx) > 80 && Math.abs(dx) > Math.abs(dy) * 2) {
+    if (dx > 0 && currentChapter > 1) openChapter(currentChapter - 1);
+    else if (dx < 0 && currentChapter < currentBook.chapters) openChapter(currentChapter + 1);
+  }
+});
+
+/* ═══════════════════════════════════════════
+   FONT SIZE
+   ═══════════════════════════════════════════ */
+function changeFontSize(val) {
+  currentScale = parseFloat(val);
+  document.documentElement.style.setProperty('--font-scale', currentScale);
+}
+
+/* ═══════════════════════════════════════════
+   THEMES
+   ═══════════════════════════════════════════ */
+function openThemePicker() {
+  document.getElementById('theme-overlay').classList.add('active');
+}
+
+function closeThemePicker(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('theme-overlay').classList.remove('active');
+}
+
+function setVisualTheme(theme) {
+  if (theme === 'classico') document.documentElement.removeAttribute('data-visual');
+  else document.documentElement.setAttribute('data-visual', theme);
+  document.querySelectorAll('.theme-option').forEach(function(o) { o.classList.remove('active'); });
+  document.querySelector('.theme-option[data-visual="' + theme + '"]').classList.add('active');
+}
+
+function toggleDarkMode() {
+  isDark = !isDark;
+  document.getElementById('dark-toggle').classList.toggle('active', isDark);
+  if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+  else document.documentElement.removeAttribute('data-theme');
+}
+
+/* ═══════════════════════════════════════════
+   TOAST
+   ═══════════════════════════════════════════ */
+function showToast(msg) {
+  var toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('visible');
+  setTimeout(function() { toast.classList.remove('visible'); }, 2000);
+}
+
+/* ═══════════════════════════════════════════
+   KEYBOARD — ESC
+   ═══════════════════════════════════════════ */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('chapter-dropdown').classList.remove('active');
+    document.getElementById('theme-overlay').classList.remove('active');
+    document.getElementById('verse-action-overlay').classList.remove('active');
+    var active = document.querySelector('.screen.active');
+    if (active.id === 'screen-reading') goToChapters();
+    else if (active.id === 'screen-chapters') goToIndex();
+    else if (active.id === 'screen-search') { goToIndex(); clearSearch(); }
+  }
+});
+
+/* ═══ INIT ═══ */
+renderIndex();
+</script>
+</body>
+</html>
