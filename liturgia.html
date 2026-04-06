@@ -1423,6 +1423,140 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .onb-toggle-track.on .onb-toggle-thumb { transform: translateX(20px); }
 
+/* Priest selector in onboarding */
+.onb-priest-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.onb-priest-btn {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px; border-radius: var(--radius-md);
+  border: 1.5px solid var(--border); background: var(--bg-card);
+  cursor: pointer; transition: all 0.25s; width: 100%;
+  font-family: var(--font-body); text-align: left;
+}
+.onb-priest-btn:active { transform: scale(0.98); }
+.onb-priest-btn.selected { border-color: var(--accent); background: var(--accent-soft); }
+.priest-monogram {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-size: 0.8rem; font-weight: 700;
+  color: #FFF; flex-shrink: 0;
+}
+.priest-card-info { flex: 1; min-width: 0; }
+.priest-card-info strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
+.priest-card-info .priest-tag {
+  display: inline-block; font-size: 0.65rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 100px; margin-top: 3px;
+  background: var(--accent-soft); color: var(--accent);
+}
+.priest-card-info .priest-style { font-size: 0.72rem; color: var(--text-tertiary); margin-top: 2px; }
+.onb-priest-check { color: var(--accent); font-size: 20px; opacity: 0; transition: opacity 0.2s; }
+.onb-priest-btn.selected .onb-priest-check { opacity: 1; }
+
+/* =================== PRIEST BOTTOM SHEET =================== */
+.priest-sheet-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.4);
+  display: none; align-items: flex-end; justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+.priest-sheet-overlay.open { display: flex; }
+.priest-sheet {
+  width: 100%; max-width: 480px;
+  background: var(--bg-card);
+  border-radius: 20px 20px 0 0;
+  padding: 20px 20px 32px;
+  transform: translateY(100%);
+  animation: sheetUp 0.35s ease forwards;
+}
+@keyframes sheetUp { to { transform: translateY(0); } }
+.priest-sheet-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px;
+}
+.priest-sheet-header h3 {
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--text-primary);
+}
+.priest-sheet-close {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: none; background: var(--bg-elevated);
+  color: var(--text-secondary); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.priest-sheet-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.priest-sheet-btn {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; border-radius: var(--radius-md);
+  border: 1.5px solid var(--border); background: var(--bg);
+  cursor: pointer; transition: all 0.2s; width: 100%;
+  font-family: var(--font-body); text-align: left;
+}
+.priest-sheet-btn:active { transform: scale(0.98); }
+.priest-sheet-btn.selected { border-color: var(--accent); background: var(--accent-soft); }
+.priest-sheet-btn .priest-monogram { width: 36px; height: 36px; font-size: 0.72rem; }
+.priest-sheet-btn strong { font-size: 0.85rem; color: var(--text-primary); }
+.priest-sheet-btn .priest-tag { font-size: 0.62rem; }
+.priest-sheet-btn .onb-priest-check { font-size: 18px; }
+.priest-sheet-modes {
+  display: flex; gap: 10px; margin-bottom: 16px;
+}
+.priest-sheet-mode {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: 100px;
+  border: 1.5px solid var(--border); background: var(--bg);
+  cursor: pointer; font-family: var(--font-body);
+  font-size: 0.8rem; color: var(--text-secondary);
+  transition: all 0.2s; flex: 1; justify-content: center;
+}
+.priest-sheet-mode.selected {
+  border-color: var(--accent); background: var(--accent-soft);
+  color: var(--accent); font-weight: 600;
+}
+
+/* =================== PRIEST IN HOME REFLECTION =================== */
+.reflection-priest-bar {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+.reflection-priest-bar .priest-monogram { width: 36px; height: 36px; font-size: 0.72rem; }
+.reflection-priest-info { flex: 1; }
+.reflection-priest-info strong { font-size: 0.85rem; color: var(--text-primary); display: block; }
+.reflection-priest-info .priest-tag {
+  display: inline-block; font-size: 0.62rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 100px;
+  background: var(--accent-soft); color: var(--accent);
+}
+.reflection-change-btn {
+  display: flex; align-items: center; gap: 4px;
+  border: none; background: transparent;
+  font-family: var(--font-body); font-size: 0.75rem;
+  color: var(--accent); cursor: pointer; font-weight: 600;
+  padding: 6px 10px; border-radius: 100px;
+  transition: background 0.2s;
+}
+.reflection-change-btn:hover { background: var(--accent-soft); }
+
+/* =================== PRIEST IN SETTINGS =================== */
+.settings-priest-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px; border-radius: var(--radius-md);
+  background: var(--bg-card); border: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.settings-priest-card .priest-monogram { width: 44px; height: 44px; font-size: 0.85rem; }
+.settings-priest-info { flex: 1; }
+.settings-priest-info strong { font-size: 0.9rem; color: var(--text-primary); display: block; }
+.settings-priest-info span { font-size: 0.75rem; color: var(--text-tertiary); }
+.settings-priest-change {
+  border: none; background: var(--accent-soft);
+  color: var(--accent); font-family: var(--font-body);
+  font-size: 0.78rem; font-weight: 600;
+  padding: 8px 14px; border-radius: 100px; cursor: pointer;
+  transition: opacity 0.2s;
+}
+.settings-priest-change:hover { opacity: 0.8; }
+.settings-priest-hint {
+  font-size: 0.72rem; color: var(--text-tertiary);
+  margin-bottom: 20px;
+}
+
 /* =================== CALENDÁRIO LITÚRGICO =================== */
 .cal-export-card {
   background: var(--bg-card);
@@ -5158,8 +5292,64 @@ body.modo-missa.brilho-reduzido {
       <button class="onb-next-btn" onclick="nextOnbStep(7)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
     </div>
 
-    <!-- Step 7: Done -->
+    <!-- Step 7: Priest -->
     <div class="onb-step" id="onb-step-7">
+      <div class="onb-progress"><div class="onb-progress-fill" style="width:85%"></div></div>
+      <div class="onb-question">Quem vai guiar sua reflexão?</div>
+      <p class="onb-hint">Escolha o padre cuja homilia você quer receber todo dia. Pode trocar quando quiser.</p>
+      <div class="onb-priest-list" id="onb-priests">
+        <button class="onb-priest-btn" data-priest="paulo-ricardo" onclick="selectOnbPriest(this)">
+          <div class="priest-monogram" style="background:#8B0000">PR</div>
+          <div class="priest-card-info">
+            <strong>Pe. Paulo Ricardo</strong>
+            <span class="priest-tag">Formação</span>
+            <div class="priest-style">Doutrinário · Direto</div>
+          </div>
+          <span class="material-symbols-rounded onb-priest-check">check_circle</span>
+        </button>
+        <button class="onb-priest-btn" data-priest="fabio-de-melo" onclick="selectOnbPriest(this)">
+          <div class="priest-monogram" style="background:#1E40AF">FM</div>
+          <div class="priest-card-info">
+            <strong>Pe. Fábio de Melo</strong>
+            <span class="priest-tag">Reflexão</span>
+            <div class="priest-style">Poético · Emocional</div>
+          </div>
+          <span class="material-symbols-rounded onb-priest-check">check_circle</span>
+        </button>
+        <button class="onb-priest-btn" data-priest="reginaldo-manzotti" onclick="selectOnbPriest(this)">
+          <div class="priest-monogram" style="background:#B45309">RM</div>
+          <div class="priest-card-info">
+            <strong>Pe. Reginaldo Manzotti</strong>
+            <span class="priest-tag">Devoção</span>
+            <div class="priest-style">Popular · Carismático</div>
+          </div>
+          <span class="material-symbols-rounded onb-priest-check">check_circle</span>
+        </button>
+        <button class="onb-priest-btn" data-priest="chrystian-shankar" onclick="selectOnbPriest(this)">
+          <div class="priest-monogram" style="background:#7C3AED">CS</div>
+          <div class="priest-card-info">
+            <strong>Pe. Chrystian Shankar</strong>
+            <span class="priest-tag">Jovem</span>
+            <div class="priest-style">Dinâmico · Digital</div>
+          </div>
+          <span class="material-symbols-rounded onb-priest-check">check_circle</span>
+        </button>
+        <button class="onb-priest-btn selected" data-priest="roger-luis" onclick="selectOnbPriest(this)">
+          <div class="priest-monogram" style="background:#78350F">RL</div>
+          <div class="priest-card-info">
+            <strong>Pe. Roger Luis</strong>
+            <span class="priest-tag">Liturgia</span>
+            <div class="priest-style">Equilibrado · Pastoral</div>
+          </div>
+          <span class="material-symbols-rounded onb-priest-check">check_circle</span>
+        </button>
+      </div>
+      <p class="onb-hint" style="margin-bottom:8px">Não se preocupe, você pode ver todos os padres a qualquer momento.</p>
+      <button class="onb-next-btn" onclick="nextOnbStep(8)">Continuar <span class="material-symbols-rounded" style="font-size:18px">arrow_forward</span></button>
+    </div>
+
+    <!-- Step 8: Done -->
+    <div class="onb-step" id="onb-step-8">
       <div class="onb-progress"><div class="onb-progress-fill" style="width:100%"></div></div>
       <div class="onb-hero" style="padding-top:40px">
         <div class="onb-done-icon"><span class="material-symbols-rounded">check_circle</span></div>
@@ -5436,10 +5626,20 @@ body.modo-missa.brilho-reduzido {
     <!-- REFLECTION -->
     <div class="reflection-card">
       <div class="reading-label" style="margin-bottom:12px">Reflexão do dia</div>
+      <div class="reflection-priest-bar">
+        <div class="priest-monogram" id="reflection-priest-mono" style="background:#78350F">RL</div>
+        <div class="reflection-priest-info">
+          <strong id="reflection-priest-name">Pe. Roger Luis</strong>
+          <span class="priest-tag" id="reflection-priest-tag">Liturgia</span>
+        </div>
+        <button class="reflection-change-btn" onclick="openPriestSheet('reflection')">
+          trocar <span class="material-symbols-rounded" style="font-size:16px">expand_more</span>
+        </button>
+      </div>
       <div class="reflection-quote">
         "Ele viu e acreditou." — O discípulo amado não precisou de anjos, nem de aparições. Bastou ver os sinais — as faixas no chão, o pano dobrado — para crer. A fé pascal não exige provas espetaculares: ela nasce de quem olha com o coração e reconhece que a morte não tem a última palavra.
       </div>
-      <div class="reflection-author">Pe. Roger Araújo — Comunidade Canção Nova</div>
+      <div class="reflection-author" id="reflection-author">Pe. Roger Luis — Canção Nova</div>
     </div>
 
     <!-- SAINT -->
@@ -5472,6 +5672,7 @@ body.modo-missa.brilho-reduzido {
         <div class="audio-info">
           <div class="audio-title">Homilia do dia</div>
           <div class="audio-subtitle">Pe. João Chagas · Capela Sh</div>
+          <button class="reflection-change-btn" onclick="openPriestSheet('player')" style="padding:2px 6px;margin-top:2px;font-size:0.68rem">trocar padre <span class="material-symbols-rounded" style="font-size:14px">expand_more</span></button>
         </div>
         <button class="apf-speed-btn" id="apf-speed" onclick="cycleAudioSpeed()">1x</button>
       </div>
@@ -6577,6 +6778,21 @@ body.modo-missa.brilho-reduzido {
           <span>A</span>
         </div>
       </div>
+    </div>
+
+    <!-- PRIEST CHOOSER -->
+    <div class="section-subtitle" style="margin-top:20px">Padre da homilia</div>
+    <div class="settings-priest-card" id="settings-priest-card">
+      <div class="priest-monogram" id="settings-priest-mono" style="background:#78350F">RL</div>
+      <div class="settings-priest-info">
+        <strong id="settings-priest-name">Pe. Roger Luis</strong>
+        <span id="settings-priest-style">Liturgia · Equilibrado</span>
+      </div>
+      <button class="settings-priest-change" onclick="openPriestSheet('settings')">Alterar</button>
+    </div>
+    <div class="settings-priest-hint">Seu padre padrão para a reflexão diária. Você pode trocar a qualquer dia na tela de leituras.</div>
+
+    <div class="setting-group">
       <div class="setting-item" style="cursor:pointer" onclick="switchMainTab('notificacoes')">
         <div class="setting-label">
           <span class="material-symbols-rounded">notifications</span>
@@ -8507,7 +8723,7 @@ function tercoReset() {
 document.addEventListener('DOMContentLoaded', initTerco);
 
 // =================== ONBOARDING ===================
-let onbData = { name: '', age: '', missa: '', praticas: [], horario: '', theme: '', darkMode: false };
+let onbData = { name: '', age: '', missa: '', praticas: [], horario: '', theme: '', darkMode: false, priest: 'roger-luis' };
 
 function selectOnbTheme(btn, theme) {
   document.querySelectorAll('.onb-theme-btn').forEach(b => b.classList.remove('selected'));
@@ -8563,6 +8779,12 @@ function nextOnbStep(step) {
   if (step === 7) {
     const horBtn = document.querySelector('#onb-horario .onb-opt.selected');
     onbData.horario = horBtn ? horBtn.textContent.trim() : '';
+  }
+  if (step === 8) {
+    // Collect priest from step 7
+    const priestBtn = document.querySelector('#onb-priests .onb-priest-btn.selected');
+    onbData.priest = priestBtn ? priestBtn.dataset.priest : 'roger-luis';
+    applyPriestSelection(onbData.priest);
 
     // Build greeting
     const firstName = onbData.name.split(' ')[0];
@@ -8606,6 +8828,266 @@ function finishOnboarding() {
   }
 
   showToast('Bem-vindo ao Verbum, ' + onbData.name.split(' ')[0] + '!');
+}
+
+// =================== PRIEST SELECTION ===================
+var PRIESTS = {
+  'paulo-ricardo': { name: 'Pe. Paulo Ricardo', initials: 'PR', color: '#8B0000', tag: 'Formação', style: 'Doutrinário · Direto' },
+  'fabio-de-melo': { name: 'Pe. Fábio de Melo', initials: 'FM', color: '#1E40AF', tag: 'Reflexão', style: 'Poético · Emocional' },
+  'reginaldo-manzotti': { name: 'Pe. Reginaldo Manzotti', initials: 'RM', color: '#B45309', tag: 'Devoção', style: 'Popular · Carismático' },
+  'chrystian-shankar': { name: 'Pe. Chrystian Shankar', initials: 'CS', color: '#7C3AED', tag: 'Jovem', style: 'Dinâmico · Digital' },
+  'roger-luis': { name: 'Pe. Roger Luis', initials: 'RL', color: '#78350F', tag: 'Liturgia', style: 'Equilibrado · Pastoral' }
+};
+var selectedPriest = 'roger-luis';
+var priestSheetContext = 'reflection';
+
+function selectOnbPriest(btn) {
+  document.querySelectorAll('.onb-priest-btn').forEach(function(b) { b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  onbData.priest = btn.dataset.priest;
+}
+
+function applyPriestSelection(priestId) {
+  selectedPriest = priestId;
+  var p = PRIESTS[priestId];
+  if (!p) return;
+
+  // Reflection bar (Todas as Leituras)
+  var mono = document.getElementById('reflection-priest-mono');
+  if (mono) { mono.textContent = p.initials; mono.style.background = p.color; }
+  var nameEl = document.getElementById('reflection-priest-name');
+  if (nameEl) nameEl.textContent = p.name;
+  var tag = document.getElementById('reflection-priest-tag');
+  if (tag) tag.textContent = p.tag;
+  var author = document.getElementById('reflection-author');
+  if (author) author.textContent = p.name + ' \u2014 ' + p.tag;
+
+  // Player de áudio (aba Homilia)
+  var audioSubtitle = document.querySelector('.audio-subtitle');
+  if (audioSubtitle) audioSubtitle.textContent = p.name + ' \u00B7 ' + p.tag;
+
+  // Load priest-specific audio if available
+  loadPriestHomilia(priestId);
+
+  // Settings
+  var sMono = document.getElementById('settings-priest-mono');
+  if (sMono) { sMono.textContent = p.initials; sMono.style.background = p.color; }
+  var sName = document.getElementById('settings-priest-name');
+  if (sName) sName.textContent = p.name;
+  var sStyle = document.getElementById('settings-priest-style');
+  if (sStyle) sStyle.textContent = p.tag + ' \u00B7 ' + p.style;
+}
+
+function openPriestSheet(context) {
+  priestSheetContext = context;
+  var sheet = document.getElementById('priest-sheet-overlay');
+  if (!sheet) {
+    createPriestSheet();
+    sheet = document.getElementById('priest-sheet-overlay');
+  }
+
+  // Update selected state
+  sheet.querySelectorAll('.priest-sheet-btn').forEach(function(b) {
+    b.classList.toggle('selected', b.dataset.priest === selectedPriest);
+  });
+
+  // Show modes only for reflection/player context
+  var modes = sheet.querySelector('.priest-sheet-modes');
+  if (modes) modes.style.display = (context === 'settings') ? 'none' : 'flex';
+
+  sheet.classList.add('open');
+}
+
+function closePriestSheet() {
+  var sheet = document.getElementById('priest-sheet-overlay');
+  if (sheet) sheet.classList.remove('open');
+}
+
+function selectSheetPriest(btn) {
+  var sheet = document.getElementById('priest-sheet-overlay');
+  sheet.querySelectorAll('.priest-sheet-btn').forEach(function(b) { b.classList.remove('selected'); });
+  btn.classList.add('selected');
+}
+
+function confirmPriestSheet() {
+  var sheet = document.getElementById('priest-sheet-overlay');
+  var selected = sheet.querySelector('.priest-sheet-btn.selected');
+  if (!selected) { closePriestSheet(); return; }
+
+  var priestId = selected.dataset.priest;
+  var modeBtn = sheet.querySelector('.priest-sheet-mode.selected');
+  var permanent = !modeBtn || modeBtn.dataset.mode === 'permanent';
+
+  applyPriestSelection(priestId);
+
+  if (permanent) {
+    showToast('Padre padrão: ' + PRIESTS[priestId].name);
+  } else {
+    showToast('Hoje: ' + PRIESTS[priestId].name);
+  }
+
+  closePriestSheet();
+}
+
+function selectSheetMode(btn) {
+  document.querySelectorAll('.priest-sheet-mode').forEach(function(b) { b.classList.remove('selected'); });
+  btn.classList.add('selected');
+}
+
+function loadPriestHomilia(priestId) {
+  var today = new Date();
+  var dateStr = today.toISOString().split('T')[0];
+  var jsonPath = 'data/homilia-' + priestId + '-' + dateStr + '.json';
+
+  fetch(jsonPath).then(function(resp) {
+    if (!resp.ok) return null;
+    return resp.json();
+  }).then(function(data) {
+    if (!data) return;
+
+    // Update audio player
+    var titleEl = document.querySelector('.audio-title');
+    if (titleEl && data.liturgy && data.liturgy.day) titleEl.textContent = data.liturgy.day;
+
+    var subtitleEl = document.querySelector('.audio-subtitle');
+    if (subtitleEl) {
+      var dur = data.audio ? Math.floor(data.audio.duration_seconds / 60) + ' min' : '';
+      subtitleEl.textContent = data.priest.name + ' \u00B7 ' + data.priest.channel + ' \u00B7 ' + dur;
+    }
+
+    // Set audio source
+    var audio = document.getElementById('homilia-audio');
+    if (audio && data.audio && data.audio.file) {
+      audio.src = data.audio.file;
+      audio.load();
+      var durEl = document.getElementById('apf-duration');
+      if (durEl) {
+        var secs = data.audio.duration_seconds;
+        durEl.textContent = Math.floor(secs / 60) + ':' + String(secs % 60).padStart(2, '0');
+      }
+    }
+
+    // Update thumbnail
+    var thumbContainer = document.getElementById('homilia-thumb-container');
+    var thumbImg = document.getElementById('homilia-thumb');
+    if (thumbContainer && data.video && data.video.thumbnail) {
+      thumbImg.src = data.video.thumbnail;
+      thumbContainer.style.display = 'block';
+      thumbContainer.dataset.embedUrl = data.video.embed_url;
+    }
+
+    // Update transcript
+    var transcriptText = document.getElementById('homilia-transcript-text');
+    if (transcriptText && data.transcript && data.transcript.paragraphs) {
+      transcriptText.textContent = '';
+      data.transcript.paragraphs.forEach(function(text) {
+        var p = document.createElement('p');
+        p.textContent = text;
+        transcriptText.appendChild(p);
+      });
+    }
+
+    // Reflection text update
+    var reflQuote = document.querySelector('#section-all .reflection-quote');
+    if (reflQuote && data.transcript && data.transcript.paragraphs && data.transcript.paragraphs.length > 0) {
+      var excerpt = data.transcript.paragraphs[0];
+      if (excerpt.length > 250) excerpt = excerpt.substring(0, 250) + '...';
+      reflQuote.textContent = '\u201C' + excerpt + '\u201D';
+    }
+  }).catch(function() {
+    // No priest-specific file — that's ok
+  });
+}
+
+function createPriestSheet() {
+  var overlay = document.createElement('div');
+  overlay.className = 'priest-sheet-overlay';
+  overlay.id = 'priest-sheet-overlay';
+  overlay.onclick = function(e) { if (e.target === overlay) closePriestSheet(); };
+
+  var sheet = document.createElement('div');
+  sheet.className = 'priest-sheet';
+
+  // Header
+  var header = document.createElement('div');
+  header.className = 'priest-sheet-header';
+  var h3 = document.createElement('h3');
+  h3.textContent = 'Escolha a reflexão de hoje';
+  var closeBtn = document.createElement('button');
+  closeBtn.className = 'priest-sheet-close';
+  closeBtn.onclick = closePriestSheet;
+  var closeIcon = document.createElement('span');
+  closeIcon.className = 'material-symbols-rounded';
+  closeIcon.style.fontSize = '18px';
+  closeIcon.textContent = 'close';
+  closeBtn.appendChild(closeIcon);
+  header.appendChild(h3);
+  header.appendChild(closeBtn);
+  sheet.appendChild(header);
+
+  // Priest list
+  var list = document.createElement('div');
+  list.className = 'priest-sheet-list';
+  var ids = ['paulo-ricardo', 'fabio-de-melo', 'reginaldo-manzotti', 'chrystian-shankar', 'roger-luis'];
+  ids.forEach(function(id) {
+    var p = PRIESTS[id];
+    var btn = document.createElement('button');
+    btn.className = 'priest-sheet-btn' + (id === selectedPriest ? ' selected' : '');
+    btn.dataset.priest = id;
+    btn.onclick = function() { selectSheetPriest(btn); };
+
+    var mono = document.createElement('div');
+    mono.className = 'priest-monogram';
+    mono.style.background = p.color;
+    mono.textContent = p.initials;
+
+    var info = document.createElement('div');
+    info.className = 'priest-card-info';
+    var strong = document.createElement('strong');
+    strong.textContent = p.name;
+    var tagSpan = document.createElement('span');
+    tagSpan.className = 'priest-tag';
+    tagSpan.textContent = p.tag;
+    info.appendChild(strong);
+    info.appendChild(tagSpan);
+
+    var check = document.createElement('span');
+    check.className = 'material-symbols-rounded onb-priest-check';
+    check.textContent = 'check_circle';
+
+    btn.appendChild(mono);
+    btn.appendChild(info);
+    btn.appendChild(check);
+    list.appendChild(btn);
+  });
+  sheet.appendChild(list);
+
+  // Modes
+  var modes = document.createElement('div');
+  modes.className = 'priest-sheet-modes';
+  var modeToday = document.createElement('button');
+  modeToday.className = 'priest-sheet-mode';
+  modeToday.dataset.mode = 'today';
+  modeToday.textContent = 'Trocar só hoje';
+  modeToday.onclick = function() { selectSheetMode(modeToday); };
+  var modePerm = document.createElement('button');
+  modePerm.className = 'priest-sheet-mode selected';
+  modePerm.dataset.mode = 'permanent';
+  modePerm.textContent = 'Tornar meu padrão';
+  modePerm.onclick = function() { selectSheetMode(modePerm); };
+  modes.appendChild(modeToday);
+  modes.appendChild(modePerm);
+  sheet.appendChild(modes);
+
+  // Confirm button
+  var confirmBtn = document.createElement('button');
+  confirmBtn.className = 'onb-next-btn';
+  confirmBtn.textContent = 'Confirmar';
+  confirmBtn.onclick = confirmPriestSheet;
+  sheet.appendChild(confirmBtn);
+
+  overlay.appendChild(sheet);
+  document.body.appendChild(overlay);
 }
 
 // Skip onboarding for demo (uncomment next line to auto-skip):
