@@ -10,6 +10,9 @@ import SaintCard from '../components/Leituras/SaintCard.jsx'
 export default function Home() {
   const [activeTab, setActiveTab] = useState('all')
 
+  // Sem 2ª Leitura durante a semana (só domingos e solenidades)
+  const has2leitura = false
+
   return (
     <>
       <DateBar
@@ -19,7 +22,7 @@ export default function Home() {
         colorName="Branco"
       />
 
-      <ReadingTabs activeTab={activeTab} onTabChange={setActiveTab} />
+      <ReadingTabs activeTab={activeTab} onTabChange={setActiveTab} hideTabs={has2leitura ? [] : ['2leitura']} />
       <ReadingToolbar />
 
       <div className="content-area">
@@ -68,14 +71,6 @@ export default function Home() {
               <sup>11</sup>Enquanto as mulheres iam, alguns guardas foram à cidade e contaram aos sumos sacerdotes tudo o que tinha acontecido. <sup>15</sup>Os soldados receberam o dinheiro e fizeram como tinham sido instruídos. E essa história se espalhou entre os judeus até o dia de hoje.
             </span>
           </ReadingCard>
-        )}
-
-        {activeTab === '2leitura' && (
-          <div className="reading-card" style={{ textAlign: 'center', padding: '32px 20px' }}>
-            <span className="material-symbols-rounded" style={{ fontSize: 40, color: 'var(--text-tertiary)', display: 'block', marginBottom: 12 }}>event_busy</span>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 600, marginBottom: 6 }}>Sem 2ª Leitura hoje</div>
-            <div style={{ fontSize: '0.78rem', color: 'var(--text-tertiary)', lineHeight: 1.5 }}>Durante a semana, a Missa tem apenas 1ª Leitura, Salmo e Evangelho. A 2ª Leitura é reservada aos domingos e solenidades.</div>
-          </div>
         )}
 
         {activeTab === 'homilia' && (

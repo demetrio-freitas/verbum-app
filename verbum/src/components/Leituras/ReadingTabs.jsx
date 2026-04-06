@@ -1,4 +1,4 @@
-export default function ReadingTabs({ activeTab, onTabChange }) {
+export default function ReadingTabs({ activeTab, onTabChange, hideTabs = [] }) {
   const tabs = [
     { key: 'all', label: 'Todas as Leituras' },
     { key: 'homilia', label: 'Homilia' },
@@ -8,7 +8,7 @@ export default function ReadingTabs({ activeTab, onTabChange }) {
     { key: 'evangelho', label: 'Evangelho' },
     { key: 'santo', label: 'Santo do Dia' },
     { key: 'curiosidade', label: 'Curiosidade' },
-  ]
+  ].filter(tab => !hideTabs.includes(tab.key))
 
   return (
     <div className="nav-tabs" id="reading-tabs">
