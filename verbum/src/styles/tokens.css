@@ -1,0 +1,70 @@
+
+:root {
+  /* ═══════════════════════════════════════════
+     VERBUM — Brand Design Tokens v2.0
+     Direção: Editorial Contemplativa
+     Paleta: Tinta & Pergaminho
+     ═══════════════════════════════════════════ */
+
+  /* Cores — Regra 60-30-10 */
+  --bg: #FAFAF7;                          /* Fundo: pergaminho quente */
+  --bg-card: #FFFFFF;                     /* Cards: branco puro */
+  --bg-elevated: #F2F1EC;                 /* Superfícies elevadas */
+  --text-primary: #1C1917;                /* Tinta: quase-preto quente */
+  --text-secondary: #57534E;              /* Corpo secundário */
+  --text-tertiary: #A8A29E;              /* Labels, captions */
+  --accent: #78350F;                      /* Acento: âmbar escuro (60%) */
+  --accent-light: #D97706;                /* Acento claro: âmbar vivo */
+  --accent-soft: rgba(120,53,15,0.06);    /* Acento suave: fundos */
+  --accent-glow: rgba(120,53,15,0.12);    /* Acento glow: focus rings */
+  --gold: #B45309;                        /* Ouro litúrgico */
+  --gold-light: rgba(180,83,9,0.08);      /* Ouro suave */
+  --border: rgba(28,25,23,0.06);          /* Bordas: mínimas */
+
+  /* Sombras — Sutis, apenas profundidade */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.06);
+
+  /* Raios — Consistentes, múltiplos de 4 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Tipografia */
+  --font-size-base: 16px;
+  --font-scale: 1;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+
+  /* Marca */
+  --gospel-gradient: linear-gradient(145deg, #A0622B 0%, #78350F 100%);
+  --green: #16A34A;
+  --green-soft: rgba(22,163,74,0.08);
+  --liturgical-color: #FFFFFF;
+}
+
+[data-theme="dark"] {
+  --bg: #0C0A09;
+  --bg-card: #1C1917;
+  --bg-elevated: #292524;
+  --text-primary: #FAFAF9;
+  --text-secondary: #A8A29E;
+  --text-tertiary: #57534E;
+  --accent: #D97706;
+  --accent-light: #F59E0B;
+  --accent-soft: rgba(217,119,6,0.08);
+  --accent-glow: rgba(217,119,6,0.12);
+  --gold: #D97706;
+  --gold-light: rgba(217,119,6,0.06);
+  --border: rgba(250,250,249,0.06);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --gospel-gradient: linear-gradient(145deg, #B07030 0%, #78350F 100%);
+}
