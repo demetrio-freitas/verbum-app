@@ -271,7 +271,24 @@ body {
 
 .app-logo span { font-weight: 300; color: var(--text-tertiary); font-size: 0.65em; margin-left: 4px; letter-spacing: 0.04em; }
 
-.header-actions { display: flex; gap: 4px; }
+.header-actions { display: flex; gap: 4px; align-items: center; }
+
+.header-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #78350F, #5a2508);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 2px solid var(--bg-elevated);
+  transition: border-color 0.2s;
+  margin-left: 2px;
+}
+.header-avatar:hover { border-color: var(--accent); }
 
 .icon-btn {
   width: 38px; height: 38px;
@@ -5452,6 +5469,7 @@ body.modo-missa.brilho-reduzido {
     <button class="icon-btn" onclick="toggleTheme()" title="Modo escuro">dark_mode</button>
     <button class="icon-btn" onclick="openShareModal()" title="Compartilhar">share</button>
     <button class="icon-btn" onclick="switchMainTab('settings')" title="Configurações">settings</button>
+    <div class="header-avatar" onclick="openProfileModal()" title="Meu Perfil">MS</div>
   </div>
 </header>
 
@@ -6788,35 +6806,6 @@ body.modo-missa.brilho-reduzido {
   <!-- ========= SETTINGS ========= -->
   <div class="content-section" id="section-settings">
     <div class="section-subtitle">Configurações</div>
-
-    <!-- MEU PERFIL -->
-    <div class="profile-card-settings" onclick="openProfileModal()">
-      <div class="profile-avatar-wrapper">
-        <div class="profile-avatar-settings" style="background:linear-gradient(145deg, #78350F, #5a2508)">MS</div>
-        <div class="profile-avatar-edit">
-          <span class="material-symbols-rounded">edit</span>
-        </div>
-      </div>
-      <div class="profile-settings-info">
-        <div class="profile-settings-name">Maria da Silva</div>
-        <div class="profile-settings-bio">Mãe de 3, avó de 7. Terço todo dia.</div>
-        <div class="profile-settings-stats">
-          <span class="profile-settings-stat">
-            <span class="material-symbols-rounded">local_fire_department</span>
-            <strong>12</strong> dias
-          </span>
-          <span class="profile-settings-stat">
-            <span class="material-symbols-rounded">radio_button_checked</span>
-            <strong>87</strong> terços
-          </span>
-          <span class="profile-settings-stat">
-            <span class="material-symbols-rounded">groups</span>
-            <strong>2</strong> grupos
-          </span>
-        </div>
-      </div>
-      <span class="material-symbols-rounded profile-settings-arrow">chevron_right</span>
-    </div>
 
     <!-- THEME CHOOSER -->
     <div class="section-subtitle" style="margin-top:4px">Tema visual</div>
