@@ -314,19 +314,41 @@ body {
   display: flex; align-items: center; gap: 6px;
   padding: 5px 12px;
   border-radius: 100px;
-  background: var(--accent-soft);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   font-size: 0.65rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+.liturgical-badge:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.liturgical-badge.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.liturgical-badge .chevron {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+  color: var(--text-tertiary);
+  line-height: 1;
+}
+.liturgical-badge.active .chevron {
+  transform: rotate(180deg);
+  color: var(--accent);
 }
 .liturgical-dot {
   width: 10px; height: 10px;
   border-radius: 50%;
   background: var(--liturgical-color);
-  border: 1.5px solid var(--border);
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 /* =================== NAVIGATION TABS =================== */
@@ -2030,55 +2052,66 @@ input[type="range"]::-webkit-slider-thumb {
 
 /* =================== LITURGICAL YEAR TIMELINE =================== */
 .lit-year-wrapper {
-  padding: 0 20px 8px;
-  cursor: pointer;
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+}
+.lit-year-wrapper.visible {
+  max-height: 500px;
+  padding: 8px 20px 12px;
+  opacity: 1;
 }
 
 .lit-year-track {
   position: relative;
-  height: 14px;
+  height: 18px;
   background: var(--bg-elevated);
-  border-radius: 7px;
+  border-radius: 9px;
   overflow: visible;
-  display: flex;
 }
 
 .lit-seg {
   position: absolute;
-  top: 2px;
-  height: 10px;
-  border-radius: 5px;
-  transition: opacity 0.2s;
+  top: 3px;
+  height: 12px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.lit-seg:hover {
+  filter: brightness(1.1);
+  transform: scaleY(1.3);
+  transform-origin: center;
+}
+.lit-seg.selected {
+  filter: brightness(1.15);
+  transform: scaleY(1.4);
+  transform-origin: center;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px currentColor;
 }
 
 /* Liturgical colors */
-.lit-seg[data-tempo="advento"],
-.lit-detail-color[data-tempo="advento"] { background: #6B3FA0; }
-.lit-seg[data-tempo="natal"],
-.lit-detail-color[data-tempo="natal"] { background: #C8A96E; }
+.lit-seg[data-tempo="advento"] { background: #6B3FA0; color: #6B3FA0; }
+.lit-seg[data-tempo="natal"] { background: #C8A96E; color: #C8A96E; }
 .lit-seg[data-tempo="comum1"],
-.lit-seg[data-tempo="comum2"],
-.lit-detail-color[data-tempo="comum1"],
-.lit-detail-color[data-tempo="comum2"] { background: #4A8C5C; }
-.lit-seg[data-tempo="quaresma"],
-.lit-detail-color[data-tempo="quaresma"] { background: #8B4513; }
-.lit-seg[data-tempo="tríduo"],
-.lit-detail-color[data-tempo="tríduo"] { background: #CC2936; }
-.lit-seg[data-tempo="pascoa"],
-.lit-detail-color[data-tempo="pascoa"] { background: #E8E8E8; border: 1px solid rgba(0,0,0,0.08); }
+.lit-seg[data-tempo="comum2"] { background: #4A8C5C; color: #4A8C5C; }
+.lit-seg[data-tempo="quaresma"] { background: #8B4513; color: #8B4513; }
+.lit-seg[data-tempo="tríduo"] { background: #CC2936; color: #CC2936; }
+.lit-seg[data-tempo="pascoa"] { background: #E8E8E8; border: 1px solid rgba(0,0,0,0.08); color: #999; }
 
-[data-theme="dark"] .lit-seg[data-tempo="pascoa"],
-[data-theme="dark"] .lit-detail-color[data-tempo="pascoa"] { background: #D4D0C8; }
+[data-theme="dark"] .lit-seg[data-tempo="pascoa"] { background: #D4D0C8; }
 
 /* Today marker */
 .lit-today-marker {
   position: absolute;
-  top: -4px;
+  top: -3px;
   transform: translateX(-50%);
   z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  pointer-events: none;
 }
 .lit-today-dot {
   width: 12px; height: 12px;
@@ -2086,61 +2119,106 @@ input[type="range"]::-webkit-slider-thumb {
   border: 2.5px solid var(--bg);
   border-radius: 50%;
   box-shadow: 0 0 0 2px var(--accent);
-  position: relative;
-  z-index: 2;
 }
 
-/* Expanded detail */
-.lit-year-detail {
-  display: none;
-  padding-top: 16px;
-  animation: fadeIn 0.3s ease;
+/* Tempo detail card */
+.lit-tempo-card {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              margin 0.35s ease,
+              opacity 0.25s ease;
+  opacity: 0;
+  margin-top: 0;
 }
-.lit-year-wrapper.expanded .lit-year-detail { display: block; }
-
-.lit-detail-row {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 6px;
+.lit-tempo-card.open {
+  max-height: 280px;
+  margin-top: 12px;
+  opacity: 1;
 }
-
-.lit-detail-item {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
+.lit-tempo-card-inner {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  transition: all 0.2s;
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
-.lit-detail-item.current {
-  border-color: var(--accent);
-  background: var(--accent-soft);
+.lit-tempo-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
 }
-
-.lit-detail-color {
-  width: 10px;
-  height: 10px;
+.lit-tempo-card-dot {
+  width: 14px; height: 14px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-
-.lit-detail-info {
-  display: flex;
-  flex-direction: column;
-}
-.lit-detail-name {
-  font-size: 0.65rem;
-  font-weight: 700;
+.lit-tempo-card-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.2;
 }
-.lit-detail-dates {
-  font-size: 0.55rem;
+.lit-tempo-card-dates {
+  font-size: 0.7rem;
   color: var(--text-tertiary);
-  margin-top: 1px;
+  margin-left: auto;
+  margin-right: 4px;
+  font-weight: 500;
+}
+.lit-tempo-card-current {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--accent-soft);
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin-left: 8px;
+}
+.lit-tempo-card-body {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.lit-tempo-card-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.lit-tempo-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+}
+.lit-tempo-meta-item .material-symbols-rounded {
+  font-size: 16px;
+  color: var(--text-tertiary);
+}
+.lit-tempo-card-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  font-size: 18px;
+  font-family: 'Material Symbols Rounded';
+  width: 28px; height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+.lit-tempo-card-close:hover {
+  background: var(--bg-elevated);
 }
 
 /* =================== MINHA PARÓQUIA =================== */
@@ -5185,85 +5263,40 @@ body.modo-missa.brilho-reduzido {
     <div class="date-liturgical" id="liturgical-title">Domingo de Páscoa</div>
     <div class="date-calendar" id="date-display">Domingo, 05 de Abril de 2026</div>
   </div>
-  <div class="liturgical-badge">
+  <div class="liturgical-badge" id="lit-badge" onclick="toggleTimeline()">
     <div class="liturgical-dot" style="background:#FFFFFF"></div>
     Branco
+    <span class="material-symbols-rounded chevron">expand_more</span>
   </div>
 </div>
 
-<!-- LITURGICAL YEAR TIMELINE -->
-<div class="lit-year-wrapper" onclick="toggleLitYearExpand()">
+<!-- LITURGICAL YEAR TIMELINE — colapsada por padrão -->
+<div class="lit-year-wrapper" id="lit-timeline">
   <div class="lit-year-track">
-    <!-- Segments: proportional to real liturgical durations -->
-    <div class="lit-seg" data-tempo="advento" style="left:0%;width:7.7%;" title="Advento"></div>
-    <div class="lit-seg" data-tempo="natal" style="left:7.7%;width:5.5%;" title="Natal"></div>
-    <div class="lit-seg" data-tempo="comum1" style="left:13.2%;width:12.3%;" title="Tempo Comum"></div>
-    <div class="lit-seg" data-tempo="quaresma" style="left:25.5%;width:11%;" title="Quaresma"></div>
-    <div class="lit-seg" data-tempo="tríduo" style="left:36.5%;width:0.8%;" title="Tríduo Pascal"></div>
-    <div class="lit-seg" data-tempo="pascoa" style="left:37.3%;width:13.7%;" title="Tempo Pascal"></div>
-    <div class="lit-seg" data-tempo="comum2" style="left:51%;width:49%;" title="Tempo Comum"></div>
-    <!-- Today marker — Domingo de Páscoa = Tempo Pascal, April 5 ≈ 37.5% of year -->
+    <div class="lit-seg" data-tempo="advento" style="left:0%;width:7.7%;" onclick="showTempoCard('advento')"></div>
+    <div class="lit-seg" data-tempo="natal" style="left:7.7%;width:5.5%;" onclick="showTempoCard('natal')"></div>
+    <div class="lit-seg" data-tempo="comum1" style="left:13.2%;width:12.3%;" onclick="showTempoCard('comum1')"></div>
+    <div class="lit-seg" data-tempo="quaresma" style="left:25.5%;width:11%;" onclick="showTempoCard('quaresma')"></div>
+    <div class="lit-seg" data-tempo="tríduo" style="left:36.5%;width:0.8%;" onclick="showTempoCard('tríduo')"></div>
+    <div class="lit-seg" data-tempo="pascoa" style="left:37.3%;width:13.7%;" onclick="showTempoCard('pascoa')"></div>
+    <div class="lit-seg" data-tempo="comum2" style="left:51%;width:49%;" onclick="showTempoCard('comum2')"></div>
     <div class="lit-today-marker" style="left:37.5%">
       <div class="lit-today-dot"></div>
     </div>
   </div>
 
-  <!-- Expanded detail (hidden by default) -->
-  <div class="lit-year-detail" id="lit-year-detail">
-    <div class="lit-detail-row">
-      <div class="lit-detail-item">
-        <div class="lit-detail-color" data-tempo="advento"></div>
-        <div class="lit-detail-info">
-          <span class="lit-detail-name">Advento</span>
-          <span class="lit-detail-dates">29 Nov – 24 Dez</span>
-        </div>
+  <!-- Card dinâmico — aparece ao clicar num segmento -->
+  <div class="lit-tempo-card" id="lit-tempo-card">
+    <div class="lit-tempo-card-inner">
+      <div class="lit-tempo-card-header">
+        <div class="lit-tempo-card-dot" id="tc-dot"></div>
+        <span class="lit-tempo-card-name" id="tc-name"></span>
+        <span class="lit-tempo-card-current" id="tc-current" style="display:none">Agora</span>
+        <span class="lit-tempo-card-dates" id="tc-dates"></span>
+        <button class="lit-tempo-card-close" onclick="closeTempoCard()">close</button>
       </div>
-      <div class="lit-detail-item">
-        <div class="lit-detail-color" data-tempo="natal"></div>
-        <div class="lit-detail-info">
-          <span class="lit-detail-name">Natal</span>
-          <span class="lit-detail-dates">25 Dez – 11 Jan</span>
-        </div>
-      </div>
-      <div class="lit-detail-item">
-        <div class="lit-detail-color" data-tempo="comum1"></div>
-        <div class="lit-detail-info">
-          <span class="lit-detail-name">T. Comum</span>
-          <span class="lit-detail-dates">12 Jan – 17 Fev</span>
-        </div>
-      </div>
-    </div>
-    <div class="lit-detail-row">
-      <div class="lit-detail-item active">
-        <div class="lit-detail-color" data-tempo="quaresma"></div>
-        <div class="lit-detail-info">
-          <span class="lit-detail-name">Quaresma</span>
-          <span class="lit-detail-dates">18 Fev – 1 Abr</span>
-        </div>
-      </div>
-      <div class="lit-detail-item">
-        <div class="lit-detail-color" data-tempo="tríduo"></div>
-        <div class="lit-detail-info">
-          <span class="lit-detail-name">Tríduo</span>
-          <span class="lit-detail-dates">2 – 4 Abr</span>
-        </div>
-      </div>
-      <div class="lit-detail-item current">
-        <div class="lit-detail-color" data-tempo="pascoa"></div>
-        <div class="lit-detail-info">
-          <span class="lit-detail-name">Páscoa</span>
-          <span class="lit-detail-dates">5 Abr – 24 Mai</span>
-        </div>
-      </div>
-    </div>
-    <div class="lit-detail-row">
-      <div class="lit-detail-item" style="flex:2">
-        <div class="lit-detail-color" data-tempo="comum2"></div>
-        <div class="lit-detail-info">
-          <span class="lit-detail-name">Tempo Comum</span>
-          <span class="lit-detail-dates">25 Mai – 28 Nov</span>
-        </div>
-      </div>
+      <div class="lit-tempo-card-body" id="tc-body"></div>
+      <div class="lit-tempo-card-meta" id="tc-meta"></div>
     </div>
   </div>
 </div>
@@ -5491,6 +5524,86 @@ body.modo-missa.brilho-reduzido {
         <div class="saint-name">São Vicente Ferrer</div>
         <div class="saint-desc">Presbítero dominicano espanhol (1350–1419), o maior pregador do século XIV. Chamado de "Anjo do Apocalipse", percorreu toda a Europa durante 20 anos pregando conversão.</div>
       </div>
+    </div>
+
+  </div>
+
+  <!-- ========= HOMILIA TAB ========= -->
+  <div class="content-section" id="section-homilia">
+
+    <!-- Audio player -->
+    <div class="audio-player-full" id="audio-player-full">
+      <div class="apf-top">
+        <button class="apf-skip-btn" onclick="skipAudio(-10)" title="Retroceder 10s">
+          <span class="material-symbols-rounded">replay_10</span>
+        </button>
+        <button class="play-btn" id="apf-play" onclick="togglePlay(this)">play_arrow</button>
+        <button class="apf-skip-btn" onclick="skipAudio(10)" title="Avançar 10s">
+          <span class="material-symbols-rounded">forward_10</span>
+        </button>
+        <div class="audio-info">
+          <div class="audio-title">Homilia do dia</div>
+          <div class="audio-subtitle">Pe. João Chagas · Capela Sh</div>
+        </div>
+        <button class="apf-speed-btn" id="apf-speed" onclick="cycleAudioSpeed()">1x</button>
+      </div>
+      <div class="apf-progress-row">
+        <span class="apf-time" id="apf-current">0:00</span>
+        <div class="apf-progress-track" id="apf-track" onclick="seekAudio(event)">
+          <div class="apf-progress-fill" id="apf-fill"></div>
+          <div class="apf-progress-thumb" id="apf-thumb"></div>
+        </div>
+        <span class="apf-time" id="apf-duration">0:00</span>
+      </div>
+      <div class="apf-speed-options" id="apf-speed-options">
+        <button class="apf-speed-opt" data-speed="0.75" onclick="setAudioSpeed(0.75)">0.75x</button>
+        <button class="apf-speed-opt active" data-speed="1" onclick="setAudioSpeed(1)">1x</button>
+        <button class="apf-speed-opt" data-speed="1.25" onclick="setAudioSpeed(1.25)">1.25x</button>
+        <button class="apf-speed-opt" data-speed="1.5" onclick="setAudioSpeed(1.5)">1.5x</button>
+        <button class="apf-speed-opt" data-speed="2" onclick="setAudioSpeed(2)">2x</button>
+      </div>
+    </div>
+
+    <!-- Audio element real -->
+    <audio id="homilia-audio" preload="metadata"></audio>
+
+    <!-- Thumbnail da homilia -->
+    <div class="homilia-thumb-container" id="homilia-thumb-container" onclick="toggleVideoEmbed()" style="display:none">
+      <img id="homilia-thumb" class="homilia-thumb" alt="Thumbnail da homilia">
+      <div class="homilia-thumb-play">
+        <span class="material-symbols-rounded">play_circle</span>
+      </div>
+    </div>
+
+    <!-- Video embed (expandível) -->
+    <div class="homilia-video-container" id="homilia-video-container" style="display:none">
+      <iframe id="homilia-iframe" width="100%" height="220" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Botões Vídeo / Transcrição -->
+    <div class="homilia-actions" id="homilia-actions" style="display:none">
+      <button class="homilia-action-btn" onclick="toggleVideoEmbed()">
+        <span class="material-symbols-rounded">smart_display</span>
+        Vídeo
+      </button>
+      <button class="homilia-action-btn" onclick="toggleTranscript()">
+        <span class="material-symbols-rounded">description</span>
+        Ler transcrição
+      </button>
+    </div>
+
+    <!-- Transcrição (expandível) -->
+    <div class="homilia-transcript" id="homilia-transcript" style="display:none">
+      <div class="homilia-transcript-text" id="homilia-transcript-text"></div>
+    </div>
+
+    <!-- Feed de episódios anteriores -->
+    <div class="homilia-feed" id="homilia-feed" style="display:none">
+      <div class="homilia-feed-title">Homilias anteriores</div>
+      <div class="homilia-feed-scroll" id="homilia-feed-scroll"></div>
     </div>
 
   </div>
@@ -7830,7 +7943,7 @@ function switchMainTab(tab) {
   // Show/hide reading tabs and toolbar for non-reading sections
   const readingTabs = document.getElementById('reading-tabs');
   const readingToolbar = document.getElementById('reading-toolbar');
-  const isReadingSection = ['all','1leitura','salmo','2leitura','evangelho','santo','curiosidade'].includes(tab);
+  const isReadingSection = ['all','homilia','1leitura','salmo','2leitura','evangelho','santo','curiosidade'].includes(tab);
   if (readingTabs) readingTabs.style.display = isReadingSection ? '' : 'none';
   if (readingToolbar) readingToolbar.style.display = isReadingSection ? '' : 'none';
 
@@ -8942,8 +9055,80 @@ function markNovenaDayDone(btn) {
 document.addEventListener('DOMContentLoaded', populateNovenas);
 
 // =================== LITURGICAL YEAR TIMELINE ===================
-function toggleLitYearExpand() {
-  document.querySelector('.lit-year-wrapper').classList.toggle('expanded');
+var litTempoData = {
+  advento: { name:'Advento', dates:'29 Nov – 24 Dez', color:'#6B3FA0', current:false,
+    desc:'Tempo de preparação para o Natal. A Igreja convida à vigilância e à esperança na vinda do Senhor. As leituras focam nas profecias messiânicas e na figura de João Batista.',
+    cor:'Roxo', semanas:'4 semanas', simbolo:'Coroa do Advento' },
+  natal: { name:'Natal', dates:'25 Dez – 11 Jan', color:'#C8A96E', current:false,
+    desc:'Celebração do nascimento de Jesus e da manifestação de Deus ao mundo. Inclui as festas da Sagrada Família, Santa Maria Mãe de Deus e Epifania.',
+    cor:'Branco/Dourado', semanas:'~3 semanas', simbolo:'Presépio' },
+  comum1: { name:'Tempo Comum', dates:'12 Jan – 17 Fev', color:'#4A8C5C', current:false,
+    desc:'Primeira parte do Tempo Comum. Período de crescimento na fé através do acompanhamento da vida pública de Jesus — seus ensinamentos, milagres e chamados.',
+    cor:'Verde', semanas:'5–8 semanas', simbolo:'Vida de Cristo' },
+  quaresma: { name:'Quaresma', dates:'18 Fev – 1 Abr', color:'#8B4513', current:false,
+    desc:'Quarenta dias de preparação para a Páscoa. Tempo de conversão, penitência e oração. Começa na Quarta-feira de Cinzas e culmina no Domingo de Ramos.',
+    cor:'Roxo', semanas:'6 semanas', simbolo:'Cruz e Cinzas' },
+  'tríduo': { name:'Tríduo Pascal', dates:'2 – 4 Abr', color:'#CC2936', current:false,
+    desc:'O coração do ano litúrgico. Três dias que celebram a Paixão, Morte e Ressurreição de Cristo — da Missa da Ceia do Senhor à Vigília Pascal.',
+    cor:'Vermelho / Branco', semanas:'3 dias', simbolo:'Cruz Gloriosa' },
+  pascoa: { name:'Tempo Pascal', dates:'5 Abr – 24 Mai', color:'#E8E8E8', colorBorder:'rgba(0,0,0,0.1)', current:true,
+    desc:'Cinquenta dias de alegria pela Ressurreição! Da Páscoa a Pentecostes, a Igreja celebra a vitória de Cristo sobre a morte e o envio do Espírito Santo.',
+    cor:'Branco/Dourado', semanas:'7 semanas', simbolo:'Círio Pascal' },
+  comum2: { name:'Tempo Comum', dates:'25 Mai – 28 Nov', color:'#4A8C5C', current:false,
+    desc:'A parte mais longa do ano litúrgico. A Igreja aprofunda o seguimento de Jesus no dia a dia, meditando seus ensinamentos e parábolas.',
+    cor:'Verde', semanas:'~27 semanas', simbolo:'Vida de Cristo' }
+};
+var currentTempoCard = null;
+
+function toggleTimeline() {
+  var timeline = document.getElementById('lit-timeline');
+  var badge = document.getElementById('lit-badge');
+  if (timeline.classList.contains('visible')) {
+    closeTempoCard();
+    setTimeout(function() {
+      timeline.classList.remove('visible');
+      badge.classList.remove('active');
+    }, 50);
+  } else {
+    timeline.classList.add('visible');
+    badge.classList.add('active');
+  }
+}
+
+function showTempoCard(tempo) {
+  var data = litTempoData[tempo];
+  if (!data) return;
+  document.querySelectorAll('.lit-seg').forEach(function(s) { s.classList.remove('selected'); });
+  document.querySelectorAll('.lit-seg[data-tempo="' + tempo + '"]').forEach(function(s) { s.classList.add('selected'); });
+  var dot = document.getElementById('tc-dot');
+  dot.style.background = data.color;
+  dot.style.border = data.colorBorder ? '1.5px solid ' + data.colorBorder : 'none';
+  document.getElementById('tc-name').textContent = data.name;
+  document.getElementById('tc-dates').textContent = data.dates;
+  document.getElementById('tc-body').textContent = data.desc;
+  document.getElementById('tc-current').style.display = data.current ? 'inline-block' : 'none';
+  var meta = document.getElementById('tc-meta');
+  meta.textContent = '';
+  [{icon:'palette',text:'Cor: '+data.cor},{icon:'calendar_month',text:data.semanas},{icon:'church',text:data.simbolo}].forEach(function(item) {
+    var div = document.createElement('div');
+    div.className = 'lit-tempo-meta-item';
+    var icon = document.createElement('span');
+    icon.className = 'material-symbols-rounded';
+    icon.textContent = item.icon;
+    div.appendChild(icon);
+    div.appendChild(document.createTextNode(' ' + item.text));
+    meta.appendChild(div);
+  });
+  var card = document.getElementById('lit-tempo-card');
+  if (currentTempoCard === tempo && card.classList.contains('open')) { closeTempoCard(); return; }
+  currentTempoCard = tempo;
+  card.classList.add('open');
+}
+
+function closeTempoCard() {
+  document.getElementById('lit-tempo-card').classList.remove('open');
+  document.querySelectorAll('.lit-seg').forEach(function(s) { s.classList.remove('selected'); });
+  currentTempoCard = null;
 }
 
 // =================== MINHA PARÓQUIA ===================
