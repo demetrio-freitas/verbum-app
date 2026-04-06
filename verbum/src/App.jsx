@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import AppLayout from './components/Layout/AppLayout.jsx'
 import Home from './pages/Home.jsx'
 import Missa from './pages/Missa.jsx'
@@ -16,12 +16,22 @@ import Paroquia from './pages/Paroquia.jsx'
 import Settings from './pages/Settings.jsx'
 import Onboarding from './pages/Onboarding.jsx'
 
+function RequireOnboarding({ children }) {
+  const location = useLocation()
+  const onboarded = localStorage.getItem('verbum-onboarded')
+  if (!onboarded && location.pathname !== '/onboarding') {
+    return <Navigate to="/onboarding" replace />
+  }
+  return children
+}
+
 export default function App() {
   return (
-    <Routes>
-      <Route path="/onboarding" element={<Onboarding />} />
-      <Route element={<AppLayout />}>
-        <Route path="/" element={<Home />} />
+    <RequireOnboarding>
+      <Routes>
+        <Route path="/onboarding" element={<Onboarding />} />
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<Home />} />
         <Route path="/missa" element={<Missa />} />
         <Route path="/terco" element={<Terco />} />
         <Route path="/oracoes" element={<Oracoes />} />
@@ -36,6 +46,7 @@ export default function App() {
         <Route path="/paroquia" element={<Paroquia />} />
         <Route path="/settings" element={<Settings />} />
       </Route>
-    </Routes>
+      </Routes>
+    </RequireOnboarding>
   )
 }
