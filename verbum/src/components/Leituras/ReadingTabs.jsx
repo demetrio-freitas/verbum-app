@@ -7,6 +7,7 @@ export default function ReadingTabs({ activeTab, onTabChange }) {
     { key: '2leitura', label: '2ª Leitura' },
     { key: 'evangelho', label: 'Evangelho' },
     { key: 'santo', label: 'Santo do Dia' },
+    { key: 'curiosidade', label: 'Curiosidade' },
   ]
 
   return (

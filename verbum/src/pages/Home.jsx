@@ -70,6 +70,31 @@ export default function Home() {
           </ReadingCard>
         )}
 
+        {activeTab === '2leitura' && (
+          <div className="reading-card" style={{ textAlign: 'center', padding: '32px 20px' }}>
+            <span className="material-symbols-rounded" style={{ fontSize: 40, color: 'var(--text-tertiary)', display: 'block', marginBottom: 12 }}>event_busy</span>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 600, marginBottom: 6 }}>Sem 2ª Leitura hoje</div>
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-tertiary)', lineHeight: 1.5 }}>Durante a semana, a Missa tem apenas 1ª Leitura, Salmo e Evangelho. A 2ª Leitura é reservada aos domingos e solenidades.</div>
+          </div>
+        )}
+
+        {activeTab === 'homilia' && (
+          <div className="reading-card" style={{ padding: '20px' }}>
+            <div className="reading-label">Homilia do Dia</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
+              <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFF', fontWeight: 800, fontSize: '0.75rem', flexShrink: 0 }}>RL</div>
+              <div>
+                <div style={{ fontSize: '0.9rem', fontWeight: 700 }}>Pe. Roger Luis</div>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-tertiary)' }}>Liturgia · Equilibrado · Pastoral</div>
+              </div>
+            </div>
+            <div className="reading-text expanded" style={{ fontStyle: 'italic' }}>
+              "Alegrai-vos!" — Esta é a saudação do Ressuscitado. Não diz "estudai", não diz "esforçai-vos". Diz: "Alegrai-vos!" A Páscoa é antes de tudo um convite à alegria. Uma alegria que não nega a dor, mas a atravessa. As mulheres estavam com medo E com grande alegria. As duas coisas juntas. É assim a fé: não é ausência de medo, é presença de esperança.
+            </div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-tertiary)', marginTop: 10 }}>8 min de leitura</div>
+          </div>
+        )}
+
         {(activeTab === 'all') && (
           <>
             <ReflectionCard
@@ -91,6 +116,20 @@ export default function Home() {
             name="Oitava da Páscoa"
             description="Os oito dias que seguem o Domingo de Páscoa são celebrados como se fossem um único grande dia. Cada dia é tratado como solenidade — a alegria da Ressurreição se prolonga por toda a semana."
           />
+        )}
+
+        {activeTab === 'curiosidade' && (
+          <div className="reading-card" style={{ padding: '20px' }}>
+            <div className="reading-label" style={{ color: 'var(--gold)' }}>Curiosidade Litúrgica</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', fontWeight: 600, marginBottom: 10 }}>Por que a Oitava da Páscoa?</div>
+            <div className="reading-text expanded">
+              A tradição de celebrar 8 dias seguidos após a Páscoa vem dos primeiros séculos da Igreja. Na antiguidade, os recém-batizados na Vigília Pascal vestiam túnicas brancas durante toda a semana — por isso o domingo seguinte é chamado "Domingo in Albis" (dos brancos).
+              <br /><br />
+              Cada dia da Oitava é litúrgicamente equivalente a um domingo: tem leituras próprias, não se celebra nenhuma outra festa, e o Aleluia ecoa sem parar. É como se a alegria da Ressurreição fosse grande demais para caber em um só dia.
+              <br /><br />
+              <strong>Você sabia?</strong> No calendário litúrgico, existem apenas duas oitavas: a da Páscoa e a do Natal. Até 1955 havia mais (Pentecostes, Corpus Christi), mas foram simplificadas pelo Papa Pio XII.
+            </div>
+          </div>
         )}
 
         <div style={{ height: 100 }} />
