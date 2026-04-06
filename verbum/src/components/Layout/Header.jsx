@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className="app-header">
       <div className="app-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-        Verbum<span>liturgia</span>
+        Verbum<span>beta</span>
       </div>
       <div className="header-actions">
         <button className={`icon-btn ${darkMode ? 'active' : ''}`} onClick={toggleDarkMode}>
