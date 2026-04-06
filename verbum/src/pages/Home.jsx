@@ -6,6 +6,7 @@ import VerseWidget from '../components/Leituras/VerseWidget.jsx'
 import ReadingCard from '../components/Leituras/ReadingCard.jsx'
 import ReflectionCard from '../components/Leituras/ReflectionCard.jsx'
 import SaintCard from '../components/Leituras/SaintCard.jsx'
+import HoursBar from '../components/Leituras/HoursBar.jsx'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('all')
@@ -21,6 +22,8 @@ export default function Home() {
         liturgicalColor="#FFFFFF"
         colorName="Branco"
       />
+
+      <HoursBar />
 
       <ReadingTabs activeTab={activeTab} onTabChange={setActiveTab} hideTabs={has2leitura ? [] : ['2leitura']} />
       <ReadingToolbar />
