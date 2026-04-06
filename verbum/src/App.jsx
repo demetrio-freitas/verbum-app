@@ -14,6 +14,11 @@ import Notificacoes from './pages/Notificacoes.jsx'
 import Calendario from './pages/Calendario.jsx'
 import Paroquia from './pages/Paroquia.jsx'
 import Settings from './pages/Settings.jsx'
+import Notas from './pages/Notas.jsx'
+import Salvos from './pages/Salvos.jsx'
+import Busca from './pages/Busca.jsx'
+import Novenas from './pages/Novenas.jsx'
+import Oficio from './pages/Oficio.jsx'
 import Onboarding from './pages/Onboarding.jsx'
 
 function RequireOnboarding({ children }) {
@@ -45,6 +50,11 @@ export default function App() {
         <Route path="/calendario" element={<Calendario />} />
         <Route path="/paroquia" element={<Paroquia />} />
         <Route path="/settings" element={<Settings />} />
+          <Route path="/notas" element={<Notas />} />
+          <Route path="/salvos" element={<Salvos />} />
+          <Route path="/busca" element={<Busca />} />
+          <Route path="/novenas" element={<Novenas />} />
+          <Route path="/oficio" element={<Oficio />} />
       </Route>
       </Routes>
     </RequireOnboarding>

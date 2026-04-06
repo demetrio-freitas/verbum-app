@@ -1,17 +1,18 @@
 import { useNavigate } from 'react-router-dom'
 
 const items = [
-  { path: '/settings', icon: 'schedule', label: 'Ofício' },
+  { path: '/oficio', icon: 'schedule', label: 'Ofício' },
+  { path: '/notas', icon: 'edit_note', label: 'Notas' },
+  { path: '/salvos', icon: 'bookmark', label: 'Salvos' },
+  { path: '/busca', icon: 'search', label: 'Busca' },
+  { path: '/novenas', icon: 'hourglass_top', label: 'Novenas' },
+  { path: '/paroquia', icon: 'church', label: 'Paróquia' },
+  { path: '/calendario', icon: 'calendar_month', label: 'Calendário' },
   { path: '/exame', icon: 'psychology', label: 'Confissão', highlight: true, color: '#7C3AED' },
   { path: '/notificacoes', icon: 'notifications', label: 'Notificações' },
-  { path: '/biblia', icon: 'book', label: 'Bíblia' },
-  { path: '/catecismo', icon: 'school', label: 'Catecismo' },
-  { path: '/lectio', icon: 'self_improvement', label: 'Lectio Divina' },
-  { path: '/igrejas', icon: 'location_on', label: 'Igrejas' },
-  { path: '/boa-noite', icon: 'bedtime', label: 'Boa Noite' },
-  { path: '/calendario', icon: 'calendar_month', label: 'Calendário' },
-  { path: '/paroquia', icon: 'church', label: 'Paróquia' },
-  { path: '/settings', icon: 'settings', label: 'Configurações' },
+  { path: '/igrejas', icon: 'location_on', label: 'Santo do Ano' },
+  { path: '/biblia', icon: 'auto_stories', label: 'Bíblia', highlight: true, color: '#78350F' },
+  { path: '/settings', icon: 'settings', label: 'Configurações', highlight: true, color: '#78350F' },
 ]
 
 export default function MoreMenu({ open, onClose }) {
@@ -37,7 +38,7 @@ export default function MoreMenu({ open, onClose }) {
               key={item.label}
               className="more-menu-item"
               onClick={() => handleItemClick(item.path)}
-              style={item.highlight ? { background: `${item.color}0F` } : undefined}
+              style={item.highlight ? { background: `${item.color}12` } : undefined}
             >
               <span
                 className="material-symbols-rounded"
