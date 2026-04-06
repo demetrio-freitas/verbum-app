@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Verbum — Terço: Opções de Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   DESIGN TOKENS (mesmos do app principal)
+   ============================================ */
+:root {
+  --bg: #FAFAF7;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F2F1EC;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --accent: #78350F;
+  --accent-light: #D97706;
+  --accent-soft: rgba(120,53,15,0.06);
+  --accent-glow: rgba(120,53,15,0.12);
+  --gold: #B45309;
+  --gold-light: rgba(180,83,9,0.08);
+  --border: rgba(28,25,23,0.06);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.06);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 100px;
+}
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* ============================================
+   PAGE HEADER — Seletor de opções
+   ============================================ */
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 20px 12px;
+}
+.page-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.page-subtitle {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+.option-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.option-tabs::-webkit-scrollbar { display: none; }
+.option-tab {
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.option-tab:hover { border-color: var(--accent); color: var(--accent); }
+.option-tab.active {
+  background: var(--accent);
+  color: #FFF;
+  border-color: var(--accent);
+}
+
+/* ============================================
+   OPTION CONTAINER
+   ============================================ */
+.option-section {
+  display: none;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+.option-section.active { display: block; }
+
+.option-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.option-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.option-desc {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* ============================================
+   OPÇÃO A — Rosário Circular com Contas
+   ============================================ */
+.opt-a-header {
+  text-align: center;
+  padding: 8px 0 16px;
+}
+.opt-a-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: var(--accent-soft);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.opt-a-mystery-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Circular beads */
+.opt-a-rosary {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto 16px;
+}
+.opt-a-bead {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1.5px solid rgba(0,0,0,0.08);
+  transition: all 0.3s;
+}
+.opt-a-bead.done {
+  background: var(--accent);
+  border-color: var(--accent);
+  opacity: 0.35;
+}
+.opt-a-bead.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  width: 24px;
+  height: 24px;
+  margin: -3px;
+  box-shadow: 0 0 0 6px var(--accent-glow), 0 2px 8px rgba(120,53,15,0.2);
+  z-index: 2;
+}
+.opt-a-bead.separator {
+  width: 12px;
+  height: 12px;
+  background: var(--gold);
+  border-color: var(--gold);
+  opacity: 0.25;
+}
+.opt-a-bead.separator.active {
+  opacity: 1;
+  width: 16px;
+  height: 16px;
+  margin: -2px;
+  box-shadow: 0 0 0 5px rgba(180,83,9,0.12);
+}
+.opt-a-bead.separator.done { opacity: 0.3; }
+
+/* Center of rosary */
+.opt-a-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 130px;
+}
+.opt-a-center-label {
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.opt-a-center-count {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.opt-a-center-sub {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* Prayer card A */
+.opt-a-prayer {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.opt-a-prayer-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.opt-a-prayer-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+/* Controls A */
+.opt-a-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 4px 0 20px;
+}
+.opt-a-ctrl {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 22px;
+}
+.opt-a-ctrl:hover { border-color: var(--accent); color: var(--accent); }
+.opt-a-main {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(120,53,15,0.2);
+  transition: all 0.2s;
+  font-size: 28px;
+}
+.opt-a-main:hover { transform: scale(1.05); }
+
+/* ============================================
+   OPÇÃO B — Caminho Vertical (Journey)
+   ============================================ */
+.opt-b-header {
+  text-align: center;
+  padding: 8px 0 20px;
+}
+.opt-b-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.opt-b-sub {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+}
+
+/* Journey path */
+.opt-b-journey {
+  position: relative;
+  padding: 0 0 0 48px;
+  margin-bottom: 20px;
+}
+.opt-b-line {
+  position: absolute;
+  left: 22px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--bg-elevated);
+}
+.opt-b-line-fill {
+  position: absolute;
+  left: 22px;
+  top: 0;
+  width: 2px;
+  background: var(--accent);
+  transition: height 0.4s ease;
+}
+.opt-b-step {
+  position: relative;
+  padding: 12px 0;
+  cursor: pointer;
+}
+.opt-b-dot {
+  position: absolute;
+  left: -34px;
+  top: 16px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 2px solid rgba(0,0,0,0.06);
+  transition: all 0.3s;
+  z-index: 2;
+}
+.opt-b-step.done .opt-b-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  width: 10px;
+  height: 10px;
+  left: -32px;
+  top: 18px;
+}
+.opt-b-step.active .opt-b-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  width: 18px;
+  height: 18px;
+  left: -36px;
+  top: 14px;
+  box-shadow: 0 0 0 6px var(--accent-glow);
+}
+.opt-b-step.decade .opt-b-dot {
+  width: 20px;
+  height: 20px;
+  left: -37px;
+  top: 13px;
+  background: var(--gold-light);
+  border-color: var(--gold);
+}
+.opt-b-step.decade.active .opt-b-dot {
+  background: var(--gold);
+  box-shadow: 0 0 0 6px rgba(180,83,9,0.12);
+}
+.opt-b-step-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+.opt-b-step.active .opt-b-step-label { color: var(--accent); font-weight: 700; }
+.opt-b-step.done .opt-b-step-label { color: var(--text-tertiary); text-decoration: line-through; opacity: 0.5; }
+.opt-b-step-sub {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+}
+
+/* Active prayer card */
+.opt-b-active-prayer {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+.opt-b-active-prayer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+}
+.opt-b-prayer-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.opt-b-prayer-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Sticky bottom controls */
+.opt-b-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+.opt-b-prev, .opt-b-audio {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+.opt-b-next {
+  flex: 1;
+  height: 48px;
+  border-radius: 100px;
+  border: none;
+  background: var(--accent);
+  color: #FFF;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(120,53,15,0.15);
+}
+
+/* ============================================
+   OPÇÃO C — Cards com Swipe (Karaokê)
+   ============================================ */
+.opt-c-header {
+  text-align: center;
+  padding: 8px 0 12px;
+}
+.opt-c-progress-bar {
+  height: 4px;
+  background: var(--bg-elevated);
+  border-radius: 100px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.opt-c-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  border-radius: 100px;
+  width: 15%;
+  transition: width 0.4s ease;
+}
+.opt-c-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.opt-c-progress-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.opt-c-progress-count {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Swipe card stack */
+.opt-c-card-stack {
+  position: relative;
+  min-height: 340px;
+  margin-bottom: 16px;
+  perspective: 800px;
+}
+.opt-c-card {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.opt-c-card.behind-1 {
+  transform: scale(0.95) translateY(8px);
+  opacity: 0.6;
+  z-index: 1;
+}
+.opt-c-card.behind-2 {
+  transform: scale(0.9) translateY(16px);
+  opacity: 0.3;
+  z-index: 0;
+}
+.opt-c-card.current {
+  z-index: 3;
+}
+.opt-c-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.opt-c-card-icon .material-symbols-rounded {
+  font-size: 26px;
+  color: var(--accent);
+}
+.opt-c-card-step {
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.opt-c-card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+.opt-c-card-text {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+.opt-c-card-mystery {
+  margin-top: 16px;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+}
+.opt-c-card-mystery-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.opt-c-card-mystery-sub {
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* Swipe hint */
+.opt-c-swipe-hint {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Controls C */
+.opt-c-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.opt-c-btn-secondary {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+}
+.opt-c-btn-primary {
+  flex: 1;
+  height: 52px;
+  border-radius: 100px;
+  border: none;
+  background: var(--accent);
+  color: #FFF;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(120,53,15,0.15);
+  transition: all 0.2s;
+}
+.opt-c-btn-primary:hover { transform: scale(1.02); }
+
+/* ============================================
+   OPÇÃO D — Contemplativo Minimalista
+   ============================================ */
+.opt-d-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 520px;
+  justify-content: space-between;
+}
+
+.opt-d-mystery {
+  text-align: center;
+  padding: 12px 0;
+}
+.opt-d-mystery-badge {
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+.opt-d-mystery-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Breathing circle */
+.opt-d-breath-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.opt-d-breath-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--bg-elevated);
+}
+.opt-d-breath-progress {
+  position: absolute;
+  inset: 0;
+}
+.opt-d-breath-progress circle {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+.opt-d-breath-bg { stroke: var(--bg-elevated); }
+.opt-d-breath-fill {
+  stroke: var(--accent);
+  transition: stroke-dashoffset 0.5s ease;
+}
+.opt-d-breath-inner {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 2;
+}
+.opt-d-breath-inner:hover {
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.02);
+}
+.opt-d-breath-inner:active {
+  transform: scale(0.98);
+}
+.opt-d-breath-label {
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.opt-d-breath-count {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.opt-d-breath-sub {
+  font-size: 0.62rem;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* Prayer text */
+.opt-d-prayer {
+  text-align: center;
+  padding: 0 8px;
+  max-width: 340px;
+}
+.opt-d-prayer-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--text-primary);
+}
+.opt-d-prayer-highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Bottom area */
+.opt-d-bottom {
+  width: 100%;
+  padding: 0 0 8px;
+}
+.opt-d-tap-hint {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+.opt-d-bottom-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+.opt-d-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Decade dots */
+.opt-d-decades {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.opt-d-decade-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  transition: all 0.3s;
+}
+.opt-d-decade-dot.done { background: var(--accent); opacity: 0.4; }
+.opt-d-decade-dot.active {
+  background: var(--accent);
+  width: 24px;
+  border-radius: 100px;
+}
+
+/* ============================================
+   OPÇÃO E — Bolinhas Horizontais (Scroll)
+   ============================================ */
+.opt-e-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.opt-e-header-left {}
+.opt-e-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.opt-e-sub {
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+}
+.opt-e-counter {
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: var(--accent-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Horizontal beads track */
+.opt-e-track {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 12px 0;
+  margin: 0 -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.opt-e-track::-webkit-scrollbar { display: none; }
+.opt-e-beads {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  width: max-content;
+}
+.opt-e-bead {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1.5px solid rgba(0,0,0,0.06);
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.opt-e-bead.done {
+  background: var(--accent);
+  border-color: var(--accent);
+  opacity: 0.3;
+  width: 16px;
+  height: 16px;
+}
+.opt-e-bead.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 0 0 5px var(--accent-glow);
+}
+.opt-e-bead.separator {
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  border-color: var(--gold);
+  opacity: 0.2;
+}
+.opt-e-bead.separator.active {
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+  box-shadow: 0 0 0 4px rgba(180,83,9,0.1);
+}
+.opt-e-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
+/* Decade labels under track */
+.opt-e-decade-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  margin-bottom: 16px;
+}
+.opt-e-decade-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.opt-e-decade-label.active { color: var(--accent); }
+
+/* Prayer card E */
+.opt-e-prayer {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.opt-e-prayer-tag {
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: var(--accent);
+  color: #FFF;
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.opt-e-prayer-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+/* Controls E — com progresso no botão */
+.opt-e-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.opt-e-ctrl {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+.opt-e-main {
+  flex: 1;
+  height: 52px;
+  border-radius: 100px;
+  border: none;
+  background: var(--accent);
+  color: #FFF;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.opt-e-main-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.15);
+  width: 15%;
+  transition: width 0.4s ease;
+  border-radius: 100px;
+}
+.opt-e-main-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================
+   MYSTERY SELECTOR (shared)
+   ============================================ */
+.mystery-selector {
+  padding: 20px 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+.mystery-selector-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-tertiary);
+  margin-bottom: 10px;
+}
+.mystery-tabs {
+  display: flex;
+  gap: 6px;
+}
+.mys-tab {
+  flex: 1;
+  padding: 10px 4px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+.mys-tab:hover { border-color: var(--text-secondary); }
+.mys-tab.active {
+  background: var(--accent);
+  color: #FFF;
+  border-color: var(--accent);
+}
+.mys-tab small {
+  display: block;
+  font-size: 0.55rem;
+  margin-top: 2px;
+  opacity: 0.6;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     PAGE HEADER
+     ============================================ -->
+<div class="page-header">
+  <div class="page-title">Santo Terço — Opções</div>
+  <div class="page-subtitle">Escolha o estilo que mais te agrada para rezar</div>
+  <div class="option-tabs">
+    <button class="option-tab active" onclick="showOption('a', this)">A — Rosário</button>
+    <button class="option-tab" onclick="showOption('b', this)">B — Caminho</button>
+    <button class="option-tab" onclick="showOption('c', this)">C — Cards</button>
+    <button class="option-tab" onclick="showOption('d', this)">D — Contemplativo</button>
+    <button class="option-tab" onclick="showOption('e', this)">E — Faixa</button>
+  </div>
+</div>
+
+<!-- ============================================
+     OPÇÃO A — Rosário Circular com Contas
+     ============================================ -->
+<div class="option-section active" id="option-a">
+  <div class="option-label">Opção A</div>
+  <div class="option-name">Rosário Circular com Contas</div>
+  <div class="option-desc">Contas posicionadas em círculo, como um rosário real. O centro mostra o progresso. Visual mais tradicional e familiar.</div>
+
+  <div class="opt-a-header">
+    <div class="opt-a-badge">
+      <span class="material-symbols-rounded" style="font-size:14px">auto_awesome</span>
+      Mistérios Gloriosos
+    </div>
+    <div class="opt-a-mystery-name">1º — A Ressurreição de Jesus</div>
+  </div>
+
+  <!-- Circular beads via SVG -->
+  <div class="opt-a-rosary" id="opt-a-rosary">
+    <div class="opt-a-center">
+      <div class="opt-a-center-label">Ave Maria</div>
+      <div class="opt-a-center-count">3 / 10</div>
+      <div class="opt-a-center-sub">1ª dezena</div>
+    </div>
+  </div>
+
+  <div class="opt-a-prayer">
+    <div class="opt-a-prayer-label">Ave Maria — 3 de 10</div>
+    <div class="opt-a-prayer-text">Ave Maria, cheia de graça, o Senhor é convosco. Bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.</div>
+  </div>
+
+  <div class="opt-a-controls">
+    <button class="opt-a-ctrl"><span class="material-symbols-rounded">skip_previous</span></button>
+    <button class="opt-a-main"><span class="material-symbols-rounded">arrow_forward</span></button>
+    <button class="opt-a-ctrl"><span class="material-symbols-rounded">volume_up</span></button>
+  </div>
+
+  <div class="mystery-selector">
+    <div class="mystery-selector-label">Mistérios</div>
+    <div class="mystery-tabs">
+      <button class="mys-tab">Gozosos<small>Seg/Sáb</small></button>
+      <button class="mys-tab">Dolorosos<small>Ter/Sex</small></button>
+      <button class="mys-tab active">Gloriosos<small>Qua/Dom</small></button>
+      <button class="mys-tab">Luminosos<small>Qui</small></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     OPÇÃO B — Caminho Vertical
+     ============================================ -->
+<div class="option-section" id="option-b">
+  <div class="option-label">Opção B</div>
+  <div class="option-name">Caminho Vertical (Jornada)</div>
+  <div class="option-desc">Cada oração é um passo numa jornada vertical. Mostra de onde você veio e para onde vai. Ideal para quem gosta de ver o progresso linear.</div>
+
+  <div class="opt-b-header">
+    <div class="opt-b-title">Mistérios Gloriosos</div>
+    <div class="opt-b-sub">Sábado • 1ª Dezena</div>
+  </div>
+
+  <div class="opt-b-journey">
+    <div class="opt-b-line"></div>
+    <div class="opt-b-line-fill" style="height: 35%"></div>
+
+    <div class="opt-b-step done">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">Sinal da Cruz</div>
+    </div>
+    <div class="opt-b-step done">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">Creio em Deus Pai</div>
+    </div>
+    <div class="opt-b-step done">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">Pai Nosso</div>
+    </div>
+    <div class="opt-b-step done decade">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">1º Mistério — Ressurreição</div>
+    </div>
+    <div class="opt-b-step done">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">Pai Nosso</div>
+    </div>
+    <div class="opt-b-step active">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">Ave Maria — 3 de 10</div>
+      <div class="opt-b-step-sub">1ª dezena</div>
+    </div>
+    <div class="opt-b-step">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">Ave Maria — 4 de 10</div>
+    </div>
+    <div class="opt-b-step">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">⋯ (mais 6 Ave Marias)</div>
+    </div>
+    <div class="opt-b-step">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">Glória ao Pai</div>
+    </div>
+    <div class="opt-b-step decade">
+      <div class="opt-b-dot"></div>
+      <div class="opt-b-step-label">2º Mistério — Ascensão</div>
+    </div>
+  </div>
+
+  <div class="opt-b-active-prayer">
+    <div class="opt-b-prayer-label">Ave Maria — 3 de 10</div>
+    <div class="opt-b-prayer-text">Ave Maria, cheia de graça, o Senhor é convosco. Bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.</div>
+  </div>
+
+  <div class="opt-b-controls">
+    <button class="opt-b-prev"><span class="material-symbols-rounded">chevron_left</span></button>
+    <button class="opt-b-next">
+      <span class="material-symbols-rounded" style="font-size:20px">navigate_next</span>
+      Próxima oração
+    </button>
+    <button class="opt-b-audio"><span class="material-symbols-rounded">volume_up</span></button>
+  </div>
+
+  <div class="mystery-selector">
+    <div class="mystery-selector-label">Mistérios</div>
+    <div class="mystery-tabs">
+      <button class="mys-tab">Gozosos<small>Seg/Sáb</small></button>
+      <button class="mys-tab">Dolorosos<small>Ter/Sex</small></button>
+      <button class="mys-tab active">Gloriosos<small>Qua/Dom</small></button>
+      <button class="mys-tab">Luminosos<small>Qui</small></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     OPÇÃO C — Cards com Swipe
+     ============================================ -->
+<div class="option-section" id="option-c">
+  <div class="option-label">Opção C</div>
+  <div class="option-name">Cards Empilhados (Swipe)</div>
+  <div class="option-desc">Cada oração é um card grande. Foco total no texto da oração — como um karaokê espiritual. Minimalista e imersivo.</div>
+
+  <div class="opt-c-header">
+    <div class="opt-c-progress-bar">
+      <div class="opt-c-progress-fill" style="width:15%"></div>
+    </div>
+    <div class="opt-c-progress-info">
+      <span class="opt-c-progress-label">Ave Maria — 3 de 10</span>
+      <span class="opt-c-progress-count">11 / 73</span>
+    </div>
+  </div>
+
+  <div class="opt-c-card-stack">
+    <!-- Card behind 2 -->
+    <div class="opt-c-card behind-2"></div>
+    <!-- Card behind 1 -->
+    <div class="opt-c-card behind-1">
+      <div class="opt-c-card-step">Ave Maria — 4 de 10</div>
+      <div class="opt-c-card-text" style="opacity:0.4">Ave Maria, cheia de graça...</div>
+    </div>
+    <!-- Current card -->
+    <div class="opt-c-card current">
+      <div class="opt-c-card-icon">
+        <span class="material-symbols-rounded">church</span>
+      </div>
+      <div class="opt-c-card-step">1ª Dezena • Ave Maria</div>
+      <div class="opt-c-card-title">3 de 10</div>
+      <div class="opt-c-card-text">Ave Maria, cheia de graça, o Senhor é convosco. Bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus.<br><br>Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.</div>
+    </div>
+  </div>
+
+  <div class="opt-c-swipe-hint">
+    <span class="material-symbols-rounded" style="font-size:16px">swipe_left</span>
+    Deslize ou toque para avançar
+  </div>
+
+  <div class="opt-c-controls">
+    <button class="opt-c-btn-secondary"><span class="material-symbols-rounded">skip_previous</span></button>
+    <button class="opt-c-btn-primary">
+      <span class="material-symbols-rounded" style="font-size:20px">navigate_next</span>
+      Próxima
+    </button>
+    <button class="opt-c-btn-secondary"><span class="material-symbols-rounded">volume_up</span></button>
+  </div>
+
+  <div class="mystery-selector">
+    <div class="mystery-selector-label">Mistérios</div>
+    <div class="mystery-tabs">
+      <button class="mys-tab">Gozosos<small>Seg/Sáb</small></button>
+      <button class="mys-tab">Dolorosos<small>Ter/Sex</small></button>
+      <button class="mys-tab active">Gloriosos<small>Qua/Dom</small></button>
+      <button class="mys-tab">Luminosos<small>Qui</small></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     OPÇÃO D — Contemplativo Minimalista
+     ============================================ -->
+<div class="option-section" id="option-d">
+  <div class="option-label">Opção D</div>
+  <div class="option-name">Contemplativo Minimalista</div>
+  <div class="option-desc">O mínimo possível na tela. Um grande círculo tappable no centro, texto da oração abaixo. Perfeito para oração meditativa — toque no círculo para avançar.</div>
+
+  <div class="opt-d-container">
+    <div class="opt-d-mystery">
+      <div class="opt-d-mystery-badge">1ª Dezena — Mistérios Gloriosos</div>
+      <div class="opt-d-mystery-name">A Ressurreição de Jesus</div>
+    </div>
+
+    <div class="opt-d-breath-container">
+      <svg class="opt-d-breath-progress" viewBox="0 0 220 220">
+        <circle class="opt-d-breath-bg" cx="110" cy="110" r="105" stroke-width="3"/>
+        <circle class="opt-d-breath-fill" cx="110" cy="110" r="105"
+          stroke-dasharray="659.73"
+          stroke-dashoffset="461.81"/>
+      </svg>
+      <div class="opt-d-breath-inner">
+        <div class="opt-d-breath-label">Ave Maria</div>
+        <div class="opt-d-breath-count">3</div>
+        <div class="opt-d-breath-sub">de 10</div>
+      </div>
+    </div>
+
+    <div class="opt-d-prayer">
+      <div class="opt-d-prayer-text">
+        <span class="opt-d-prayer-highlight">Ave Maria,</span> cheia de graça, o Senhor é convosco. Bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus.
+      </div>
+    </div>
+
+    <div class="opt-d-bottom">
+      <div class="opt-d-decades">
+        <div class="opt-d-decade-dot active"></div>
+        <div class="opt-d-decade-dot"></div>
+        <div class="opt-d-decade-dot"></div>
+        <div class="opt-d-decade-dot"></div>
+        <div class="opt-d-decade-dot"></div>
+      </div>
+      <div class="opt-d-tap-hint">Toque no círculo para avançar</div>
+      <div class="opt-d-bottom-controls">
+        <button class="opt-d-icon-btn"><span class="material-symbols-rounded">skip_previous</span></button>
+        <button class="opt-d-icon-btn"><span class="material-symbols-rounded">tune</span></button>
+        <button class="opt-d-icon-btn"><span class="material-symbols-rounded">volume_up</span></button>
+        <button class="opt-d-icon-btn"><span class="material-symbols-rounded">close</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mystery-selector">
+    <div class="mystery-selector-label">Mistérios</div>
+    <div class="mystery-tabs">
+      <button class="mys-tab">Gozosos<small>Seg/Sáb</small></button>
+      <button class="mys-tab">Dolorosos<small>Ter/Sex</small></button>
+      <button class="mys-tab active">Gloriosos<small>Qua/Dom</small></button>
+      <button class="mys-tab">Luminosos<small>Qui</small></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     OPÇÃO E — Faixa Horizontal de Contas
+     ============================================ -->
+<div class="option-section" id="option-e">
+  <div class="option-label">Opção E</div>
+  <div class="option-name">Faixa Horizontal com Contas</div>
+  <div class="option-desc">Contas em faixa horizontal com scroll. Compact e eficiente — o botão "Próxima" tem barra de progresso integrada. Bom para quem quer ver tudo de uma vez.</div>
+
+  <div class="opt-e-header">
+    <div class="opt-e-header-left">
+      <div class="opt-e-title">Mistérios Gloriosos</div>
+      <div class="opt-e-sub">Sábado • 1ª Dezena</div>
+    </div>
+    <div class="opt-e-counter">11 / 73</div>
+  </div>
+
+  <div class="opt-e-track">
+    <div class="opt-e-beads" id="opt-e-beads">
+      <!-- Generated by JS -->
+    </div>
+  </div>
+
+  <div class="opt-e-decade-labels">
+    <span class="opt-e-decade-label active">1ª</span>
+    <span class="opt-e-decade-label">2ª</span>
+    <span class="opt-e-decade-label">3ª</span>
+    <span class="opt-e-decade-label">4ª</span>
+    <span class="opt-e-decade-label">5ª</span>
+  </div>
+
+  <div class="opt-e-prayer">
+    <div class="opt-e-prayer-tag">Ave Maria — 3 de 10</div>
+    <div class="opt-e-prayer-text">Ave Maria, cheia de graça, o Senhor é convosco. Bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.</div>
+  </div>
+
+  <div class="opt-e-controls">
+    <button class="opt-e-ctrl"><span class="material-symbols-rounded">skip_previous</span></button>
+    <button class="opt-e-main">
+      <div class="opt-e-main-fill" style="width:15%"></div>
+      <span class="opt-e-main-text">
+        <span class="material-symbols-rounded" style="font-size:20px">navigate_next</span>
+        Próxima
+      </span>
+    </button>
+    <button class="opt-e-ctrl"><span class="material-symbols-rounded">volume_up</span></button>
+  </div>
+
+  <div class="mystery-selector">
+    <div class="mystery-selector-label">Mistérios</div>
+    <div class="mystery-tabs">
+      <button class="mys-tab">Gozosos<small>Seg/Sáb</small></button>
+      <button class="mys-tab">Dolorosos<small>Ter/Sex</small></button>
+      <button class="mys-tab active">Gloriosos<small>Qua/Dom</small></button>
+      <button class="mys-tab">Luminosos<small>Qui</small></button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================
+// TAB SWITCHING
+// ============================================
+function showOption(id, btn) {
+  document.querySelectorAll('.option-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.option-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('option-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ============================================
+// OPÇÃO A — Generate circular beads
+// ============================================
+(function() {
+  const container = document.getElementById('opt-a-rosary');
+  const totalBeads = 59;
+  const cx = 140, cy = 140, r = 120;
+
+  // We'll place beads around a circle
+  // Structure: opening (7) + 5 decades of (1 separator + 10 beads) + closing (2)
+  const beadData = [];
+
+  // 7 opening beads
+  for (let i = 0; i < 7; i++) {
+    beadData.push({ type: i < 3 ? 'done' : (i === 3 ? 'active' : 'normal'), kind: 'bead' });
+  }
+  // 5 decades
+  for (let d = 0; d < 5; d++) {
+    beadData.push({ type: d === 0 ? 'done' : 'normal', kind: 'separator' });
+    for (let b = 0; b < 10; b++) {
+      if (d === 0 && b < 3) {
+        beadData.push({ type: b === 2 ? 'active' : 'done', kind: 'bead' });
+      } else {
+        beadData.push({ type: 'normal', kind: 'bead' });
+      }
+    }
+  }
+
+  const count = beadData.length;
+  beadData.forEach((bead, i) => {
+    const angle = (i / count) * 2 * Math.PI - Math.PI / 2;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+
+    const el = document.createElement('div');
+    el.className = 'opt-a-bead';
+    if (bead.kind === 'separator') el.classList.add('separator');
+    if (bead.type === 'done') el.classList.add('done');
+    if (bead.type === 'active') el.classList.add('active');
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+    container.appendChild(el);
+  });
+})();
+
+// ============================================
+// OPÇÃO E — Generate horizontal beads
+// ============================================
+(function() {
+  const container = document.getElementById('opt-e-beads');
+
+  // Opening: cross + credo + PN + 3AM + gloria = 7
+  const structure = [];
+  for (let i = 0; i < 7; i++) structure.push({ type: 'done' });
+
+  // 5 decades
+  for (let d = 0; d < 5; d++) {
+    structure.push({ type: 'divider' });
+    structure.push({ type: d === 0 ? 'done' : 'normal', kind: 'separator' });
+    structure.push({ type: d === 0 ? 'done' : 'normal' }); // PN
+    for (let b = 0; b < 10; b++) {
+      if (d === 0 && b < 2) structure.push({ type: 'done' });
+      else if (d === 0 && b === 2) structure.push({ type: 'active' });
+      else structure.push({ type: 'normal' });
+    }
+    structure.push({ type: 'normal' }); // Gloria
+    structure.push({ type: 'normal' }); // Fatima
+  }
+
+  structure.forEach(item => {
+    if (item.type === 'divider') {
+      const div = document.createElement('div');
+      div.className = 'opt-e-divider';
+      container.appendChild(div);
+      return;
+    }
+    const el = document.createElement('div');
+    el.className = 'opt-e-bead';
+    if (item.kind === 'separator') el.classList.add('separator');
+    if (item.type === 'done') el.classList.add('done');
+    if (item.type === 'active') el.classList.add('active');
+    container.appendChild(el);
+  });
+
+  // Scroll to active bead
+  setTimeout(() => {
+    const active = container.querySelector('.active');
+    if (active) {
+      active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }, 100);
+})();
+</script>
+
+</body>
+</html>

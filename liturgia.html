@@ -972,14 +972,14 @@ input[type="range"]::-webkit-slider-thumb {
 
 .more-menu-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
 
 .more-menu-item {
   display: flex; flex-direction: column;
-  align-items: center; gap: 6px;
-  padding: 16px 4px 12px;
+  align-items: center; gap: 8px;
+  padding: 18px 4px 14px;
   border-radius: var(--radius);
   border: none;
   background: transparent;
@@ -1084,12 +1084,15 @@ input[type="range"]::-webkit-slider-thumb {
   transform: scale(0.97);
 }
 .terco-breath-label {
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: var(--accent);
   margin-bottom: 2px;
+  text-align: center;
+  max-width: 120px;
+  line-height: 1.3;
 }
 .terco-breath-count {
   font-family: var(--font-display);
@@ -1097,6 +1100,10 @@ input[type="range"]::-webkit-slider-thumb {
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1;
+  text-align: center;
+}
+.terco-breath-count:empty {
+  display: none;
 }
 .terco-breath-sub {
   font-size: 0.62rem;
@@ -2360,36 +2367,74 @@ input[type="range"]::-webkit-slider-thumb {
 .paroquia-result-addr { font-size: 0.7rem; color: var(--text-tertiary); }
 
 /* =================== LITURGIA DAS HORAS =================== */
-.oficio-time-bar {
-  position: relative;
-  height: 32px;
-  background: var(--bg-elevated);
-  border-radius: 100px;
+.oficio-tb {
+  display: flex;
+  gap: 6px;
   margin-bottom: 20px;
-  overflow: hidden;
+  padding: 0 20px;
 }
-.oficio-time-segment {
-  position: absolute; top: 4px; height: 24px;
+.oficio-tb-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.oficio-tb-item.laudes { flex: 3; }
+.oficio-tb-item.gap-mid { flex: 2; }
+.oficio-tb-item.vesperas { flex: 3; }
+.oficio-tb-item.completas { flex: 2; }
+.oficio-tb-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.oficio-tb-label .material-symbols-rounded { font-size: 14px; }
+.oficio-tb-item.done .oficio-tb-label { color: var(--text-tertiary); }
+.oficio-tb-item.done .oficio-tb-label .material-symbols-rounded { color: var(--accent); }
+.oficio-tb-item.active .oficio-tb-label { color: var(--accent); font-weight: 700; }
+.oficio-tb-seg {
+  width: 100%;
+  height: 6px;
   border-radius: 100px;
-  opacity: 0.5;
 }
-.laudes-seg { background: var(--accent); }
-.vesperas-seg { background: var(--gold); }
-.completas-seg { background: var(--text-tertiary); }
-.oficio-time-dot {
-  position: absolute; top: 50%; transform: translate(-50%,-50%);
+.oficio-tb-item.laudes .oficio-tb-seg { background: var(--accent); opacity: 0.3; }
+.oficio-tb-item.laudes.done .oficio-tb-seg { opacity: 0.25; }
+.oficio-tb-item.gap-mid .oficio-tb-seg { background: var(--bg-elevated); }
+.oficio-tb-item.vesperas .oficio-tb-seg { background: var(--gold); opacity: 0.5; }
+.oficio-tb-item.vesperas.active .oficio-tb-seg {
+  opacity: 1;
+  height: 8px;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--gold);
+}
+.oficio-tb-item.completas .oficio-tb-seg { background: var(--text-tertiary); opacity: 0.25; }
+.oficio-tb-now {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  flex: 0 0 auto;
+  width: 20px;
+  align-self: stretch;
+}
+.oficio-tb-now-label {
+  font-size: 0.48rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.oficio-tb-now-dot {
   width: 10px; height: 10px;
   background: var(--accent);
-  border: 2px solid var(--bg-card);
+  border: 2px solid var(--bg);
   border-radius: 50%;
-  z-index: 2;
-  box-shadow: 0 0 0 3px var(--accent-soft);
-}
-.oficio-time-label {
-  position: absolute; top: 50%; transform: translate(-50%,-50%);
-  font-size: 0.55rem; font-weight: 700;
-  color: var(--text-tertiary);
-  z-index: 1;
+  box-shadow: 0 0 0 2px var(--accent);
+  margin-bottom: -1px;
 }
 
 .oficio-card {
@@ -5683,15 +5728,32 @@ body.modo-missa.brilho-reduzido {
     <div class="section-subtitle">Liturgia das Horas — Domingo de Páscoa</div>
 
     <!-- Time indicator -->
-    <div class="oficio-time-bar">
-      <div class="oficio-time-dot" style="left:30%"></div>
-      <div class="oficio-time-label" style="left:8%">6h</div>
-      <div class="oficio-time-label" style="left:38%">12h</div>
-      <div class="oficio-time-label" style="left:68%">18h</div>
-      <div class="oficio-time-label" style="left:88%">22h</div>
-      <div class="oficio-time-segment laudes-seg" style="left:4%;width:20%"></div>
-      <div class="oficio-time-segment vesperas-seg" style="left:58%;width:20%"></div>
-      <div class="oficio-time-segment completas-seg" style="left:82%;width:14%"></div>
+    <div class="oficio-tb">
+      <div class="oficio-tb-item laudes done">
+        <div class="oficio-tb-label">
+          <span class="material-symbols-rounded">check_circle</span>
+          Laudes · 6h
+        </div>
+        <div class="oficio-tb-seg"></div>
+      </div>
+      <div class="oficio-tb-now">
+        <div class="oficio-tb-now-label">Agora</div>
+        <div class="oficio-tb-now-dot"></div>
+      </div>
+      <div class="oficio-tb-item vesperas active">
+        <div class="oficio-tb-label">
+          <span class="material-symbols-rounded">wb_sunny</span>
+          Vésperas · 18h
+        </div>
+        <div class="oficio-tb-seg"></div>
+      </div>
+      <div class="oficio-tb-item completas">
+        <div class="oficio-tb-label">
+          <span class="material-symbols-rounded">nightlight</span>
+          Completas · 22h
+        </div>
+        <div class="oficio-tb-seg"></div>
+      </div>
     </div>
 
     <!-- LAUDES -->
@@ -8236,16 +8298,10 @@ function buildTercoSequence(mysteryKey) {
 }
 
 function initTerco() {
-  // Determine mystery of the day
-  const dayOfWeek = new Date().getDay(); // 0=Dom
+  const dayOfWeek = new Date().getDay();
   const dayMystery = { 0:'gloriosos', 1:'gozosos', 2:'dolorosos', 3:'gloriosos', 4:'luminosos', 5:'dolorosos', 6:'gozosos' };
   tercoCurrentMystery = dayMystery[dayOfWeek] || 'gloriosos';
 
-  const mystery = tercoMysteries[tercoCurrentMystery];
-  document.getElementById('terco-mystery-badge').textContent = mystery.name;
-  document.getElementById('terco-subtitle').textContent = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'][dayOfWeek] + ' — ' + mystery.name;
-
-  // Set active tab
   document.querySelectorAll('.terco-mys-tab').forEach(t => t.classList.toggle('active', t.dataset.mys === tercoCurrentMystery));
 
   tercoSequence = buildTercoSequence(tercoCurrentMystery);
@@ -8258,12 +8314,51 @@ function setTercoMystery(key, btn) {
   document.querySelectorAll('.terco-mys-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
 
-  const mystery = tercoMysteries[key];
-  document.getElementById('terco-mystery-badge').textContent = mystery.name;
-
   tercoSequence = buildTercoSequence(key);
   tercoCurrentStep = 0;
   updateTercoUI();
+  document.getElementById('terco-mystery-selector').style.display = 'none';
+  document.getElementById('terco-settings-btn').classList.remove('active');
+}
+
+function getCurrentDecade() {
+  if (tercoCurrentStep < 7) return -1;
+  const afterOpening = tercoCurrentStep - 7;
+  const decade = Math.floor(afterOpening / 13);
+  return Math.min(decade, 4);
+}
+
+function renderTercoPrayerText(step) {
+  // All content here is from hardcoded prayer data, not user input
+  const el = document.getElementById('terco-prayer-text');
+  if (step.type === 'mystery') {
+    el.textContent = '';
+    const highlight = document.createElement('span');
+    highlight.className = 'terco-prayer-highlight';
+    highlight.textContent = step.label;
+    el.appendChild(highlight);
+    el.appendChild(document.createElement('br'));
+    el.appendChild(document.createTextNode(step.sub));
+    el.appendChild(document.createElement('br'));
+    el.appendChild(document.createElement('br'));
+    const hint = document.createElement('span');
+    hint.style.cssText = 'font-size:0.78rem;color:var(--text-tertiary)';
+    hint.textContent = 'Medite sobre este mistério';
+    el.appendChild(hint);
+  } else if (step.prayer) {
+    const text = tercoPrayers[step.prayer].text;
+    const firstComma = text.indexOf(',');
+    if (firstComma > 0 && firstComma < 30) {
+      el.textContent = '';
+      const highlight = document.createElement('span');
+      highlight.className = 'terco-prayer-highlight';
+      highlight.textContent = text.substring(0, firstComma + 1);
+      el.appendChild(highlight);
+      el.appendChild(document.createTextNode(text.substring(firstComma + 1)));
+    } else {
+      el.textContent = text;
+    }
+  }
 }
 
 function updateTercoUI() {
@@ -8271,63 +8366,94 @@ function updateTercoUI() {
   const total = tercoSequence.length;
   const progress = tercoCurrentStep / (total - 1);
 
-  // Update progress arc
-  const circumference = 816.81;
+  // Progress arc (circumference = 2*PI*105 = 659.73)
+  const circumference = 659.73;
   const offset = circumference * (1 - progress);
   document.getElementById('terco-progress-arc').setAttribute('stroke-dashoffset', offset);
 
-  // Update center text
-  const centerPrayer = document.getElementById('terco-center-prayer');
-  const centerCount = document.getElementById('terco-center-count');
-  const centerMystery = document.getElementById('terco-center-mystery');
+  // Mystery badge (top)
+  const mystery = tercoMysteries[tercoCurrentMystery];
+  const currentDecade = getCurrentDecade();
+  const mysteryBadge = document.getElementById('terco-mystery-badge');
+  const mysteryName = document.getElementById('terco-mystery-name');
 
-  centerPrayer.textContent = step.label;
+  if (currentDecade >= 0 && currentDecade < 5) {
+    mysteryBadge.textContent = (currentDecade + 1) + 'a Dezena — ' + mystery.name;
+    mysteryName.textContent = mystery.items[currentDecade];
+  } else if (tercoCurrentStep >= total - 2) {
+    mysteryBadge.textContent = 'Encerramento';
+    mysteryName.textContent = '';
+  } else {
+    mysteryBadge.textContent = 'Preparação';
+    mysteryName.textContent = '';
+  }
+
+  // Breath circle center
+  const breathLabel = document.getElementById('terco-breath-label');
+  const breathCount = document.getElementById('terco-breath-count');
+  const breathSub = document.getElementById('terco-breath-sub');
+
+  breathLabel.style.fontSize = '';
+  breathCount.style.fontSize = '';
 
   if (step.type === 'avemaria') {
-    centerCount.textContent = step.sub;
+    breathLabel.textContent = 'Ave Maria';
+    // Extract just the number portion (e.g. "3 de 10" from "Pela fé — 1 de 3" or "3 de 10")
+    var numMatch = step.sub.match(/(\d+)\s*de\s*(\d+)/);
+    if (numMatch) {
+      breathCount.textContent = numMatch[1];
+      breathSub.textContent = 'de ' + numMatch[2];
+    } else {
+      breathCount.textContent = '';
+      breathSub.textContent = step.sub || '';
+    }
   } else if (step.type === 'mystery') {
-    centerCount.textContent = step.label;
+    breathLabel.textContent = 'Mistério';
+    breathCount.textContent = step.label;
+    breathCount.style.fontSize = '1.3rem';
+    breathSub.textContent = '';
   } else {
-    centerCount.textContent = Math.round(progress * 100) + '%';
+    breathLabel.textContent = step.label;
+    breathLabel.style.fontSize = '0.75rem';
+    breathCount.textContent = '';
+    breathSub.textContent = step.sub || '';
   }
 
-  if (step.type === 'mystery') {
-    centerMystery.textContent = step.sub.length > 35 ? step.sub.substring(0,32) + '...' : step.sub;
-  } else {
-    centerMystery.textContent = '';
-  }
+  // Prayer text (safe DOM methods)
+  renderTercoPrayerText(step);
 
-  // Update prayer card
-  document.getElementById('terco-prayer-label').textContent = step.label + (step.sub ? ' — ' + step.sub : '');
+  // Decade dots
+  const dots = document.querySelectorAll('.terco-decade-dot');
+  dots.forEach(function(dot, i) {
+    dot.className = 'terco-decade-dot';
+    if (i < currentDecade) dot.classList.add('done');
+    else if (i === currentDecade) dot.classList.add('active');
+  });
 
-  if (step.type === 'mystery') {
-    document.getElementById('terco-prayer-text').innerHTML =
-      '<div style="text-align:center;padding:16px 0">' +
-      '<div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:8px">' + step.label + '</div>' +
-      '<div style="font-family:var(--font-display);font-size:1.25rem;font-weight:600;line-height:1.4">' + step.sub + '</div>' +
-      '<div style="font-size:0.75rem;color:var(--text-tertiary);margin-top:12px">Medite sobre este mistério e reze 1 Pai Nosso + 10 Ave Marias</div>' +
-      '</div>';
-  } else if (step.prayer) {
-    document.getElementById('terco-prayer-text').textContent = tercoPrayers[step.prayer].text;
-  }
-
-  // Update buttons
-  document.getElementById('terco-prev-btn').disabled = tercoCurrentStep === 0;
-
-  const nextBtn = document.getElementById('terco-next-btn');
+  // Tap hint
+  var hint = document.getElementById('terco-tap-hint');
   if (tercoCurrentStep >= total - 1) {
-    nextBtn.classList.add('finish');
-    nextBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size:32px">check</span>';
+    hint.textContent = 'Terço completo!';
   } else {
-    nextBtn.classList.remove('finish');
-    nextBtn.innerHTML = '<span class="material-symbols-rounded" style="font-size:32px">arrow_forward</span>';
+    hint.textContent = 'Toque no círculo para avançar';
+  }
+
+  // Prev button
+  document.getElementById('terco-prev-btn').style.opacity = tercoCurrentStep === 0 ? '0.3' : '1';
+
+  // Finish glow
+  var inner = document.querySelector('.terco-breath-inner');
+  if (tercoCurrentStep >= total - 1) {
+    inner.style.animation = 'tercoFinishPulse 1.5s ease infinite';
+  } else {
+    inner.style.animation = '';
   }
 
   // TTS
   if (tercoAudioOn && step.prayer && tercoPrayers[step.prayer]) {
     if (window.speechSynthesis) {
       window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(tercoPrayers[step.prayer].text);
+      var u = new SpeechSynthesisUtterance(tercoPrayers[step.prayer].text);
       u.lang = 'pt-BR'; u.rate = 0.9;
       window.speechSynthesis.speak(u);
     }
@@ -8336,19 +8462,18 @@ function updateTercoUI() {
 
 function tercoNext() {
   if (tercoCurrentStep >= tercoSequence.length - 1) {
-    // Finished!
     showToast('Terço completo! Que Maria interceda por você.');
     if (navigator.vibrate) navigator.vibrate([50,30,50,30,50]);
-    // Update counter
-    const el = document.getElementById('terco-month-count');
-    el.textContent = parseInt(el.textContent) + 1;
-    const totalEl = document.getElementById('terco-total-count');
-    totalEl.textContent = parseInt(totalEl.textContent) + 1;
     return;
   }
   tercoCurrentStep++;
   updateTercoUI();
   if (navigator.vibrate) navigator.vibrate(15);
+
+  // Subtle scale animation on circle
+  var inner = document.querySelector('.terco-breath-inner');
+  inner.style.transform = 'scale(0.95)';
+  setTimeout(function() { inner.style.transform = ''; }, 150);
 }
 
 function tercoPrev() {
@@ -8359,10 +8484,24 @@ function tercoPrev() {
 
 function tercoToggleAudio() {
   tercoAudioOn = !tercoAudioOn;
-  const btn = document.getElementById('terco-audio-btn');
+  var btn = document.getElementById('terco-audio-btn');
   btn.classList.toggle('active', tercoAudioOn);
   if (!tercoAudioOn && window.speechSynthesis) window.speechSynthesis.cancel();
   showToast(tercoAudioOn ? 'Áudio ativado' : 'Áudio desativado');
+}
+
+function tercoToggleSettings() {
+  var selector = document.getElementById('terco-mystery-selector');
+  var btn = document.getElementById('terco-settings-btn');
+  var isVisible = selector.style.display !== 'none';
+  selector.style.display = isVisible ? 'none' : 'block';
+  btn.classList.toggle('active', !isVisible);
+}
+
+function tercoReset() {
+  tercoCurrentStep = 0;
+  updateTercoUI();
+  showToast('Terço reiniciado');
 }
 
 document.addEventListener('DOMContentLoaded', initTerco);
