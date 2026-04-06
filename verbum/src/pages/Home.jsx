@@ -1,85 +1,97 @@
+import { useState } from 'react'
 import DateBar from '../components/Leituras/DateBar.jsx'
+import ReadingTabs from '../components/Leituras/ReadingTabs.jsx'
+import ReadingToolbar from '../components/Leituras/ReadingToolbar.jsx'
 import VerseWidget from '../components/Leituras/VerseWidget.jsx'
 import ReadingCard from '../components/Leituras/ReadingCard.jsx'
 import ReflectionCard from '../components/Leituras/ReflectionCard.jsx'
 import SaintCard from '../components/Leituras/SaintCard.jsx'
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState('all')
+
   return (
     <>
       <DateBar
-        liturgicalTitle="Domingo de Páscoa"
-        dateDisplay="Domingo, 05 de Abril de 2026"
+        liturgicalTitle="Segunda-feira da Oitava da Páscoa"
+        dateDisplay="Segunda-feira, 06 de Abril de 2026"
         liturgicalColor="#FFFFFF"
         colorName="Branco"
       />
 
+      <ReadingTabs activeTab={activeTab} onTabChange={setActiveTab} />
+      <ReadingToolbar />
+
       <div className="content-area">
-        <VerseWidget
-          text={'"Ele viu e acreditou. De fato, eles ainda não tinham compreendido a Escritura, segundo a qual Jesus devia ressuscitar dos mortos."'}
-          reference="João 20,8-9"
-        />
+        {(activeTab === 'all' || activeTab === 'all') && (
+          <VerseWidget
+            text={'"Ide anunciar a meus irmãos que se dirijam para a Galileia. Lá eles me verão."'}
+            reference="Mateus 28,10"
+          />
+        )}
 
-        <ReadingCard label="Primeira Leitura" reference="Atos dos Apóstolos 10,34a.37-43">
-          <span>
-            Naqueles dias, Pedro tomou a palavra e disse: <sup>37</sup>"Vós sabeis o que aconteceu em toda a Judeia, a começar pela Galileia, depois do batismo pregado por João: <sup>38</sup>como Deus ungiu Jesus de Nazaré com o Espírito Santo e com poder. Ele andou por toda parte, fazendo o bem e curando todos os que eram dominados pelo diabo, porque Deus estava com ele.
-            <br /><br />
-            <sup>39</sup>E nós somos testemunhas de tudo o que ele fez na terra dos judeus e em Jerusalém. Eles o mataram, suspendendo-o num madeiro. <sup>40</sup>Mas Deus o ressuscitou no terceiro dia e permitiu que aparecesse, <sup>41</sup>não a todo o povo, mas às testemunhas que Deus havia escolhido: a nós, que comemos e bebemos com ele, depois que ressuscitou dos mortos.
-            <br /><br />
-            <sup>42</sup>E nos mandou pregar ao povo e dar testemunho de que Deus o constituiu juiz dos vivos e dos mortos. <sup>43</sup>Dele todos os profetas dão testemunho: quem nele crê recebe o perdão dos pecados, por meio do seu nome."
-          </span>
-        </ReadingCard>
+        {(activeTab === 'all' || activeTab === '1leitura') && (
+          <ReadingCard label="Primeira Leitura" reference="Atos dos Apóstolos 2,14.22-33">
+            <span>
+              Naqueles dias, Pedro, de pé com os onze Apóstolos, levantou a voz e disse: "Homens de Israel, escutai estas palavras: Jesus de Nazaré foi um homem aprovado por Deus diante de vós com milagres, prodígios e sinais. Entregue segundo o plano determinado e a presciência de Deus, vós o matastes, pregando-o numa cruz por mãos de ímpios.
+              <br /><br />
+              <sup>24</sup>Mas Deus o ressuscitou, libertando-o das dores da morte, porque não era possível que ela o retivesse em seu poder. <sup>32</sup>A este Jesus, Deus o ressuscitou, e disso todos nós somos testemunhas. <sup>33</sup>Exaltado pela direita de Deus, tendo recebido do Pai o Espírito Santo prometido, derramou-o, como vedes e ouvis."
+            </span>
+          </ReadingCard>
+        )}
 
-        <ReadingCard label="Salmo Responsorial" reference="Salmo 117 (118)">
-          <span>
-            <strong style={{ color: 'var(--accent)' }}>R: Este é o dia que o Senhor fez para nós: alegremo-nos e nele exultemos!</strong>
-            <br /><br />
-            Dai graças ao Senhor, porque ele é bom!<br />
-            "Eterna é a sua misericórdia!"<br />
-            A casa de Israel agora o diga:<br />
-            "Eterna é a sua misericórdia!" <strong>R.</strong>
-            <br /><br />
-            A mão direita do Senhor fez maravilhas,<br />
-            a mão direita do Senhor me levantou,<br />
-            a mão direita do Senhor fez maravilhas! <strong>R.</strong>
-            <br /><br />
-            A pedra que os pedreiros rejeitaram,<br />
-            tornou-se agora a pedra angular.<br />
-            Pelo Senhor é que foi feito tudo isso:<br />
-            que maravilha aos nossos olhos! <strong>R.</strong>
-          </span>
-        </ReadingCard>
+        {(activeTab === 'all' || activeTab === 'salmo') && (
+          <ReadingCard label="Salmo Responsorial" reference="Salmo 15 (16)">
+            <span>
+              <strong style={{ color: 'var(--accent)' }}>R: Guardai-me, ó Deus, porque em vós me refugio.</strong>
+              <br /><br />
+              O Senhor é a parte de minha herança e meu cálice;<br />
+              é vós que garantis a minha sorte.<br />
+              Tenho sempre o Senhor ante meus olhos,<br />
+              pois, com ele à minha direita, não vacilarei. <strong>R.</strong>
+              <br /><br />
+              Por isso o meu coração se alegra,<br />
+              a minha alma exulta de contentamento;<br />
+              e até o meu corpo repousa tranquilo,<br />
+              porque não me abandonareis na morte. <strong>R.</strong>
+            </span>
+          </ReadingCard>
+        )}
 
-        <ReadingCard label="Segunda Leitura" reference="Colossenses 3,1-4">
-          <span>
-            Irmãos: <sup>1</sup>Se ressuscitastes com Cristo, buscai as coisas do alto, onde Cristo está sentado à direita de Deus. <sup>2</sup>Pensai nas coisas do alto e não nas da terra. <sup>3</sup>Pois vós morrestes e a vossa vida está escondida, com Cristo, em Deus. <sup>4</sup>Quando Cristo, que é a vossa vida, se manifestar, então vós também sereis manifestados com ele na glória.
-          </span>
-        </ReadingCard>
+        {(activeTab === 'all' || activeTab === 'evangelho') && (
+          <ReadingCard label="Evangelho" reference="Mateus 28,8-15" isGospel>
+            <span>
+              <sup>8</sup>As mulheres partiram depressa do sepulcro. Com medo e com grande alegria, correram para dar a notícia aos discípulos.
+              <br /><br />
+              <sup>9</sup>E eis que Jesus veio ao encontro delas, e disse: "Alegrai-vos!" Elas se aproximaram, abraçaram seus pés e o adoraram. <sup>10</sup>Então Jesus disse a elas: "Não tenhais medo. Ide anunciar a meus irmãos que se dirijam para a Galileia. Lá eles me verão."
+              <br /><br />
+              <sup>11</sup>Enquanto as mulheres iam, alguns guardas foram à cidade e contaram aos sumos sacerdotes tudo o que tinha acontecido. <sup>15</sup>Os soldados receberam o dinheiro e fizeram como tinham sido instruídos. E essa história se espalhou entre os judeus até o dia de hoje.
+            </span>
+          </ReadingCard>
+        )}
 
-        <ReadingCard label="Evangelho" reference="João 20,1-9" isGospel>
-          <span>
-            <sup>1</sup>No primeiro dia da semana, Maria Madalena foi ao túmulo de Jesus, bem de madrugada, quando ainda estava escuro, e viu que a pedra tinha sido retirada do túmulo.
-            <br /><br />
-            <sup>2</sup>Então ela saiu correndo e foi encontrar Simão Pedro e o outro discípulo, aquele que Jesus amava, e lhes disse: "Tiraram o Senhor do túmulo, e não sabemos onde o colocaram."
-            <br /><br />
-            <sup>3</sup>Saíram, então, Pedro e o outro discípulo e foram ao túmulo. <sup>4</sup>Os dois corriam juntos, mas o outro discípulo correu mais depressa que Pedro e chegou primeiro ao túmulo. <sup>5</sup>Inclinando-se, viu as faixas de linho no chão, mas não entrou.
-            <br /><br />
-            <sup>6</sup>Chegou também Simão Pedro, que vinha correndo atrás, e entrou no túmulo. Viu as faixas de linho deitadas no chão <sup>7</sup>e o pano que tinha sido colocado na cabeça de Jesus, não posto com as faixas, mas enrolado num lugar à parte.
-            <br /><br />
-            <sup>8</sup>Então entrou também o outro discípulo, que tinha chegado primeiro ao túmulo. Ele viu e acreditou. <sup>9</sup>De fato, eles ainda não tinham compreendido a Escritura, segundo a qual Jesus devia ressuscitar dos mortos.
-          </span>
-        </ReadingCard>
+        {(activeTab === 'all') && (
+          <>
+            <ReflectionCard
+              text={'"Alegrai-vos!" — É a primeira palavra do Ressuscitado às mulheres. Não um ensinamento, não uma ordem complexa, mas um convite à alegria. A Páscoa é isto: a alegria que nasce do encontro com o Cristo vivo. Ele vem ao nosso encontro, mesmo quando estamos com medo.'}
+              author="Reflexão Verbum — Segunda da Oitava da Páscoa"
+            />
 
-        <ReflectionCard
-          text='"Ele viu e acreditou." — O discípulo amado não precisou de explicações. Bastou ver o túmulo vazio e os sinais deixados. A fé nasce da contemplação atenta. Nesta Páscoa, somos chamados a olhar com os olhos do coração e acreditar: Cristo venceu a morte.'
-          author="Reflexão Verbum — Domingo de Páscoa"
-        />
+            <SaintCard
+              monogram="OP"
+              name="Oitava da Páscoa"
+              description="Os oito dias que seguem o Domingo de Páscoa são celebrados como se fossem um único grande dia. Cada dia é tratado como solenidade — a alegria da Ressurreição se prolonga por toda a semana."
+            />
+          </>
+        )}
 
-        <SaintCard
-          monogram="DP"
-          name="Domingo de Páscoa"
-          description="A Ressurreição do Senhor é a maior festa do ano litúrgico. Celebramos que Cristo venceu a morte e abriu para nós as portas da vida eterna. Feliz Páscoa!"
-        />
+        {activeTab === 'santo' && (
+          <SaintCard
+            monogram="OP"
+            name="Oitava da Páscoa"
+            description="Os oito dias que seguem o Domingo de Páscoa são celebrados como se fossem um único grande dia. Cada dia é tratado como solenidade — a alegria da Ressurreição se prolonga por toda a semana."
+          />
+        )}
 
         <div style={{ height: 100 }} />
       </div>

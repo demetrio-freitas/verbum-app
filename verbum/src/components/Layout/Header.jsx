@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useTheme } from '../../context/ThemeContext.jsx'
+import { toast } from '../shared/Toast.jsx'
 
 export default function Header() {
   const navigate = useNavigate()
@@ -8,11 +9,14 @@ export default function Header() {
   return (
     <header className="app-header">
       <div className="app-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-        Verbum<span>beta</span>
+        Verbum<span>liturgia</span>
       </div>
       <div className="header-actions">
         <button className={`icon-btn ${darkMode ? 'active' : ''}`} onClick={toggleDarkMode}>
           {darkMode ? 'light_mode' : 'dark_mode'}
+        </button>
+        <button className="icon-btn" onClick={() => toast('Compartilhar disponível no app nativo')}>
+          share
         </button>
         <button className="icon-btn" onClick={() => navigate('/settings')}>
           settings
