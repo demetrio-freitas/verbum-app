@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Verbum — Catecismo da Igreja Católica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   DESIGN TOKENS — CATECISMO
+   ======================================== */
+:root {
+  --bg: #FAFAF7;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F2F1EC;
+  --bg-surface: #F7F6F3;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --accent: #78350F;
+  --accent-light: #D97706;
+  --accent-soft: rgba(120,53,15,0.06);
+  --accent-glow: rgba(120,53,15,0.12);
+  --gold: #B45309;
+  --gold-light: rgba(180,83,9,0.08);
+  --green: #16A34A;
+  --green-soft: rgba(22,163,74,0.08);
+  --blue: #2563EB;
+  --blue-soft: rgba(37,99,235,0.08);
+  --purple: #7C3AED;
+  --purple-soft: rgba(124,58,237,0.08);
+  --border: rgba(28,25,23,0.06);
+  --border-strong: rgba(28,25,23,0.12);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.06);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 50%;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.35s ease;
+}
+
+[data-theme="dark"] {
+  --bg: #0C0A09;
+  --bg-card: #1C1917;
+  --bg-elevated: #292524;
+  --bg-surface: #1A1816;
+  --text-primary: #FAFAF9;
+  --text-secondary: #A8A29E;
+  --text-tertiary: #57534E;
+  --accent: #D97706;
+  --accent-light: #F59E0B;
+  --accent-soft: rgba(217,119,6,0.08);
+  --accent-glow: rgba(217,119,6,0.12);
+  --gold: #D97706;
+  --gold-light: rgba(217,119,6,0.06);
+  --green-soft: rgba(22,163,74,0.12);
+  --blue-soft: rgba(37,99,235,0.12);
+  --purple-soft: rgba(124,58,237,0.12);
+  --border: rgba(250,250,249,0.06);
+  --border-strong: rgba(250,250,249,0.12);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+  position: relative;
+}
+
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* ========================================
+   SCREENS
+   ======================================== */
+.screen { display: none; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+.screen.active { display: flex; }
+
+/* ========================================
+   HEADER
+   ======================================== */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  padding: 14px 20px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.header-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.header-subtitle {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 1px;
+}
+
+.icon-btn {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent;
+  color: var(--text-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.icon-btn:active { background: var(--accent-soft); }
+
+/* ========================================
+   SEARCH BAR
+   ======================================== */
+.search-bar {
+  margin: 12px 20px;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-bar input::placeholder { color: var(--text-tertiary); }
+.search-bar input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.search-bar .search-icon {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--text-tertiary); font-size: 20px; pointer-events: none;
+}
+
+/* ========================================
+   CONTENT AREA
+   ======================================== */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 100px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================
+   PERGUNTA DO DIA (Home Card)
+   ======================================== */
+.question-card {
+  margin: 16px 20px;
+  padding: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+.question-card:active { transform: scale(0.98); }
+
+.question-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--gold-light);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.question-card-text {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text-primary);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.question-card-action {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* Answer expand */
+.question-answer {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.question-answer.visible { display: block; }
+
+.question-answer-text {
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.question-answer-ref {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+
+.question-answer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ========================================
+   SECTION TITLE
+   ======================================== */
+.section-title {
+  padding: 0 20px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ========================================
+   PART CARDS (Index)
+   ======================================== */
+.part-card {
+  margin: 0 20px 12px;
+  padding: 18px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.part-card:active { transform: scale(0.98); box-shadow: var(--shadow-md); }
+
+.part-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.part-card-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.part-card-icon.part1 { background: var(--accent-soft); color: var(--accent); }
+.part-card-icon.part2 { background: var(--blue-soft); color: var(--blue); }
+.part-card-icon.part3 { background: var(--green-soft); color: var(--green); }
+.part-card-icon.part4 { background: var(--purple-soft); color: var(--purple); }
+
+.part-card-info { flex: 1; }
+
+.part-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 3px;
+}
+
+.part-card-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.part-card-meta {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.part-card-desc {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.part-card-arrow {
+  color: var(--text-tertiary);
+  font-size: 20px;
+  margin-top: 4px;
+}
+
+/* ========================================
+   CHIPS / SHORTCUTS
+   ======================================== */
+.chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.chip {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+.chip:active { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+
+/* ========================================
+   STUDY PLANS
+   ======================================== */
+.plan-card {
+  margin: 0 20px 10px;
+  padding: 16px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+.plan-card:active { transform: scale(0.98); }
+
+.plan-card-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.plan-card-info { flex: 1; }
+
+.plan-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.plan-card-meta {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.plan-card-badge {
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.plan-card-badge.free { background: var(--green-soft); color: var(--green); }
+.plan-card-badge.locked { background: var(--bg-elevated); color: var(--text-tertiary); }
+
+/* ========================================
+   PART DETAIL (Sections list)
+   ======================================== */
+.section-card {
+  margin: 0 20px 10px;
+  padding: 16px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+.section-card:active { transform: scale(0.98); }
+
+.section-card-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.section-card-chapters {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.chapter-item {
+  margin: 0 20px 8px;
+  padding: 14px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform var(--transition-fast);
+}
+.chapter-item:active { transform: scale(0.98); }
+
+.chapter-number {
+  width: 28px; height: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.chapter-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.chapter-range {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+/* ========================================
+   READING SCREEN
+   ======================================== */
+.reading-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  padding: 0 20px;
+  margin: 10px 0 6px;
+}
+
+.reading-header-nav span {
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+.reading-header-nav span:hover { color: var(--accent); }
+.reading-header-nav .separator { color: var(--text-tertiary); cursor: default; }
+
+.paragraph-block {
+  padding: 0 20px;
+  margin-bottom: 24px;
+}
+
+.paragraph-number {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.paragraph-text {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--text-primary);
+}
+
+.paragraph-text em {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.paragraph-text .citation {
+  font-style: italic;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent-soft);
+  display: block;
+  margin: 12px 0;
+  color: var(--text-secondary);
+  font-size: 17px;
+}
+
+.paragraph-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin: 20px 0;
+}
+
+.paragraph-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-body);
+}
+.paragraph-nav-btn:active { background: var(--accent-soft); color: var(--accent); }
+
+/* References section */
+.references-section {
+  margin: 12px 20px 0;
+  padding: 16px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.references-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+
+.references-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ref-chip {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.ref-chip:active { background: var(--accent-glow); }
+
+.ref-chip.bible { color: var(--blue); background: var(--blue-soft); }
+.ref-chip.theme { color: var(--purple); background: var(--purple-soft); }
+
+/* ========================================
+   DEEP LINK BANNER (Liturgy connection)
+   ======================================== */
+.liturgy-banner {
+  margin: 0 20px 16px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--accent-soft), var(--gold-light));
+  border: 1px solid var(--accent-glow);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+.liturgy-banner:active { transform: scale(0.98); }
+
+.liturgy-banner-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.liturgy-banner-text {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.liturgy-banner-text strong { font-weight: 600; }
+
+.liturgy-banner-arrow {
+  color: var(--accent);
+  font-size: 18px;
+}
+
+/* ========================================
+   PAYWALL
+   ======================================== */
+.paywall-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+.paywall-overlay.visible { display: flex; }
+
+.paywall-sheet {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  padding: 28px 24px 40px;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.paywall-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.paywall-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.paywall-plans {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.paywall-plan {
+  flex: 1;
+  padding: 20px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+.paywall-plan.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.paywall-plan-badge {
+  position: absolute;
+  top: -10px; right: 12px;
+  padding: 3px 10px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+}
+
+.paywall-plan-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.paywall-plan-price {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.paywall-plan-period {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+
+.paywall-plan-features {
+  list-style: none;
+}
+
+.paywall-plan-features li {
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.paywall-plan-features li .material-symbols-rounded {
+  font-size: 16px;
+  color: var(--green);
+}
+
+.paywall-cta {
+  width: 100%;
+  padding: 16px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+.paywall-cta:active { opacity: 0.9; }
+
+.paywall-trial {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 10px;
+}
+
+/* ========================================
+   SEARCH RESULTS
+   ======================================== */
+.search-results {
+  display: none;
+  padding: 0 20px;
+}
+.search-results.visible { display: block; }
+
+.search-result-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.search-result-item:last-child { border-bottom: none; }
+
+.search-result-number {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.search-result-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.search-result-text mark {
+  background: var(--gold-light);
+  color: var(--accent);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+.search-result-part {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+.progress-bar-container {
+  margin: 16px 20px;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.progress-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.progress-bar-track {
+  height: 6px;
+  background: var(--bg-elevated);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+/* ========================================
+   STUDY PLAN DETAIL
+   ======================================== */
+.plan-day {
+  margin: 0 20px 10px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+.plan-day:active { transform: scale(0.98); }
+
+.plan-day-number {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.plan-day-number.done {
+  background: var(--green-soft);
+  color: var(--green);
+}
+.plan-day-number.current {
+  background: var(--accent);
+  color: #fff;
+}
+
+.plan-day-info { flex: 1; }
+
+.plan-day-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.plan-day-desc {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.plan-day-check {
+  font-size: 20px;
+  color: var(--green);
+}
+
+/* ========================================
+   THEME TOGGLE
+   ======================================== */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 300;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 20px;
+  transition: all var(--transition-fast);
+}
+.theme-toggle:active { transform: scale(0.9); }
+
+.bottom-spacer { height: 20px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 1 — ÍNDICE (HOME DO CATECISMO)
+     ═══════════════════════════════════════════ -->
+<div class="screen active" id="screen-index">
+  <div class="header">
+    <div>
+      <div class="header-title">Catecismo</div>
+      <div class="header-subtitle">Igreja Católica · 2.865 parágrafos</div>
+    </div>
+    <button class="icon-btn" onclick="toggleTheme()">
+      <span class="material-symbols-rounded theme-icon">dark_mode</span>
+    </button>
+  </div>
+
+  <div class="content">
+    <!-- Search -->
+    <div class="search-bar">
+      <span class="material-symbols-rounded search-icon">search</span>
+      <input type="text" placeholder="Buscar tema, palavra ou §parágrafo..." id="search-input" oninput="handleSearch(this.value)" />
+    </div>
+
+    <!-- Search Results (hidden by default) -->
+    <div class="search-results" id="search-results">
+      <div class="search-result-item" onclick="goToReading()">
+        <div class="search-result-number">§1322</div>
+        <div class="search-result-text">A santa <mark>Eucaristia</mark> conclui a iniciação cristã. Os que foram elevados à dignidade do sacerdócio régio pelo Batismo...</div>
+        <div class="search-result-part">Parte 2 · A Celebração do Mistério Cristão</div>
+      </div>
+      <div class="search-result-item" onclick="goToReading()">
+        <div class="search-result-number">§1323</div>
+        <div class="search-result-text">"O nosso Salvador instituiu na última Ceia (...) o Sacrifício <mark>Eucarístico</mark> do seu Corpo e do seu Sangue..."</div>
+        <div class="search-result-part">Parte 2 · A Celebração do Mistério Cristão</div>
+      </div>
+      <div class="search-result-item" onclick="goToReading()">
+        <div class="search-result-number">§1324</div>
+        <div class="search-result-text">A <mark>Eucaristia</mark> é «fonte e ápice de toda a vida cristã». Os demais sacramentos e todos os ministérios...</div>
+        <div class="search-result-part">Parte 2 · A Celebração do Mistério Cristão</div>
+      </div>
+      <div class="search-result-item" onclick="goToReading()">
+        <div class="search-result-number">§1392</div>
+        <div class="search-result-text">O que o alimento material produz na vida corporal, a comunhão <mark>eucarística</mark> realiza de modo admirável na vida espiritual.</div>
+        <div class="search-result-part">Parte 2 · A Celebração do Mistério Cristão</div>
+      </div>
+    </div>
+
+    <!-- Main Content (visible when not searching) -->
+    <div id="main-content">
+      <!-- Pergunta do Dia -->
+      <div class="question-card" onclick="toggleAnswer()">
+        <div class="question-card-badge">
+          <span class="material-symbols-rounded" style="font-size:14px">lightbulb</span>
+          Pergunta do dia
+        </div>
+        <div class="question-card-text">"O que é a Eucaristia?"</div>
+        <div class="question-card-action" id="answer-toggle">
+          <span class="answer-label">Ver resposta</span>
+          <span class="material-symbols-rounded answer-icon" style="font-size:16px">expand_more</span>
+        </div>
+        <div class="question-answer" id="question-answer">
+          <div class="question-answer-text">
+            A Eucaristia é o próprio sacrifício do Corpo e do Sangue do Senhor Jesus, que Ele instituiu para perpetuar pelos séculos o sacrifício da Cruz, confiando assim à Igreja o memorial da sua Morte e Ressurreição. É o sinal da unidade, o vínculo da caridade, o banquete pascal em que se recebe Cristo.
+          </div>
+          <div class="question-answer-ref">Compêndio §271 · Catecismo §1322-1332</div>
+          <a class="question-answer-link" onclick="event.stopPropagation(); goToReading()">
+            Ler no Catecismo §1322 →
+          </a>
+        </div>
+      </div>
+
+      <!-- Deep link litúrgico -->
+      <div class="liturgy-banner" onclick="goToReading()">
+        <div class="liturgy-banner-icon">
+          <span class="material-symbols-rounded">auto_stories</span>
+        </div>
+        <div class="liturgy-banner-text">
+          <strong>O que a Igreja ensina sobre a Ressurreição?</strong><br>
+          Evangelho de hoje (Jo 20,1-9) → CIC §638-658
+        </div>
+        <span class="material-symbols-rounded liturgy-banner-arrow">chevron_right</span>
+      </div>
+
+      <!-- As 4 Partes -->
+      <div class="section-title">As 4 Partes</div>
+
+      <div class="part-card" onclick="goToPartDetail(1)">
+        <div class="part-card-header">
+          <div class="part-card-icon part1">
+            <span class="material-symbols-rounded">shield_with_heart</span>
+          </div>
+          <div class="part-card-info">
+            <div class="part-card-label">Parte 1</div>
+            <div class="part-card-title">A Profissão de Fé</div>
+            <div class="part-card-meta">§1-1065 · 3 seções · ~370 páginas</div>
+          </div>
+          <span class="material-symbols-rounded part-card-arrow">chevron_right</span>
+        </div>
+        <div class="part-card-desc">O Credo: Creio em Deus Pai, em Jesus Cristo e no Espírito Santo.</div>
+      </div>
+
+      <div class="part-card" onclick="goToPartDetail(2)">
+        <div class="part-card-header">
+          <div class="part-card-icon part2">
+            <span class="material-symbols-rounded">water_drop</span>
+          </div>
+          <div class="part-card-info">
+            <div class="part-card-label">Parte 2</div>
+            <div class="part-card-title">A Celebração do Mistério Cristão</div>
+            <div class="part-card-meta">§1066-1690 · 2 seções · ~220 páginas</div>
+          </div>
+          <span class="material-symbols-rounded part-card-arrow">chevron_right</span>
+        </div>
+        <div class="part-card-desc">Os 7 Sacramentos: Batismo, Confirmação, Eucaristia, Penitência, Unção, Ordem e Matrimônio.</div>
+      </div>
+
+      <div class="part-card" onclick="goToPartDetail(3)">
+        <div class="part-card-header">
+          <div class="part-card-icon part3">
+            <span class="material-symbols-rounded">volunteer_activism</span>
+          </div>
+          <div class="part-card-info">
+            <div class="part-card-label">Parte 3</div>
+            <div class="part-card-title">A Vida em Cristo</div>
+            <div class="part-card-meta">§1691-2557 · 2 seções · ~300 páginas</div>
+          </div>
+          <span class="material-symbols-rounded part-card-arrow">chevron_right</span>
+        </div>
+        <div class="part-card-desc">Dignidade, vocação e os Dez Mandamentos detalhados.</div>
+      </div>
+
+      <div class="part-card" onclick="goToPartDetail(4)">
+        <div class="part-card-header">
+          <div class="part-card-icon part4">
+            <span class="material-symbols-rounded">folded_hands</span>
+          </div>
+          <div class="part-card-info">
+            <div class="part-card-label">Parte 4</div>
+            <div class="part-card-title">A Oração Cristã</div>
+            <div class="part-card-meta">§2558-2865 · 2 seções · ~110 páginas</div>
+          </div>
+          <span class="material-symbols-rounded part-card-arrow">chevron_right</span>
+        </div>
+        <div class="part-card-desc">A oração na vida cristã e o Pai Nosso explicado linha por linha.</div>
+      </div>
+
+      <!-- Atalhos populares -->
+      <div class="section-title" style="margin-top:24px">Atalhos populares</div>
+      <div class="chips-row">
+        <div class="chip" onclick="goToReading()">Sacramentos</div>
+        <div class="chip" onclick="goToReading()">Mandamentos</div>
+        <div class="chip" onclick="goToReading()">Pai Nosso</div>
+        <div class="chip" onclick="goToReading()">Eucaristia</div>
+        <div class="chip" onclick="goToReading()">Confissão</div>
+        <div class="chip" onclick="goToReading()">Matrimônio</div>
+      </div>
+
+      <!-- Planos de Estudo -->
+      <div class="section-title">Planos de estudo</div>
+
+      <div class="plan-card" onclick="goToPlanDetail()">
+        <div class="plan-card-icon">
+          <span class="material-symbols-rounded">school</span>
+        </div>
+        <div class="plan-card-info">
+          <div class="plan-card-title">Introdução ao Catecismo</div>
+          <div class="plan-card-meta">7 dias · ~10 min/dia</div>
+        </div>
+        <div class="plan-card-badge free">Grátis</div>
+      </div>
+
+      <div class="plan-card" onclick="showPaywall()">
+        <div class="plan-card-icon">
+          <span class="material-symbols-rounded">calendar_month</span>
+        </div>
+        <div class="plan-card-info">
+          <div class="plan-card-title">Catecismo em 1 Ano</div>
+          <div class="plan-card-meta">365 dias · ~8 parágrafos/dia</div>
+        </div>
+        <div class="plan-card-badge locked">
+          <span class="material-symbols-rounded" style="font-size:12px">lock</span>
+        </div>
+      </div>
+
+      <div class="plan-card" onclick="showPaywall()">
+        <div class="plan-card-icon">
+          <span class="material-symbols-rounded">water_drop</span>
+        </div>
+        <div class="plan-card-info">
+          <div class="plan-card-title">Os 7 Sacramentos</div>
+          <div class="plan-card-meta">30 dias · 4 dias por sacramento</div>
+        </div>
+        <div class="plan-card-badge locked">
+          <span class="material-symbols-rounded" style="font-size:12px">lock</span>
+        </div>
+      </div>
+
+      <div class="plan-card" onclick="showPaywall()">
+        <div class="plan-card-icon">
+          <span class="material-symbols-rounded">balance</span>
+        </div>
+        <div class="plan-card-info">
+          <div class="plan-card-title">Os 10 Mandamentos</div>
+          <div class="plan-card-meta">40 dias · Com exame de consciência</div>
+        </div>
+        <div class="plan-card-badge locked">
+          <span class="material-symbols-rounded" style="font-size:12px">lock</span>
+        </div>
+      </div>
+
+      <div class="plan-card" onclick="showPaywall()">
+        <div class="plan-card-icon">
+          <span class="material-symbols-rounded">folded_hands</span>
+        </div>
+        <div class="plan-card-info">
+          <div class="plan-card-title">A Oração Cristã</div>
+          <div class="plan-card-meta">21 dias · Pai Nosso linha por linha</div>
+        </div>
+        <div class="plan-card-badge locked">
+          <span class="material-symbols-rounded" style="font-size:12px">lock</span>
+        </div>
+      </div>
+
+      <div class="plan-card" onclick="showPaywall()">
+        <div class="plan-card-icon">
+          <span class="material-symbols-rounded">group</span>
+        </div>
+        <div class="plan-card-info">
+          <div class="plan-card-title">Preparação para Catequese</div>
+          <div class="plan-card-meta">60 dias · Para catequistas e catequizandos</div>
+        </div>
+        <div class="plan-card-badge locked">
+          <span class="material-symbols-rounded" style="font-size:12px">lock</span>
+        </div>
+      </div>
+
+      <div class="bottom-spacer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 2 — PARTE DETAIL (Seções + Capítulos)
+     ═══════════════════════════════════════════ -->
+<div class="screen" id="screen-part">
+  <div class="header">
+    <button class="icon-btn" onclick="goBack('screen-index')">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </button>
+    <div style="flex:1; text-align:center;">
+      <div class="header-title" id="part-title">Parte 2</div>
+      <div class="header-subtitle" id="part-subtitle">A Celebração do Mistério Cristão</div>
+    </div>
+    <button class="icon-btn" style="visibility:hidden">
+      <span class="material-symbols-rounded">more_vert</span>
+    </button>
+  </div>
+
+  <div class="content">
+    <!-- Part summary -->
+    <div style="padding:16px 20px;">
+      <div style="font-family:var(--font-display); font-size:17px; color:var(--text-secondary); line-height:1.6; font-style:italic;">
+        "A liturgia é o cume para o qual tende a ação da Igreja, e ao mesmo tempo a fonte de onde promana toda a sua força."
+      </div>
+      <div style="font-size:12px; color:var(--text-tertiary); margin-top:6px;">— Sacrosanctum Concilium, 10</div>
+    </div>
+
+    <div class="section-title">Seções</div>
+
+    <div class="section-card">
+      <div class="section-card-title">Seção 1 — A Economia Sacramental</div>
+      <div class="section-card-chapters">§1066-1209 · A liturgia, obra da Santíssima Trindade</div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-card-title">Seção 2 — Os Sete Sacramentos da Igreja</div>
+      <div class="section-card-chapters">§1210-1690 · Os sacramentos da iniciação, cura e serviço</div>
+    </div>
+
+    <div class="section-title" style="margin-top:8px">Capítulos — Os 7 Sacramentos</div>
+
+    <div class="chapter-item" onclick="goToReading()">
+      <div class="chapter-number">1</div>
+      <div class="chapter-title">O Sacramento do Batismo</div>
+      <div class="chapter-range">§1213-1284</div>
+    </div>
+
+    <div class="chapter-item" onclick="goToReading()">
+      <div class="chapter-number">2</div>
+      <div class="chapter-title">O Sacramento da Confirmação</div>
+      <div class="chapter-range">§1285-1321</div>
+    </div>
+
+    <div class="chapter-item" onclick="goToReading()">
+      <div class="chapter-number">3</div>
+      <div class="chapter-title">A Eucaristia</div>
+      <div class="chapter-range">§1322-1419</div>
+    </div>
+
+    <div class="chapter-item" onclick="goToReading()">
+      <div class="chapter-number">4</div>
+      <div class="chapter-title">O Sacramento da Penitência</div>
+      <div class="chapter-range">§1422-1498</div>
+    </div>
+
+    <div class="chapter-item" onclick="goToReading()">
+      <div class="chapter-number">5</div>
+      <div class="chapter-title">A Unção dos Enfermos</div>
+      <div class="chapter-range">§1499-1532</div>
+    </div>
+
+    <div class="chapter-item" onclick="goToReading()">
+      <div class="chapter-number">6</div>
+      <div class="chapter-title">O Sacramento da Ordem</div>
+      <div class="chapter-range">§1536-1600</div>
+    </div>
+
+    <div class="chapter-item" onclick="goToReading()">
+      <div class="chapter-number">7</div>
+      <div class="chapter-title">O Sacramento do Matrimônio</div>
+      <div class="chapter-range">§1601-1666</div>
+    </div>
+
+    <div class="bottom-spacer"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 3 — LEITURA (Parágrafo)
+     ═══════════════════════════════════════════ -->
+<div class="screen" id="screen-reading">
+  <div class="header">
+    <button class="icon-btn" onclick="goBack('screen-part')">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </button>
+    <div style="flex:1; text-align:center;">
+      <div class="header-title">§1322</div>
+      <div class="header-subtitle">A Eucaristia</div>
+    </div>
+    <button class="icon-btn" onclick="showPaywall()">
+      <span class="material-symbols-rounded">bookmark_border</span>
+    </button>
+  </div>
+
+  <div class="content">
+    <!-- Breadcrumb -->
+    <div class="reading-header-nav">
+      <span onclick="goBack('screen-index')">Catecismo</span>
+      <span class="separator">›</span>
+      <span onclick="goBack('screen-part')">Parte 2</span>
+      <span class="separator">›</span>
+      <span style="color:var(--accent)">Eucaristia</span>
+    </div>
+
+    <div style="padding-top: 16px;">
+      <!-- Section title -->
+      <div style="padding:0 20px; margin-bottom:20px;">
+        <div style="font-family:var(--font-display); font-size:24px; font-weight:600; color:var(--text-primary); line-height:1.3;">
+          A Eucaristia — Fonte e Ápice da Vida Eclesial
+        </div>
+      </div>
+
+      <!-- §1322 -->
+      <div class="paragraph-block">
+        <div class="paragraph-number">§1322</div>
+        <div class="paragraph-text">
+          A santa Eucaristia conclui a iniciação cristã. Os que foram elevados à dignidade do sacerdócio régio pelo Batismo e configurados mais profundamente a Cristo pela Confirmação participam, por meio da Eucaristia, com toda a comunidade, do próprio sacrifício do Senhor.
+        </div>
+      </div>
+
+      <!-- §1323 -->
+      <div class="paragraph-block">
+        <div class="paragraph-number">§1323</div>
+        <div class="paragraph-text">
+          <span class="citation">"O nosso Salvador instituiu na última Ceia, na noite em que foi entregue, o Sacrifício Eucarístico do seu Corpo e do seu Sangue para perpetuar pelos séculos, até Ele voltar, o Sacrifício da Cruz, e para confiar à Igreja, sua Esposa amada, o memorial da sua Morte e Ressurreição: sacramento de piedade, sinal de unidade, vínculo de caridade, banquete pascal em que se recebe Cristo, a alma se enche de graça e nos é dado o penhor da glória futura."</span>
+        </div>
+      </div>
+
+      <!-- §1324 -->
+      <div class="paragraph-block">
+        <div class="paragraph-number">§1324</div>
+        <div class="paragraph-text">
+          A Eucaristia é <em>«fonte e ápice de toda a vida cristã»</em>. Os demais sacramentos, assim como todos os ministérios eclesiásticos e obras de apostolado, estão vinculados à sagrada Eucaristia e a ela se ordenam. Pois a santíssima Eucaristia contém todo o bem espiritual da Igreja, a saber, o próprio Cristo, a nossa Páscoa.
+        </div>
+      </div>
+
+      <!-- §1325 -->
+      <div class="paragraph-block">
+        <div class="paragraph-number">§1325</div>
+        <div class="paragraph-text">
+          A comunhão de vida divina e a unidade do Povo de Deus, nas quais a Igreja se sustenta, são significadas e realizadas pela Eucaristia. Nela encontra-se o ápice tanto da ação pela qual Deus santifica o mundo em Cristo quanto do culto que os homens oferecem a Cristo e, por Ele, ao Pai no Espírito Santo.
+        </div>
+      </div>
+
+      <!-- Navigation between paragraphs -->
+      <div class="paragraph-nav">
+        <button class="paragraph-nav-btn">
+          <span class="material-symbols-rounded" style="font-size:16px">chevron_left</span>
+          §1321
+        </button>
+        <button class="paragraph-nav-btn">
+          §1326
+          <span class="material-symbols-rounded" style="font-size:16px">chevron_right</span>
+        </button>
+      </div>
+
+      <!-- Bible references -->
+      <div class="references-section">
+        <div class="references-title">Referências bíblicas</div>
+        <div class="references-chips">
+          <div class="ref-chip bible">Mt 26,26-28</div>
+          <div class="ref-chip bible">1Cor 11,23-25</div>
+          <div class="ref-chip bible">Jo 6,51</div>
+          <div class="ref-chip bible">Lc 22,19-20</div>
+        </div>
+      </div>
+
+      <!-- Related themes -->
+      <div class="references-section" style="margin-top:10px">
+        <div class="references-title">Temas relacionados</div>
+        <div class="references-chips">
+          <div class="ref-chip theme">Missa</div>
+          <div class="ref-chip theme">Pão e Vinho</div>
+          <div class="ref-chip theme">Transubstanciação</div>
+          <div class="ref-chip theme">Última Ceia</div>
+          <div class="ref-chip theme">Comunhão</div>
+        </div>
+      </div>
+
+      <!-- Cross-reference to Compendium -->
+      <div class="references-section" style="margin-top:10px">
+        <div class="references-title">No Compêndio</div>
+        <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">
+          <strong style="color:var(--accent)">Pergunta §271:</strong> "O que é a Eucaristia?" — A Eucaristia é o próprio sacrifício do Corpo e do Sangue do Senhor Jesus...
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-spacer"></div>
+    <div class="bottom-spacer"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 4 — PLANO DE ESTUDO DETAIL
+     ═══════════════════════════════════════════ -->
+<div class="screen" id="screen-plan">
+  <div class="header">
+    <button class="icon-btn" onclick="goBack('screen-index')">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </button>
+    <div style="flex:1; text-align:center;">
+      <div class="header-title">Introdução ao Catecismo</div>
+      <div class="header-subtitle">7 dias · ~10 min/dia</div>
+    </div>
+    <button class="icon-btn" style="visibility:hidden">
+      <span class="material-symbols-rounded">more_vert</span>
+    </button>
+  </div>
+
+  <div class="content">
+    <!-- Progress -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-label">
+        <span>Dia 3 de 7</span>
+        <span>43%</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" style="width:43%"></div>
+      </div>
+    </div>
+
+    <div class="section-title">Cronograma</div>
+
+    <div class="plan-day" onclick="goToReading()">
+      <div class="plan-day-number done">
+        <span class="material-symbols-rounded" style="font-size:18px">check</span>
+      </div>
+      <div class="plan-day-info">
+        <div class="plan-day-title">Dia 1 — O que é o Catecismo?</div>
+        <div class="plan-day-desc">§1-25 · Por que a Igreja escreveu um Catecismo</div>
+      </div>
+      <span class="material-symbols-rounded plan-day-check">check_circle</span>
+    </div>
+
+    <div class="plan-day" onclick="goToReading()">
+      <div class="plan-day-number done">
+        <span class="material-symbols-rounded" style="font-size:18px">check</span>
+      </div>
+      <div class="plan-day-info">
+        <div class="plan-day-title">Dia 2 — Deus existe?</div>
+        <div class="plan-day-desc">§26-49 · O desejo de Deus inscrito no coração</div>
+      </div>
+      <span class="material-symbols-rounded plan-day-check">check_circle</span>
+    </div>
+
+    <div class="plan-day" onclick="goToReading()">
+      <div class="plan-day-number current">3</div>
+      <div class="plan-day-info">
+        <div class="plan-day-title">Dia 3 — Deus se revela</div>
+        <div class="plan-day-desc">§50-73 · Como Deus fala conosco</div>
+      </div>
+      <span class="material-symbols-rounded" style="font-size:18px; color:var(--accent)">arrow_forward</span>
+    </div>
+
+    <div class="plan-day">
+      <div class="plan-day-number">4</div>
+      <div class="plan-day-info">
+        <div class="plan-day-title">Dia 4 — A fé</div>
+        <div class="plan-day-desc">§142-184 · O que significa crer</div>
+      </div>
+    </div>
+
+    <div class="plan-day">
+      <div class="plan-day-number">5</div>
+      <div class="plan-day-info">
+        <div class="plan-day-title">Dia 5 — O Credo</div>
+        <div class="plan-day-desc">§185-197 · O que dizemos quando rezamos o Creio</div>
+      </div>
+    </div>
+
+    <div class="plan-day">
+      <div class="plan-day-number">6</div>
+      <div class="plan-day-info">
+        <div class="plan-day-title">Dia 6 — Jesus Cristo</div>
+        <div class="plan-day-desc">§422-455 · Quem é Jesus? "Filho de Deus"</div>
+      </div>
+    </div>
+
+    <div class="plan-day">
+      <div class="plan-day-number">7</div>
+      <div class="plan-day-info">
+        <div class="plan-day-title">Dia 7 — O Espírito Santo</div>
+        <div class="plan-day-desc">§683-747 · O Espírito na vida do cristão hoje</div>
+      </div>
+    </div>
+
+    <div class="bottom-spacer"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAYWALL (Dupla Porta)
+     ═══════════════════════════════════════════ -->
+<div class="paywall-overlay" id="paywall" onclick="hidePaywall(event)">
+  <div class="paywall-sheet" onclick="event.stopPropagation()">
+    <div class="paywall-title">Estude com profundidade</div>
+    <div class="paywall-subtitle">Acesso completo ao Catecismo da Igreja Católica</div>
+
+    <div class="paywall-plans">
+      <!-- Catecismo avulso -->
+      <div class="paywall-plan" id="plan-cat" onclick="selectPlan('cat')">
+        <div class="paywall-plan-name">Catecismo</div>
+        <div class="paywall-plan-price">R$19,90</div>
+        <div class="paywall-plan-period">por ano</div>
+        <ul class="paywall-plan-features">
+          <li><span class="material-symbols-rounded">check</span> Texto integral</li>
+          <li><span class="material-symbols-rounded">check</span> Busca avançada</li>
+          <li><span class="material-symbols-rounded">check</span> Planos de estudo</li>
+          <li><span class="material-symbols-rounded">check</span> Anotações</li>
+        </ul>
+      </div>
+
+      <!-- Premium -->
+      <div class="paywall-plan selected" id="plan-premium" onclick="selectPlan('premium')">
+        <div class="paywall-plan-badge">Melhor valor</div>
+        <div class="paywall-plan-name">Premium Verbum</div>
+        <div class="paywall-plan-price">R$49,90</div>
+        <div class="paywall-plan-period">por ano</div>
+        <ul class="paywall-plan-features">
+          <li><span class="material-symbols-rounded">check</span> Tudo do Catecismo</li>
+          <li><span class="material-symbols-rounded">check</span> Bíblia completa</li>
+          <li><span class="material-symbols-rounded">check</span> Áudio narrado</li>
+          <li><span class="material-symbols-rounded">check</span> Stories exclusivos</li>
+          <li><span class="material-symbols-rounded">check</span> Lectio Divina+</li>
+          <li><span class="material-symbols-rounded">check</span> Offline completo</li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="paywall-cta" id="paywall-cta" onclick="hidePaywall(event)">
+      Assinar Premium — R$49,90/ano
+    </button>
+    <div class="paywall-trial">7 dias grátis · Cancele quando quiser</div>
+  </div>
+</div>
+
+<!-- Theme toggle -->
+<div class="theme-toggle" onclick="toggleTheme()">
+  <span class="material-symbols-rounded theme-icon">dark_mode</span>
+</div>
+
+<script>
+/* ========================================
+   NAVIGATION
+   ======================================== */
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  var content = document.getElementById(id).querySelector('.content');
+  if (content) content.scrollTop = 0;
+}
+
+function goBack(screenId) {
+  showScreen(screenId);
+}
+
+function goToPartDetail(partNum) {
+  var titles = {
+    1: ['Parte 1', 'A Profissão de Fé'],
+    2: ['Parte 2', 'A Celebração do Mistério Cristão'],
+    3: ['Parte 3', 'A Vida em Cristo'],
+    4: ['Parte 4', 'A Oração Cristã'],
+  };
+  document.getElementById('part-title').textContent = titles[partNum][0];
+  document.getElementById('part-subtitle').textContent = titles[partNum][1];
+  showScreen('screen-part');
+}
+
+function goToReading() {
+  showScreen('screen-reading');
+}
+
+function goToPlanDetail() {
+  showScreen('screen-plan');
+}
+
+/* ========================================
+   SEARCH
+   ======================================== */
+function handleSearch(value) {
+  var results = document.getElementById('search-results');
+  var main = document.getElementById('main-content');
+
+  if (value.length > 2) {
+    results.classList.add('visible');
+    main.style.display = 'none';
+  } else {
+    results.classList.remove('visible');
+    main.style.display = 'block';
+  }
+}
+
+/* ========================================
+   QUESTION OF THE DAY
+   ======================================== */
+function toggleAnswer() {
+  var answer = document.getElementById('question-answer');
+  var label = document.querySelector('.answer-label');
+  var icon = document.querySelector('.answer-icon');
+
+  if (answer.classList.contains('visible')) {
+    answer.classList.remove('visible');
+    label.textContent = 'Ver resposta';
+    icon.textContent = 'expand_more';
+  } else {
+    answer.classList.add('visible');
+    label.textContent = 'Ocultar resposta';
+    icon.textContent = 'expand_less';
+  }
+}
+
+/* ========================================
+   PAYWALL
+   ======================================== */
+function showPaywall() {
+  document.getElementById('paywall').classList.add('visible');
+}
+
+function hidePaywall(event) {
+  if (event.target.id === 'paywall' || event.target.classList.contains('paywall-cta')) {
+    document.getElementById('paywall').classList.remove('visible');
+  }
+}
+
+function selectPlan(plan) {
+  document.getElementById('plan-cat').classList.remove('selected');
+  document.getElementById('plan-premium').classList.remove('selected');
+
+  var cta = document.getElementById('paywall-cta');
+  if (plan === 'cat') {
+    document.getElementById('plan-cat').classList.add('selected');
+    cta.textContent = 'Assinar Catecismo — R$19,90/ano';
+  } else {
+    document.getElementById('plan-premium').classList.add('selected');
+    cta.textContent = 'Assinar Premium — R$49,90/ano';
+  }
+}
+
+/* ========================================
+   THEME
+   ======================================== */
+var isDark = false;
+
+function toggleTheme() {
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : '');
+  document.querySelectorAll('.theme-icon').forEach(function(el) {
+    el.textContent = isDark ? 'light_mode' : 'dark_mode';
+  });
+}
+</script>
+
+</body>
+</html>

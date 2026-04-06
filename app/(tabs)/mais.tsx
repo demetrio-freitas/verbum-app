@@ -13,6 +13,7 @@ const MENU_ITEMS: {
   { icon: 'bookmark', label: 'Salvos', route: '/saved' },
   { icon: 'hourglass-top', label: 'Novenas', route: '/novena/espirito-santo' },
   { icon: 'menu-book', label: 'Lectio Divina', route: '/lectio' },
+  { icon: 'auto-stories', label: 'Catecismo', route: '/catecismo' },
   { icon: 'church', label: 'Paróquia', route: '/paroquia' },
   { icon: 'calendar-month', label: 'Calendário', route: '/calendario' },
   { icon: 'settings', label: 'Configurações', route: '/settings' },
