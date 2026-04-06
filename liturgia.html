@@ -5307,12 +5307,12 @@ body.modo-missa.brilho-reduzido {
           </div>
           <span class="material-symbols-rounded onb-priest-check">check_circle</span>
         </button>
-        <button class="onb-priest-btn" data-priest="fabio-de-melo" onclick="selectOnbPriest(this)">
-          <div class="priest-monogram" style="background:#1E40AF">FM</div>
+        <button class="onb-priest-btn" data-priest="adriano-zandona" onclick="selectOnbPriest(this)">
+          <div class="priest-monogram" style="background:#1E40AF">AZ</div>
           <div class="priest-card-info">
-            <strong>Pe. Fábio de Melo</strong>
-            <span class="priest-tag">Reflexão</span>
-            <div class="priest-style">Poético · Emocional</div>
+            <strong>Pe. Adriano Zandoná</strong>
+            <span class="priest-tag">Evangelização</span>
+            <div class="priest-style">Inspirador · Jovem</div>
           </div>
           <span class="material-symbols-rounded onb-priest-check">check_circle</span>
         </button>
@@ -5322,15 +5322,6 @@ body.modo-missa.brilho-reduzido {
             <strong>Pe. Reginaldo Manzotti</strong>
             <span class="priest-tag">Devoção</span>
             <div class="priest-style">Popular · Carismático</div>
-          </div>
-          <span class="material-symbols-rounded onb-priest-check">check_circle</span>
-        </button>
-        <button class="onb-priest-btn" data-priest="chrystian-shankar" onclick="selectOnbPriest(this)">
-          <div class="priest-monogram" style="background:#7C3AED">CS</div>
-          <div class="priest-card-info">
-            <strong>Pe. Chrystian Shankar</strong>
-            <span class="priest-tag">Jovem</span>
-            <div class="priest-style">Dinâmico · Digital</div>
           </div>
           <span class="material-symbols-rounded onb-priest-check">check_circle</span>
         </button>
@@ -8842,11 +8833,10 @@ function finishOnboarding() {
 // =================== PRIEST SELECTION ===================
 var PRIESTS = {
   'paulo-ricardo': { name: 'Pe. Paulo Ricardo', initials: 'PR', color: '#8B0000', tag: 'Formação', style: 'Doutrinário · Direto' },
-  'fabio-de-melo': { name: 'Pe. Fábio de Melo', initials: 'FM', color: '#1E40AF', tag: 'Reflexão', style: 'Poético · Emocional' },
+  'adriano-zandona': { name: 'Pe. Adriano Zandoná', initials: 'AZ', color: '#1E40AF', tag: 'Evangelização', style: 'Inspirador · Jovem' },
   'reginaldo-manzotti': { name: 'Pe. Reginaldo Manzotti', initials: 'RM', color: '#B45309', tag: 'Devoção', style: 'Popular · Carismático' },
-  'chrystian-shankar': { name: 'Pe. Chrystian Shankar', initials: 'CS', color: '#7C3AED', tag: 'Jovem', style: 'Dinâmico · Digital' },
-  'roger-luis': { name: 'Pe. Roger Luis', initials: 'RL', color: '#78350F', tag: 'Liturgia', style: 'Equilibrado · Pastoral' },
-  'mario-sartori': { name: 'Pe. Mário Sartori', initials: 'MS', color: '#0E7490', tag: 'Pregação', style: 'Profundo · Catequético' }
+  'mario-sartori': { name: 'Pe. Mário Sartori', initials: 'MS', color: '#0E7490', tag: 'Pregação', style: 'Profundo · Catequético' },
+  'roger-luis': { name: 'Pe. Roger Luis', initials: 'RL', color: '#78350F', tag: 'Liturgia', style: 'Equilibrado · Pastoral' }
 };
 var selectedPriest = 'roger-luis';
 var priestSheetContext = 'reflection';
@@ -9038,7 +9028,7 @@ function createPriestSheet() {
   // Priest list
   var list = document.createElement('div');
   list.className = 'priest-sheet-list';
-  var ids = ['paulo-ricardo', 'fabio-de-melo', 'reginaldo-manzotti', 'chrystian-shankar', 'mario-sartori', 'roger-luis'];
+  var ids = ['paulo-ricardo', 'adriano-zandona', 'reginaldo-manzotti', 'mario-sartori', 'roger-luis'];
   ids.forEach(function(id) {
     var p = PRIESTS[id];
     var btn = document.createElement('button');
@@ -10546,6 +10536,17 @@ function changeMaxNotif(delta) {
         cards[2].style.display = 'none';
       }
     }
+  }
+
+  // Esconder aba e seção da 2ª Leitura quando não existe
+  var tab2l = document.querySelector('#reading-tabs .nav-tab[data-tab="2leitura"]');
+  var sec2l = document.getElementById('section-2leitura');
+  if (!d.l2) {
+    if (tab2l) tab2l.style.display = 'none';
+    if (sec2l) sec2l.style.display = 'none';
+  } else {
+    if (tab2l) tab2l.style.display = '';
+    if (sec2l) sec2l.style.display = '';
   }
 
   // Evangelho
