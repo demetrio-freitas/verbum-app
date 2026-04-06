@@ -871,6 +871,86 @@ body {
   color: var(--text-primary);
 }
 
+/* =================== PROFILE CARD (in settings) =================== */
+.profile-card-settings {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.profile-card-settings:hover { border-color: var(--accent); }
+.profile-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+.profile-avatar-settings {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+}
+.profile-avatar-edit {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg);
+}
+.profile-avatar-edit .material-symbols-rounded { font-size: 13px; }
+.profile-settings-info { flex: 1; min-width: 0; }
+.profile-settings-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.profile-settings-bio {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.profile-settings-stats {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.profile-settings-stat {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.profile-settings-stat .material-symbols-rounded { font-size: 14px; }
+.profile-settings-stat strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+.profile-settings-arrow {
+  color: var(--text-tertiary);
+  font-size: 20px;
+}
+
 /* =================== SETTINGS =================== */
 .settings-section { padding: 4px 0; }
 
@@ -5316,15 +5396,6 @@ body.modo-missa.brilho-reduzido {
           </div>
           <span class="material-symbols-rounded onb-priest-check">check_circle</span>
         </button>
-        <button class="onb-priest-btn" data-priest="reginaldo-manzotti" onclick="selectOnbPriest(this)">
-          <div class="priest-monogram" style="background:#B45309">RM</div>
-          <div class="priest-card-info">
-            <strong>Pe. Reginaldo Manzotti</strong>
-            <span class="priest-tag">Devoção</span>
-            <div class="priest-style">Popular · Carismático</div>
-          </div>
-          <span class="material-symbols-rounded onb-priest-check">check_circle</span>
-        </button>
         <button class="onb-priest-btn" data-priest="mario-sartori" onclick="selectOnbPriest(this)">
           <div class="priest-monogram" style="background:#0E7490">MS</div>
           <div class="priest-card-info">
@@ -5334,11 +5405,20 @@ body.modo-missa.brilho-reduzido {
           </div>
           <span class="material-symbols-rounded onb-priest-check">check_circle</span>
         </button>
+        <button class="onb-priest-btn" data-priest="joao-chagas" onclick="selectOnbPriest(this)">
+          <div class="priest-monogram" style="background:#78350F">JC</div>
+          <div class="priest-card-info">
+            <strong>Pe. João Chagas</strong>
+            <span class="priest-tag">Shalom</span>
+            <div class="priest-style">Litúrgico · Pastoral</div>
+          </div>
+          <span class="material-symbols-rounded onb-priest-check">check_circle</span>
+        </button>
         <button class="onb-priest-btn selected" data-priest="roger-luis" onclick="selectOnbPriest(this)">
-          <div class="priest-monogram" style="background:#78350F">RL</div>
+          <div class="priest-monogram" style="background:#2E7D32">RL</div>
           <div class="priest-card-info">
             <strong>Pe. Roger Luis</strong>
-            <span class="priest-tag">Liturgia</span>
+            <span class="priest-tag">Canção Nova</span>
             <div class="priest-style">Equilibrado · Pastoral</div>
           </div>
           <span class="material-symbols-rounded onb-priest-check">check_circle</span>
@@ -5627,7 +5707,7 @@ body.modo-missa.brilho-reduzido {
     <div class="reflection-card">
       <div class="reading-label" style="margin-bottom:12px">Reflexão do dia</div>
       <div class="reflection-priest-bar">
-        <div class="priest-monogram" id="reflection-priest-mono" style="background:#78350F">RL</div>
+        <div class="priest-monogram" id="reflection-priest-mono" style="background:#2E7D32">RL</div>
         <div class="reflection-priest-info">
           <strong id="reflection-priest-name">Pe. Roger Luis</strong>
           <span class="priest-tag" id="reflection-priest-tag">Liturgia</span>
@@ -6709,6 +6789,35 @@ body.modo-missa.brilho-reduzido {
   <div class="content-section" id="section-settings">
     <div class="section-subtitle">Configurações</div>
 
+    <!-- MEU PERFIL -->
+    <div class="profile-card-settings" onclick="openProfileModal()">
+      <div class="profile-avatar-wrapper">
+        <div class="profile-avatar-settings" style="background:linear-gradient(145deg, #78350F, #5a2508)">MS</div>
+        <div class="profile-avatar-edit">
+          <span class="material-symbols-rounded">edit</span>
+        </div>
+      </div>
+      <div class="profile-settings-info">
+        <div class="profile-settings-name">Maria da Silva</div>
+        <div class="profile-settings-bio">Mãe de 3, avó de 7. Terço todo dia.</div>
+        <div class="profile-settings-stats">
+          <span class="profile-settings-stat">
+            <span class="material-symbols-rounded">local_fire_department</span>
+            <strong>12</strong> dias
+          </span>
+          <span class="profile-settings-stat">
+            <span class="material-symbols-rounded">radio_button_checked</span>
+            <strong>87</strong> terços
+          </span>
+          <span class="profile-settings-stat">
+            <span class="material-symbols-rounded">groups</span>
+            <strong>2</strong> grupos
+          </span>
+        </div>
+      </div>
+      <span class="material-symbols-rounded profile-settings-arrow">chevron_right</span>
+    </div>
+
     <!-- THEME CHOOSER -->
     <div class="section-subtitle" style="margin-top:4px">Tema visual</div>
     <div class="theme-chooser">
@@ -6783,7 +6892,7 @@ body.modo-missa.brilho-reduzido {
     <!-- PRIEST CHOOSER -->
     <div class="section-subtitle" style="margin-top:20px">Padre da homilia</div>
     <div class="settings-priest-card" id="settings-priest-card">
-      <div class="priest-monogram" id="settings-priest-mono" style="background:#78350F">RL</div>
+      <div class="priest-monogram" id="settings-priest-mono" style="background:#2E7D32">RL</div>
       <div class="settings-priest-info">
         <strong id="settings-priest-name">Pe. Roger Luis</strong>
         <span id="settings-priest-style">Liturgia · Equilibrado</span>
@@ -8834,9 +8943,9 @@ function finishOnboarding() {
 var PRIESTS = {
   'paulo-ricardo': { name: 'Pe. Paulo Ricardo', initials: 'PR', color: '#8B0000', tag: 'Formação', style: 'Doutrinário · Direto' },
   'adriano-zandona': { name: 'Pe. Adriano Zandoná', initials: 'AZ', color: '#1E40AF', tag: 'Evangelização', style: 'Inspirador · Jovem' },
-  'reginaldo-manzotti': { name: 'Pe. Reginaldo Manzotti', initials: 'RM', color: '#B45309', tag: 'Devoção', style: 'Popular · Carismático' },
   'mario-sartori': { name: 'Pe. Mário Sartori', initials: 'MS', color: '#0E7490', tag: 'Pregação', style: 'Profundo · Catequético' },
-  'roger-luis': { name: 'Pe. Roger Luis', initials: 'RL', color: '#78350F', tag: 'Liturgia', style: 'Equilibrado · Pastoral' }
+  'joao-chagas': { name: 'Pe. João Chagas', initials: 'JC', color: '#78350F', tag: 'Shalom', style: 'Litúrgico · Pastoral' },
+  'roger-luis': { name: 'Pe. Roger Luis', initials: 'RL', color: '#2E7D32', tag: 'Canção Nova', style: 'Equilibrado · Pastoral' }
 };
 var selectedPriest = 'roger-luis';
 var priestSheetContext = 'reflection';
@@ -9028,7 +9137,7 @@ function createPriestSheet() {
   // Priest list
   var list = document.createElement('div');
   list.className = 'priest-sheet-list';
-  var ids = ['paulo-ricardo', 'adriano-zandona', 'reginaldo-manzotti', 'mario-sartori', 'roger-luis'];
+  var ids = ['paulo-ricardo', 'adriano-zandona', 'mario-sartori', 'joao-chagas', 'roger-luis'];
   ids.forEach(function(id) {
     var p = PRIESTS[id];
     var btn = document.createElement('button');
@@ -10732,6 +10841,188 @@ function changeMaxNotif(delta) {
     }
   });
 })();
+
+// =================== PROFILE MODAL ===================
+function openProfileModal() {
+  var existing = document.getElementById('profile-modal-overlay');
+  if (existing) { existing.classList.add('open'); return; }
+
+  var overlay = document.createElement('div');
+  overlay.id = 'profile-modal-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:3000;background:var(--bg);overflow-y:auto;animation:fadeIn 0.2s ease';
+  overlay.className = 'open';
+
+  overlay.appendChild(buildProfileHTML());
+  document.body.appendChild(overlay);
+}
+
+function closeProfileModal() {
+  var o = document.getElementById('profile-modal-overlay');
+  if (o) o.remove();
+}
+
+function buildProfileHTML() {
+  var wrap = document.createElement('div');
+  wrap.style.maxWidth = '430px';
+  wrap.style.margin = '0 auto';
+
+  // Header
+  var header = document.createElement('div');
+  header.style.cssText = 'display:flex;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);background:var(--bg);gap:12px';
+  var backBtn = document.createElement('button');
+  backBtn.className = 'material-symbols-rounded';
+  backBtn.textContent = 'arrow_back';
+  backBtn.style.cssText = 'background:none;border:none;cursor:pointer;color:var(--text-secondary);font-family:Material Symbols Rounded;font-size:24px';
+  backBtn.onclick = closeProfileModal;
+  var title = document.createElement('span');
+  title.textContent = 'Meu Perfil';
+  title.style.cssText = 'font-family:var(--font-display);font-size:1.2rem;font-weight:600;flex:1';
+  var editBtn = document.createElement('button');
+  editBtn.textContent = 'Editar';
+  editBtn.style.cssText = 'background:none;border:none;cursor:pointer;font-family:var(--font-body);font-size:0.82rem;font-weight:700;color:var(--accent);padding:6px 12px;border-radius:100px';
+  editBtn.onclick = function() { showToast('Editar perfil — disponível no app nativo'); };
+  header.appendChild(backBtn);
+  header.appendChild(title);
+  header.appendChild(editBtn);
+  wrap.appendChild(header);
+
+  // Hero
+  var hero = document.createElement('div');
+  hero.style.cssText = 'display:flex;flex-direction:column;align-items:center;padding:32px 20px 24px;text-align:center';
+  hero.appendChild(makeEl('div', {
+    style: 'width:100px;height:100px;border-radius:50%;background:linear-gradient(145deg,#78350F,#5a2508);display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-weight:700;font-size:2rem;color:white;position:relative',
+    text: 'MS'
+  }));
+  hero.appendChild(makeEl('div', { style: 'font-family:var(--font-display);font-size:1.6rem;font-weight:600;margin-top:16px;letter-spacing:-0.02em', text: 'Maria da Silva' }));
+  var loc = makeEl('div', { style: 'font-size:0.8rem;color:var(--text-tertiary);margin-top:4px;display:flex;align-items:center;gap:4px' });
+  var locIcon = document.createElement('span');
+  locIcon.className = 'material-symbols-rounded';
+  locIcon.textContent = 'location_on';
+  locIcon.style.fontSize = '14px';
+  loc.appendChild(locIcon);
+  loc.appendChild(document.createTextNode('Fortaleza, CE'));
+  hero.appendChild(loc);
+  hero.appendChild(makeEl('div', { style: 'font-family:var(--font-display);font-size:1rem;font-style:italic;color:var(--text-secondary);margin-top:12px;line-height:1.5;max-width:300px', text: '\u201CMãe de 3, avó de 7. Terço todo dia.\u201D' }));
+  wrap.appendChild(hero);
+
+  // Info card
+  var sec1 = makeSection('');
+  var infoCard = document.createElement('div');
+  infoCard.style.cssText = 'background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;display:flex;flex-direction:column;gap:12px';
+  infoCard.appendChild(makeInfoRow('church', 'Paróquia São José \u00B7 Meireles'));
+  infoCard.appendChild(makeEl('div', { style: 'height:1px;background:var(--border)' }));
+  infoCard.appendChild(makeInfoRow('person', 'Santo padroeiro: São Rafael Arcanjo'));
+  sec1.appendChild(infoCard);
+  wrap.appendChild(sec1);
+
+  // Practices
+  var sec2 = makeSection('Minhas práticas');
+  var pills = document.createElement('div');
+  pills.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px';
+  ['Terço', 'Ofício Divino', 'Novenas', 'Lectio Divina'].forEach(function(p) {
+    pills.appendChild(makeEl('span', {
+      style: 'padding:6px 14px;border-radius:100px;background:var(--accent-soft);border:1px solid var(--accent-glow);font-size:0.75rem;font-weight:600;color:var(--accent)',
+      text: p
+    }));
+  });
+  sec2.appendChild(pills);
+  wrap.appendChild(sec2);
+
+  // Stats
+  var sec3 = makeSection('Minha caminhada');
+  var grid = document.createElement('div');
+  grid.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:10px';
+  grid.appendChild(makeStatCard('local_fire_department', '12', 'dias de streak'));
+  grid.appendChild(makeStatCard('radio_button_checked', '87', 'terços rezados'));
+  grid.appendChild(makeStatCard('menu_book', '45', 'dias de leitura'));
+  grid.appendChild(makeStatCard('groups', '2', 'grupos ativos'));
+  sec3.appendChild(grid);
+  wrap.appendChild(sec3);
+
+  // Member since
+  wrap.appendChild(makeEl('div', { style: 'text-align:center;font-size:0.72rem;color:var(--text-tertiary);padding:8px 20px 20px', text: '\uD83D\uDCC5 Membro desde abril de 2026' }));
+
+  // Groups
+  var sec4 = makeSection('Meus grupos');
+  sec4.appendChild(makeGroupCard('groups', 'Grupo de Oração São José', '18 membros', 'Líder'));
+  sec4.appendChild(makeGroupCard('favorite', 'ECC Paróquia São José', '12 casais', 'Membro'));
+  wrap.appendChild(sec4);
+
+  wrap.appendChild(makeEl('div', { style: 'height:32px' }));
+  return wrap;
+}
+
+function makeEl(tag, opts) {
+  var el = document.createElement(tag);
+  if (opts.style) el.style.cssText = opts.style;
+  if (opts.text) el.textContent = opts.text;
+  if (opts.className) el.className = opts.className;
+  return el;
+}
+
+function makeSection(titleText) {
+  var sec = document.createElement('div');
+  sec.style.cssText = 'padding:0 20px;margin-bottom:16px';
+  if (titleText) {
+    sec.appendChild(makeEl('div', {
+      style: 'font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-tertiary);margin-bottom:10px;padding:0 4px',
+      text: titleText
+    }));
+  }
+  return sec;
+}
+
+function makeInfoRow(iconName, text) {
+  var row = document.createElement('div');
+  row.style.cssText = 'display:flex;align-items:center;gap:10px';
+  var icon = document.createElement('span');
+  icon.className = 'material-symbols-rounded';
+  icon.textContent = iconName;
+  icon.style.cssText = 'font-size:18px;color:var(--accent);width:24px;text-align:center';
+  row.appendChild(icon);
+  row.appendChild(makeEl('span', { style: 'font-size:0.85rem;color:var(--text-primary)', text: text }));
+  return row;
+}
+
+function makeStatCard(iconName, value, label) {
+  var card = document.createElement('div');
+  card.style.cssText = 'background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;display:flex;align-items:center;gap:12px';
+  var iconWrap = document.createElement('div');
+  iconWrap.style.cssText = 'width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--bg-elevated);color:var(--text-tertiary)';
+  var icon = document.createElement('span');
+  icon.className = 'material-symbols-rounded';
+  icon.textContent = iconName;
+  iconWrap.appendChild(icon);
+  card.appendChild(iconWrap);
+  var info = document.createElement('div');
+  info.appendChild(makeEl('div', { style: 'font-family:var(--font-display);font-size:1.3rem;font-weight:700;line-height:1.1', text: value }));
+  info.appendChild(makeEl('div', { style: 'font-size:0.62rem;color:var(--text-tertiary);margin-top:1px', text: label }));
+  card.appendChild(info);
+  return card;
+}
+
+function makeGroupCard(iconName, name, meta, role) {
+  var card = document.createElement('div');
+  card.style.cssText = 'background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:8px';
+  var iconWrap = document.createElement('div');
+  iconWrap.style.cssText = 'width:40px;height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--bg-elevated);color:var(--text-tertiary)';
+  var icon = document.createElement('span');
+  icon.className = 'material-symbols-rounded';
+  icon.textContent = iconName;
+  iconWrap.appendChild(icon);
+  card.appendChild(iconWrap);
+  var info = document.createElement('div');
+  info.style.flex = '1';
+  info.appendChild(makeEl('div', { style: 'font-size:0.85rem;font-weight:600', text: name }));
+  info.appendChild(makeEl('div', { style: 'font-size:0.68rem;color:var(--text-tertiary);margin-top:2px', text: meta }));
+  card.appendChild(info);
+  var roleEl = makeEl('span', {
+    style: 'font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 8px;border-radius:100px;' + (role === 'Líder' ? 'background:var(--accent-soft);color:var(--accent)' : 'background:var(--bg-elevated);color:var(--text-tertiary)'),
+    text: role
+  });
+  card.appendChild(roleEl);
+  return card;
+}
 </script>
 
 </body>
