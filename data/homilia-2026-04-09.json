@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-09",
+  "liturgy": {
+    "day": "Quinta-feira das Oitavas do Senhor",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "xitlRRaVFSc",
+    "title": "Homilia da Quinta-feira das Oitavas do Senhor | Pe. João Chagas | 09/04/2026",
+    "embed_url": "https://www.youtube.com/embed/xitlRRaVFSc",
+    "thumbnail": "https://i.ytimg.com/vi/xitlRRaVFSc/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-09T10:27:52.631645+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
