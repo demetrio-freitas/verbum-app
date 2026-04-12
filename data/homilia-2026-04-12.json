@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-12",
+  "liturgy": {
+    "day": "Domingo da Misericórdia",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "LpxsFJ5bnQw",
+    "title": "Homilia do Domingo da Misericórdia | Pe. João Chagas | 12/04/2026",
+    "embed_url": "https://www.youtube.com/embed/LpxsFJ5bnQw",
+    "thumbnail": "https://i.ytimg.com/vi/LpxsFJ5bnQw/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-12T10:16:08.869506+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
