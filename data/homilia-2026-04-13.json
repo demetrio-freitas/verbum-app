@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-13",
+  "liturgy": {
+    "day": "2 semana do Tempo Pascal",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "SFG4EwPp-rg",
+    "title": "Homilia da 2 semana do Tempo Pascal | Pe. João Chagas | 13/04/2026",
+    "embed_url": "https://www.youtube.com/embed/SFG4EwPp-rg",
+    "thumbnail": "https://i.ytimg.com/vi/SFG4EwPp-rg/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-13T10:35:28.636014+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
