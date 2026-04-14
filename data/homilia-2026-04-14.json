@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-14",
+  "liturgy": {
+    "day": "Terça - feira 2 semana do Tempo Pascal",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "dD-yIqpmYYQ",
+    "title": "Homilia da Terça - feira 2 semana do Tempo Pascal | Pe. João Chagas | 14/04/2026",
+    "embed_url": "https://www.youtube.com/embed/dD-yIqpmYYQ",
+    "thumbnail": "https://i.ytimg.com/vi/dD-yIqpmYYQ/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-14T10:30:59.032259+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
