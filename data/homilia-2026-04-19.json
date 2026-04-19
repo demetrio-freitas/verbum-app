@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-19",
+  "liturgy": {
+    "day": "Quando Deus não faz o que você esperava | Discípulos de Emaús",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "5DVzg-Lexl8",
+    "title": "Quando Deus não faz o que você esperava | Discípulos de Emaús",
+    "embed_url": "https://www.youtube.com/embed/5DVzg-Lexl8",
+    "thumbnail": "https://i.ytimg.com/vi/5DVzg-Lexl8/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Capela Sh",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-19T10:16:26.508287+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
