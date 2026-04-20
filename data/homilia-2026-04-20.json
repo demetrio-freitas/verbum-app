@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-20",
+  "liturgy": {
+    "day": "Segunda-feira da 3° Semana do Tempo Pascal",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "SAGMTRm14q0",
+    "title": "Homilia da Segunda-feira da 3° Semana do Tempo Pascal | Pe. João Chagas | 20/04/2026",
+    "embed_url": "https://www.youtube.com/embed/SAGMTRm14q0",
+    "thumbnail": "https://i.ytimg.com/vi/SAGMTRm14q0/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-20T10:36:33.477415+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
