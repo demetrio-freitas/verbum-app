@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-25",
+  "liturgy": {
+    "day": "Festa de São Marcos, evangelista",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "aj0Lwn75O58",
+    "title": "Homilia da Festa de São Marcos, evangelista | Pe. João Chagas | 25/04/2026",
+    "embed_url": "https://www.youtube.com/embed/aj0Lwn75O58",
+    "thumbnail": "https://i.ytimg.com/vi/aj0Lwn75O58/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-25T10:17:52.465974+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
