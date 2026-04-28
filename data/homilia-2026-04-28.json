@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-28",
+  "liturgy": {
+    "day": "A oração é a porta para encontrar Cristo | Santa Teresa de Jesus | Pe. Diego",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "60XBpym9UhI",
+    "title": "A oração é a porta para encontrar Cristo | Santa Teresa de Jesus | Pe. Diego",
+    "embed_url": "https://www.youtube.com/embed/60XBpym9UhI",
+    "thumbnail": "https://i.ytimg.com/vi/60XBpym9UhI/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Capela Sh",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-28T10:42:26.981604+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
