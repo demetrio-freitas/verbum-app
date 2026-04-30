@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-30",
+  "liturgy": {
+    "day": "O segredo da verdadeira humildade | São Francisco de Assis | Pe. Diego",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "kHtSGjRaWBE",
+    "title": "O segredo da verdadeira humildade | São Francisco de Assis | Pe. Diego",
+    "embed_url": "https://www.youtube.com/embed/kHtSGjRaWBE",
+    "thumbnail": "https://i.ytimg.com/vi/kHtSGjRaWBE/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Capela Sh",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-30T10:36:54.539585+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
