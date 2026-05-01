@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-01",
+  "liturgy": {
+    "day": "Memória de São José, operário",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "nZ3su-ADv34",
+    "title": "Homilia da Memória de São José, operário | Pe. João Chagas | 01/05/2026",
+    "embed_url": "https://www.youtube.com/embed/nZ3su-ADv34",
+    "thumbnail": "https://i.ytimg.com/vi/nZ3su-ADv34/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-01T10:32:58.038941+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
