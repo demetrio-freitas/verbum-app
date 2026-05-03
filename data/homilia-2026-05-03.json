@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-03",
+  "liturgy": {
+    "day": "5º Domingo  da Páscoa",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "9na9cWIAmZ0",
+    "title": "Homilia do 5º Domingo  da Páscoa | Pe. João Chagas | 03/05/2026",
+    "embed_url": "https://www.youtube.com/embed/9na9cWIAmZ0",
+    "thumbnail": "https://i.ytimg.com/vi/9na9cWIAmZ0/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-03T10:23:05.001024+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
