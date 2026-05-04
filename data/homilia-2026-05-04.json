@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-04",
+  "liturgy": {
+    "day": "Segunda-feira da 5º Semana da Páscoa",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "hzNVXsE1zf4",
+    "title": "Homilia da Segunda-feira da 5º Semana da Páscoa | Pe. João Chagas | 04/05/2026",
+    "embed_url": "https://www.youtube.com/embed/hzNVXsE1zf4",
+    "thumbnail": "https://i.ytimg.com/vi/hzNVXsE1zf4/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-04T10:41:49.976454+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
