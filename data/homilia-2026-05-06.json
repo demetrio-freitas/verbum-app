@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-06",
+  "liturgy": {
+    "day": "Quarta -feira da 5º Semana da Páscoa",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "ykMDw_Cht1Q",
+    "title": "Homilia da Quarta -feira da 5º Semana da Páscoa | Pe. João Chagas | 06/05/2026",
+    "embed_url": "https://www.youtube.com/embed/ykMDw_Cht1Q",
+    "thumbnail": "https://i.ytimg.com/vi/ykMDw_Cht1Q/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-06T12:33:23.012345+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
