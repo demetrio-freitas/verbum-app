@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-08T10:34:11.474860+00:00",
+  "last_updated": "2026-05-09T18:22:41.896446+00:00",
   "episodes": [
+    {
+      "date": "2026-05-09",
+      "title": "Sábado da 5º Semana da Páscoa",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-08",
       "title": "Sexta -feira da 5º Semana da Páscoa",
@@ -172,12 +178,6 @@
     {
       "date": "2026-04-09",
       "title": "Quinta-feira das Oitavas do Senhor",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-08",
-      "title": "Quarta-feira das Oitavas do Senhor",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
