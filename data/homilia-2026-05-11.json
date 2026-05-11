@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-11",
+  "liturgy": {
+    "day": "Segunda- feira da 6º Semana da Páscoa",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "azPTflBhRSE",
+    "title": "Homilia da Segunda- feira da 6º Semana da Páscoa | Pe. João Chagas | 11/05/2026",
+    "embed_url": "https://www.youtube.com/embed/azPTflBhRSE",
+    "thumbnail": "https://i.ytimg.com/vi/azPTflBhRSE/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-11T11:06:18.901550+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
