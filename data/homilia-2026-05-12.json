@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-12",
+  "liturgy": {
+    "day": "O amor verdadeiro permanece | Cristo ressuscitado e o amor maduro | Pe. Diego",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "VzNzvAdZcjs",
+    "title": "O amor verdadeiro permanece | Cristo ressuscitado e o amor maduro | Pe. Diego",
+    "embed_url": "https://www.youtube.com/embed/VzNzvAdZcjs",
+    "thumbnail": "https://i.ytimg.com/vi/VzNzvAdZcjs/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Capela Sh",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-12T10:50:04.982484+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
