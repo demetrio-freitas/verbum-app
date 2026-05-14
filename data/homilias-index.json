@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-13T11:02:34.819778+00:00",
+  "last_updated": "2026-05-14T10:49:56.847298+00:00",
   "episodes": [
+    {
+      "date": "2026-05-14",
+      "title": "Festa de São Matias, apóstolo",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-13",
       "title": "Quarta - feira da 6º Semana da Páscoa",
@@ -172,12 +178,6 @@
     {
       "date": "2026-04-14",
       "title": "Terça - feira 2 semana do Tempo Pascal",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-13",
-      "title": "2 semana do Tempo Pascal",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
