@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-16",
+  "liturgy": {
+    "day": "Sábado da 6º Semana da Páscoa",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "rpU19nxsGFo",
+    "title": "Homilia do Sábado da 6º Semana da Páscoa | Pe. João Chagas | 16/05/2026",
+    "embed_url": "https://www.youtube.com/embed/rpU19nxsGFo",
+    "thumbnail": "https://i.ytimg.com/vi/rpU19nxsGFo/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-16T10:29:47.924581+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
