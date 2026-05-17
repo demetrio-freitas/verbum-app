@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-16T10:29:47.924949+00:00",
+  "last_updated": "2026-05-17T10:31:59.873722+00:00",
   "episodes": [
+    {
+      "date": "2026-05-17",
+      "title": "Ascensão de Nosso Senhor Jesus Cristo",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-16",
       "title": "Sábado da 6º Semana da Páscoa",
@@ -172,12 +178,6 @@
     {
       "date": "2026-04-17",
       "title": "Sexta - feira 2 semana do Tempo Pascal",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-16",
-      "title": "Quinta - feira 2 semana do Tempo Pascal",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
