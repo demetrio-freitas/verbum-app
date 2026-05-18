@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-18",
+  "liturgy": {
+    "day": "Segunda-feira da 7º Semana da Páscoa",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "fbVbnKFp8Yc",
+    "title": "Homilia da Segunda-feira da 7º Semana da Páscoa | Pe. João Chagas | 18/05/2026",
+    "embed_url": "https://www.youtube.com/embed/fbVbnKFp8Yc",
+    "thumbnail": "https://i.ytimg.com/vi/fbVbnKFp8Yc/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-18T11:21:51.220461+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
