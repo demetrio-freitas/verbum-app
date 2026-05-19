@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-18T11:21:51.220812+00:00",
+  "last_updated": "2026-05-19T11:05:55.919082+00:00",
   "episodes": [
+    {
+      "date": "2026-05-19",
+      "title": "Terça -feira da 7º Semana da Páscoa",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-18",
       "title": "Segunda-feira da 7º Semana da Páscoa",
@@ -173,12 +179,6 @@
       "date": "2026-04-19",
       "title": "Quando Deus não faz o que você esperava | Discípulos de Emaús",
       "priest": "Capela Sh",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-18",
-      "title": "Sábado 2° semana do Tempo Pascal",
-      "priest": "Pe. João Chagas",
       "duration": 0
     }
   ]

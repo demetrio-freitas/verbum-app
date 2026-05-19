@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-19",
+  "liturgy": {
+    "day": "Terça -feira da 7º Semana da Páscoa",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "wN4scsZPN5o",
+    "title": "Homilia da Terça -feira da 7º Semana da Páscoa | Pe. João Chagas | 19/05/2026",
+    "embed_url": "https://www.youtube.com/embed/wN4scsZPN5o",
+    "thumbnail": "https://i.ytimg.com/vi/wN4scsZPN5o/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-19T11:05:55.918670+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
