@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-19T11:05:55.919082+00:00",
+  "last_updated": "2026-05-20T11:04:07.413086+00:00",
   "episodes": [
+    {
+      "date": "2026-05-20",
+      "title": "A graça da ressurreição ainda hoje toca a nossa vida | Pe. Diego Soares",
+      "priest": "Capela Sh",
+      "duration": 0
+    },
     {
       "date": "2026-05-19",
       "title": "Terça -feira da 7º Semana da Páscoa",
@@ -173,12 +179,6 @@
       "date": "2026-04-20",
       "title": "Segunda-feira da 3° Semana do Tempo Pascal",
       "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-19",
-      "title": "Quando Deus não faz o que você esperava | Discípulos de Emaús",
-      "priest": "Capela Sh",
       "duration": 0
     }
   ]
