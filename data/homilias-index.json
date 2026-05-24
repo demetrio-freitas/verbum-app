@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-23T10:32:54.550577+00:00",
+  "last_updated": "2026-05-24T10:34:45.516233+00:00",
   "episodes": [
+    {
+      "date": "2026-05-24",
+      "title": "Solenidade de Pentecostes",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-23",
       "title": "Sábado da 7º Semana da Páscoa",
@@ -172,12 +178,6 @@
     {
       "date": "2026-04-24",
       "title": "Sexta-feira da 3° Semana do Tempo Pascal",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-23",
-      "title": "Quinta-feira da 3° Semana do Tempo Pascal",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

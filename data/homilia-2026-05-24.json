@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-24",
+  "liturgy": {
+    "day": "Solenidade de Pentecostes",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "TNfKX8GePSc",
+    "title": "Homilia da Solenidade de Pentecostes | Pe. João Chagas | 24/05/2026",
+    "embed_url": "https://www.youtube.com/embed/TNfKX8GePSc",
+    "thumbnail": "https://i.ytimg.com/vi/TNfKX8GePSc/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-24T10:34:45.515813+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
