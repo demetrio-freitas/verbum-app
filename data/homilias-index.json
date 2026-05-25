@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-24T10:34:45.516233+00:00",
+  "last_updated": "2026-05-25T11:24:40.138006+00:00",
   "episodes": [
+    {
+      "date": "2026-05-25",
+      "title": "Memória Mãe da Igreja",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-24",
       "title": "Solenidade de Pentecostes",
@@ -172,12 +178,6 @@
     {
       "date": "2026-04-25",
       "title": "Festa de São Marcos, evangelista",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-24",
-      "title": "Sexta-feira da 3° Semana do Tempo Pascal",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
