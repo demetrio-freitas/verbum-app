@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-26",
+  "liturgy": {
+    "day": "Memória de São Filipe Neri",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "Hj3yJomTtuQ",
+    "title": "Homilia da Memória de São Filipe Neri | Pe. João Chagas | 26/05/2026",
+    "embed_url": "https://www.youtube.com/embed/Hj3yJomTtuQ",
+    "thumbnail": "https://i.ytimg.com/vi/Hj3yJomTtuQ/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-26T12:54:12.117921+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

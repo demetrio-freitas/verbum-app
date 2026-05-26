@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-25T11:24:40.138006+00:00",
+  "last_updated": "2026-05-26T12:54:12.118299+00:00",
   "episodes": [
+    {
+      "date": "2026-05-26",
+      "title": "Memória de São Filipe Neri",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-25",
       "title": "Memória Mãe da Igreja",
@@ -172,12 +178,6 @@
     {
       "date": "2026-04-26",
       "title": "4 Domingo da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-25",
-      "title": "Festa de São Marcos, evangelista",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
