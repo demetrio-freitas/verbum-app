@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-26T12:54:12.118299+00:00",
+  "last_updated": "2026-05-27T11:15:09.975231+00:00",
   "episodes": [
+    {
+      "date": "2026-05-27",
+      "title": "Quarta-feira da 8 semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-26",
       "title": "Memória de São Filipe Neri",
@@ -172,12 +178,6 @@
     {
       "date": "2026-04-27",
       "title": "Segunda-feira da 4 semana da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-26",
-      "title": "4 Domingo da Páscoa",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
