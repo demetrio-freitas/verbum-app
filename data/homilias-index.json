@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-27T11:15:09.975231+00:00",
+  "last_updated": "2026-05-28T11:15:07.359857+00:00",
   "episodes": [
+    {
+      "date": "2026-05-28",
+      "title": "Quinta-feira da 8º semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-27",
       "title": "Quarta-feira da 8 semana do Tempo Comum",
@@ -173,12 +179,6 @@
       "date": "2026-04-28",
       "title": "A oração é a porta para encontrar Cristo | Santa Teresa de Jesus | Pe. Diego",
       "priest": "Capela Sh",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-27",
-      "title": "Segunda-feira da 4 semana da Páscoa",
-      "priest": "Pe. João Chagas",
       "duration": 0
     }
   ]

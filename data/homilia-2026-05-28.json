@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-28",
+  "liturgy": {
+    "day": "Quinta-feira da 8º semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "Lgzgo-r4jrM",
+    "title": "Homilia da Quinta-feira da 8º semana do Tempo Comum | Pe. João Chagas | 28/05/2026",
+    "embed_url": "https://www.youtube.com/embed/Lgzgo-r4jrM",
+    "thumbnail": "https://i.ytimg.com/vi/Lgzgo-r4jrM/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-28T11:15:07.359449+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
