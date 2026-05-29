@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-28T11:15:07.359857+00:00",
+  "last_updated": "2026-05-29T11:07:48.196544+00:00",
   "episodes": [
+    {
+      "date": "2026-05-29",
+      "title": "Sexta-feira da 8º semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-28",
       "title": "Quinta-feira da 8º semana do Tempo Comum",
@@ -173,12 +179,6 @@
       "date": "2026-04-29",
       "title": "Memória de Santa Catarina de Sena, virgem",
       "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-28",
-      "title": "A oração é a porta para encontrar Cristo | Santa Teresa de Jesus | Pe. Diego",
-      "priest": "Capela Sh",
       "duration": 0
     }
   ]
