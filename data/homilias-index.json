@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-29T11:07:48.196544+00:00",
+  "last_updated": "2026-05-30T10:35:58.896936+00:00",
   "episodes": [
+    {
+      "date": "2026-05-30",
+      "title": "Sábado da 8º semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-29",
       "title": "Sexta-feira da 8º semana do Tempo Comum",
@@ -173,12 +179,6 @@
       "date": "2026-04-30",
       "title": "O segredo da verdadeira humildade | São Francisco de Assis | Pe. Diego",
       "priest": "Capela Sh",
-      "duration": 0
-    },
-    {
-      "date": "2026-04-29",
-      "title": "Memória de Santa Catarina de Sena, virgem",
-      "priest": "Pe. João Chagas",
       "duration": 0
     }
   ]
