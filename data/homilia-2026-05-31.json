@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-31",
+  "liturgy": {
+    "day": "Solenidade da Santíssima Trindade",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "3sIR00AyIJI",
+    "title": "Homilia da Solenidade da Santíssima Trindade | Pe. João Chagas | 31/05/2026",
+    "embed_url": "https://www.youtube.com/embed/3sIR00AyIJI",
+    "thumbnail": "https://i.ytimg.com/vi/3sIR00AyIJI/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-05-31T10:40:29.995282+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
