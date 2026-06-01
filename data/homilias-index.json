@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-05-31T10:40:29.995691+00:00",
+  "last_updated": "2026-06-01T12:01:02.937797+00:00",
   "episodes": [
+    {
+      "date": "2026-06-01",
+      "title": "Memória de São Justino, mártir",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-05-31",
       "title": "Solenidade da Santíssima Trindade",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-03",
       "title": "5º Domingo  da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-01",
-      "title": "Memória de São José, operário",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

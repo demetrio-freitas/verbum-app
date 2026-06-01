@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-01",
+  "liturgy": {
+    "day": "Memória de São Justino, mártir",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "08_fiaD8Pts",
+    "title": "Homilia da Memória de São Justino, mártir | Pe. João Chagas | 01/06/2026",
+    "embed_url": "https://www.youtube.com/embed/08_fiaD8Pts",
+    "thumbnail": "https://i.ytimg.com/vi/08_fiaD8Pts/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-01T12:01:02.937375+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
