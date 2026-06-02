@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-01T12:01:02.937797+00:00",
+  "last_updated": "2026-06-02T11:31:25.357819+00:00",
   "episodes": [
+    {
+      "date": "2026-06-02",
+      "title": "Terça-feira da 9º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-01",
       "title": "Memória de São Justino, mártir",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-04",
       "title": "Segunda-feira da 5º Semana da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-03",
-      "title": "5º Domingo  da Páscoa",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
