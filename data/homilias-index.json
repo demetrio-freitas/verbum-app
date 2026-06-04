@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-03T11:39:02.345880+00:00",
+  "last_updated": "2026-06-04T11:06:00.621933+00:00",
   "episodes": [
+    {
+      "date": "2026-06-04",
+      "title": "Solenidade de Corpus Christi",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-03",
       "title": "Memória de São Carlos Lwanga e companheiros mártires",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-06",
       "title": "Quarta -feira da 5º Semana da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-05",
-      "title": "Terça -feira da 5º Semana da Páscoa",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

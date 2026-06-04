@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-04",
+  "liturgy": {
+    "day": "Solenidade de Corpus Christi",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "U18VUaSalcA",
+    "title": "Homilia da Solenidade de Corpus Christi  | Pe. João Chagas | 04/06/2026",
+    "embed_url": "https://www.youtube.com/embed/U18VUaSalcA",
+    "thumbnail": "https://i.ytimg.com/vi/U18VUaSalcA/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-04T11:06:00.621614+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
