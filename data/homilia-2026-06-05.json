@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-05",
+  "liturgy": {
+    "day": "Memória de São Bonifácio, bispo e mártir",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "vyNDZO234jI",
+    "title": "Homilia da Memória de São Bonifácio, bispo e mártir | Pe. João Chagas | 05/06/2026",
+    "embed_url": "https://www.youtube.com/embed/vyNDZO234jI",
+    "thumbnail": "https://i.ytimg.com/vi/vyNDZO234jI/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-05T11:08:41.245304+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
