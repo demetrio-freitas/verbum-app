@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-05T11:08:41.245776+00:00",
+  "last_updated": "2026-06-06T10:40:11.824694+00:00",
   "episodes": [
+    {
+      "date": "2026-06-06",
+      "title": "Sábado da 9º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-05",
       "title": "Memória de São Bonifácio, bispo e mártir",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-08",
       "title": "Sexta -feira da 5º Semana da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-07",
-      "title": "Quinta -feira da 5º Semana da Páscoa",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
