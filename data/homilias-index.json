@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-06T10:40:11.824694+00:00",
+  "last_updated": "2026-06-08T11:39:05.988580+00:00",
   "episodes": [
+    {
+      "date": "2026-06-08",
+      "title": "ADORAÇÃO AO SANTÍSSIMO AO VIVO | CAPELA VIRTUAL | MANJEDOURA DA PAZ",
+      "priest": "Capela Sh",
+      "duration": 0
+    },
     {
       "date": "2026-06-06",
       "title": "Sábado da 9º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-09",
       "title": "Sábado da 5º Semana da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Sexta -feira da 5º Semana da Páscoa",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
