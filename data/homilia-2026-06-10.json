@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-10",
+  "liturgy": {
+    "day": "quarta-feira da 10º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "3tbOeEQgdTY",
+    "title": "Homilia da quarta-feira da 10º Semana do Tempo Comum  | Pe. João Chagas | 10/06/2026",
+    "embed_url": "https://www.youtube.com/embed/3tbOeEQgdTY",
+    "thumbnail": "https://i.ytimg.com/vi/3tbOeEQgdTY/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-10T11:17:26.000216+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

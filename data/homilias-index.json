@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-09T11:05:16.895917+00:00",
+  "last_updated": "2026-06-10T11:17:26.000646+00:00",
   "episodes": [
+    {
+      "date": "2026-06-10",
+      "title": "quarta-feira da 10º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-09",
       "title": "terça-feira da 10º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-11",
       "title": "Segunda- feira da 6º Semana da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-10",
-      "title": "6º Domingo da Páscoa",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
