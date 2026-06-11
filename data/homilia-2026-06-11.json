@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-11",
+  "liturgy": {
+    "day": "Memória de São Barnabé Apostolo",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "aMoauGQLF8g",
+    "title": "Homilia da Memória de São Barnabé Apostolo  | Pe. João Chagas | 11/06/2026",
+    "embed_url": "https://www.youtube.com/embed/aMoauGQLF8g",
+    "thumbnail": "https://i.ytimg.com/vi/aMoauGQLF8g/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-11T11:33:34.038144+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
