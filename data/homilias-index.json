@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-11T11:33:34.038581+00:00",
+  "last_updated": "2026-06-12T13:03:27.610630+00:00",
   "episodes": [
+    {
+      "date": "2026-06-13",
+      "title": "Memória do Imaculado Coração de Maria",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-11",
       "title": "Memória de São Barnabé Apostolo",
@@ -173,12 +179,6 @@
       "date": "2026-05-13",
       "title": "Quarta - feira da 6º Semana da Páscoa",
       "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-12",
-      "title": "O amor verdadeiro permanece | Cristo ressuscitado e o amor maduro | Pe. Diego",
-      "priest": "Capela Sh",
       "duration": 0
     }
   ]
