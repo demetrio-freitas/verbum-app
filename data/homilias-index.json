@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-14T10:59:54.452886+00:00",
+  "last_updated": "2026-06-15T12:03:57.651919+00:00",
   "episodes": [
+    {
+      "date": "2026-06-15",
+      "title": "segunda-feira da 11º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-14",
       "title": "Domingo da 11º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-15",
       "title": "Sexta - feira da 6º Semana da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-14",
-      "title": "Festa de São Matias, apóstolo",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

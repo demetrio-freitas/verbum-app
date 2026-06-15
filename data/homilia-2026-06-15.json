@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-15",
+  "liturgy": {
+    "day": "segunda-feira da 11º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "KhIC5gEdoRA",
+    "title": "Homilia da segunda-feira da 11º Semana do Tempo Comum  | Pe. João Chagas | 15/06/2026",
+    "embed_url": "https://www.youtube.com/embed/KhIC5gEdoRA",
+    "thumbnail": "https://i.ytimg.com/vi/KhIC5gEdoRA/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-15T12:03:57.651505+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
