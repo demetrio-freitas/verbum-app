@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-17",
+  "liturgy": {
+    "day": "Quarta-feira da  11º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "bal6413ppL0",
+    "title": "Homilia da Quarta-feira da  11º Semana do Tempo Comum  | Pe. João Chagas | 17/06/2026",
+    "embed_url": "https://www.youtube.com/embed/bal6413ppL0",
+    "thumbnail": "https://i.ytimg.com/vi/bal6413ppL0/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-17T11:36:05.446008+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
