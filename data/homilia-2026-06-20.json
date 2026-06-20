@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-20",
+  "liturgy": {
+    "day": "Sábado da 11º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "b1LBCpc9NZ8",
+    "title": "Homilia do Sábado da 11º Semana do Tempo Comum  | Pe. João Chagas | 20/06/2026",
+    "embed_url": "https://www.youtube.com/embed/b1LBCpc9NZ8",
+    "thumbnail": "https://i.ytimg.com/vi/b1LBCpc9NZ8/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-20T10:49:39.918595+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

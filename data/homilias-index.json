@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-19T11:34:05.784906+00:00",
+  "last_updated": "2026-06-20T10:49:39.919009+00:00",
   "episodes": [
+    {
+      "date": "2026-06-20",
+      "title": "Sábado da 11º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-19",
       "title": "Sexta-feira da 11º Semana do Tempo Comum",
@@ -173,12 +179,6 @@
       "date": "2026-05-20",
       "title": "A graça da ressurreição ainda hoje toca a nossa vida | Pe. Diego Soares",
       "priest": "Capela Sh",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-19",
-      "title": "Terça -feira da 7º Semana da Páscoa",
-      "priest": "Pe. João Chagas",
       "duration": 0
     }
   ]
