@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-21T11:05:12.840071+00:00",
+  "last_updated": "2026-06-22T12:02:59.874107+00:00",
   "episodes": [
+    {
+      "date": "2026-06-22",
+      "title": "Segunda-feira da  22º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-21",
       "title": "12º Domingo do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-22",
       "title": "Sexta -feira da 7º Semana da Páscoa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-21",
-      "title": "Quinta -feira da 7º Semana da Páscoa",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
