@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-24",
+  "liturgy": {
+    "day": "Solenidade da Natividade de São João Batista",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "a4bp1ZtgUpc",
+    "title": "Homilia da Solenidade da Natividade de São João Batista| Pe. João Chagas | 24/06/2026",
+    "embed_url": "https://www.youtube.com/embed/a4bp1ZtgUpc",
+    "thumbnail": "https://i.ytimg.com/vi/a4bp1ZtgUpc/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-24T11:03:01.868693+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
