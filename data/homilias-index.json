@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-24T11:03:01.869072+00:00",
+  "last_updated": "2026-06-25T10:58:38.053698+00:00",
   "episodes": [
+    {
+      "date": "2026-06-25",
+      "title": "Quinta-feira da  22º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-24",
       "title": "Solenidade da Natividade de São João Batista",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-25",
       "title": "Memória Mãe da Igreja",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-24",
-      "title": "Solenidade de Pentecostes",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

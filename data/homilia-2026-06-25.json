@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-25",
+  "liturgy": {
+    "day": "Quinta-feira da  22º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "E7U7OI8T33s",
+    "title": "Homilia da Quinta-feira da  22º Semana do Tempo Comum  | Pe. João Chagas | 25/06/2026",
+    "embed_url": "https://www.youtube.com/embed/E7U7OI8T33s",
+    "thumbnail": "https://i.ytimg.com/vi/E7U7OI8T33s/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-25T10:58:38.053275+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
