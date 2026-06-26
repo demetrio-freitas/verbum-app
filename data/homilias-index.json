@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-25T10:58:38.053698+00:00",
+  "last_updated": "2026-06-26T11:02:29.251386+00:00",
   "episodes": [
+    {
+      "date": "2026-06-26",
+      "title": "Sexta-feira da  22º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-25",
       "title": "Quinta-feira da  22º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-26",
       "title": "Memória de São Filipe Neri",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-25",
-      "title": "Memória Mãe da Igreja",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
