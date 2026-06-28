@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-27T10:41:10.086118+00:00",
+  "last_updated": "2026-06-28T10:45:59.385119+00:00",
   "episodes": [
+    {
+      "date": "2026-06-28",
+      "title": "Solenidade de São Pedro e São Paulo",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-27",
       "title": "Sábado 12º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-28",
       "title": "Quinta-feira da 8º semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-27",
-      "title": "Quarta-feira da 8 semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
