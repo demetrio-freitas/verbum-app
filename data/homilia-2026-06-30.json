@@ -1,0 +1,28 @@
+{
+  "date": "2026-06-30",
+  "liturgy": {
+    "day": "Terça-feira da 13º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "kRrcpU5mbWw",
+    "title": "Homilia da Terça-feira da 13º Semana do Tempo Comum  | Pe. João Chagas | 30/06/2026",
+    "embed_url": "https://www.youtube.com/embed/kRrcpU5mbWw",
+    "thumbnail": "https://i.ytimg.com/vi/kRrcpU5mbWw/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-06-30T11:03:34.136366+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
