@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-06-30T11:03:34.136751+00:00",
+  "last_updated": "2026-07-01T11:07:09.580449+00:00",
   "episodes": [
+    {
+      "date": "2026-07-01",
+      "title": "Quarta-feira da 13º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-06-30",
       "title": "Terça-feira da 13º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-05-31",
       "title": "Solenidade da Santíssima Trindade",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-30",
-      "title": "Sábado da 8º semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
