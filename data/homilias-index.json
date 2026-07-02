@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-01T11:07:09.580449+00:00",
+  "last_updated": "2026-07-02T10:55:22.766232+00:00",
   "episodes": [
+    {
+      "date": "2026-07-02",
+      "title": "Quinta-feira da 13º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-01",
       "title": "Quarta-feira da 13º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-01",
       "title": "Memória de São Justino, mártir",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-05-31",
-      "title": "Solenidade da Santíssima Trindade",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
