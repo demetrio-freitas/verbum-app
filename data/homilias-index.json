@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-02T10:55:22.766232+00:00",
+  "last_updated": "2026-07-03T12:07:12.136076+00:00",
   "episodes": [
+    {
+      "date": "2026-07-03",
+      "title": "Festa de São Tomé",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-02",
       "title": "Quinta-feira da 13º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-02",
       "title": "Terça-feira da 9º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-01",
-      "title": "Memória de São Justino, mártir",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
