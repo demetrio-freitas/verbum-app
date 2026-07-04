@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-04",
+  "liturgy": {
+    "day": "Sábado da 13º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "acYf1jxM_Oo",
+    "title": "Homilia do Sábado da 13º Semana do Tempo Comum  | Pe. João Chagas | 04/07/2026",
+    "embed_url": "https://www.youtube.com/embed/acYf1jxM_Oo",
+    "thumbnail": "https://i.ytimg.com/vi/acYf1jxM_Oo/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-04T11:23:48.294053+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

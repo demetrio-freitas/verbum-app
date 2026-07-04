@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-03T12:07:12.136076+00:00",
+  "last_updated": "2026-07-04T11:23:48.294449+00:00",
   "episodes": [
+    {
+      "date": "2026-07-04",
+      "title": "Sábado da 13º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-03",
       "title": "Festa de São Tomé",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-03",
       "title": "Memória de São Carlos Lwanga e companheiros mártires",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-02",
-      "title": "Terça-feira da 9º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
