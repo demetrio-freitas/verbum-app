@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-05",
+  "liturgy": {
+    "day": "14º Domingo do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "Qj7Mw79xPTY",
+    "title": "Homilia do 14º Domingo do Tempo Comum | Pe. João Chagas | 05/07/2026",
+    "embed_url": "https://www.youtube.com/embed/Qj7Mw79xPTY",
+    "thumbnail": "https://i.ytimg.com/vi/Qj7Mw79xPTY/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-05T11:27:57.471080+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
