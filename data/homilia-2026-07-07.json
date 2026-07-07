@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-07",
+  "liturgy": {
+    "day": "Terça-feira da 14º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "848D6ip9hQA",
+    "title": "Homilia da Terça-feira da 14º Semana do Tempo Comum | Pe. João Chagas | 07/07/2026",
+    "embed_url": "https://www.youtube.com/embed/848D6ip9hQA",
+    "thumbnail": "https://i.ytimg.com/vi/848D6ip9hQA/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-07T12:25:48.924219+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
