@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-07T12:25:48.924568+00:00",
+  "last_updated": "2026-07-08T11:44:59.586369+00:00",
   "episodes": [
+    {
+      "date": "2026-07-08",
+      "title": "Quarta-feira da 14º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-07",
       "title": "Terça-feira da 14º Semana do Tempo Comum",
@@ -173,12 +179,6 @@
       "date": "2026-06-08",
       "title": "ADORAÇÃO AO SANTÍSSIMO AO VIVO | CAPELA VIRTUAL | MANJEDOURA DA PAZ",
       "priest": "Capela Sh",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-06",
-      "title": "Sábado da 9º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
       "duration": 0
     }
   ]
