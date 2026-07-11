@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-10T12:23:21.008467+00:00",
+  "last_updated": "2026-07-11T11:01:47.316537+00:00",
   "episodes": [
+    {
+      "date": "2026-07-11",
+      "title": "Memória de São Bento, abade",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-10",
       "title": "Sexta-feira da 14º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-11",
       "title": "Memória de São Barnabé Apostolo",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-10",
-      "title": "quarta-feira da 10º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

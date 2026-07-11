@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-11",
+  "liturgy": {
+    "day": "Memória de São Bento, abade",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "7gEiUfZcNiE",
+    "title": "Homilia da Memória de São Bento, abade | Pe. João Chagas | 11/07/2026",
+    "embed_url": "https://www.youtube.com/embed/7gEiUfZcNiE",
+    "thumbnail": "https://i.ytimg.com/vi/7gEiUfZcNiE/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-11T11:01:47.316150+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
