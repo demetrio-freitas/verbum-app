@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-12",
+  "liturgy": {
+    "day": "15º Domingo do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "89rTa69F59s",
+    "title": "Homilia do 15º Domingo do Tempo Comum | Pe. João Chagas | 12/07/2026",
+    "embed_url": "https://www.youtube.com/embed/89rTa69F59s",
+    "thumbnail": "https://i.ytimg.com/vi/89rTa69F59s/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-12T11:07:59.467306+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-11T11:01:47.316537+00:00",
+  "last_updated": "2026-07-12T11:07:59.467706+00:00",
   "episodes": [
+    {
+      "date": "2026-07-12",
+      "title": "15º Domingo do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-11",
       "title": "Memória de São Bento, abade",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-13",
       "title": "Memória do Imaculado Coração de Maria",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-11",
-      "title": "Memória de São Barnabé Apostolo",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
