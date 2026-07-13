@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-12T11:07:59.467706+00:00",
+  "last_updated": "2026-07-13T12:29:11.265393+00:00",
   "episodes": [
+    {
+      "date": "2026-07-13",
+      "title": "Segunda-feira da 15º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-12",
       "title": "15º Domingo do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-14",
       "title": "Domingo da 11º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-13",
-      "title": "Memória do Imaculado Coração de Maria",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
