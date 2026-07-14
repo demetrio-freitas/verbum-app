@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-14",
+  "liturgy": {
+    "day": "Terça -feira da 15º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "hEMOt-4LQoM",
+    "title": "Homilia da Terça -feira da 15º Semana do Tempo Comum | Pe. João Chagas | 14/07/2026",
+    "embed_url": "https://www.youtube.com/embed/hEMOt-4LQoM",
+    "thumbnail": "https://i.ytimg.com/vi/hEMOt-4LQoM/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-14T11:24:10.101489+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
