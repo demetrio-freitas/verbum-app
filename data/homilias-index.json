@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-14T11:24:10.101881+00:00",
+  "last_updated": "2026-07-15T11:26:43.490315+00:00",
   "episodes": [
+    {
+      "date": "2026-07-15",
+      "title": "Quarta -feira da 15º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-14",
       "title": "Terça -feira da 15º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-16",
       "title": "Quarta-feira da  11º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-15",
-      "title": "segunda-feira da 11º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
