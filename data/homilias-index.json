@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-15T11:26:43.490315+00:00",
+  "last_updated": "2026-07-16T11:36:50.955932+00:00",
   "episodes": [
+    {
+      "date": "2026-07-16",
+      "title": "Festa de Nossa Senhora do Carmelo",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-15",
       "title": "Quarta -feira da 15º Semana do Tempo Comum",
@@ -171,12 +177,6 @@
     },
     {
       "date": "2026-06-17",
-      "title": "Quarta-feira da  11º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-16",
       "title": "Quarta-feira da  11º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
