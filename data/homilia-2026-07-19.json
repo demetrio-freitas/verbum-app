@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-19",
+  "liturgy": {
+    "day": "16º Domingo do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "XJv9P0j1WiI",
+    "title": "Homilia do 16º Domingo do Tempo Comum | Pe. João Chagas | 19/07/2026",
+    "embed_url": "https://www.youtube.com/embed/XJv9P0j1WiI",
+    "thumbnail": "https://i.ytimg.com/vi/XJv9P0j1WiI/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-19T11:07:15.802781+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
