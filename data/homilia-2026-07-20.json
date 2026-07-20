@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-20",
+  "liturgy": {
+    "day": "Segunda-feira da 16º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "URY-6ZJSKfs",
+    "title": "Homilia da Segunda-feira da 16º Semana do Tempo Comum | Pe. João Chagas | 20/07/2026",
+    "embed_url": "https://www.youtube.com/embed/URY-6ZJSKfs",
+    "thumbnail": "https://i.ytimg.com/vi/URY-6ZJSKfs/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-20T12:14:06.357778+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
