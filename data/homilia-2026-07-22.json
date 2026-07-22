@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-22",
+  "liturgy": {
+    "day": "Festa de Santa Maria Madalena",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "Q0d_yPA4GM0",
+    "title": "Homilia da Festa de Santa Maria Madalena | Pe. João Chagas | 22/07/2026",
+    "embed_url": "https://www.youtube.com/embed/Q0d_yPA4GM0",
+    "thumbnail": "https://i.ytimg.com/vi/Q0d_yPA4GM0/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-22T11:45:13.944298+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
