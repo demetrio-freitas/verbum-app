@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-22T11:45:13.944685+00:00",
+  "last_updated": "2026-07-23T11:49:01.126863+00:00",
   "episodes": [
+    {
+      "date": "2026-07-26",
+      "title": "17º Domingo do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-22",
       "title": "Festa de Santa Maria Madalena",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-24",
       "title": "Solenidade da Natividade de São João Batista",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-23",
-      "title": "Terça-feira da  22º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
