@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-25",
+  "liturgy": {
+    "day": "Festa de São Tiago, apóstolo",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "mGREXzjsFtg",
+    "title": "Homilia da Festa de São Tiago, apóstolo | Pe. João Chagas | 25/07/2026",
+    "embed_url": "https://www.youtube.com/embed/mGREXzjsFtg",
+    "thumbnail": "https://i.ytimg.com/vi/mGREXzjsFtg/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-25T11:06:35.702401+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

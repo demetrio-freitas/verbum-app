@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-24T11:39:06.845429+00:00",
+  "last_updated": "2026-07-25T11:06:35.702845+00:00",
   "episodes": [
+    {
+      "date": "2026-07-25",
+      "title": "Festa de São Tiago, apóstolo",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-24",
       "title": "Sexta-feira da 16º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-27",
       "title": "Sábado 12º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-26",
-      "title": "Sexta-feira da  22º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
