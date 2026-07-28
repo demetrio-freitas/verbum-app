@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-27T12:53:29.574479+00:00",
+  "last_updated": "2026-07-28T11:54:54.807345+00:00",
   "episodes": [
+    {
+      "date": "2026-07-28",
+      "title": "Terça-feira da 17º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-27",
       "title": "Segunda-feira da 17º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-06-29",
       "title": "Segunda-feira da 13º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-28",
-      "title": "Solenidade de São Pedro e São Paulo",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
