@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-29T11:58:44.592830+00:00",
+  "last_updated": "2026-07-30T11:49:57.811607+00:00",
   "episodes": [
+    {
+      "date": "2026-07-30",
+      "title": "Quinta-feira da 17º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-29",
       "title": "Memória dos Santos Marta, Maria e Lázaro",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-01",
       "title": "Quarta-feira da 13º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-06-30",
-      "title": "Terça-feira da 13º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
