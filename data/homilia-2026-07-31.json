@@ -1,0 +1,28 @@
+{
+  "date": "2026-07-31",
+  "liturgy": {
+    "day": "Memória de Santo Inácio de Loiola",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "qDNtZx5n1AU",
+    "title": "Homilia da Memória de Santo Inácio de Loiola | Pe. João Chagas | 31/07/2026",
+    "embed_url": "https://www.youtube.com/embed/qDNtZx5n1AU",
+    "thumbnail": "https://i.ytimg.com/vi/qDNtZx5n1AU/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-07-31T11:56:25.443707+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

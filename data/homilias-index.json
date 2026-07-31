@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-30T11:49:57.811607+00:00",
+  "last_updated": "2026-07-31T11:56:25.444114+00:00",
   "episodes": [
+    {
+      "date": "2026-07-31",
+      "title": "Memória de Santo Inácio de Loiola",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-07-30",
       "title": "Quinta-feira da 17º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-02",
       "title": "Quinta-feira da 13º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-01",
-      "title": "Quarta-feira da 13º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
