@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-01",
+  "liturgy": {
+    "day": "Memória de Santo Afonso Maria de Ligório, bispo e doutor",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "F0ydKAScaXY",
+    "title": "Homilia da Memória de Santo Afonso Maria de Ligório, bispo e doutor  | Pe. João Chagas | 01/08/2026",
+    "embed_url": "https://www.youtube.com/embed/F0ydKAScaXY",
+    "thumbnail": "https://i.ytimg.com/vi/F0ydKAScaXY/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-01T11:14:15.802778+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
