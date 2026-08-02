@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-01T11:14:15.803212+00:00",
+  "last_updated": "2026-08-02T11:14:07.082251+00:00",
   "episodes": [
+    {
+      "date": "2026-08-02",
+      "title": "20º Domingo do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-01",
       "title": "Memória de Santo Afonso Maria de Ligório, bispo e doutor",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-04",
       "title": "Sábado da 13º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-03",
-      "title": "Festa de São Tomé",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
