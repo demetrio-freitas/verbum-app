@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-02T11:14:07.082251+00:00",
+  "last_updated": "2026-08-03T12:53:30.957088+00:00",
   "episodes": [
+    {
+      "date": "2026-08-03",
+      "title": "Segunda-feira da 20º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-02",
       "title": "20º Domingo do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-05",
       "title": "14º Domingo do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-04",
-      "title": "Sábado da 13º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
