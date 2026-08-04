@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-04",
+  "liturgy": {
+    "day": "Memória de São João Maria Vianney",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "bMNkR9cfBzg",
+    "title": "Homilia da Memória de São João Maria Vianney| Pe. João Chagas | 04/08/2026",
+    "embed_url": "https://www.youtube.com/embed/bMNkR9cfBzg",
+    "thumbnail": "https://i.ytimg.com/vi/bMNkR9cfBzg/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-04T12:00:25.401711+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
