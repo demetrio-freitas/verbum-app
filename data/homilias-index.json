@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-04T12:00:25.402081+00:00",
+  "last_updated": "2026-08-05T11:56:51.612741+00:00",
   "episodes": [
+    {
+      "date": "2026-08-05",
+      "title": "Quarta-feira da 20º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-04",
       "title": "Memória de São João Maria Vianney",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-07",
       "title": "Terça-feira da 14º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-06",
-      "title": "Segunda-feira da 14º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

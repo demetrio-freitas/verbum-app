@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-05",
+  "liturgy": {
+    "day": "Quarta-feira da 20º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "6Xw1BO7IvMA",
+    "title": "Homilia da Quarta-feira da 20º Semana do Tempo Comum | Pe. João Chagas | 05/08/2026",
+    "embed_url": "https://www.youtube.com/embed/6Xw1BO7IvMA",
+    "thumbnail": "https://i.ytimg.com/vi/6Xw1BO7IvMA/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-05T11:56:51.612302+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
