@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-06",
+  "liturgy": {
+    "day": "Festa da Transfiguração do Senhor",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "MJwI-XCQjZ4",
+    "title": "Homilia da Festa da Transfiguração do Senhor| Pe. João Chagas | 06/08/2026",
+    "embed_url": "https://www.youtube.com/embed/MJwI-XCQjZ4",
+    "thumbnail": "https://i.ytimg.com/vi/MJwI-XCQjZ4/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-06T12:00:49.791654+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
