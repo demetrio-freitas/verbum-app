@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-06T12:00:49.792019+00:00",
+  "last_updated": "2026-08-07T10:49:28.865302+00:00",
   "episodes": [
+    {
+      "date": "2026-08-07",
+      "title": "Sexta-feira da 18º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-06",
       "title": "Festa da Transfiguração do Senhor",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-09",
       "title": "Quinta-feira da 14º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-08",
-      "title": "Quarta-feira da 14º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
