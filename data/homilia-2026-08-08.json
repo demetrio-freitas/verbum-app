@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-08",
+  "liturgy": {
+    "day": "Sábado da 18º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "gSUy3vDTe10",
+    "title": "Homilia do Sábado da 18º Semana do Tempo Comum | Pe. João Chagas | 08/08/2026",
+    "embed_url": "https://www.youtube.com/embed/gSUy3vDTe10",
+    "thumbnail": "https://i.ytimg.com/vi/gSUy3vDTe10/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-08T10:28:25.206339+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
