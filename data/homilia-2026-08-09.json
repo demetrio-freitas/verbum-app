@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-09",
+  "liturgy": {
+    "day": "19º Domingo do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "JuK5_NPCkbY",
+    "title": "Homilia do 19º Domingo do Tempo Comum | Pe. João Chagas | 09/08/2026",
+    "embed_url": "https://www.youtube.com/embed/JuK5_NPCkbY",
+    "thumbnail": "https://i.ytimg.com/vi/JuK5_NPCkbY/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-09T10:30:03.314476+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
