@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-09T10:30:03.314838+00:00",
+  "last_updated": "2026-08-10T11:04:38.063343+00:00",
   "episodes": [
+    {
+      "date": "2026-08-10",
+      "title": "Festa de São Lourenço, mártir",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-09",
       "title": "19º Domingo do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-12",
       "title": "15º Domingo do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-11",
-      "title": "Memória de São Bento, abade",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

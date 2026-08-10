@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-10",
+  "liturgy": {
+    "day": "Festa de São Lourenço, mártir",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "ybkHiXDnIIQ",
+    "title": "Homilia da Festa de São Lourenço, mártir | Pe. João Chagas | 10/08/2026",
+    "embed_url": "https://www.youtube.com/embed/ybkHiXDnIIQ",
+    "thumbnail": "https://i.ytimg.com/vi/ybkHiXDnIIQ/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-10T11:04:38.062872+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
