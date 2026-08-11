@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-10T11:04:38.063343+00:00",
+  "last_updated": "2026-08-11T10:47:07.628643+00:00",
   "episodes": [
+    {
+      "date": "2026-08-11",
+      "title": "Memória de Santa Clara de Assis",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-10",
       "title": "Festa de São Lourenço, mártir",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-13",
       "title": "Segunda-feira da 15º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-12",
-      "title": "15º Domingo do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
