@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-13T10:58:06.924509+00:00",
+  "last_updated": "2026-08-14T10:55:10.530435+00:00",
   "episodes": [
+    {
+      "date": "2026-08-15",
+      "title": "Memória de São Maximiliano Maria Kolbe",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-13",
       "title": "Quinta-feira da 19º Domingo do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-16",
       "title": "Festa de Nossa Senhora do Carmelo",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-15",
-      "title": "Quarta -feira da 15º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
