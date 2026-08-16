@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-16",
+  "liturgy": {
+    "day": "20º Domingo do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "HNum0OvGmp8",
+    "title": "Homilia do 20º Domingo do Tempo Comum | Pe. João Chagas | 16/08/2026",
+    "embed_url": "https://www.youtube.com/embed/HNum0OvGmp8",
+    "thumbnail": "https://i.ytimg.com/vi/HNum0OvGmp8/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-16T10:19:02.546472+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
