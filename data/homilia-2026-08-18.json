@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-18",
+  "liturgy": {
+    "day": "Terça-feira da  20º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "YjTDVamSj80",
+    "title": "Homilia da Terça-feira da  20º Semana do Tempo Comum | Pe. João Chagas | 18/08/2026",
+    "embed_url": "https://www.youtube.com/embed/YjTDVamSj80",
+    "thumbnail": "https://i.ytimg.com/vi/YjTDVamSj80/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-18T10:23:55.411430+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
