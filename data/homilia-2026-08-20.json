@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-20",
+  "liturgy": {
+    "day": "Memória de São Bernardo",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "TnUA8wT_--4",
+    "title": "Homilia da Memória de São Bernardo | Pe. João Chagas | 20/08/2026",
+    "embed_url": "https://www.youtube.com/embed/TnUA8wT_--4",
+    "thumbnail": "https://i.ytimg.com/vi/TnUA8wT_--4/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-20T10:25:33.849925+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

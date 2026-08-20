@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-19T10:23:53.216604+00:00",
+  "last_updated": "2026-08-20T10:25:33.850219+00:00",
   "episodes": [
+    {
+      "date": "2026-08-20",
+      "title": "Memória de São Bernardo",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-19",
       "title": "Quarta-feira da  20º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-21",
       "title": "Terça-feira da 16º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-20",
-      "title": "Segunda-feira da 16º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
