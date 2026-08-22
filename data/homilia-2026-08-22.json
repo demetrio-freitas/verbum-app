@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-22",
+  "liturgy": {
+    "day": "Memória de Nossa Senhora Rainha",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "6VOVkcg45L4",
+    "title": "Homilia da Memória de Nossa Senhora Rainha | Pe. João Chagas | 22/08/2026",
+    "embed_url": "https://www.youtube.com/embed/6VOVkcg45L4",
+    "thumbnail": "https://i.ytimg.com/vi/6VOVkcg45L4/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-22T10:19:06.816080+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

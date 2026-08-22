@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-21T10:26:31.728176+00:00",
+  "last_updated": "2026-08-22T10:19:06.816469+00:00",
   "episodes": [
+    {
+      "date": "2026-08-22",
+      "title": "Memória de Nossa Senhora Rainha",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-21",
       "title": "Memória de São Pio X, Papa",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-26",
       "title": "17º Domingo do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-22",
-      "title": "Festa de Santa Maria Madalena",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
