@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-22T10:19:06.816469+00:00",
+  "last_updated": "2026-08-23T10:20:00.717781+00:00",
   "episodes": [
+    {
+      "date": "2026-08-23",
+      "title": "21º Domingo do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-22",
       "title": "Memória de Nossa Senhora Rainha",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-23",
       "title": "Quinta-feira da 17º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-26",
-      "title": "17º Domingo do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

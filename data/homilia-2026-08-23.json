@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-23",
+  "liturgy": {
+    "day": "21º Domingo do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "QY0w829Duxk",
+    "title": "Homilia do  21º Domingo do Tempo Comum | Pe. João Chagas | 23/08/2026",
+    "embed_url": "https://www.youtube.com/embed/QY0w829Duxk",
+    "thumbnail": "https://i.ytimg.com/vi/QY0w829Duxk/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-23T10:20:00.717443+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
