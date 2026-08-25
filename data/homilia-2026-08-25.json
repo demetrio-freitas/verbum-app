@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-25",
+  "liturgy": {
+    "day": "Terça-feira da  21º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "yXu1Mvmhzg8",
+    "title": "Homilia da Terça-feira da  21º Semana do Tempo Comum | Pe. João Chagas | 25/08/2026",
+    "embed_url": "https://www.youtube.com/embed/yXu1Mvmhzg8",
+    "thumbnail": "https://i.ytimg.com/vi/yXu1Mvmhzg8/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-25T10:27:49.052097+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
