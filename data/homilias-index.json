@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-08-25T10:27:49.052443+00:00",
+  "last_updated": "2026-08-26T10:32:12.840233+00:00",
   "episodes": [
+    {
+      "date": "2026-08-26",
+      "title": "Quarta-feira da  21º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-08-25",
       "title": "Terça-feira da  21º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-07-25",
       "title": "Festa de São Tiago, apóstolo",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-24",
-      "title": "Sexta-feira da 16º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
