@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-27",
+  "liturgy": {
+    "day": "Memória de Santa Mônica",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "EY0xWsd1aMk",
+    "title": "Homilia da Memória de Santa Mônica | Pe. João Chagas | 27/08/2026",
+    "embed_url": "https://www.youtube.com/embed/EY0xWsd1aMk",
+    "thumbnail": "https://i.ytimg.com/vi/EY0xWsd1aMk/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-27T20:08:43.583206+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
