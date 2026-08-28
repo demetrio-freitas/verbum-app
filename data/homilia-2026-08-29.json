@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-29",
+  "liturgy": {
+    "day": "Festa do Martírio de São João Batista",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "6MqA8s6XGPI",
+    "title": "Homilia da Festa do Martírio de São João Batista | Pe. João Chagas | 29/08/2026",
+    "embed_url": "https://www.youtube.com/embed/6MqA8s6XGPI",
+    "thumbnail": "https://i.ytimg.com/vi/6MqA8s6XGPI/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-28T21:04:07.021678+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
