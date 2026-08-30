@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-30",
+  "liturgy": {
+    "day": "22º Domingo do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "xiMFHHMHU9w",
+    "title": "Homilia do 22º Domingo do Tempo Comum | Pe. João Chagas | 30/08/2026",
+    "embed_url": "https://www.youtube.com/embed/xiMFHHMHU9w",
+    "thumbnail": "https://i.ytimg.com/vi/xiMFHHMHU9w/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-30T14:39:42.389715+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
