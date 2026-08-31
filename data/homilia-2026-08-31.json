@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-31",
+  "liturgy": {
+    "day": "Segunda-feira da 22º Semanado Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "L1KZpROPPm0",
+    "title": "Homilia da Segunda-feira da 22º Semanado Tempo Comum | Pe. João Chagas | 31/08/2026",
+    "embed_url": "https://www.youtube.com/embed/L1KZpROPPm0",
+    "thumbnail": "https://i.ytimg.com/vi/L1KZpROPPm0/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-08-31T17:22:46.810039+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
