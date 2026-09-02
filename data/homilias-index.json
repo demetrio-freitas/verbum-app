@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-01T15:23:10.811404+00:00",
+  "last_updated": "2026-09-02T14:03:16.139027+00:00",
   "episodes": [
+    {
+      "date": "2026-09-02",
+      "title": "Quarta-feira da 22º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-01",
       "title": "Terça-feira da 22º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-01",
       "title": "Memória de Santo Afonso Maria de Ligório, bispo e doutor",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-07-31",
-      "title": "Memória de Santo Inácio de Loiola",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

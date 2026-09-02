@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-02",
+  "liturgy": {
+    "day": "Quarta-feira da 22º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "RGa7OjZVmac",
+    "title": "Homilia da Quarta-feira da 22º Semana do Tempo Comum | Pe. João Chagas | 02/09/2026",
+    "embed_url": "https://www.youtube.com/embed/RGa7OjZVmac",
+    "thumbnail": "https://i.ytimg.com/vi/RGa7OjZVmac/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-09-02T14:03:16.138585+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
