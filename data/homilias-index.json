@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-02T14:03:16.139027+00:00",
+  "last_updated": "2026-09-03T14:05:38.065045+00:00",
   "episodes": [
+    {
+      "date": "2026-09-03",
+      "title": "Memória de São Basílio Magno",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-02",
       "title": "Quarta-feira da 22º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-02",
       "title": "20º Domingo do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-01",
-      "title": "Memória de Santo Afonso Maria de Ligório, bispo e doutor",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
