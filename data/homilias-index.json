@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-04T13:58:19.833037+00:00",
+  "last_updated": "2026-09-05T13:14:04.065272+00:00",
   "episodes": [
+    {
+      "date": "2026-09-05",
+      "title": "Sábado da 22º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-04",
       "title": "Sexta-feira da 22º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-04",
       "title": "Memória de São João Maria Vianney",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-03",
-      "title": "Segunda-feira da 20º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
