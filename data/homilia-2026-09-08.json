@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-08",
+  "liturgy": {
+    "day": "Festa da Natividade de Nossa Senhora",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "Xq1dObkN6SE",
+    "title": "Homilia da Festa da Natividade de Nossa Senhora | Pe. João Chagas | 08/09/2026",
+    "embed_url": "https://www.youtube.com/embed/Xq1dObkN6SE",
+    "thumbnail": "https://i.ytimg.com/vi/Xq1dObkN6SE/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-09-08T14:06:38.308269+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
