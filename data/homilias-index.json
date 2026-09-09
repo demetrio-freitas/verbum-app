@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-08T14:06:38.308663+00:00",
+  "last_updated": "2026-09-09T14:08:10.231064+00:00",
   "episodes": [
+    {
+      "date": "2026-09-09",
+      "title": "Quarta-feira da 23º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-08",
       "title": "Festa da Natividade de Nossa Senhora",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-08",
       "title": "Sábado da 18º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-07",
-      "title": "Sexta-feira da 18º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

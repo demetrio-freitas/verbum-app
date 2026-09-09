@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-09",
+  "liturgy": {
+    "day": "Quarta-feira da 23º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "ac9DMeJFArk",
+    "title": "Homilia da Quarta-feira da 23º Semana do Tempo Comum | Pe. João Chagas | 09/09/2026",
+    "embed_url": "https://www.youtube.com/embed/ac9DMeJFArk",
+    "thumbnail": "https://i.ytimg.com/vi/ac9DMeJFArk/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-09-09T14:08:10.230596+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
