@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-10T14:03:09.010291+00:00",
+  "last_updated": "2026-09-11T14:01:36.246520+00:00",
   "episodes": [
+    {
+      "date": "2026-09-11",
+      "title": "Sexta-feira da 23º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-10",
       "title": "Quinta-feira da 23º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-10",
       "title": "Festa de São Lourenço, mártir",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-09",
-      "title": "19º Domingo do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
