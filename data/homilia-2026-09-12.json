@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-12",
+  "liturgy": {
+    "day": "Sábado da 23º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "_5d0Vcpzrp4",
+    "title": "Homilia do Sábado da 23º Semana do Tempo Comum | Pe. João Chagas | 12/09/2026",
+    "embed_url": "https://www.youtube.com/embed/_5d0Vcpzrp4",
+    "thumbnail": "https://i.ytimg.com/vi/_5d0Vcpzrp4/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-09-12T13:20:00.669847+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
