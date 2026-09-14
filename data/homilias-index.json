@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-13T14:02:39.711681+00:00",
+  "last_updated": "2026-09-14T16:08:37.445334+00:00",
   "episodes": [
+    {
+      "date": "2026-09-14",
+      "title": "Festa da Exaltação da Santa Cruz",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-13",
       "title": "Domingo da 23º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-13",
       "title": "Quinta-feira da 19º Domingo do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-12",
-      "title": "Quarta-feira da 19º Domingo do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

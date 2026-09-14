@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-14",
+  "liturgy": {
+    "day": "Festa da Exaltação da Santa Cruz",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "jzSZS9rU--c",
+    "title": "Homilia da Festa da Exaltação da Santa Cruz | Pe. João Chagas | 14/09/2026",
+    "embed_url": "https://www.youtube.com/embed/jzSZS9rU--c",
+    "thumbnail": "https://i.ytimg.com/vi/jzSZS9rU--c/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-09-14T16:08:37.444959+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
