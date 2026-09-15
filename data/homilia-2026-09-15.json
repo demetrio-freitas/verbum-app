@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-15",
+  "liturgy": {
+    "day": "Memória de Nossa Senhora das Dores",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "dg9aWXffPMM",
+    "title": "Homilia da Memória de Nossa Senhora das Dores | Pe. João Chagas | 15/09/2026",
+    "embed_url": "https://www.youtube.com/embed/dg9aWXffPMM",
+    "thumbnail": "https://i.ytimg.com/vi/dg9aWXffPMM/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-09-15T14:37:16.678932+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

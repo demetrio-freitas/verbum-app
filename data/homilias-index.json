@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-14T16:08:37.445334+00:00",
+  "last_updated": "2026-09-15T14:37:16.679302+00:00",
   "episodes": [
+    {
+      "date": "2026-09-15",
+      "title": "Memória de Nossa Senhora das Dores",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-14",
       "title": "Festa da Exaltação da Santa Cruz",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-15",
       "title": "Memória de São Maximiliano Maria Kolbe",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-13",
-      "title": "Quinta-feira da 19º Domingo do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
