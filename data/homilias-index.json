@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-15T14:37:16.679302+00:00",
+  "last_updated": "2026-09-16T14:33:51.565620+00:00",
   "episodes": [
+    {
+      "date": "2026-09-16",
+      "title": "Memória  de São Cornélio e São Cipriano",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-15",
       "title": "Memória de Nossa Senhora das Dores",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-16",
       "title": "20º Domingo do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-15",
-      "title": "Memória de São Maximiliano Maria Kolbe",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
