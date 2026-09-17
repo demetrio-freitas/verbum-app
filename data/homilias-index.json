@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-16T14:33:51.565620+00:00",
+  "last_updated": "2026-09-17T14:38:48.167312+00:00",
   "episodes": [
+    {
+      "date": "2026-09-17",
+      "title": "Quinta-feira da 24ºSemana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-16",
       "title": "Memória  de São Cornélio e São Cipriano",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-17",
       "title": "Segunda-feira da  20º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-16",
-      "title": "20º Domingo do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
