@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-20T13:55:08.234619+00:00",
+  "last_updated": "2026-09-21T16:10:43.677636+00:00",
   "episodes": [
+    {
+      "date": "2026-09-21",
+      "title": "Festa de São Mateus, apóstolo",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-20",
       "title": "25º Domingo do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-21",
       "title": "Memória de São Pio X, Papa",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-20",
-      "title": "Memória de São Bernardo",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
