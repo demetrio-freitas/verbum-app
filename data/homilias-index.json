@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-21T16:10:43.677636+00:00",
+  "last_updated": "2026-09-22T14:18:59.193687+00:00",
   "episodes": [
+    {
+      "date": "2026-09-22",
+      "title": "Terça-feira da 25º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-21",
       "title": "Festa de São Mateus, apóstolo",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-22",
       "title": "Memória de Nossa Senhora Rainha",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-21",
-      "title": "Memória de São Pio X, Papa",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
