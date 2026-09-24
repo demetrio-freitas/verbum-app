@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-23T14:38:39.592265+00:00",
+  "last_updated": "2026-09-24T14:36:43.476347+00:00",
   "episodes": [
+    {
+      "date": "2026-09-24",
+      "title": "Quinta-feira da 25º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-23",
       "title": "Memória de São Pio de Pietrelcina",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-25",
       "title": "Terça-feira da  21º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-23",
-      "title": "21º Domingo do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
