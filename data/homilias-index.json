@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-24T14:36:43.476347+00:00",
+  "last_updated": "2026-09-25T14:58:34.996376+00:00",
   "episodes": [
+    {
+      "date": "2026-09-25",
+      "title": "Sexta-feira da 25º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-24",
       "title": "Quinta-feira da 25º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-26",
       "title": "Quarta-feira da  21º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-25",
-      "title": "Terça-feira da  21º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
