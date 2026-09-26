@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-25T14:58:34.996376+00:00",
+  "last_updated": "2026-09-26T14:03:01.403867+00:00",
   "episodes": [
+    {
+      "date": "2026-09-26",
+      "title": "Sábado da 25º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-25",
       "title": "Sexta-feira da 25º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-27",
       "title": "Memória de Santa Mônica",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-26",
-      "title": "Quarta-feira da  21º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
