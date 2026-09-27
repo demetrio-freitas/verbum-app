@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-27",
+  "liturgy": {
+    "day": "26º Domingo do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "JF2bKr0YF0E",
+    "title": "Homilia do 26º Domingo do Tempo Comum | Pe. João Chagas | 27/09/2026",
+    "embed_url": "https://www.youtube.com/embed/JF2bKr0YF0E",
+    "thumbnail": "https://i.ytimg.com/vi/JF2bKr0YF0E/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-09-27T14:58:59.514324+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
