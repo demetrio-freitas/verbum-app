@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Teste — Posição do Perfil (3 opções)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F2F1EC;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --accent: #78350F;
+  --accent-soft: rgba(120,53,15,0.06);
+  --accent-glow: rgba(120,53,15,0.12);
+  --border: rgba(28,25,23,0.06);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-body);
+  background: #E8E5DF;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.option-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  background: var(--bg-card);
+  border-radius: 100px;
+  display: inline-block;
+}
+.option-desc {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  margin-bottom: 10px;
+  max-width: 390px;
+  text-align: center;
+  line-height: 1.5;
+}
+.phone {
+  width: 390px;
+  background: var(--bg);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* =================== SHARED =================== */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.app-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+}
+.app-logo span {
+  font-weight: 400;
+  font-size: 0.85em;
+  color: var(--text-tertiary);
+  margin-left: 2px;
+}
+.header-actions { display: flex; gap: 4px; align-items: center; }
+.icon-btn {
+  font-family: 'Material Symbols Rounded';
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-bar {
+  padding: 16px 20px 12px;
+}
+.date-liturgical {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.date-calendar {
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+  margin-top: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.placeholder-content {
+  padding: 20px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+}
+
+/* Bottom nav */
+.bottom-nav {
+  display: flex;
+  border-top: 1px solid var(--border);
+  background: var(--bg-card);
+  padding: 6px 0 10px;
+}
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  color: var(--text-tertiary);
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+.nav-item .material-symbols-rounded { font-size: 24px; }
+.nav-item.active { color: var(--accent); }
+
+/* =================== OPÇÃO A: Avatar no header =================== */
+.header-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #78350F, #5a2508);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 2px solid var(--bg-elevated);
+  transition: border-color 0.2s;
+}
+.header-avatar:hover { border-color: var(--accent); }
+
+/* =================== OPÇÃO B: Menu Mais =================== */
+.mais-menu {
+  padding: 16px 20px;
+}
+.mais-profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.mais-profile-card:hover { border-color: var(--accent); }
+.mais-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #78350F, #5a2508);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  position: relative;
+}
+.mais-avatar-edit {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-card);
+}
+.mais-avatar-edit .material-symbols-rounded { font-size: 11px; }
+.mais-profile-info { flex: 1; }
+.mais-profile-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.mais-profile-sub {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+.mais-profile-arrow {
+  color: var(--text-tertiary);
+}
+.mais-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+.mais-menu-item:hover { border-color: var(--accent); }
+.mais-menu-item .material-symbols-rounded {
+  font-size: 20px;
+  color: var(--text-tertiary);
+  width: 24px;
+  text-align: center;
+}
+
+/* =================== OPÇÃO C: Avatar no bottom nav =================== */
+.nav-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #78350F, #5a2508);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: white;
+  border: 2px solid transparent;
+}
+.nav-item.active .nav-avatar {
+  border-color: var(--accent);
+}
+
+/* Highlight pulse */
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(120,53,15,0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(120,53,15,0); }
+}
+.pulse { animation: pulse 2s infinite; }
+</style>
+</head>
+<body>
+
+<!-- =================== OPÇÃO A =================== -->
+<div>
+  <div class="option-label">Opção A — Avatar no Header</div>
+  <div class="option-desc">Mini-avatar ao lado dos ícones. Sempre visível em todas as telas. Padrão Gmail, YouTube.</div>
+  <div class="phone">
+    <div class="app-header">
+      <div class="app-logo">Verbum<span>liturgia</span></div>
+      <div class="header-actions">
+        <button class="icon-btn">dark_mode</button>
+        <button class="icon-btn">share</button>
+        <div class="header-avatar pulse">MS</div>
+      </div>
+    </div>
+    <div class="date-bar">
+      <div class="date-liturgical">Segunda da Oitava da Páscoa</div>
+      <div class="date-calendar">Segunda-feira, 06 de Abril de 2026</div>
+    </div>
+    <div class="placeholder-content">Conteúdo das leituras...</div>
+    <div class="bottom-nav">
+      <button class="nav-item active">
+        <span class="material-symbols-rounded">auto_stories</span>
+        Leituras
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">menu_book</span>
+        Missa
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">radio_button_checked</span>
+        Terço
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">volunteer_activism</span>
+        Orações
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">more_horiz</span>
+        Mais
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- =================== OPÇÃO B =================== -->
+<div>
+  <div class="option-label">Opção B — Primeiro item do "Mais"</div>
+  <div class="option-desc">Perfil destacado como card no topo do menu "Mais". Separado de Configurações. Padrão Spotify, iFood.</div>
+  <div class="phone">
+    <div class="app-header">
+      <div class="app-logo">Verbum<span>liturgia</span></div>
+      <div class="header-actions">
+        <button class="icon-btn">dark_mode</button>
+        <button class="icon-btn">share</button>
+        <button class="icon-btn">settings</button>
+      </div>
+    </div>
+    <div class="mais-menu">
+      <div class="mais-profile-card">
+        <div class="mais-avatar">
+          MS
+          <div class="mais-avatar-edit">
+            <span class="material-symbols-rounded">edit</span>
+          </div>
+        </div>
+        <div class="mais-profile-info">
+          <div class="mais-profile-name">Maria da Silva</div>
+          <div class="mais-profile-sub">Fortaleza, CE · 12 dias de streak</div>
+        </div>
+        <span class="material-symbols-rounded mais-profile-arrow">chevron_right</span>
+      </div>
+
+      <div class="mais-menu-item">
+        <span class="material-symbols-rounded">bookmark</span>
+        Salvos
+      </div>
+      <div class="mais-menu-item">
+        <span class="material-symbols-rounded">groups</span>
+        Grupos de Oração
+      </div>
+      <div class="mais-menu-item">
+        <span class="material-symbols-rounded">search</span>
+        Buscar
+      </div>
+      <div class="mais-menu-item">
+        <span class="material-symbols-rounded">edit_note</span>
+        Anotações
+      </div>
+      <div class="mais-menu-item">
+        <span class="material-symbols-rounded">settings</span>
+        Configurações
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="nav-item">
+        <span class="material-symbols-rounded">auto_stories</span>
+        Leituras
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">menu_book</span>
+        Missa
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">radio_button_checked</span>
+        Terço
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">volunteer_activism</span>
+        Orações
+      </button>
+      <button class="nav-item active">
+        <span class="material-symbols-rounded">more_horiz</span>
+        Mais
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- =================== OPÇÃO C =================== -->
+<div>
+  <div class="option-label">Opção C — Avatar no Bottom Nav</div>
+  <div class="option-desc">Substitui "Mais" por avatar do usuário. Tap abre perfil direto. Padrão Instagram, TikTok.</div>
+  <div class="phone">
+    <div class="app-header">
+      <div class="app-logo">Verbum<span>liturgia</span></div>
+      <div class="header-actions">
+        <button class="icon-btn">dark_mode</button>
+        <button class="icon-btn">share</button>
+        <button class="icon-btn">settings</button>
+      </div>
+    </div>
+    <div class="date-bar">
+      <div class="date-liturgical">Segunda da Oitava da Páscoa</div>
+      <div class="date-calendar">Segunda-feira, 06 de Abril de 2026</div>
+    </div>
+    <div class="placeholder-content">Conteúdo das leituras...</div>
+    <div class="bottom-nav">
+      <button class="nav-item active">
+        <span class="material-symbols-rounded">auto_stories</span>
+        Leituras
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">menu_book</span>
+        Missa
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">radio_button_checked</span>
+        Terço
+      </button>
+      <button class="nav-item">
+        <span class="material-symbols-rounded">volunteer_activism</span>
+        Orações
+      </button>
+      <button class="nav-item">
+        <div class="nav-avatar">MS</div>
+        Perfil
+      </button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

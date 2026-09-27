@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Teste — Header Limpo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F2F1EC;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #A8A29E;
+  --accent: #78350F;
+  --accent-light: #D97706;
+  --accent-soft: rgba(120,53,15,0.06);
+  --accent-glow: rgba(120,53,15,0.12);
+  --border: rgba(28,25,23,0.06);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --liturgical-color: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.app-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.app-logo span {
+  font-weight: 400;
+  font-size: 0.85em;
+  color: var(--text-tertiary);
+  margin-left: 2px;
+}
+.header-actions { display: flex; gap: 4px; }
+.icon-btn {
+  font-family: 'Material Symbols Rounded';
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* DATE BAR */
+.date-bar {
+  padding: 16px 20px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.date-liturgical {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.date-calendar {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+/* LITURGICAL BADGE — agora clicável */
+.liturgical-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+.liturgical-badge:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.liturgical-badge.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.liturgical-badge .chevron {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+  color: var(--text-tertiary);
+  line-height: 1;
+}
+.liturgical-badge.active .chevron {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+.liturgical-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--liturgical-color);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* LITURGICAL YEAR TIMELINE — colapsada por padrão */
+.lit-year-wrapper {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+}
+.lit-year-wrapper.visible {
+  max-height: 300px;
+  padding: 8px 20px 16px;
+  opacity: 1;
+}
+
+.lit-year-track {
+  position: relative;
+  height: 14px;
+  background: var(--bg-elevated);
+  border-radius: 7px;
+  overflow: visible;
+  display: flex;
+}
+
+.lit-seg {
+  position: absolute;
+  top: 2px;
+  height: 10px;
+  border-radius: 5px;
+  transition: opacity 0.2s;
+}
+
+/* Liturgical colors */
+.lit-seg[data-tempo="advento"],
+.lit-detail-color[data-tempo="advento"] { background: #6B3FA0; }
+.lit-seg[data-tempo="natal"],
+.lit-detail-color[data-tempo="natal"] { background: #C8A96E; }
+.lit-seg[data-tempo="comum1"],
+.lit-seg[data-tempo="comum2"],
+.lit-detail-color[data-tempo="comum1"],
+.lit-detail-color[data-tempo="comum2"] { background: #4A8C5C; }
+.lit-seg[data-tempo="quaresma"],
+.lit-detail-color[data-tempo="quaresma"] { background: #8B4513; }
+.lit-seg[data-tempo="tríduo"],
+.lit-detail-color[data-tempo="tríduo"] { background: #CC2936; }
+.lit-seg[data-tempo="pascoa"],
+.lit-detail-color[data-tempo="pascoa"] { background: #E8E8E8; border: 1px solid rgba(0,0,0,0.08); }
+
+/* Today marker */
+.lit-today-marker {
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lit-today-dot {
+  width: 12px; height: 12px;
+  background: var(--accent);
+  border: 2.5px solid var(--bg);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* Detail rows */
+.lit-year-detail {
+  padding-top: 16px;
+  animation: fadeIn 0.3s ease;
+}
+.lit-detail-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.lit-detail-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.lit-detail-item.current {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.lit-detail-color {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.lit-detail-name {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.lit-detail-dates {
+  font-size: 0.55rem;
+  color: var(--text-tertiary);
+  margin-top: 1px;
+}
+
+/* Placeholder content */
+.placeholder {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="app-header">
+  <div class="app-logo">Verbum<span>liturgia</span></div>
+  <div class="header-actions">
+    <button class="icon-btn">dark_mode</button>
+    <button class="icon-btn">share</button>
+    <button class="icon-btn">settings</button>
+  </div>
+</header>
+
+<!-- DATE BAR — só o badge BRANCO, clicável -->
+<div class="date-bar">
+  <div class="date-info">
+    <div class="date-liturgical">Domingo de Páscoa</div>
+    <div class="date-calendar">Domingo, 05 de Abril de 2026</div>
+  </div>
+  <div class="liturgical-badge" id="lit-badge" onclick="toggleTimeline()">
+    <div class="liturgical-dot" style="background:#FFFFFF"></div>
+    Branco
+    <span class="material-symbols-rounded chevron">expand_more</span>
+  </div>
+</div>
+
+<!-- LITURGICAL YEAR TIMELINE — colapsada por padrão -->
+<div class="lit-year-wrapper" id="lit-timeline">
+  <div class="lit-year-track">
+    <div class="lit-seg" data-tempo="advento" style="left:0%;width:7.7%;" title="Advento"></div>
+    <div class="lit-seg" data-tempo="natal" style="left:7.7%;width:5.5%;" title="Natal"></div>
+    <div class="lit-seg" data-tempo="comum1" style="left:13.2%;width:12.3%;" title="Tempo Comum"></div>
+    <div class="lit-seg" data-tempo="quaresma" style="left:25.5%;width:11%;" title="Quaresma"></div>
+    <div class="lit-seg" data-tempo="tríduo" style="left:36.5%;width:0.8%;" title="Tríduo Pascal"></div>
+    <div class="lit-seg" data-tempo="pascoa" style="left:37.3%;width:13.7%;" title="Tempo Pascal"></div>
+    <div class="lit-seg" data-tempo="comum2" style="left:51%;width:49%;" title="Tempo Comum"></div>
+    <div class="lit-today-marker" style="left:37.5%">
+      <div class="lit-today-dot"></div>
+    </div>
+  </div>
+
+  <div class="lit-year-detail">
+    <div class="lit-detail-row">
+      <div class="lit-detail-item">
+        <div class="lit-detail-color" data-tempo="advento"></div>
+        <div class="lit-detail-info">
+          <span class="lit-detail-name">Advento</span>
+          <span class="lit-detail-dates">29 Nov – 24 Dez</span>
+        </div>
+      </div>
+      <div class="lit-detail-item">
+        <div class="lit-detail-color" data-tempo="natal"></div>
+        <div class="lit-detail-info">
+          <span class="lit-detail-name">Natal</span>
+          <span class="lit-detail-dates">25 Dez – 11 Jan</span>
+        </div>
+      </div>
+      <div class="lit-detail-item">
+        <div class="lit-detail-color" data-tempo="comum1"></div>
+        <div class="lit-detail-info">
+          <span class="lit-detail-name">T. Comum</span>
+          <span class="lit-detail-dates">12 Jan – 17 Fev</span>
+        </div>
+      </div>
+    </div>
+    <div class="lit-detail-row">
+      <div class="lit-detail-item">
+        <div class="lit-detail-color" data-tempo="quaresma"></div>
+        <div class="lit-detail-info">
+          <span class="lit-detail-name">Quaresma</span>
+          <span class="lit-detail-dates">18 Fev – 1 Abr</span>
+        </div>
+      </div>
+      <div class="lit-detail-item">
+        <div class="lit-detail-color" data-tempo="tríduo"></div>
+        <div class="lit-detail-info">
+          <span class="lit-detail-name">Tríduo</span>
+          <span class="lit-detail-dates">2 – 4 Abr</span>
+        </div>
+      </div>
+      <div class="lit-detail-item current">
+        <div class="lit-detail-color" data-tempo="pascoa"></div>
+        <div class="lit-detail-info">
+          <span class="lit-detail-name">Páscoa</span>
+          <span class="lit-detail-dates">5 Abr – 24 Mai</span>
+        </div>
+      </div>
+    </div>
+    <div class="lit-detail-row">
+      <div class="lit-detail-item" style="flex:2">
+        <div class="lit-detail-color" data-tempo="comum2"></div>
+        <div class="lit-detail-info">
+          <span class="lit-detail-name">Tempo Comum</span>
+          <span class="lit-detail-dates">25 Mai – 28 Nov</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Placeholder para simular conteúdo -->
+<div class="placeholder">
+  Conteúdo das leituras aparece aqui...
+</div>
+
+<script>
+function toggleTimeline() {
+  const timeline = document.getElementById('lit-timeline');
+  const badge = document.getElementById('lit-badge');
+  timeline.classList.toggle('visible');
+  badge.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

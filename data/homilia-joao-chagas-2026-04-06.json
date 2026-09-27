@@ -1,0 +1,45 @@
+{
+  "date": "2026-04-06",
+  "priest_id": "joao-chagas",
+  "liturgy": {
+    "day": "Segunda-feira da Oitava da Páscoa",
+    "season": "pascoa",
+    "color": "branco"
+  },
+  "video": {
+    "id": "Vgdutd1v_GM",
+    "title": "Homilia da Segunda-feira das Oitavas do Senhor | Pe. João Chagas | 06/04/2026",
+    "embed_url": "https://www.youtube.com/embed/Vgdutd1v_GM",
+    "thumbnail": "https://i.ytimg.com/vi/Vgdutd1v_GM/sddefault.jpg",
+    "duration_seconds": 144
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": {
+    "file": "audio/homilia-joao-chagas-2026-04-06.mp3",
+    "duration_seconds": 144,
+    "size_kb": 2255
+  },
+  "transcript": {
+    "plain_text": "Na primeira leitura, nós vemos Pedro de pé junto com os demais apóstolos, com a igreja, com os irmãos, uma comunidade de ressuscitados. E ele pregava com paresia o querigma, com franqueza, com abertura, com ousadia. Ele comunicava o grande anúncio da fé, da vitória do ressuscitado sobre a morte, sobre o pecado, a vitória da luz sobre as trevas, do amor sobre o ódio, da paz sobre a guerra. No evangelho, nós vemos Jesus ressuscitado, que aparece as mulheres que tinham visto o sepulcro vazio. No coração delas, um misto de medo e de alegria, sentimentos contrastantes, como muitas vezes o são os sentimentos que habitam em nós. Jesus saúda, reforçando os bons sentimentos. Alegrai-vos e destruindo os maus sentimentos, o medo. Não tenhais medo. Sim a alegria, não ao medo. E depois lhes envia: \"Ide anunciar aos irmãos\". Jesus sabe que é na comunidade, na igreja, que aquelas mulheres poderão sempre recarregar suas baterias. é na comunidade, na igreja, onde elas serão perenovadas na alegria de crer. E ao mesmo tempo, nosso Senhor lhes ensina, como também a nós, que é só se espalhando que o fogo se mantém vivo. Precisamos irradiar luz e calor ao nosso redor para que também o nosso coração esteja iluminado e aquecido. Bento 16 falava da beleza de ser cristãos e da alegria de comunicá-lo aos irmãos. e dizia: \"Ao longo dos séculos, o cristianismo foi comunicado e difundiu-se graças à novidade de vida, de pessoas e de comunidades capazes de dar um testemunho incisivo de amor, de unidade e de alegria. Cristo ressuscitou. Aleluia! Sim, verdadeiramente ressuscitou. Aleluia!",
+    "paragraphs": [
+      "Na primeira leitura, nós vemos Pedro de pé junto com os demais apóstolos, com a igreja, com os irmãos, uma comunidade de ressuscitados. E ele pregava com paresia o querigma, com franqueza, com abertura, com ousadia. Ele comunicava o grande anúncio da fé, da vitória do ressuscitado sobre a morte, sobre o pecado, a vitória da luz sobre as trevas, do amor sobre o ódio, da paz sobre a guerra.",
+      "No evangelho, nós vemos Jesus ressuscitado, que aparece as mulheres que tinham visto o sepulcro vazio. No coração delas, um misto de medo e de alegria, sentimentos contrastantes, como muitas vezes o são os sentimentos que habitam em nós. Jesus saúda, reforçando os bons sentimentos.",
+      "Alegrai-vos e destruindo os maus sentimentos, o medo. Não tenhais medo. Sim a alegria, não ao medo.",
+      "E depois lhes envia: \"Ide anunciar aos irmãos\". Jesus sabe que é na comunidade, na igreja, que aquelas mulheres poderão sempre recarregar suas baterias. é na comunidade, na igreja, onde elas serão perenovadas na alegria de crer.",
+      "E ao mesmo tempo, nosso Senhor lhes ensina, como também a nós, que é só se espalhando que o fogo se mantém vivo. Precisamos irradiar luz e calor ao nosso redor para que também o nosso coração esteja iluminado e aquecido. Bento 16 falava da beleza de ser cristãos e da alegria de comunicá-lo aos irmãos.",
+      "e dizia: \"Ao longo dos séculos, o cristianismo foi comunicado e difundiu-se graças à novidade de vida, de pessoas e de comunidades capazes de dar um testemunho incisivo de amor, de unidade e de alegria. Cristo ressuscitou. Aleluia!",
+      "Sim, verdadeiramente ressuscitou. Aleluia!"
+    ],
+    "word_count": 267
+  },
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-04-06T09:30:00+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}

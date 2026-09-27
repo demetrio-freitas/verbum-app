@@ -1,0 +1,4 @@
+{"type":"server-started","port":62451,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:62451","screen_dir":"/Users/demetriofreitas/verbum-app-1/.superpowers/brainstorm/57808-1775417262"}
+{"type":"screen-added","file":"/Users/demetriofreitas/verbum-app-1/.superpowers/brainstorm/57808-1775417262/lectio-divina-flow.html"}
+{"type":"screen-added","file":"/Users/demetriofreitas/verbum-app-1/.superpowers/brainstorm/57808-1775417262/lectio-divina-final.html"}
+{"type":"server-stopped","reason":"idle timeout"}
