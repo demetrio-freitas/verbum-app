@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-27T14:58:59.514829+00:00",
+  "last_updated": "2026-09-28T17:56:33.576698+00:00",
   "episodes": [
+    {
+      "date": "2026-09-28",
+      "title": "Segunda-feira da 26º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-27",
       "title": "26º Domingo do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-30",
       "title": "22º Domingo do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-29",
-      "title": "Festa do Martírio de São João Batista",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
