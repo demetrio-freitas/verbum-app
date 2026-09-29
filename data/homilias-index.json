@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-28T17:56:33.576698+00:00",
+  "last_updated": "2026-09-29T16:18:55.209261+00:00",
   "episodes": [
+    {
+      "date": "2026-09-29",
+      "title": "Festa dos Arcanjos Miguel, Rafael e Gabriel",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-28",
       "title": "Segunda-feira da 26º Semana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-08-31",
       "title": "Segunda-feira da 22º Semanado Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-08-30",
-      "title": "22º Domingo do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

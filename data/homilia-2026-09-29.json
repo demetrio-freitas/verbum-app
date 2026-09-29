@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-29",
+  "liturgy": {
+    "day": "Festa dos Arcanjos Miguel, Rafael e Gabriel",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "dhcV1ZQCJM8",
+    "title": "Homilia da Festa dos Arcanjos Miguel, Rafael e Gabriel | Pe. João Chagas | 29/09/2026",
+    "embed_url": "https://www.youtube.com/embed/dhcV1ZQCJM8",
+    "thumbnail": "https://i.ytimg.com/vi/dhcV1ZQCJM8/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-09-29T16:18:55.208814+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
