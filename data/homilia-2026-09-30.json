@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-30",
+  "liturgy": {
+    "day": "Memória de São Jerônimo, presbítero e doutor",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "AX_LlIBU-6c",
+    "title": "Homilia da Memória de São Jerônimo, presbítero e doutor | Pe. João Chagas | 30/09/2026",
+    "embed_url": "https://www.youtube.com/embed/AX_LlIBU-6c",
+    "thumbnail": "https://i.ytimg.com/vi/AX_LlIBU-6c/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-09-30T16:14:23.901776+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
