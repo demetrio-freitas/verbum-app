@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-09-30T16:14:23.902210+00:00",
+  "last_updated": "2026-10-01T16:51:56.606699+00:00",
   "episodes": [
+    {
+      "date": "2026-10-02",
+      "title": "Memória dos Santos Anjos da Guarda",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-09-30",
       "title": "Memória de São Jerônimo, presbítero e doutor",
@@ -172,12 +178,6 @@
     {
       "date": "2026-09-02",
       "title": "Quarta-feira da 22º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-09-01",
-      "title": "Terça-feira da 22º Semana do Tempo Comum",
       "priest": "Pe. João Chagas",
       "duration": 0
     }
