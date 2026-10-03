@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-03",
+  "liturgy": {
+    "day": "Sábado da 26ºSemana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "yx7q3FCFncI",
+    "title": "Homilia do Sábado da 26ºSemana do Tempo Comum | Pe. João Chagas | 03/10/2026",
+    "embed_url": "https://www.youtube.com/embed/yx7q3FCFncI",
+    "thumbnail": "https://i.ytimg.com/vi/yx7q3FCFncI/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-10-03T14:32:43.465748+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
