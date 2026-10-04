@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-10-03T14:32:43.466179+00:00",
+  "last_updated": "2026-10-04T15:07:18.473329+00:00",
   "episodes": [
+    {
+      "date": "2026-10-05",
+      "title": "Segunda-feira da 27º Semana do Tempo Comum",
+      "priest": "Pe. João Chagas",
+      "duration": 0
+    },
     {
       "date": "2026-10-03",
       "title": "Sábado da 26ºSemana do Tempo Comum",
@@ -172,12 +178,6 @@
     {
       "date": "2026-09-04",
       "title": "Sexta-feira da 22º Semana do Tempo Comum",
-      "priest": "Pe. João Chagas",
-      "duration": 0
-    },
-    {
-      "date": "2026-09-03",
-      "title": "Memória de São Basílio Magno",
       "priest": "Pe. João Chagas",
       "duration": 0
     }

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-05",
+  "liturgy": {
+    "day": "Segunda-feira da 27º Semana do Tempo Comum",
+    "season": null,
+    "color": null
+  },
+  "video": {
+    "id": "_DEUD0AkPzs",
+    "title": "Homilia da Segunda-feira da 27º Semana do Tempo Comum | Pe. João Chagas | 05/10/2026",
+    "embed_url": "https://www.youtube.com/embed/_DEUD0AkPzs",
+    "thumbnail": "https://i.ytimg.com/vi/_DEUD0AkPzs/hqdefault.jpg",
+    "duration_seconds": 0
+  },
+  "priest": {
+    "name": "Pe. João Chagas",
+    "channel": "Capela Sh",
+    "channel_url": "https://www.youtube.com/@capelash"
+  },
+  "audio": null,
+  "transcript": null,
+  "source": {
+    "channel_id": "UCVwy48yKP9nudhUIlIhpjhg",
+    "extracted_at": "2026-10-04T15:07:18.472937+00:00",
+    "subtitle_lang": "pt-orig",
+    "subtitle_type": "auto-generated"
+  }
+}
